@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.semanticscholar.org/graph/v1/paper/22d840026482e82dce65c5d0f91eb72b7b7bba1e?fields=paperId,corpusId,url,title,venue,publicationVenue,year,authors,externalIds,referenceCount,citationCount,influentialCitationCount,isOpenAccess,openAccessPdf,fieldsOfStudy,s2FieldsOfStudy,publicationTypes,publicationDate,journal,citationStyles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Api-Key:
+      - "<semantic_scholar_key>"
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1442'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Apr 2024 19:29:51 GMT
+      X-Amzn-Requestid:
+      - 94496ea9-fd80-4136-990f-d5f8d25eda04
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Amzn-Remapped-Content-Length:
+      - '1442'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - W2ULcHLWPHcEaCA=
+      X-Amzn-Remapped-Server:
+      - gunicorn
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Apr 2024 19:29:51 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0af050b863ec46156a524df4e5d86692.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD55-P4
+      X-Amz-Cf-Id:
+      - KUZ7EYylvt51rM-50Ww-eOWS73MyU4kMUNN8E_KExuoG8jEshXSA4g==
+    body:
+      encoding: UTF-8
+      string: '{"paperId": "22d840026482e82dce65c5d0f91eb72b7b7bba1e", "externalIds":
+        {"MAG": "2792655768", "DOI": "10.1016/J.COMPOSITESB.2018.01.027", "CorpusId":
+        139236155}, "corpusId": 139236155, "publicationVenue": null, "url": "https://www.semanticscholar.org/paper/22d840026482e82dce65c5d0f91eb72b7b7bba1e",
+        "title": "Review of current trends in research and applications of sandwich
+        structures", "venue": "Composites Part B: Engineering", "year": 2018, "referenceCount":
+        364, "citationCount": 499, "influentialCitationCount": 5, "isOpenAccess":
+        true, "openAccessPdf": {"url": "http://manuscript.elsevier.com/S1359836817339781/pdf/S1359836817339781.pdf",
+        "status": "HYBRID"}, "fieldsOfStudy": ["Materials Science"], "s2FieldsOfStudy":
+        [{"category": "Materials Science", "source": "external"}, {"category": "Engineering",
+        "source": "s2-fos-model"}, {"category": "Materials Science", "source": "s2-fos-model"}],
+        "publicationTypes": ["Review"], "publicationDate": "2018-06-01", "journal":
+        {"name": "Composites Part B: Engineering"}, "citationStyles": {"bibtex": "@Article{Birman2018ReviewOC,\n
+        author = {V. Birman and G. Kardomateas},\n booktitle = {Composites Part B:
+        Engineering},\n journal = {Composites Part B: Engineering},\n title = {Review
+        of current trends in research and applications of sandwich structures},\n
+        year = {2018}\n}\n"}, "authors": [{"authorId": "6990685", "name": "V. Birman"},
+        {"authorId": "93583515", "name": "G. Kardomateas"}]}
+
+        '
+  recorded_at: Fri, 26 Apr 2024 19:29:51 GMT
+recorded_with: VCR 6.2.0

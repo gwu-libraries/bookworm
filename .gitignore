@@ -32,4 +32,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore local vscode settings
 .vscode
+
+# Ignore application configuration
+/config/application.yml
