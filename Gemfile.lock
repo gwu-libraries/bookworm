@@ -107,7 +107,6 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.6)
     minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
@@ -131,6 +130,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.10)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -172,8 +173,8 @@ GEM
       psych (>= 4.0.0)
     reline (0.5.3)
       io-console (~> 0.5)
-    sqlite3 (1.7.3)
-      mini_portile2 (~> 2.8.0)
+    sqlite3 (1.7.3-x86_64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     stringio (3.1.0)
     thor (1.3.1)
     timeout (0.4.1)
@@ -193,12 +194,13 @@ DEPENDENCIES
   bootsnap
   debug
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.3, >= 7.1.3.2)
   sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.9
