@@ -50,7 +50,6 @@ group :development, :test do
   gem "faker"
   gem 'simplecov'
   gem 'pry'
-  gem 'figaro'
   gem 'shoulda-matchers'
   gem 'webmock'
   gem 'vcr'

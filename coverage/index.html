@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-04-27T18:03:53-04:00">2024-04-27T18:03:53-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-04-27T18:58:10-04:00">2024-04-27T18:58:10-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>717</b> relevant lines,
-    <span class="green"><b>716</b> lines covered</span> and
+    <b>722</b> relevant lines,
+    <span class="green"><b>721</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed. </span>
     (<span class="green">
   99.86%
@@ -161,9 +161,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#477c33505749ee0dccc4978e3c8827222d1688fb" class="src_link" title="app/models/key.rb">app/models/key.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -260,9 +260,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#c30e687b0afa3e543a13c399fde187df5d117320" class="src_link" title="config/application.rb">config/application.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">32</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">8</td>
+            <td class="cell--number">36</td>
+            <td class="cell--number">11</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -480,9 +480,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e82b6ffdbf6cc22859374efea624eb56b44c7988" class="src_link" title="spec/requests/api/v1/keys_request_spec.rb">spec/requests/api/v1/keys_request_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">114</td>
-            <td class="cell--number">65</td>
-            <td class="cell--number">65</td>
+            <td class="cell--number">115</td>
+            <td class="cell--number">66</td>
+            <td class="cell--number">66</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.12</td>
             
@@ -2461,8 +2461,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>6</b> relevant lines.
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -2535,12 +2535,34 @@
 
             
 
-            <code class="ruby">  belongs_to :user</code>
+            <code class="ruby">  encrypts :value</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  belongs_to :user</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
@@ -4577,8 +4599,8 @@
     
 
     <div class="t-line-summary">
-      <b>8</b> relevant lines.
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>11</b> relevant lines.
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4926,12 +4948,56 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    config.active_record.encryption.primary_key = Rails.application.credentials[:active_record_encryption][:primary_key]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    config.active_record.encryption.deterministic_key = Rails.application.credentials[:active_record_encryption][:deterministic_key]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    config.active_record.encryption.key_derivation_salt = Rails.application.credentials[:active_record_encryption][:key_derivation_salt]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -13106,8 +13172,8 @@
     
 
     <div class="t-line-summary">
-      <b>65</b> relevant lines.
-      <span class="green"><b>65</b> lines covered</span> and
+      <b>66</b> relevant lines.
+      <span class="green"><b>66</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -13235,12 +13301,23 @@
 
             
 
+            <code class="ruby">    require &#39;pry&#39;; binding.pry </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="never" data-hits="" data-linenumber="13">
             
             
 
@@ -13251,7 +13328,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
+          <li class="covered" data-hits="1" data-linenumber="14">
             <span class="hits">1</span>
             
 
@@ -13262,24 +13339,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
+          <li class="never" data-hits="" data-linenumber="15">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(key_response).to have_key(:id)</code>
           </li>
         </div>
       
@@ -13290,7 +13356,7 @@
 
             
 
-            <code class="ruby">    expect(key_response[:id]).to eq(key.id)</code>
+            <code class="ruby">    expect(key_response).to have_key(:id)</code>
           </li>
         </div>
       
@@ -13301,7 +13367,7 @@
 
             
 
-            <code class="ruby">    expect(key_response).to have_key(:value)</code>
+            <code class="ruby">    expect(key_response[:id]).to eq(key.id)</code>
           </li>
         </div>
       
@@ -13312,7 +13378,7 @@
 
             
 
-            <code class="ruby">    expect(key_response[:value]).to eq(key.value)</code>
+            <code class="ruby">    expect(key_response).to have_key(:value)</code>
           </li>
         </div>
       
@@ -13323,7 +13389,7 @@
 
             
 
-            <code class="ruby">    expect(key_response).to have_key(:site)</code>
+            <code class="ruby">    expect(key_response[:value]).to eq(key.value)</code>
           </li>
         </div>
       
@@ -13334,18 +13400,18 @@
 
             
 
-            <code class="ruby">    expect(key_response[:site]).to eq(key.site)</code>
+            <code class="ruby">    expect(key_response).to have_key(:site)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(key_response[:site]).to eq(key.site)</code>
           </li>
         </div>
       
@@ -13356,18 +13422,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="23">
+            
             
 
             
 
-            <code class="ruby">  it &#39;can return a list of all keys&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -13378,7 +13444,7 @@
 
             
 
-            <code class="ruby">    user = FactoryBot.create(:user)</code>
+            <code class="ruby">  it &#39;can return a list of all keys&#39; do</code>
           </li>
         </div>
       
@@ -13389,7 +13455,7 @@
 
             
 
-            <code class="ruby">      key_1 = FactoryBot.create(:key, user_id: user.id)</code>
+            <code class="ruby">    user = FactoryBot.create(:user)</code>
           </li>
         </div>
       
@@ -13400,7 +13466,7 @@
 
             
 
-            <code class="ruby">      key_2 = FactoryBot.create(:key, user_id: user.id)</code>
+            <code class="ruby">      key_1 = FactoryBot.create(:key, user_id: user.id)</code>
           </li>
         </div>
       
@@ -13411,29 +13477,29 @@
 
             
 
+            <code class="ruby">      key_2 = FactoryBot.create(:key, user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="28">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">      key_3 = FactoryBot.create(:key, user_id: user.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    get api_v1_keys_path</code>
           </li>
         </div>
       
@@ -13444,29 +13510,29 @@
 
             
 
+            <code class="ruby">    get api_v1_keys_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    keys_response = JSON.parse(response.body, symbolize_names: true)[:data]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="32">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -13477,18 +13543,18 @@
 
             
 
-            <code class="ruby">    keys_response.each do |key|</code>
+            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="34">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect(key).to have_key(:id)</code>
+            <code class="ruby">    keys_response.each do |key|</code>
           </li>
         </div>
       
@@ -13499,7 +13565,7 @@
 
             
 
-            <code class="ruby">      expect(key).to have_key(:user_id)</code>
+            <code class="ruby">      expect(key).to have_key(:id)</code>
           </li>
         </div>
       
@@ -13510,7 +13576,7 @@
 
             
 
-            <code class="ruby">      expect(key).to have_key(:value)</code>
+            <code class="ruby">      expect(key).to have_key(:user_id)</code>
           </li>
         </div>
       
@@ -13521,18 +13587,18 @@
 
             
 
-            <code class="ruby">      expect(key).to have_key(:site)</code>
+            <code class="ruby">      expect(key).to have_key(:value)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="38">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      expect(key).to have_key(:site)</code>
           </li>
         </div>
       
@@ -13543,7 +13609,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -13554,18 +13620,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="41">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="41">
+            
             
 
             
 
-            <code class="ruby">  it &#39;can create a new key&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -13576,12 +13642,23 @@
 
             
 
+            <code class="ruby">  it &#39;can create a new key&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="43">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    user = FactoryBot.create(:user)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
@@ -13592,24 +13669,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">    headers = {&quot;CONTENT_TYPE&quot; =&gt; &quot;application/json&quot;}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby"></code>
           </li>
         </div>
       
@@ -13620,29 +13686,29 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
             <code class="ruby">    key_params = {</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="48">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">      user_id: &quot;#{user.id}&quot;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
-            
-
-            <code class="ruby">      site: &quot;semanticscholar&quot;,</code>
           </li>
         </div>
       
@@ -13653,7 +13719,7 @@
 
             
 
-            <code class="ruby">      value: &quot;123iamakey&quot;</code>
+            <code class="ruby">      site: &quot;semanticscholar&quot;,</code>
           </li>
         </div>
       
@@ -13664,7 +13730,7 @@
 
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">      value: &quot;123iamakey&quot;</code>
           </li>
         </div>
       
@@ -13675,12 +13741,23 @@
 
             
 
+            <code class="ruby">    }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
+          <li class="covered" data-hits="1" data-linenumber="53">
             <span class="hits">1</span>
             
 
@@ -13691,24 +13768,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="54">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -13719,29 +13785,29 @@
 
             
 
+            <code class="ruby">    expect(response).to be_successful</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    response_data = JSON.parse(response.body, symbolize_names: true)[:data].first</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="57">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    new_key = Key.last</code>
           </li>
         </div>
       
@@ -13752,7 +13818,7 @@
 
             
 
-            <code class="ruby">    expect(response_data[:id]).to eq(new_key.id)</code>
+            <code class="ruby">    new_key = Key.last</code>
           </li>
         </div>
       
@@ -13763,7 +13829,7 @@
 
             
 
-            <code class="ruby">    expect(response_data[:user_id]).to eq(new_key.user_id)</code>
+            <code class="ruby">    expect(response_data[:id]).to eq(new_key.id)</code>
           </li>
         </div>
       
@@ -13774,7 +13840,7 @@
 
             
 
-            <code class="ruby">    expect(response_data[:site]).to eq(new_key.site)</code>
+            <code class="ruby">    expect(response_data[:user_id]).to eq(new_key.user_id)</code>
           </li>
         </div>
       
@@ -13785,18 +13851,18 @@
 
             
 
-            <code class="ruby">    expect(response_data[:value]).to eq(new_key.value)</code>
+            <code class="ruby">    expect(response_data[:site]).to eq(new_key.site)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(response_data[:value]).to eq(new_key.value)</code>
           </li>
         </div>
       
@@ -13807,18 +13873,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="64">
+            
             
 
             
 
-            <code class="ruby">  it &#39;does not create a new key if user_id is blank&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -13829,7 +13895,7 @@
 
             
 
-            <code class="ruby">    user = FactoryBot.create(:user)</code>
+            <code class="ruby">  it &#39;does not create a new key if user_id is blank&#39; do</code>
           </li>
         </div>
       
@@ -13840,12 +13906,23 @@
 
             
 
+            <code class="ruby">    user = FactoryBot.create(:user)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    headers = {&quot;CONTENT_TYPE&quot; =&gt; &quot;application/json&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="68">
             
             
 
@@ -13856,24 +13933,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
+          <li class="covered" data-hits="1" data-linenumber="69">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">      site: &quot;acoolwebsite&quot;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="69">
-            
-            
-
-            
-
-            <code class="ruby">      value: &quot;123coolkey&quot;</code>
           </li>
         </div>
       
@@ -13884,7 +13950,7 @@
 
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">      value: &quot;123coolkey&quot;</code>
           </li>
         </div>
       
@@ -13895,12 +13961,23 @@
 
             
 
+            <code class="ruby">    }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="72">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="72">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
@@ -13911,7 +13988,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
+          <li class="never" data-hits="" data-linenumber="74">
             
             
 
@@ -13922,24 +13999,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="74">
+          <li class="covered" data-hits="1" data-linenumber="75">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">    expect(response).to_not be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="75">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -13950,18 +14016,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="77">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="77">
+            
             
 
             
 
-            <code class="ruby">  it &#39;does not create a new key if site is blank&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -13972,7 +14038,7 @@
 
             
 
-            <code class="ruby">    user = FactoryBot.create(:user)</code>
+            <code class="ruby">  it &#39;does not create a new key if site is blank&#39; do</code>
           </li>
         </div>
       
@@ -13983,12 +14049,23 @@
 
             
 
+            <code class="ruby">    user = FactoryBot.create(:user)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    headers = {&quot;CONTENT_TYPE&quot; =&gt; &quot;application/json&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="80">
+          <li class="never" data-hits="" data-linenumber="81">
             
             
 
@@ -13999,24 +14076,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="81">
+          <li class="covered" data-hits="1" data-linenumber="82">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">      user_id: &quot;#{user.id}&quot;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
-            
-
-            <code class="ruby">      value: &quot;123coolkey&quot;</code>
           </li>
         </div>
       
@@ -14027,7 +14093,7 @@
 
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">      value: &quot;123coolkey&quot;</code>
           </li>
         </div>
       
@@ -14038,12 +14104,23 @@
 
             
 
+            <code class="ruby">    }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="85">
+          <li class="covered" data-hits="1" data-linenumber="86">
             <span class="hits">1</span>
             
 
@@ -14054,7 +14131,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="86">
+          <li class="never" data-hits="" data-linenumber="87">
             
             
 
@@ -14065,7 +14142,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
+          <li class="covered" data-hits="1" data-linenumber="88">
             <span class="hits">1</span>
             
 
@@ -14076,24 +14153,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="88">
+          <li class="never" data-hits="" data-linenumber="89">
             
             
 
             
 
             <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="89">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  it &#39;does not create a new key if value is blank&#39; do</code>
           </li>
         </div>
       
@@ -14104,7 +14170,7 @@
 
             
 
-            <code class="ruby">    user = FactoryBot.create(:user)</code>
+            <code class="ruby">  it &#39;does not create a new key if value is blank&#39; do</code>
           </li>
         </div>
       
@@ -14115,12 +14181,23 @@
 
             
 
+            <code class="ruby">    user = FactoryBot.create(:user)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="92">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    headers = {&quot;CONTENT_TYPE&quot; =&gt; &quot;application/json&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="92">
+          <li class="never" data-hits="" data-linenumber="93">
             
             
 
@@ -14131,7 +14208,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
+          <li class="covered" data-hits="1" data-linenumber="94">
             <span class="hits">1</span>
             
 
@@ -14142,7 +14219,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
+          <li class="never" data-hits="" data-linenumber="95">
             
             
 
@@ -14153,7 +14230,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="never" data-hits="" data-linenumber="96">
             
             
 
@@ -14164,7 +14241,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="96">
+          <li class="never" data-hits="" data-linenumber="97">
             
             
 
@@ -14175,7 +14252,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
+          <li class="covered" data-hits="1" data-linenumber="98">
             <span class="hits">1</span>
             
 
@@ -14186,7 +14263,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="never" data-hits="" data-linenumber="99">
             
             
 
@@ -14197,7 +14274,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
+          <li class="covered" data-hits="1" data-linenumber="100">
             <span class="hits">1</span>
             
 
@@ -14208,7 +14285,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
+          <li class="never" data-hits="" data-linenumber="101">
             
             
 
@@ -14219,24 +14296,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="101">
+          <li class="never" data-hits="" data-linenumber="102">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="102">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  it &#39;can delete a key&#39; do</code>
           </li>
         </div>
       
@@ -14247,7 +14313,7 @@
 
             
 
-            <code class="ruby">    user = FactoryBot.create(:user)</code>
+            <code class="ruby">  it &#39;can delete a key&#39; do</code>
           </li>
         </div>
       
@@ -14258,7 +14324,7 @@
 
             
 
-            <code class="ruby">    key = FactoryBot.create(:key, user_id: user.id)</code>
+            <code class="ruby">    user = FactoryBot.create(:user)</code>
           </li>
         </div>
       
@@ -14269,12 +14335,23 @@
 
             
 
+            <code class="ruby">    key = FactoryBot.create(:key, user_id: user.id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="106">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    headers = {&quot;CONTENT_TYPE&quot; =&gt; &quot;application/json&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="106">
+          <li class="never" data-hits="" data-linenumber="107">
             
             
 
@@ -14285,7 +14362,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="107">
+          <li class="covered" data-hits="1" data-linenumber="108">
             <span class="hits">1</span>
             
 
@@ -14296,24 +14373,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="108">
+          <li class="never" data-hits="" data-linenumber="109">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="109">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -14324,7 +14390,7 @@
 
             
 
-            <code class="ruby">    expect(response.status).to eq(204)</code>
+            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -14335,18 +14401,18 @@
 
             
 
-            <code class="ruby">    expect(Key.count).to eq(0)</code>
+            <code class="ruby">    expect(response.status).to eq(204)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(Key.count).to eq(0)</code>
           </li>
         </div>
       
@@ -14357,12 +14423,23 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="115">
             
             
 
