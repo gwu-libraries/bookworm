@@ -27,7 +27,7 @@ class Api::V1::WorksController < ApplicationController
   # PATCH/PUT /works/1
   def update
     if @work.update(work_params)
-      render json: @work
+      work_json_response(@work)
     else
       render json: @work.errors, status: :unprocessable_entity
     end

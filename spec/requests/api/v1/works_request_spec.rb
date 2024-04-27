@@ -44,4 +44,39 @@ RSpec.describe 'works API' do
     expect(response_data[:doi]).to eq(new_work.doi)
   end
 
+  it 'can delete a work' do
+    investigation = FactoryBot.create(:investigation)
+    work = FactoryBot.create(:work, investigation_id: investigation.id)
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    delete api_v1_work_path(work.id), headers: headers
+
+    expect(response).to be_successful
+    expect(response.status).to eq(204)
+  end
+
+  it 'can update a work' do
+    investigation = FactoryBot.create(:investigation)
+    work = FactoryBot.create(:work, title: "The Original Title", investigation_id: investigation.id)
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    work_params = {
+      title: "A Cool New Title"
+    }
+
+    patch api_v1_work_path(work.id), headers: headers, params: JSON.generate(work_params)
+
+    work_response = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    expect(response).to be_successful
+    expect(work_response).to have_key(:id)
+    expect(work_response[:id]).to eq(work.id)
+    expect(work_response).to have_key(:doi)
+    expect(work_response[:doi]).to eq(work.doi)
+    expect(work_response).to have_key(:title)
+    expect(work_response[:title]).to eq("A Cool New Title")
+  end
+
 end
