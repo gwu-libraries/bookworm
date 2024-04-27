@@ -4,13 +4,12 @@ class Api::V1::WorksController < ApplicationController
   # GET /works
   def index
     @works = Work.all
-
-    render json: @works
+    work_json_response(@works)
   end
 
   # GET /works/1
   def show
-    render json: @work
+    work_json_response(@work)
   end
 
   # POST /works

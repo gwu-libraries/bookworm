@@ -11,7 +11,7 @@ RSpec.describe 'works API' do
 
     expect(response).to be_successful
 
-    work_response = JSON.parse(response.body, symbolize_names: true)
+    work_response = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     expect(work_response).to have_key(:id)
     expect(work_response[:id]).to eq(work.id)
@@ -19,6 +19,23 @@ RSpec.describe 'works API' do
     expect(work_response[:doi]).to eq(work.doi)
     expect(work_response).to have_key(:title)
     expect(work_response[:title]).to eq(work.title)
+  end
+
+  it 'can return a list of all works' do
+    investigation_1 = FactoryBot.create(:investigation)
+      work_1 = FactoryBot.create(:work, investigation_id: investigation_1.id)
+      work_2 = FactoryBot.create(:work, investigation_id: investigation_1.id)
+      work_3 = FactoryBot.create(:work, investigation_id: investigation_1.id)
+
+    get api_v1_works_path
+    works_response = JSON.parse(response.body, symbolize_names: true)[:data]
+    
+    expect(response).to be_successful
+    works_response.each do |work|
+      expect(work).to have_key(:id)
+      expect(work).to have_key(:doi)
+      expect(work).to have_key(:title)
+    end
   end
 
   it 'can create a new work' do
@@ -35,7 +52,7 @@ RSpec.describe 'works API' do
     post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
 
     expect(response).to be_successful
-    response_data = JSON.parse(response.body, symbolize_names: true)[:data]
+    response_data = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     new_work = Work.last
     
@@ -68,7 +85,7 @@ RSpec.describe 'works API' do
 
     patch api_v1_work_path(work.id), headers: headers, params: JSON.generate(work_params)
 
-    work_response = JSON.parse(response.body, symbolize_names: true)[:data]
+    work_response = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     expect(response).to be_successful
     expect(work_response).to have_key(:id)

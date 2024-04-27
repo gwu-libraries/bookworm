@@ -1,16 +1,22 @@
 class WorkSerializer
 
-  def initialize(work_object)
-    @work = work_object
+  def initialize(works_object)
+    @works = [works_object].flatten
+  end
+
+  def work_data(work)
+    {
+      "id": work.id,
+      "title": work.title,
+      "doi": work.doi
+    }
   end
 
   def serialized_response
-    {
-      "data": {
-        "id": @work.id,
-        "title": @work.title,
-        "doi": @work.doi
-      }
-    }
+    result = {"data": []}
+    @works.each do |work|
+      result[:data] << work_data(work)
+    end
+    result
   end
 end
