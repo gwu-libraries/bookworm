@@ -25,8 +25,14 @@ RSpec.describe 'investigations API' do
       investigation_3 = FactoryBot.create(:investigation, user_id: user.id)
 
     get api_v1_investigations_path
-    investigation_response = JSON.parse(response.body, symbolize_names: true)[:data]
+    investigations_response = JSON.parse(response.body, symbolize_names: true)[:data]
 
+    expect(response).to be_successful
+    investigations_response.each do |investigation|
+      expect(investigation).to have_key(:id)
+      expect(investigation).to have_key(:user_id)
+      expect(investigation).to have_key(:name)
+    end
   end
 
   it 'can create a new investigation' do
