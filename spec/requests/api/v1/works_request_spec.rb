@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'works API' do
 
   it 'can return one work by ID' do
-    work = FactoryBot.create(:work)
+    investigation = FactoryBot.create(:investigation)
+
+    work = FactoryBot.create(:work, investigation_id: investigation.id)
 
     get api_v1_work_path(work.id)
 
@@ -20,9 +22,12 @@ RSpec.describe 'works API' do
   end
 
   it 'can create a new work' do
+    investigation = FactoryBot.create(:investigation)
+
     headers = {"CONTENT_TYPE" => "application/json"}
 
     work_params = {
+      investigation_id: "#{investigation.id}",
       title: "A Super Cool Work",
       doi: "10.1111/2222222"
     }

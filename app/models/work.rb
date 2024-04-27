@@ -1,8 +1,7 @@
 class Work < ApplicationRecord
   validates :doi, presence: true
 
-  has_many :investigation_works
-  has_many :investigations, through: :investigation_works
+  belongs_to :investigation
 
   # reference_connections "names" the Connection join table for accessing through the reference association
   has_many :reference_connections, foreign_key: :citation_id, class_name: "Connection"

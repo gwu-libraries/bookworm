@@ -7,8 +7,7 @@ RSpec.describe Investigation, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many :investigation_works }
-    it { should have_many(:works).through(:investigation_works) }
+    it { should have_many :works }
   end
 
 end

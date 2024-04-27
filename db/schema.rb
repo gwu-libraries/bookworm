@@ -21,15 +21,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_153043) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "investigation_works", force: :cascade do |t|
-    t.bigint "investigation_id", null: false
-    t.bigint "work_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["investigation_id"], name: "index_investigation_works_on_investigation_id"
-    t.index ["work_id"], name: "index_investigation_works_on_work_id"
-  end
-
   create_table "investigations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -74,14 +65,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_153043) do
   end
 
   create_table "works", force: :cascade do |t|
+    t.integer "investigation_id"
     t.string "doi"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "investigation_works", "investigations"
-  add_foreign_key "investigation_works", "works"
   add_foreign_key "user_investigations", "investigations"
   add_foreign_key "user_investigations", "users"
   add_foreign_key "user_keys", "keys"

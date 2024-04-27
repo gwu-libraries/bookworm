@@ -7,8 +7,7 @@ RSpec.describe Work, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many :investigation_works }
-    it { should have_many(:investigations).through(:investigation_works) }
+    it { should belong_to :investigation }
 
     it { should have_many :reference_connections }
     it { should have_many(:references).through(:reference_connections) }
@@ -24,33 +23,30 @@ RSpec.describe Work, type: :model do
       main_investigation = FactoryBot.create(:investigation)
         FactoryBot.create(:user_investigation, user_id: user.id, investigation_id: main_investigation.id)
 
-      main_root_work = FactoryBot.create(:work)
-        FactoryBot.create(:investigation_work, investigation_id: main_investigation.id, work_id: main_root_work.id)
+      main_investigation_main_work = FactoryBot.create(:work, investigation_id: main_investigation.id)
       
       references = []
       5.times do
-        reference = FactoryBot.create(:work)
-        FactoryBot.create(:investigation_work, investigation_id: main_investigation.id, work_id: main_root_work.id)
+        reference = FactoryBot.create(:work, investigation_id: main_investigation.id)
         references << reference
       end
 
       references.each do |reference|
-        FactoryBot.create(:connection, reference_id: reference.id, citation_id: main_root_work.id)
+        FactoryBot.create(:connection, reference_id: reference.id, citation_id: main_investigation_main_work.id)
       end
 
       citations = []
       5.times do
-        citation = FactoryBot.create(:work)
-        FactoryBot.create(:investigation_work, investigation_id: main_investigation.id, work_id: main_root_work.id)
+        citation = FactoryBot.create(:work, investigation_id: main_investigation.id)
         citations << citation
       end
 
       citations.each do |citation|
-        FactoryBot.create(:connection, reference_id: main_root_work.id, citation_id: citation.id)
+        FactoryBot.create(:connection, reference_id: main_investigation_main_work.id, citation_id: citation.id)
       end
 
       expected = {
-        "name": main_root_work.title,
+        "name": main_investigation_main_work.title,
         "children": [
           {
           "name": "citations",
@@ -75,7 +71,7 @@ RSpec.describe Work, type: :model do
         ]
       }
 
-      actual = main_root_work.citation_reference_tree_json
+      actual = main_investigation_main_work.citation_reference_tree_json
 
       expect(actual).to eq(expected)
     end

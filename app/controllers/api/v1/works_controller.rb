@@ -46,6 +46,6 @@ class Api::V1::WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:doi, :title)
+      params.require(:work).permit(:doi, :title, :investigation_id)
     end
 end
