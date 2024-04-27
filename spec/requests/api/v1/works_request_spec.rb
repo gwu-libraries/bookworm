@@ -127,6 +127,7 @@ RSpec.describe 'works API' do
 
     expect(response).to be_successful
     expect(response.status).to eq(204)
+    expect(Work.count).to eq(0)
   end
 
   it 'can update a work' do

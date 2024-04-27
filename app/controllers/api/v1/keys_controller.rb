@@ -1,5 +1,5 @@
 class Api::V1::KeysController < ApplicationController
-  before_action :set_key, only: %i[ show ]
+  before_action :set_key, only: %i[ show destroy ]
 
   def show
     key_json_response(@key)
@@ -18,6 +18,10 @@ class Api::V1::KeysController < ApplicationController
     else
       render :json => {:error => "Key not created"}.to_json, :status => 400
     end
+  end
+
+  def destroy
+    @key.destroy!
   end
 
   private

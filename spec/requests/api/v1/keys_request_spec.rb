@@ -99,4 +99,16 @@ RSpec.describe 'keys API' do
     expect(response).to_not be_successful
   end
 
+  it 'can delete a key' do
+    user = FactoryBot.create(:user)
+    key = FactoryBot.create(:key, user_id: user.id)
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    delete api_v1_key_path(key.id), headers: headers
+
+    expect(response).to be_successful
+    expect(response.status).to eq(204)
+    expect(Key.count).to eq(0)
+  end
+
 end
