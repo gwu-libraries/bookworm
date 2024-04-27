@@ -27,7 +27,7 @@ RSpec.describe 'works API' do
       doi: "10.1111/2222222"
     }
 
-    post api_v1_works_path, headers: headers, params: JSON.generate(work_params)
+    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
 
     expect(response).to be_successful
     response_data = JSON.parse(response.body, symbolize_names: true)[:data]

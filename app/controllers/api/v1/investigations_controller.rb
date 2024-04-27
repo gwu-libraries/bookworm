@@ -6,10 +6,10 @@ class Api::V1::InvestigationsController < ApplicationController
   end
 
   def create
-    investigation = Investigation.new(investigation_params)
+    @investigation = Investigation.new(investigation_params)
 
-    if investigation.save
-      investigation_json_response(investigation)
+    if @investigation.save
+      investigation_json_response(@investigation)
     else
       render status: 400
     end

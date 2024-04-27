@@ -18,9 +18,9 @@ class Api::V1::WorksController < ApplicationController
     @work = Work.new(work_params)
 
     if @work.save
-      render json: @work, status: :created, location: @work
+      work_json_response(@work)
     else
-      render json: @work.errors, status: :unprocessable_entity
+      render status: 400
     end
   end
 
@@ -46,6 +46,6 @@ class Api::V1::WorksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_params
-      params.require(:work).permit(:doi)
+      params.require(:work).permit(:doi, :title)
     end
 end
