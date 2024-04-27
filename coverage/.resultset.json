@@ -718,6 +718,7 @@
           1,
           2,
           2,
+          2,
           null,
           null,
           1,
@@ -729,6 +730,7 @@
       },
       "/Users/alexboyd/repos/book_worm_api/app/models/key.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -1825,6 +1827,6 @@
         ]
       }
     },
-    "timestamp": 1714255322
+    "timestamp": 1714255433
   }
 }
