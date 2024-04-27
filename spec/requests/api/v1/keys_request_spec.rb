@@ -61,4 +61,42 @@ RSpec.describe 'keys API' do
     expect(response_data[:value]).to eq(new_key.value)
   end
 
+  it 'does not create a new key if user_id is blank' do
+    user = FactoryBot.create(:user)
+    headers = {"CONTENT_TYPE" => "application/json"}
+    key_params = {
+      site: "acoolwebsite",
+      value: "123coolkey"
+    }
+
+    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+
+    expect(response).to_not be_successful
+  end
+
+  it 'does not create a new key if site is blank' do
+    user = FactoryBot.create(:user)
+    headers = {"CONTENT_TYPE" => "application/json"}
+    key_params = {
+      user_id: "#{user.id}",
+      value: "123coolkey"
+    }
+
+    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+
+    expect(response).to_not be_successful
+  end
+  it 'does not create a new key if value is blank' do
+    user = FactoryBot.create(:user)
+    headers = {"CONTENT_TYPE" => "application/json"}
+    key_params = {
+      user_id: "#{user.id}",
+      site: "acoolwebsite",
+    }
+
+    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+
+    expect(response).to_not be_successful
+  end
+
 end
