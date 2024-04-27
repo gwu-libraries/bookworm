@@ -22,34 +22,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_153043) do
   end
 
   create_table "investigations", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "keys", force: :cascade do |t|
+    t.integer "user_id"
     t.string "site"
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_investigations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "investigation_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["investigation_id"], name: "index_user_investigations_on_investigation_id"
-    t.index ["user_id"], name: "index_user_investigations_on_user_id"
-  end
-
-  create_table "user_keys", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "key_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["key_id"], name: "index_user_keys_on_key_id"
-    t.index ["user_id"], name: "index_user_keys_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,8 +56,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_153043) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "user_investigations", "investigations"
-  add_foreign_key "user_investigations", "users"
-  add_foreign_key "user_keys", "keys"
-  add_foreign_key "user_keys", "users"
 end

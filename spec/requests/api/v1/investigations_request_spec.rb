@@ -3,13 +3,14 @@ require 'rails_helper'
 RSpec.describe 'investigations API' do
 
   it 'can return one investigation by ID' do
-    investigation_1 = FactoryBot.create(:investigation)
+    user = FactoryBot.create(:user)
+    investigation_1 = FactoryBot.create(:investigation, user_id: user.id)
 
     get api_v1_investigation_path(investigation_1.id)
 
     expect(response).to be_successful
 
-    investigation_response = JSON.parse(response.body, symbolize_names: true)
+    investigation_response = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(investigation_response).to have_key(:id)
     expect(investigation_response[:id]).to eq(investigation_1.id)
@@ -18,9 +19,11 @@ RSpec.describe 'investigations API' do
   end
 
   it 'can create a new investigation' do
+    user = FactoryBot.create(:user)
     headers = {"CONTENT_TYPE" => "application/json"}
 
     investigation_params = {
+      user_id: "#{user.id}",
       name: "Beefaroni Investigation"
     }
 
@@ -37,9 +40,12 @@ RSpec.describe 'investigations API' do
   end
 
   it 'does not create a new investigation if no name given' do
+    user = FactoryBot.create(:user)
     headers = {"CONTENT_TYPE" => "application/json"}
 
-    investigation_params = {}
+    investigation_params = {
+      user_id: user.id
+    }
 
     post api_v1_investigations_path, headers: headers, params: JSON.generate(investigation: investigation_params)
 

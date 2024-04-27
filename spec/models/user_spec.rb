@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many :user_keys }
-    it { should have_many(:keys).through(:user_keys)}
+    it { should have_many :keys }
+    it { should have_many :investigations }
   end
 
 end

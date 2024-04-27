@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'works API' do
 
   it 'can return one work by ID' do
-    investigation = FactoryBot.create(:investigation)
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
 
     work = FactoryBot.create(:work, investigation_id: investigation.id)
 
@@ -22,10 +23,11 @@ RSpec.describe 'works API' do
   end
 
   it 'can return a list of all works' do
-    investigation_1 = FactoryBot.create(:investigation)
-      work_1 = FactoryBot.create(:work, investigation_id: investigation_1.id)
-      work_2 = FactoryBot.create(:work, investigation_id: investigation_1.id)
-      work_3 = FactoryBot.create(:work, investigation_id: investigation_1.id)
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
+      work_1 = FactoryBot.create(:work, investigation_id: investigation.id)
+      work_2 = FactoryBot.create(:work, investigation_id: investigation.id)
+      work_3 = FactoryBot.create(:work, investigation_id: investigation.id)
 
     get api_v1_works_path
     works_response = JSON.parse(response.body, symbolize_names: true)[:data]
@@ -39,7 +41,8 @@ RSpec.describe 'works API' do
   end
 
   it 'can create a new work' do
-    investigation = FactoryBot.create(:investigation)
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
 
     headers = {"CONTENT_TYPE" => "application/json"}
 
@@ -62,7 +65,8 @@ RSpec.describe 'works API' do
   end
 
   it 'can delete a work' do
-    investigation = FactoryBot.create(:investigation)
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
     work = FactoryBot.create(:work, investigation_id: investigation.id)
 
     headers = {"CONTENT_TYPE" => "application/json"}
@@ -74,7 +78,8 @@ RSpec.describe 'works API' do
   end
 
   it 'can update a work' do
-    investigation = FactoryBot.create(:investigation)
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
     work = FactoryBot.create(:work, title: "The Original Title", investigation_id: investigation.id)
 
     headers = {"CONTENT_TYPE" => "application/json"}

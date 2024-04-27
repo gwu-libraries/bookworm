@@ -20,8 +20,7 @@ RSpec.describe Work, type: :model do
     it 'returns a hash in tree format of citations and references' do
       user = FactoryBot.create(:user, email: "admin@example.com", password: "pjassword")
 
-      main_investigation = FactoryBot.create(:investigation)
-        FactoryBot.create(:user_investigation, user_id: user.id, investigation_id: main_investigation.id)
+      main_investigation = FactoryBot.create(:investigation, user_id: user.id)
 
       main_investigation_main_work = FactoryBot.create(:work, investigation_id: main_investigation.id)
       

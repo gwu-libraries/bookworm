@@ -2,7 +2,7 @@ class Api::V1::InvestigationsController < ApplicationController
   before_action :set_investigation, only: %i[ show ]
 
   def show
-    render json: @investigation
+    investigation_json_response(@investigation)
   end
 
   def create
@@ -11,16 +11,17 @@ class Api::V1::InvestigationsController < ApplicationController
     if @investigation.save
       investigation_json_response(@investigation)
     else
-      render status: 400
+      render :json => {:error => "Investigation not created"}.to_json, :status => 400
     end
   end
 
   private
-    def investigation_params
-      params.require(:investigation).permit(:name)
-    end
 
     def set_investigation
       @investigation = Investigation.find(params[:id])
+    end
+
+    def investigation_params
+      params.require(:investigation).permit(:name, :user_id)
     end
 end
