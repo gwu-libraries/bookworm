@@ -7,6 +7,7 @@ class WorkSerializer
   def work_data(work)
     {
       "id": work.id,
+      "investigation_id": work.investigation_id,
       "title": work.title,
       "doi": work.doi
     }

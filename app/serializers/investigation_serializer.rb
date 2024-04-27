@@ -1,15 +1,22 @@
 class InvestigationSerializer
 
-  def initialize(investigation_object)
-    @investigation = investigation_object
+  def initialize(investigations_object)
+    @investigations = [investigations_object].flatten
+  end
+
+  def investigation_data(investigation)
+    {
+      "id": investigation.id,
+      "user_id": investigation.user_id,
+      "name": investigation.name
+    }
   end
 
   def serialized_response
-    {
-      "data": {
-        "id": @investigation.id,
-        "name": @investigation.name
-      }
-    }
+    result = {"data": []}
+    @investigations.each do |investigation|
+      result[:data] << investigation_data(investigation)
+    end
+    result
   end
 end

@@ -1,6 +1,11 @@
 class Api::V1::InvestigationsController < ApplicationController
   before_action :set_investigation, only: %i[ show ]
 
+  def index
+    @investigations = Investigation.all
+    investigation_json_response(@investigations)
+  end
+
   def show
     investigation_json_response(@investigation)
   end

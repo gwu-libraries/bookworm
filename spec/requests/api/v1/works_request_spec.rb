@@ -16,6 +16,8 @@ RSpec.describe 'works API' do
 
     expect(work_response).to have_key(:id)
     expect(work_response[:id]).to eq(work.id)
+    expect(work_response).to have_key(:investigation_id)
+    expect(work_response[:investigation_id]).to eq(investigation.id)
     expect(work_response).to have_key(:doi)
     expect(work_response[:doi]).to eq(work.doi)
     expect(work_response).to have_key(:title)
@@ -35,6 +37,7 @@ RSpec.describe 'works API' do
     expect(response).to be_successful
     works_response.each do |work|
       expect(work).to have_key(:id)
+      expect(work).to have_key(:investigation_id)
       expect(work).to have_key(:doi)
       expect(work).to have_key(:title)
     end
@@ -60,6 +63,7 @@ RSpec.describe 'works API' do
     new_work = Work.last
     
     expect(response_data[:id]).to eq(new_work.id)
+    expect(response_data[:investigation_id]).to eq(investigation.id)
     expect(response_data[:title]).to eq(new_work.title)
     expect(response_data[:doi]).to eq(new_work.doi)
   end
@@ -143,6 +147,8 @@ RSpec.describe 'works API' do
     expect(response).to be_successful
     expect(work_response).to have_key(:id)
     expect(work_response[:id]).to eq(work.id)
+    expect(work_response).to have_key(:investigation_id)
+    expect(work_response[:investigation_id]).to eq(investigation.id)
     expect(work_response).to have_key(:doi)
     expect(work_response[:doi]).to eq(work.doi)
     expect(work_response).to have_key(:title)

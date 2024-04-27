@@ -10,12 +10,23 @@ RSpec.describe 'investigations API' do
 
     expect(response).to be_successful
 
-    investigation_response = JSON.parse(response.body, symbolize_names: true)[:data]
+    investigation_response = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     expect(investigation_response).to have_key(:id)
     expect(investigation_response[:id]).to eq(investigation_1.id)
     expect(investigation_response).to have_key(:name)
     expect(investigation_response[:name]).to eq(investigation_1.name)
+  end
+
+  it 'can return a list of all investigations' do
+    user = FactoryBot.create(:user)
+      investigation_1 = FactoryBot.create(:investigation, user_id: user.id)
+      investigation_2 = FactoryBot.create(:investigation, user_id: user.id)
+      investigation_3 = FactoryBot.create(:investigation, user_id: user.id)
+
+    get api_v1_investigations_path
+    investigation_response = JSON.parse(response.body, symbolize_names: true)[:data]
+
   end
 
   it 'can create a new investigation' do
@@ -30,7 +41,7 @@ RSpec.describe 'investigations API' do
     post api_v1_investigations_path, headers: headers, params: JSON.generate(investigation: investigation_params)
 
     expect(response).to be_successful
-    response_data = JSON.parse(response.body, symbolize_names: true)[:data]
+    response_data = JSON.parse(response.body, symbolize_names: true)[:data].first
     
     new_investigation = Investigation.last
 
