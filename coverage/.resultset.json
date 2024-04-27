@@ -612,8 +612,8 @@
         "lines": [
           1,
           1,
-          1,
-          1,
+          2,
+          2,
           null,
           null
         ]
@@ -622,8 +622,8 @@
         "lines": [
           1,
           1,
-          13,
-          13,
+          14,
+          14,
           null,
           null
         ]
@@ -651,6 +651,7 @@
           null,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -955,6 +956,33 @@
           null,
           1,
           null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/spec/requests/api/v1/keys_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           null,
@@ -1516,6 +1544,10 @@
           1,
           4,
           null,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -1541,6 +1573,53 @@
           5,
           null,
           3,
+          null,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/api/v1/keys_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/app/serializers/key_serializer.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
           null,
           null
         ]
@@ -1627,6 +1706,6 @@
         ]
       }
     },
-    "timestamp": 1714250937
+    "timestamp": 1714251638
   }
 }

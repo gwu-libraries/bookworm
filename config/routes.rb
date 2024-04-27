@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :works
       resources :investigations
+      resources :keys
     end 
   end
 end
