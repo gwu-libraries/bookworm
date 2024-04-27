@@ -19,7 +19,7 @@ class Api::V1::WorksController < ApplicationController
     if @work.save
       work_json_response(@work)
     else
-      render status: 400
+      render :json => {:error => "Work not created"}.to_json, :status => 400    
     end
   end
 

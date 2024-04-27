@@ -1,5 +1,7 @@
 class Work < ApplicationRecord
   validates :doi, presence: true
+  validates :title, presence: true
+  validates :investigation_id, presence: true
 
   belongs_to :investigation
 

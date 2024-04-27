@@ -64,6 +64,54 @@ RSpec.describe 'works API' do
     expect(response_data[:doi]).to eq(new_work.doi)
   end
 
+  it 'does not create a new work if investigation_id is blank' do
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    work_params = {
+      title: "A Super Cool Work",
+      doi: "10.1111/2222222"
+    }
+
+    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+
+    expect(response).to_not be_successful
+  end
+
+  it 'does not create a new work if title is blank' do
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    work_params = {
+      investigation_id: "#{investigation.id}",
+      doi: "10.1111/2222222"
+    }
+
+    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+
+    expect(response).to_not be_successful
+  end
+
+  it 'does not create a new work if doi is blank' do
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
+
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    work_params = {
+      investigation_id: "#{investigation.id}",
+      title: "A Super Cool New Work"
+    }
+
+    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+
+    expect(response).to_not be_successful
+  end
+
   it 'can delete a work' do
     user = FactoryBot.create(:user)
     investigation = FactoryBot.create(:investigation, user_id: user.id)
