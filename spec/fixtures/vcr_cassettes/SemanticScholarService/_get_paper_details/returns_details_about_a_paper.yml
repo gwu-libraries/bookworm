@@ -27,9 +27,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 26 Apr 2024 19:29:51 GMT
+      - Mon, 29 Apr 2024 15:13:43 GMT
       X-Amzn-Requestid:
-      - 94496ea9-fd80-4136-990f-d5f8d25eda04
+      - 19f901de-dfcb-4751-8943-606ae1b2b079
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Remapped-Content-Length:
@@ -37,19 +37,19 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - W2ULcHLWPHcEaCA=
+      - W_nePF4lvHcEoVA=
       X-Amzn-Remapped-Server:
       - gunicorn
       X-Amzn-Remapped-Date:
-      - Fri, 26 Apr 2024 19:29:51 GMT
+      - Mon, 29 Apr 2024 15:13:43 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0af050b863ec46156a524df4e5d86692.cloudfront.net (CloudFront)
+      - 1.1 19f6dea8d52f4770f090ce0929599570.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - IAD55-P4
+      - JFK52-P2
       X-Amz-Cf-Id:
-      - KUZ7EYylvt51rM-50Ww-eOWS73MyU4kMUNN8E_KExuoG8jEshXSA4g==
+      - EhqcC8YiMaRcA70YDzuwHmb-mEZq8IRkOFQBPQ7nL3a7mMEutsGDBg==
     body:
       encoding: UTF-8
       string: '{"paperId": "22d840026482e82dce65c5d0f91eb72b7b7bba1e", "externalIds":
@@ -57,7 +57,7 @@ http_interactions:
         139236155}, "corpusId": 139236155, "publicationVenue": null, "url": "https://www.semanticscholar.org/paper/22d840026482e82dce65c5d0f91eb72b7b7bba1e",
         "title": "Review of current trends in research and applications of sandwich
         structures", "venue": "Composites Part B: Engineering", "year": 2018, "referenceCount":
-        364, "citationCount": 499, "influentialCitationCount": 5, "isOpenAccess":
+        364, "citationCount": 501, "influentialCitationCount": 5, "isOpenAccess":
         true, "openAccessPdf": {"url": "http://manuscript.elsevier.com/S1359836817339781/pdf/S1359836817339781.pdf",
         "status": "HYBRID"}, "fieldsOfStudy": ["Materials Science"], "s2FieldsOfStudy":
         [{"category": "Materials Science", "source": "external"}, {"category": "Engineering",
@@ -71,5 +71,5 @@ http_interactions:
         {"authorId": "93583515", "name": "G. Kardomateas"}]}
 
         '
-  recorded_at: Fri, 26 Apr 2024 19:29:51 GMT
+  recorded_at: Mon, 29 Apr 2024 15:13:43 GMT
 recorded_with: VCR 6.2.0

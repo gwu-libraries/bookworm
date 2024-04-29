@@ -3,7 +3,7 @@
 class SemanticScholarService
   def self.default_params
     { "fields":
-      %w[paperId corpusId url title
+      %i[paperId corpusId url title
          venue publicationVenue year
          authors externalIds
          referenceCount citationCount
