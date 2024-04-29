@@ -16,6 +16,14 @@ class Work < ApplicationRecord
   # source: :citation matches with the belong_to :citation identification in the Connection model
   has_many :citations, through: :citation_connections, source: :citation 
 
+  def add_citation(work_id)
+    self.citations << Work.find(work_id)
+  end
+
+  def add_reference(work_id)
+    self.references << Work.find(work_id)
+  end
+
   def citation_reference_tree_json
     {
       "name": self.title,

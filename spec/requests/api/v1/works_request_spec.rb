@@ -135,8 +135,36 @@ RSpec.describe 'works API' do
     expect(work_response[:title]).to eq("A Cool New Title")
   end
 
-  xit 'can add a citation to a work' do
-    
+  it 'can add a citation to a work' do
+    expect(@work_1.citations.count).to eq(0)
+
+    @work_1.add_citation(@work_2.id)
+
+    expect(@work_1.citations.count).to eq(1)
+  end
+
+  it 'is added as a "reference" for a citing article' do
+    expect(@work_2.references.count).to eq(0)
+
+    @work_1.add_citation(@work_2.id)
+
+    expect(@work_2.references.count).to eq(1)
+  end
+
+  it 'can add a reference to a work' do
+    expect(@work_1.references.count).to eq(0)
+
+    @work_1.add_reference(@work_2.id)
+
+    expect(@work_1.references.count).to eq(1)
+  end
+
+  it 'is added as a "citation" for a reference article' do
+    expect(@work_2.citations.count).to eq(0)
+
+    @work_1.add_reference(@work_2.id)
+
+    expect(@work_2.citations.count).to eq(1)
   end
 
 end
