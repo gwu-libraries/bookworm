@@ -1,18 +1,15 @@
 class Api::V1::WorksController < ApplicationController
   before_action :set_work, only: %i[ show update destroy ]
+  before_action :set_works, only: %i[ index ]
 
-  # GET /works
   def index
-    @works = Work.all
     work_json_response(@works)
   end
 
-  # GET /works/1
   def show
     work_json_response(@work)
   end
 
-  # POST /works
   def create
     @work = Work.new(work_params)
 
@@ -23,7 +20,6 @@ class Api::V1::WorksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /works/1
   def update
     if @work.update(work_params)
       work_json_response(@work)
@@ -32,18 +28,19 @@ class Api::V1::WorksController < ApplicationController
     end
   end
 
-  # DELETE /works/1
   def destroy
     @work.destroy!
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def set_works
+      @works = Work.all
+    end
+
     def work_params
       params.require(:work).permit(:doi, :title, :investigation_id)
     end

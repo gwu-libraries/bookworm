@@ -1,12 +1,12 @@
 class Api::V1::KeysController < ApplicationController
   before_action :set_key, only: %i[ show destroy ]
+  before_action :set_keys, only: %i[ index ]
 
   def show
     key_json_response(@key)
   end
 
   def index
-    @keys = Key.all
     key_json_response(@keys)
   end
 
@@ -27,6 +27,10 @@ class Api::V1::KeysController < ApplicationController
   private
     def set_key
       @key = Key.find(params[:id])
+    end
+
+    def set_keys
+      @keys = Key.all
     end
 
     def key_params

@@ -1,8 +1,8 @@
 class Api::V1::InvestigationsController < ApplicationController
   before_action :set_investigation, only: %i[ show ]
+  before_action :set_investigations, only: %i[ index ]
 
   def index
-    @investigations = Investigation.all
     investigation_json_response(@investigations)
   end
 
@@ -21,9 +21,12 @@ class Api::V1::InvestigationsController < ApplicationController
   end
 
   private
-
     def set_investigation
       @investigation = Investigation.find(params[:id])
+    end
+
+    def set_investigations
+      @investigations = Investigation.all
     end
 
     def investigation_params

@@ -17,7 +17,7 @@ class Work < ApplicationRecord
   has_many :citations, through: :citation_connections, source: :citation 
 
   def citation_reference_tree_json
-    result = {
+    {
       "name": self.title,
       "children": [
         {
