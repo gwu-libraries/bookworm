@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CrossrefService do
-  context "#get_paper_details" do
+  context '#get_paper_details' do
     it 'returns details about a paper', :vcr do
-      doi = "10.1086/227049"
+      doi = '10.1086/227049'
 
       response = CrossrefService.get_paper_details(doi)
 
@@ -16,8 +18,8 @@ RSpec.describe CrossrefService do
       expect(response[:message][:indexed][:"date-parts"]).to be_a(Array)
       expect(response[:message][:indexed]).to have_key(:"date-time")
       expect(response[:message][:indexed][:"date-time"]).to be_a(String)
-      expect(response[:message][:indexed]).to have_key(:"timestamp")
-      expect(response[:message][:indexed][:"timestamp"]).to be_a(Integer)
+      expect(response[:message][:indexed]).to have_key(:timestamp)
+      expect(response[:message][:indexed][:timestamp]).to be_a(Integer)
       expect(response[:message]).to have_key(:"reference-count")
       expect(response[:message][:"reference-count"]).to be_a(Integer)
       expect(response[:message]).to have_key(:publisher)
@@ -96,8 +98,8 @@ RSpec.describe CrossrefService do
       expect(response[:message][:deposited][:"date-parts"]).to be_a(Array)
       expect(response[:message][:deposited]).to have_key(:"date-time")
       expect(response[:message][:deposited][:"date-time"]).to be_a(String)
-      expect(response[:message][:deposited]).to have_key(:"timestamp")
-      expect(response[:message][:deposited][:"timestamp"]).to be_a(Integer)
+      expect(response[:message][:deposited]).to have_key(:timestamp)
+      expect(response[:message][:deposited][:timestamp]).to be_a(Integer)
       expect(response[:message]).to have_key(:score)
       expect(response[:message][:score]).to be_a(Integer)
       expect(response[:message]).to have_key(:resource)

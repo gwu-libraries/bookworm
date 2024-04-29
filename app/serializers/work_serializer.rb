@@ -1,5 +1,6 @@
-class WorkSerializer
+# frozen_string_literal: true
 
+class WorkSerializer
   def initialize(works_object)
     @works = [works_object].flatten
   end
@@ -14,7 +15,7 @@ class WorkSerializer
   end
 
   def serialized_response
-    result = {"data": []}
+    result = { "data": [] }
     @works.each do |work|
       result[:data] << work_data(work)
     end

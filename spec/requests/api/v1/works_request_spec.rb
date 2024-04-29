@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'works API' do
-
   before :each do
     @user = FactoryBot.create(:user)
     @investigation = FactoryBot.create(:investigation, user_id: @user.id)
@@ -32,7 +33,7 @@ RSpec.describe 'works API' do
     get api_v1_works_path
 
     works_response = JSON.parse(response.body, symbolize_names: true)[:data]
-    
+
     expect(response).to be_successful
     works_response.each do |work|
       expect(work).to have_key(:id)
@@ -43,21 +44,21 @@ RSpec.describe 'works API' do
   end
 
   it 'can create a new work' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     work_params = {
-      investigation_id: "#{@investigation.id}",
-      title: "A Super Cool Work",
-      doi: "10.1111/2222222"
+      investigation_id: @investigation.id.to_s,
+      title: 'A Super Cool Work',
+      doi: '10.1111/2222222'
     }
 
-    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+    post api_v1_works_path, headers:, params: JSON.generate(work: work_params)
 
     expect(response).to be_successful
     response_data = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     new_work = Work.last
-    
+
     expect(response_data[:id]).to eq(new_work.id)
     expect(response_data[:investigation_id]).to eq(@investigation.id)
     expect(response_data[:title]).to eq(new_work.title)
@@ -65,48 +66,48 @@ RSpec.describe 'works API' do
   end
 
   it 'does not create a new work if investigation_id is blank' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     work_params = {
-      title: "A Super Cool Work",
-      doi: "10.1111/2222222"
+      title: 'A Super Cool Work',
+      doi: '10.1111/2222222'
     }
 
-    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+    post api_v1_works_path, headers:, params: JSON.generate(work: work_params)
 
     expect(response).to_not be_successful
   end
 
   it 'does not create a new work if title is blank' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     work_params = {
-      investigation_id: "#{@investigation.id}",
-      doi: "10.1111/2222222"
+      investigation_id: @investigation.id.to_s,
+      doi: '10.1111/2222222'
     }
 
-    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+    post api_v1_works_path, headers:, params: JSON.generate(work: work_params)
 
     expect(response).to_not be_successful
   end
 
   it 'does not create a new work if doi is blank' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     work_params = {
-      investigation_id: "#{@investigation.id}",
-      title: "A Super Cool New Work"
+      investigation_id: @investigation.id.to_s,
+      title: 'A Super Cool New Work'
     }
 
-    post api_v1_works_path, headers: headers, params: JSON.generate(work: work_params)
+    post api_v1_works_path, headers:, params: JSON.generate(work: work_params)
 
     expect(response).to_not be_successful
   end
 
   it 'can delete a work' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    delete api_v1_work_path(@work_1.id), headers: headers
+    delete(api_v1_work_path(@work_1.id), headers:)
 
     expect(response).to be_successful
     expect(response.status).to eq(204)
@@ -114,13 +115,13 @@ RSpec.describe 'works API' do
   end
 
   it 'can update a work' do
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     work_params = {
-      title: "A Cool New Title"
+      title: 'A Cool New Title'
     }
 
-    patch api_v1_work_path(@work_1.id), headers: headers, params: JSON.generate(work_params)
+    patch api_v1_work_path(@work_1.id), headers:, params: JSON.generate(work_params)
 
     work_response = JSON.parse(response.body, symbolize_names: true)[:data].first
 
@@ -132,7 +133,7 @@ RSpec.describe 'works API' do
     expect(work_response).to have_key(:doi)
     expect(work_response[:doi]).to eq(@work_1.doi)
     expect(work_response).to have_key(:title)
-    expect(work_response[:title]).to eq("A Cool New Title")
+    expect(work_response[:title]).to eq('A Cool New Title')
   end
 
   it 'can add a citation to a work' do
@@ -166,5 +167,4 @@ RSpec.describe 'works API' do
 
     expect(@work_2.citations.count).to eq(1)
   end
-
 end

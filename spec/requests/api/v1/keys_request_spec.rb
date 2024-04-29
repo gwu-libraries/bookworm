@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'keys API' do
-
   it 'can return one key by ID' do
     user = FactoryBot.create(:user)
     key = FactoryBot.create(:key, user_id: user.id)
@@ -9,7 +10,7 @@ RSpec.describe 'keys API' do
     get api_v1_key_path(key.id)
 
     expect(response).to be_successful
-    
+
     key_response = JSON.parse(response.body, symbolize_names: true)[:data].first
 
     expect(key_response).to have_key(:id)
@@ -22,9 +23,9 @@ RSpec.describe 'keys API' do
 
   it 'can return a list of all keys' do
     user = FactoryBot.create(:user)
-      key_1 = FactoryBot.create(:key, user_id: user.id)
-      key_2 = FactoryBot.create(:key, user_id: user.id)
-      key_3 = FactoryBot.create(:key, user_id: user.id)
+    FactoryBot.create(:key, user_id: user.id)
+    FactoryBot.create(:key, user_id: user.id)
+    FactoryBot.create(:key, user_id: user.id)
 
     get api_v1_keys_path
     keys_response = JSON.parse(response.body, symbolize_names: true)[:data]
@@ -41,15 +42,15 @@ RSpec.describe 'keys API' do
   it 'can create a new key' do
     user = FactoryBot.create(:user)
 
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     key_params = {
-      user_id: "#{user.id}",
-      site: "semanticscholar",
-      value: "123iamakey"
+      user_id: user.id.to_s,
+      site: 'semanticscholar',
+      value: '123iamakey'
     }
 
-    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+    post api_v1_keys_path, headers:, params: JSON.generate(key: key_params)
 
     expect(response).to be_successful
     response_data = JSON.parse(response.body, symbolize_names: true)[:data].first
@@ -62,39 +63,39 @@ RSpec.describe 'keys API' do
   end
 
   it 'does not create a new key if user_id is blank' do
-    user = FactoryBot.create(:user)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    FactoryBot.create(:user)
+    headers = { 'CONTENT_TYPE' => 'application/json' }
     key_params = {
-      site: "acoolwebsite",
-      value: "123coolkey"
+      site: 'acoolwebsite',
+      value: '123coolkey'
     }
 
-    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+    post api_v1_keys_path, headers:, params: JSON.generate(key: key_params)
 
     expect(response).to_not be_successful
   end
 
   it 'does not create a new key if site is blank' do
     user = FactoryBot.create(:user)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
     key_params = {
-      user_id: "#{user.id}",
-      value: "123coolkey"
+      user_id: user.id.to_s,
+      value: '123coolkey'
     }
 
-    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+    post api_v1_keys_path, headers:, params: JSON.generate(key: key_params)
 
     expect(response).to_not be_successful
   end
   it 'does not create a new key if value is blank' do
     user = FactoryBot.create(:user)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
     key_params = {
-      user_id: "#{user.id}",
-      site: "acoolwebsite",
+      user_id: user.id.to_s,
+      site: 'acoolwebsite'
     }
 
-    post api_v1_keys_path, headers: headers, params: JSON.generate(key: key_params)
+    post api_v1_keys_path, headers:, params: JSON.generate(key: key_params)
 
     expect(response).to_not be_successful
   end
@@ -102,13 +103,12 @@ RSpec.describe 'keys API' do
   it 'can delete a key' do
     user = FactoryBot.create(:user)
     key = FactoryBot.create(:key, user_id: user.id)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    delete api_v1_key_path(key.id), headers: headers
+    delete(api_v1_key_path(key.id), headers:)
 
     expect(response).to be_successful
     expect(response.status).to eq(204)
     expect(Key.count).to eq(0)
   end
-
 end

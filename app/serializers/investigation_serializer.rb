@@ -1,5 +1,6 @@
-class InvestigationSerializer
+# frozen_string_literal: true
 
+class InvestigationSerializer
   def initialize(investigations_object)
     @investigations = [investigations_object].flatten
   end
@@ -13,7 +14,7 @@ class InvestigationSerializer
   end
 
   def serialized_response
-    result = {"data": []}
+    result = { "data": [] }
     @investigations.each do |investigation|
       result[:data] << investigation_data(investigation)
     end

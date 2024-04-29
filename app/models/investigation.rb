@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Investigation < ApplicationRecord
   validates :name, presence: true
 

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Work, type: :model do
-
   describe 'validations' do
     it { should validate_presence_of(:doi) }
     it { should validate_presence_of(:title) }
@@ -20,12 +21,12 @@ RSpec.describe Work, type: :model do
 
   describe 'methods' do
     it 'returns a hash in tree format of citations and references' do
-      user = FactoryBot.create(:user, email: "admin@example.com", password: "pjassword")
+      user = FactoryBot.create(:user, email: 'admin@example.com', password: 'pjassword')
 
       main_investigation = FactoryBot.create(:investigation, user_id: user.id)
 
       main_investigation_main_work = FactoryBot.create(:work, investigation_id: main_investigation.id)
-      
+
       references = []
       5.times do
         reference = FactoryBot.create(:work, investigation_id: main_investigation.id)
@@ -50,23 +51,23 @@ RSpec.describe Work, type: :model do
         "name": main_investigation_main_work.title,
         "children": [
           {
-          "name": "citations",
-          "children": [
-            {"name": citations[0].title},
-            {"name": citations[1].title},
-            {"name": citations[2].title},
-            {"name": citations[3].title},
-            {"name": citations[4].title}
-          ]
+            "name": 'citations',
+            "children": [
+              { "name": citations[0].title },
+              { "name": citations[1].title },
+              { "name": citations[2].title },
+              { "name": citations[3].title },
+              { "name": citations[4].title }
+            ]
           },
           {
-            "name": "references",
+            "name": 'references',
             "children": [
-              {"name": references[0].title},
-              {"name": references[1].title},
-              {"name": references[2].title},
-              {"name": references[3].title},
-              {"name": references[4].title},
+              { "name": references[0].title },
+              { "name": references[1].title },
+              { "name": references[2].title },
+              { "name": references[3].title },
+              { "name": references[4].title }
             ]
           }
         ]
@@ -77,5 +78,4 @@ RSpec.describe Work, type: :model do
       expect(actual).to eq(expected)
     end
   end
-
 end

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class KeySerializer
-  
   def initialize(keys_object)
     @keys = [keys_object].flatten
   end
@@ -14,7 +15,7 @@ class KeySerializer
   end
 
   def serialized_response
-    result = {"data": []}
+    result = { "data": [] }
     @keys.each do |key|
       result[:data] << key_data(key)
     end

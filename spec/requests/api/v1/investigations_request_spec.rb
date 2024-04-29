@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'investigations API' do
-
   it 'can return one investigation by ID' do
     user = FactoryBot.create(:user)
     investigation_1 = FactoryBot.create(:investigation, user_id: user.id)
@@ -20,9 +21,9 @@ RSpec.describe 'investigations API' do
 
   it 'can return a list of all investigations' do
     user = FactoryBot.create(:user)
-      investigation_1 = FactoryBot.create(:investigation, user_id: user.id)
-      investigation_2 = FactoryBot.create(:investigation, user_id: user.id)
-      investigation_3 = FactoryBot.create(:investigation, user_id: user.id)
+    FactoryBot.create(:investigation, user_id: user.id)
+    FactoryBot.create(:investigation, user_id: user.id)
+    FactoryBot.create(:investigation, user_id: user.id)
 
     get api_v1_investigations_path
     investigations_response = JSON.parse(response.body, symbolize_names: true)[:data]
@@ -37,18 +38,18 @@ RSpec.describe 'investigations API' do
 
   it 'can create a new investigation' do
     user = FactoryBot.create(:user)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     investigation_params = {
-      user_id: "#{user.id}",
-      name: "Beefaroni Investigation"
+      user_id: user.id.to_s,
+      name: 'Beefaroni Investigation'
     }
 
-    post api_v1_investigations_path, headers: headers, params: JSON.generate(investigation: investigation_params)
+    post api_v1_investigations_path, headers:, params: JSON.generate(investigation: investigation_params)
 
     expect(response).to be_successful
     response_data = JSON.parse(response.body, symbolize_names: true)[:data].first
-    
+
     new_investigation = Investigation.last
 
     expect(response_data[:id]).to eq(new_investigation.id)
@@ -58,16 +59,15 @@ RSpec.describe 'investigations API' do
 
   it 'does not create a new investigation if no name given' do
     user = FactoryBot.create(:user)
-    headers = {"CONTENT_TYPE" => "application/json"}
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     investigation_params = {
       user_id: user.id
     }
 
-    post api_v1_investigations_path, headers: headers, params: JSON.generate(investigation: investigation_params)
+    post api_v1_investigations_path, headers:, params: JSON.generate(investigation: investigation_params)
 
     expect(response).to_not be_successful
     expect(Investigation.count).to eq(0)
   end
-
 end
