@@ -7,8 +7,8 @@ class SemanticScholarFacade
     SemanticScholarWork.new(json)
   end
 
-  def self.get_paper_citations(paper_id)
-    paper_data_arr = SemanticScholarService.get_paper_citations(paper_id)
+  def self.get_paper_references(paper_id)
+    paper_data_arr = SemanticScholarService.get_paper_references(paper_id)
 
     works = []
     paper_data_arr.map do |paper_data|

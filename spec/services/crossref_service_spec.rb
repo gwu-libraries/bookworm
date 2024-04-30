@@ -151,4 +151,14 @@ RSpec.describe CrossrefService do
       expect(response[:message][:published][:"date-parts"]).to be_a(Array)
     end
   end
+
+  context 'get_paper_references' do
+    it 'returns references for a paper by doi', :vcr do
+      doi = '10.1016/J.COMPOSITESB.2018.01.027'
+
+      response = CrossrefService.get_paper_references(doi)
+
+      expect(response).to be_a(Array)
+    end
+  end
 end

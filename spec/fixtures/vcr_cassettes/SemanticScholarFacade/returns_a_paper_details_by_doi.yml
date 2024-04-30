@@ -27,9 +27,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 30 Apr 2024 16:17:44 GMT
+      - Tue, 30 Apr 2024 21:02:03 GMT
       X-Amzn-Requestid:
-      - d61a5bc0-ce54-41ac-ae15-93df356aeda5
+      - dc1dba14-c7f3-46eb-9cef-88524142d80b
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Remapped-Content-Length:
@@ -37,19 +37,19 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - XDDyUHH8vHcEg0A=
+      - XDtbzEQBPHcEraQ=
       X-Amzn-Remapped-Server:
       - gunicorn
       X-Amzn-Remapped-Date:
-      - Tue, 30 Apr 2024 16:17:44 GMT
+      - Tue, 30 Apr 2024 21:02:03 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 6d5b0fa46ef77b2ff227bdbcee6603ee.cloudfront.net (CloudFront)
+      - 1.1 7a9f6a4fba100d04559a6d3a82b7dc56.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - IAD55-P4
       X-Amz-Cf-Id:
-      - J1Z1py1vnMMxo6dizul9MN3-klNm25yRT61EjqEkWTADjLTuh6MAeQ==
+      - yXQKUScnBC3mJn180iIw2MhIrAeRghUmju8FEAx03uVZqt0urC0rZQ==
     body:
       encoding: UTF-8
       string: '{"paperId": "22d840026482e82dce65c5d0f91eb72b7b7bba1e", "externalIds":
@@ -71,5 +71,5 @@ http_interactions:
         {"authorId": "93583515", "name": "G. Kardomateas"}]}
 
         '
-  recorded_at: Tue, 30 Apr 2024 16:17:44 GMT
+  recorded_at: Tue, 30 Apr 2024 21:02:03 GMT
 recorded_with: VCR 6.2.0

@@ -27,9 +27,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 30 Apr 2024 19:00:45 GMT
+      - Tue, 30 Apr 2024 21:02:12 GMT
       X-Amzn-Requestid:
-      - 9900361c-70ae-4ea8-a20c-d0d866f387f7
+      - 4316a19d-e4e3-46e2-8d5c-111b63803635
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Remapped-Content-Length:
@@ -37,19 +37,19 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - XDbqmEuAPHcEBsw=
+      - XDtdTEy4PHcEN7Q=
       X-Amzn-Remapped-Server:
       - gunicorn
       X-Amzn-Remapped-Date:
-      - Tue, 30 Apr 2024 19:00:45 GMT
+      - Tue, 30 Apr 2024 21:02:12 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 f1dd5bd4f4b31b158b9e826b6e013cda.cloudfront.net (CloudFront)
+      - 1.1 170caffbbbc9abe2c5fd15f4f58b75b4.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - IAD55-P4
       X-Amz-Cf-Id:
-      - eqVIQ5a8vQ_H4U27lTU5aobMKDsta8qHA7nHTYtC4O3fmmN5mpwBNg==
+      - SCvAOb7WPlzZ_enEqBUwdOS6DyGVK9y9noI3vsM3QNjB_aHf7j9jnA==
     body:
       encoding: UTF-8
       string: '{"paperId": "22d840026482e82dce65c5d0f91eb72b7b7bba1e", "externalIds":
@@ -71,7 +71,7 @@ http_interactions:
         {"authorId": "93583515", "name": "G. Kardomateas"}]}
 
         '
-  recorded_at: Tue, 30 Apr 2024 19:00:45 GMT
+  recorded_at: Tue, 30 Apr 2024 21:02:12 GMT
 - request:
     method: get
     uri: https://api.semanticscholar.org/graph/v1/paper/22d840026482e82dce65c5d0f91eb72b7b7bba1e/citations?fields=paperId,corpusId,url,title,venue,publicationVenue,year,authors,externalIds,referenceCount,citationCount,influentialCitationCount,isOpenAccess,openAccessPdf,fieldsOfStudy,s2FieldsOfStudy,publicationTypes,publicationDate,journal,citationStyles&limit=1000&offset=0
@@ -99,9 +99,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 30 Apr 2024 19:00:47 GMT
+      - Tue, 30 Apr 2024 21:02:15 GMT
       X-Amzn-Requestid:
-      - 504ee375-e0b2-4c21-8026-6b6289945ffe
+      - 330a0156-d8ca-40d7-92b7-b3c6f8ef24c1
       Access-Control-Allow-Origin:
       - "*"
       X-Amzn-Remapped-Content-Length:
@@ -109,19 +109,19 @@ http_interactions:
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - XDbqpHqiPHcEFDA=
+      - XDtdVFqIPHcEWYQ=
       X-Amzn-Remapped-Server:
       - gunicorn
       X-Amzn-Remapped-Date:
-      - Tue, 30 Apr 2024 19:00:47 GMT
+      - Tue, 30 Apr 2024 21:02:15 GMT
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 b72ec90bfb3598795e1ec469cc868742.cloudfront.net (CloudFront)
+      - 1.1 7a9f6a4fba100d04559a6d3a82b7dc56.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - IAD55-P4
       X-Amz-Cf-Id:
-      - UwhKkZIfAROo5s2q0kea4YJ8uXZRTeGGcQRs0xENksf7_ufviJzjvw==
+      - ST6f4IqrKFsLPmK6SkYZUG5BUIzvy04n0Cm39O23x9k9xVQJwYU76g==
     body:
       encoding: UTF-8
       string: '{"offset": 0, "data": [{"citingPaper": {"paperId": "c889f3d2370b970deca41e028370adbb956255e9",
@@ -11014,5 +11014,5 @@ http_interactions:
         "name": "Iaghat"}]}}]}
 
         '
-  recorded_at: Tue, 30 Apr 2024 19:00:48 GMT
+  recorded_at: Tue, 30 Apr 2024 21:02:15 GMT
 recorded_with: VCR 6.2.0

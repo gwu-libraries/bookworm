@@ -27,7 +27,7 @@ class SemanticScholarService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_paper_citations(paper_id)
+  def self.get_paper_references(paper_id)
     # semantic scholar's api can return up to 1000 results at a time
     # if a paper has more than 1000 results, this calculates the number of api calls needed to get all of the results
     # and uses the number of calls needed to set the offset for each call
@@ -38,6 +38,9 @@ class SemanticScholarService
       response = BaseService.semantic_scholar_connection.get("/graph/v1/paper/#{paper_id}/citations",
                                                              default_params.merge({ "limit": 1000 },
                                                                                   { "offset": index * 1000 }))
+
+      sleep 2
+
       json_response = JSON.parse(
         response.body, symbolize_names: true
       )

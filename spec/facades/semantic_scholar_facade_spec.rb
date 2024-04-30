@@ -11,10 +11,10 @@ RSpec.describe SemanticScholarFacade do
     expect(data).to be_a(SemanticScholarWork)
   end
 
-  it 'returns an array of cited works by doi', :vcr do
+  it 'returns an array of works referenced by a paper', :vcr do
     example_doi = '10.1016/J.COMPOSITESB.2018.01.027'
 
-    data = SemanticScholarFacade.get_paper_citations(example_doi)
+    data = SemanticScholarFacade.get_paper_references(example_doi)
 
     expect(data).to be_a(Array)
 
