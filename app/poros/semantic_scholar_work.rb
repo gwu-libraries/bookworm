@@ -8,10 +8,10 @@ class SemanticScholarWork
               :citation_count
 
   def initialize(data)
-    @paper_id = data[:paperId]
-    @title = data[:title]
-    @doi = data[:externalIds][:DOI]
-    @reference_count = data[:referenceCount]
-    @citation_count = data[:citationCount]
+    @paper_id = data[:paperId] if [:paperId]
+    @title = data[:title] if data[:title]
+    @doi = data[:externalIds][:DOI] if data[:externalIds]
+    @reference_count = data[:referenceCount] if data[:referenceCount]
+    @citation_count = data[:citationCount] if data[:citationCount]
   end
 end
