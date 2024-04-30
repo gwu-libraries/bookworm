@@ -693,6 +693,39 @@
           null
         ]
       },
+      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/facades/semantic_scholar_facade.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/connection_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
       "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/connection.rb": {
         "lines": [
           null,
@@ -943,6 +976,66 @@
           null,
           null,
           null,
+          null,
+          null
+        ]
+      },
+      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/poros/semantic_scholar_work_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/poros/semantic_scholar_work.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
           null,
           null
         ]
@@ -1347,8 +1440,8 @@
           null,
           1,
           1,
-          2,
-          2,
+          3,
+          3,
           null,
           null,
           null,
@@ -1620,7 +1713,7 @@
           null,
           1,
           1,
-          1,
+          2,
           null,
           null,
           null,
@@ -1632,9 +1725,9 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
-          1,
+          2,
           null,
           null
         ]
@@ -1922,6 +2015,6 @@
         ]
       }
     },
-    "timestamp": 1714403646
+    "timestamp": 1714495037
   }
 }
