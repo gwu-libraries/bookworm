@@ -1,5 +1,6 @@
-class SemanticScholarFacade
+# frozen_string_literal: true
 
+class SemanticScholarFacade
   def self.get_paper_details(doi)
     json = SemanticScholarService.get_paper_details(doi)
 

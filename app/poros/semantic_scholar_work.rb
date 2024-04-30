@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SemanticScholarWork
   attr_reader :paper_id,
               :title,
