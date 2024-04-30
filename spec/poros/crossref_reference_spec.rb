@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CrossrefReference do
@@ -6,7 +8,7 @@ RSpec.describe CrossrefReference do
              "series-title": 'Sandwich construction',
              author: 'Plantema',
              year: '1966' }
-    
+
     crossref_citation = CrossrefReference.new(data)
 
     expect(crossref_citation).to be_a(CrossrefReference)

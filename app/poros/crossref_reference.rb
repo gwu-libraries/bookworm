@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CrossrefReference
   attr_reader :key,
               :title,
@@ -8,5 +10,4 @@ class CrossrefReference
     @title = data[:"series-title"] if data[:"series-title"]
     @author = data[:author] if data[:author]
   end
-
 end
