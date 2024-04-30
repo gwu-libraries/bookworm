@@ -77,11 +77,13 @@ RSpec.describe SemanticScholarService do
     end
   end
 
-  context "get_paper_citations" do
+  context 'get_paper_citations' do
     it 'returns details about a papers citations', :vcr do
       paper_id = '22d840026482e82dce65c5d0f91eb72b7b7bba1e'
 
       response = SemanticScholarService.get_paper_citations(paper_id)
+
+      expect(response).to be_a(Array)
     end
   end
 end

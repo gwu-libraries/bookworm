@@ -17,6 +17,9 @@ RSpec.describe SemanticScholarFacade do
     data = SemanticScholarFacade.get_paper_citations(example_doi)
 
     expect(data).to be_a(Array)
-    expect(data.first).to be_a(SemanticScholarWork)
+
+    data.each do |work|
+      expect(work).to be_a(SemanticScholarWork)
+    end
   end
 end
