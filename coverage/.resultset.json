@@ -1045,6 +1045,8 @@
       },
       "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/poros/crossref_reference_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1063,6 +1065,8 @@
       },
       "/Users/alexander.boyd/Documents/repos/book_worm_api/app/poros/crossref_reference.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -1072,7 +1076,6 @@
           364,
           364,
           364,
-          null,
           null,
           null
         ]
@@ -2214,6 +2217,6 @@
         ]
       }
     },
-    "timestamp": 1714512143
+    "timestamp": 1714512523
   }
 }
