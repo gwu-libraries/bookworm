@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       resources :works
       resources :investigations
       resources :keys
+
+      get "investigations/:investigation_id/works", to: "investigations#work_list"
     end
   end
 end

@@ -626,7 +626,7 @@
           1,
           1,
           1,
-          18,
+          32,
           null,
           null
         ]
@@ -650,8 +650,8 @@
           null,
           1,
           1,
-          24,
-          24,
+          25,
+          25,
           null,
           null
         ]
@@ -663,8 +663,8 @@
           1,
           1,
           1,
-          48,
-          48,
+          52,
+          52,
           null,
           null
         ]
@@ -687,6 +687,8 @@
           1,
           1,
           1,
+          1,
+          null,
           1,
           null,
           null,
@@ -1254,6 +1256,23 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -1384,6 +1403,8 @@
           1,
           1,
           12,
+          12,
+          null,
           12,
           null,
           12,
@@ -1944,7 +1965,7 @@
           null,
           1,
           1,
-          423,
+          459,
           null,
           null,
           null,
@@ -1977,6 +1998,12 @@
           null,
           1,
           null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
           null,
           null,
           1,
@@ -2016,7 +2043,7 @@
           null,
           null,
           1,
-          4,
+          5,
           null,
           null,
           1,
@@ -2042,12 +2069,41 @@
           null,
           null,
           null,
+          null,
           1,
           3,
           3,
           5,
           null,
           3,
+          null,
+          null
+        ]
+      },
+      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/serializers/work_serializer.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          5,
+          null,
+          null,
+          1,
+          null,
+          9,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          5,
+          5,
+          9,
+          null,
+          5,
           null,
           null
         ]
@@ -2187,36 +2243,8 @@
           null,
           null
         ]
-      },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/serializers/work_serializer.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          4,
-          null,
-          null,
-          1,
-          null,
-          6,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          4,
-          4,
-          6,
-          null,
-          4,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1714512523
+    "timestamp": 1714596921
   }
 }

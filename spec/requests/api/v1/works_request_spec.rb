@@ -7,6 +7,8 @@ RSpec.describe 'works API' do
     @user = FactoryBot.create(:user)
     @investigation = FactoryBot.create(:investigation, user_id: @user.id)
 
+    @other_investigation = FactoryBot.create(:investigation, user_id: @user.id)
+
     @work_1 = FactoryBot.create(:work, investigation_id: @investigation.id)
     @work_2 = FactoryBot.create(:work, investigation_id: @investigation.id)
     @work_3 = FactoryBot.create(:work, investigation_id: @investigation.id)

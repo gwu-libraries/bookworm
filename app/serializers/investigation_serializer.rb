@@ -9,7 +9,8 @@ class InvestigationSerializer
     {
       "id": investigation.id,
       "user_id": investigation.user_id,
-      "name": investigation.name
+      "name": investigation.name,
+      "created_at": investigation.created_at
     }
   end
 

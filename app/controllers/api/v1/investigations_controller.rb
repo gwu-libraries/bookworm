@@ -24,6 +24,12 @@ module Api
         end
       end
 
+      def work_list
+        works = Investigation.find_by(id: params[:investigation_id]).works
+
+        work_json_response(works)
+      end
+
       private
 
       def set_investigation

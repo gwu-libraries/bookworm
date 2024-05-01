@@ -70,4 +70,21 @@ RSpec.describe 'investigations API' do
     expect(response).to_not be_successful
     expect(Investigation.count).to eq(0)
   end
+
+  it 'can return works associated with a given investigation ID' do
+    user = FactoryBot.create(:user)
+    investigation = FactoryBot.create(:investigation, user_id: user.id)
+    work_1 = FactoryBot.create(:work, investigation_id: investigation.id)
+    work_2 = FactoryBot.create(:work, investigation_id: investigation.id)
+    work_3 = FactoryBot.create(:work, investigation_id: investigation.id)
+
+    other_investigation = FactoryBot.create(:investigation, user_id: user.id)
+    work_4 = FactoryBot.create(:work, investigation_id: other_investigation.id)
+
+    get "/api/v1/investigations/#{investigation.id}/works"
+
+    expect(response).to be_successful
+    response_data = JSON.parse(response.body, symbolize_names: true)[:data]
+    expect(response_data.length).to eq(3)
+  end
 end
