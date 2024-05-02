@@ -3,7 +3,7 @@
 module Api
   module V1
     class WorksController < ApplicationController
-      before_action :set_work, only: %i[show update destroy]
+      before_action :set_work, only: %i[show update destroy tree_json]
       before_action :set_works, only: %i[index]
 
       def index
@@ -34,6 +34,12 @@ module Api
 
       def destroy
         @work.destroy!
+      end
+
+      def tree_json
+        require 'pry'; binding.pry 
+        # does this need to be serialized with a "data" key for the front end?
+        render json: @work.citation_reference_tree_json
       end
 
       private
