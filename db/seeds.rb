@@ -20,12 +20,12 @@ Key.create(user_id: user.id,
 investigation_1 = FactoryBot.create(:investigation,
                                     user_id: user.id,
                                     name: 'Mikhail Bulgakov')
-investigation_2 = FactoryBot.create(:investigation,
-                                    user_id: user.id,
-                                    name: 'Yevgeny Zamyatin')
-investigation_3 = FactoryBot.create(:investigation,
-                                    user_id: user.id,
-                                    name: 'Maxim Gorky')
+FactoryBot.create(:investigation,
+                  user_id: user.id,
+                  name: 'Yevgeny Zamyatin')
+FactoryBot.create(:investigation,
+                  user_id: user.id,
+                  name: 'Maxim Gorky')
 
 # root work
 root_work = FactoryBot.create(:work,

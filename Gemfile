@@ -48,6 +48,7 @@ gem 'rubocop', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
@@ -57,7 +58,6 @@ group :development, :test do
   gem 'simplecov'
   gem 'vcr'
   gem 'webmock'
-  gem 'database_cleaner'
 end
 
 group :development do

@@ -1,7 +1,8 @@
-RSpec.configure do |config|
+# frozen_string_literal: true
 
+RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation, except: %w(ar_internal_metadata)
+    DatabaseCleaner.clean_with :truncation, except: %w[ar_internal_metadata]
   end
 
   config.before(:each) do
@@ -15,5 +16,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end

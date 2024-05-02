@@ -16,9 +16,9 @@ Rails.application.routes.draw do
       resources :investigations
       resources :keys
 
-      get "investigations/:investigation_id/works", to: "investigations#work_list"
+      get 'investigations/:investigation_id/works', to: 'investigations#work_list'
 
-      get "works/:id/tree_json", to: "works#tree_json"
+      get 'works/:id/tree_json', to: 'works#tree_json'
     end
   end
 end

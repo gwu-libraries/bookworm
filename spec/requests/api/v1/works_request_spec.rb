@@ -140,9 +140,9 @@ RSpec.describe 'works API' do
 
   it 'can get the tree_json for a work' do
     root_work = FactoryBot.create(:work,
-                              investigation_id: @investigation.id,
-                              title: 'Root Work',
-                              root_work: true)
+                                  investigation_id: @investigation.id,
+                                  title: 'Root Work',
+                                  root_work: true)
     # citations
     citations = FactoryBot.create_list(:work, 20, investigation_id: @investigation.id)
     citations.map { |citation| Connection.create(reference_id: root_work.id, citation_id: citation.id) }
@@ -151,12 +151,11 @@ RSpec.describe 'works API' do
     references.map { |reference| Connection.create(reference_id: reference.id, citation_id: root_work.id) }
 
     get "/api/v1/works/#{root_work.id}/tree_json"
-    
+
     json_response = JSON.parse(response.body, symbolize_names: true)[:data]
-    
+
     expect(response).to be_successful
     expect(json_response).to eq(root_work.citation_reference_tree_json[:data])
-
   end
 
   # these should be in the model spec file probably
@@ -191,5 +190,4 @@ RSpec.describe 'works API' do
 
     expect(@work_2.citations.count).to eq(1)
   end
-
 end

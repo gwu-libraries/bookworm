@@ -31,27 +31,31 @@ class Work < ApplicationRecord
   end
 
   def citation_reference_tree_json
-    { 
-      "id": self.id,
+    {
+      "id": id,
       "data":
         {
-          "name": self.title,
+          "name": title,
           "children": [
             {
               "name": 'citations',
-              "children": citations.map { |citation| { 
-                "title": citation.title,
-                "id": citation.id,
-                "doi": citation.doi } 
-              }
+              "children": citations.map do |citation|
+                {
+                  "title": citation.title,
+                  "id": citation.id,
+                  "doi": citation.doi
+                }
+              end
             },
             {
               "name": 'references',
-              "children": references.map { |reference| {
-                "title": reference.title, 
-                "id": reference.id,
-                "doi": reference.doi } 
-              }
+              "children": references.map do |reference|
+                {
+                  "title": reference.title,
+                  "id": reference.id,
+                  "doi": reference.doi
+                }
+              end
             }
           ]
         }
