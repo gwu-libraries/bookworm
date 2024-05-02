@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-01T22:59:04-04:00">2024-05-01T22:59:04-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-01T23:36:40-04:00">2024-05-01T23:36:40-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  99.32%
+  99.55%
 </span>
 
      </span>
@@ -44,10 +44,10 @@
 
   <div class="t-line-summary">
     <b>887</b> relevant lines,
-    <span class="green"><b>881</b> lines covered</span> and
-    <span class="red"><b>6</b> lines missed. </span>
+    <span class="green"><b>883</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed. </span>
     (<span class="green">
-  99.32%
+  99.55%
 </span>
 )
   </div>
@@ -94,12 +94,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#29902c85c62e3a99e8b5c87a9f7b8106ff0f209b" class="src_link" title="app/controllers/api/v1/works_controller.rb">app/controllers/api/v1/works_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">96.67 %</td>
-            <td class="cell--number">60</td>
-            <td class="cell--number">30</td>
+            <td class="green strong cell--number t-file__coverage">96.55 %</td>
+            <td class="cell--number">59</td>
             <td class="cell--number">29</td>
+            <td class="cell--number">28</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">1.47</td>
+            <td class="cell--number">1.48</td>
             
           </tr>
         
@@ -205,7 +205,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#aca1c113eede5a1066e44336a2130f0185414a65" class="src_link" title="app/models/work.rb">app/models/work.rb</a></td>
             <td class="green strong cell--number t-file__coverage">94.74 %</td>
-            <td class="cell--number">48</td>
+            <td class="cell--number">60</td>
             <td class="cell--number">19</td>
             <td class="cell--number">18</td>
             <td class="cell--number">1</td>
@@ -535,7 +535,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d77ecad339034d2f0e319b0a37dd66afa441db7a" class="src_link" title="spec/models/work_spec.rb">spec/models/work_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">81</td>
+            <td class="cell--number">126</td>
             <td class="cell--number">32</td>
             <td class="cell--number">32</td>
             <td class="cell--number">0</td>
@@ -600,12 +600,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#848947a42ce40e3d62515bbc1da5d485490b111a" class="src_link" title="spec/requests/api/v1/works_request_spec.rb">spec/requests/api/v1/works_request_spec.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">98.02 %</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">195</td>
-            <td class="cell--number">101</td>
-            <td class="cell--number">99</td>
-            <td class="cell--number">2</td>
-            <td class="cell--number">2.17</td>
+            <td class="cell--number">102</td>
+            <td class="cell--number">102</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">2.18</td>
             
           </tr>
         
@@ -1793,7 +1793,7 @@
     <h3>app/controllers/api/v1/works_controller.rb</h3>
     <h4>
       <span class="green">
-  96.67%
+  96.55%
 </span>
 
       lines covered
@@ -1802,8 +1802,8 @@
     
 
     <div class="t-line-summary">
-      <b>30</b> relevant lines.
-      <span class="green"><b>29</b> lines covered</span> and
+      <b>29</b> relevant lines.
+      <span class="green"><b>28</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
 
@@ -2244,13 +2244,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="40">
+            
             
 
             
 
-            <code class="ruby">        require &#39;pry&#39;; binding.pry </code>
+            <code class="ruby">        # does this need to be serialized with a &quot;data&quot; key for the front end?</code>
           </li>
         </div>
       
@@ -2261,7 +2261,7 @@
 
             
 
-            <code class="ruby">        # does this need to be serialized with a &quot;data&quot; key for the front end?</code>
+            <code class="ruby">        render json: @work.citation_reference_tree_json</code>
           </li>
         </div>
       
@@ -2272,7 +2272,7 @@
 
             
 
-            <code class="ruby">        render json: @work.citation_reference_tree_json</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2283,7 +2283,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2294,7 +2294,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      private</code>
           </li>
         </div>
       
@@ -2305,7 +2305,7 @@
 
             
 
-            <code class="ruby">      private</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2316,7 +2316,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      def set_work</code>
           </li>
         </div>
       
@@ -2327,7 +2327,7 @@
 
             
 
-            <code class="ruby">      def set_work</code>
+            <code class="ruby">        @work = Work.find(params[:id])</code>
           </li>
         </div>
       
@@ -2338,7 +2338,7 @@
 
             
 
-            <code class="ruby">        @work = Work.find(params[:id])</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2349,7 +2349,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2360,7 +2360,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      def set_works</code>
           </li>
         </div>
       
@@ -2371,7 +2371,7 @@
 
             
 
-            <code class="ruby">      def set_works</code>
+            <code class="ruby">        @works = Work.all</code>
           </li>
         </div>
       
@@ -2382,7 +2382,7 @@
 
             
 
-            <code class="ruby">        @works = Work.all</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2393,7 +2393,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2404,7 +2404,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      def work_params</code>
           </li>
         </div>
       
@@ -2415,7 +2415,7 @@
 
             
 
-            <code class="ruby">      def work_params</code>
+            <code class="ruby">        params.require(:work).permit(:doi, :title, :investigation_id)</code>
           </li>
         </div>
       
@@ -2426,7 +2426,7 @@
 
             
 
-            <code class="ruby">        params.require(:work).permit(:doi, :title, :investigation_id)</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -2437,7 +2437,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -2448,23 +2448,12 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
+          <li class="never" data-hits="" data-linenumber="59">
             
             
 
@@ -4309,7 +4298,7 @@
 
             
 
-            <code class="ruby">    {</code>
+            <code class="ruby">    { </code>
           </li>
         </div>
       
@@ -4320,7 +4309,7 @@
 
             
 
-            <code class="ruby">      &quot;name&quot;: title,</code>
+            <code class="ruby">      &quot;id&quot;: self.id,</code>
           </li>
         </div>
       
@@ -4331,7 +4320,7 @@
 
             
 
-            <code class="ruby">      &quot;children&quot;: [</code>
+            <code class="ruby">      &quot;data&quot;:</code>
           </li>
         </div>
       
@@ -4353,18 +4342,18 @@
 
             
 
-            <code class="ruby">          &quot;name&quot;: &#39;citations&#39;,</code>
+            <code class="ruby">          &quot;name&quot;: self.title,</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="45" data-linenumber="39">
-            <span class="hits">45</span>
+          <li class="never" data-hits="" data-linenumber="39">
+            
             
 
             
 
-            <code class="ruby">          &quot;children&quot;: citations.map { |citation| { &quot;name&quot;: citation.title } }</code>
+            <code class="ruby">          &quot;children&quot;: [</code>
           </li>
         </div>
       
@@ -4375,7 +4364,7 @@
 
             
 
-            <code class="ruby">        },</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -4386,7 +4375,7 @@
 
             
 
-            <code class="ruby">        {</code>
+            <code class="ruby">              &quot;name&quot;: &#39;citations&#39;,</code>
           </li>
         </div>
       
@@ -4397,7 +4386,7 @@
 
             
 
-            <code class="ruby">          &quot;name&quot;: &#39;references&#39;,</code>
+            <code class="ruby">              &quot;children&quot;: citations.map { |citation| { </code>
           </li>
         </div>
       
@@ -4408,7 +4397,7 @@
 
             
 
-            <code class="ruby">          &quot;children&quot;: references.map { |citation| { &quot;name&quot;: citation.title } }</code>
+            <code class="ruby">                &quot;title&quot;: citation.title,</code>
           </li>
         </div>
       
@@ -4419,7 +4408,7 @@
 
             
 
-            <code class="ruby">        }</code>
+            <code class="ruby">                &quot;id&quot;: citation.id,</code>
           </li>
         </div>
       
@@ -4430,7 +4419,7 @@
 
             
 
-            <code class="ruby">      ]</code>
+            <code class="ruby">                &quot;doi&quot;: citation.doi } </code>
           </li>
         </div>
       
@@ -4441,7 +4430,7 @@
 
             
 
-            <code class="ruby">    }</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -4452,12 +4441,144 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">            {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">              &quot;name&quot;: &#39;references&#39;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">              &quot;children&quot;: references.map { |reference| {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="45" data-linenumber="51">
+            <span class="hits">45</span>
+            
+
+            
+
+            <code class="ruby">                &quot;title&quot;: reference.title, </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">                &quot;id&quot;: reference.id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">                &quot;doi&quot;: reference.doi } </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">              }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">            }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">          ]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">        }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">    }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
@@ -15205,29 +15326,29 @@
 
             
 
-            <code class="ruby">      expected = {</code>
+            <code class="ruby">      expected = </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">      {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="52">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        &quot;name&quot;: main_investigation_main_work.title,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
-            
-
-            <code class="ruby">        &quot;children&quot;: [</code>
+            <code class="ruby">        &quot;id&quot;: main_investigation_main_work.id,</code>
           </li>
         </div>
       
@@ -15238,7 +15359,7 @@
 
             
 
-            <code class="ruby">          {</code>
+            <code class="ruby">        &quot;data&quot;:</code>
           </li>
         </div>
       
@@ -15249,7 +15370,7 @@
 
             
 
-            <code class="ruby">            &quot;name&quot;: &#39;citations&#39;,</code>
+            <code class="ruby">          {</code>
           </li>
         </div>
       
@@ -15260,7 +15381,7 @@
 
             
 
-            <code class="ruby">            &quot;children&quot;: [</code>
+            <code class="ruby">            &quot;name&quot;: main_investigation_main_work.title,</code>
           </li>
         </div>
       
@@ -15271,7 +15392,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: citations[0].title },</code>
+            <code class="ruby">            &quot;children&quot;: [</code>
           </li>
         </div>
       
@@ -15282,7 +15403,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: citations[1].title },</code>
+            <code class="ruby">              {</code>
           </li>
         </div>
       
@@ -15293,7 +15414,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: citations[2].title },</code>
+            <code class="ruby">                &quot;name&quot;: &#39;citations&#39;,</code>
           </li>
         </div>
       
@@ -15304,7 +15425,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: citations[3].title },</code>
+            <code class="ruby">                &quot;children&quot;: [</code>
           </li>
         </div>
       
@@ -15315,7 +15436,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: citations[4].title }</code>
+            <code class="ruby">                  { </code>
           </li>
         </div>
       
@@ -15326,7 +15447,7 @@
 
             
 
-            <code class="ruby">            ]</code>
+            <code class="ruby">                    &quot;title&quot;: citations[0].title,</code>
           </li>
         </div>
       
@@ -15337,7 +15458,7 @@
 
             
 
-            <code class="ruby">          },</code>
+            <code class="ruby">                    &quot;id&quot;: citations[0].id,</code>
           </li>
         </div>
       
@@ -15348,7 +15469,7 @@
 
             
 
-            <code class="ruby">          {</code>
+            <code class="ruby">                    &quot;doi&quot;: citations[0].doi </code>
           </li>
         </div>
       
@@ -15359,7 +15480,7 @@
 
             
 
-            <code class="ruby">            &quot;name&quot;: &#39;references&#39;,</code>
+            <code class="ruby">                  },</code>
           </li>
         </div>
       
@@ -15370,7 +15491,7 @@
 
             
 
-            <code class="ruby">            &quot;children&quot;: [</code>
+            <code class="ruby">                  { </code>
           </li>
         </div>
       
@@ -15381,7 +15502,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: references[0].title },</code>
+            <code class="ruby">                    &quot;title&quot;: citations[1].title,</code>
           </li>
         </div>
       
@@ -15392,7 +15513,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: references[1].title },</code>
+            <code class="ruby">                    &quot;id&quot;: citations[1].id,</code>
           </li>
         </div>
       
@@ -15403,7 +15524,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: references[2].title },</code>
+            <code class="ruby">                    &quot;doi&quot;: citations[1].doi </code>
           </li>
         </div>
       
@@ -15414,7 +15535,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: references[3].title },</code>
+            <code class="ruby">                  },</code>
           </li>
         </div>
       
@@ -15425,7 +15546,7 @@
 
             
 
-            <code class="ruby">              { &quot;name&quot;: references[4].title }</code>
+            <code class="ruby">                  { </code>
           </li>
         </div>
       
@@ -15436,7 +15557,7 @@
 
             
 
-            <code class="ruby">            ]</code>
+            <code class="ruby">                    &quot;title&quot;: citations[2].title,</code>
           </li>
         </div>
       
@@ -15447,7 +15568,7 @@
 
             
 
-            <code class="ruby">          }</code>
+            <code class="ruby">                    &quot;id&quot;: citations[2].id,</code>
           </li>
         </div>
       
@@ -15458,7 +15579,7 @@
 
             
 
-            <code class="ruby">        ]</code>
+            <code class="ruby">                    &quot;doi&quot;: citations[2].doi </code>
           </li>
         </div>
       
@@ -15469,7 +15590,7 @@
 
             
 
-            <code class="ruby">      }</code>
+            <code class="ruby">                  },</code>
           </li>
         </div>
       
@@ -15480,18 +15601,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">                  { </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="76">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="76">
+            
             
 
             
 
-            <code class="ruby">      actual = main_investigation_main_work.citation_reference_tree_json</code>
+            <code class="ruby">                    &quot;title&quot;: citations[3].title,</code>
           </li>
         </div>
       
@@ -15502,18 +15623,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">                    &quot;id&quot;: citations[3].id,</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="78">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="78">
+            
             
 
             
 
-            <code class="ruby">      expect(actual).to eq(expected)</code>
+            <code class="ruby">                    &quot;doi&quot;: citations[3].doi </code>
           </li>
         </div>
       
@@ -15524,7 +15645,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">                  },</code>
           </li>
         </div>
       
@@ -15535,12 +15656,507 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">                  { </code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: citations[4].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: citations[4].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: citations[4].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">                  }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby">                ]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="86">
+            
+            
+
+            
+
+            <code class="ruby">              },</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">              {</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">                &quot;name&quot;: &#39;references&#39;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
+            
+            
+
+            
+
+            <code class="ruby">                &quot;children&quot;: [</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">                  { </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: references[0].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="92">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: references[0].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="93">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: references[0].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="94">
+            
+            
+
+            
+
+            <code class="ruby">                  },</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby">                  { </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: references[1].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: references[1].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="98">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: references[1].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="99">
+            
+            
+
+            
+
+            <code class="ruby">                  },</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="100">
+            
+            
+
+            
+
+            <code class="ruby">                  { </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: references[2].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="102">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: references[2].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: references[2].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="104">
+            
+            
+
+            
+
+            <code class="ruby">                  },</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
+            <code class="ruby">                  { </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="106">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: references[3].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="107">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: references[3].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="108">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: references[3].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="109">
+            
+            
+
+            
+
+            <code class="ruby">                  },</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">                  { </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;title&quot;: references[4].title,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;id&quot;: references[4].id,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="113">
+            
+            
+
+            
+
+            <code class="ruby">                    &quot;doi&quot;: references[4].doi </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby">                  }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="115">
+            
+            
+
+            
+
+            <code class="ruby">                ]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="116">
+            
+            
+
+            
+
+            <code class="ruby">              }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="117">
+            
+            
+
+            
+
+            <code class="ruby">            ]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="118">
+            
+            
+
+            
+
+            <code class="ruby">          }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="119">
+            
+            
+
+            
+
+            <code class="ruby">      }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="120">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      actual = main_investigation_main_work.citation_reference_tree_json</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="123">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(actual).to eq(expected)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="124">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="125">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="126">
             
             
 
@@ -18729,7 +19345,7 @@
     <h3>spec/requests/api/v1/works_request_spec.rb</h3>
     <h4>
       <span class="green">
-  98.02%
+  100.0%
 </span>
 
       lines covered
@@ -18738,9 +19354,9 @@
     
 
     <div class="t-line-summary">
-      <b>101</b> relevant lines.
-      <span class="green"><b>99</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>102</b> relevant lines.
+      <span class="green"><b>102</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -20445,13 +21061,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="155">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    expect(response).to be_successful</code>
+            
+
+            <code class="ruby">    json_response = JSON.parse(response.body, symbolize_names: true)[:data]</code>
           </li>
         </div>
       
@@ -20462,29 +21078,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="157">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="157">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    work_response = JSON.parse(response.body, symbolize_names: true)[:data].first</code>
+            
+
+            <code class="ruby">    expect(response).to be_successful</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="158">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="158">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    expect(json_response).to eq(root_work.citation_reference_tree_json[:data])</code>
           </li>
         </div>
       

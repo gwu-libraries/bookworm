@@ -37,7 +37,6 @@ module Api
       end
 
       def tree_json
-        require 'pry'; binding.pry 
         # does this need to be serialized with a "data" key for the front end?
         render json: @work.citation_reference_tree_json
       end

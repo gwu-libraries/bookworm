@@ -152,10 +152,10 @@ RSpec.describe 'works API' do
 
     get "/api/v1/works/#{root_work.id}/tree_json"
     
+    json_response = JSON.parse(response.body, symbolize_names: true)[:data]
+    
     expect(response).to be_successful
-
-    work_response = JSON.parse(response.body, symbolize_names: true)[:data].first
-
+    expect(json_response).to eq(root_work.citation_reference_tree_json[:data])
 
   end
 
