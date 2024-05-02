@@ -696,6 +696,29 @@
           null
         ]
       },
+      "/Users/alexboyd/repos/book_worm_api/spec/support/database_cleaner.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          61,
+          null,
+          null,
+          1,
+          61,
+          null,
+          null,
+          1,
+          61,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/alexboyd/repos/book_worm_api/app/facades/crossref_facade.rb": {
         "lines": [
           null,
@@ -2251,6 +2274,6 @@
         ]
       }
     },
-    "timestamp": 1714615475
+    "timestamp": 1714615987
   }
 }
