@@ -24,6 +24,7 @@ module Api
         end
       end
 
+      # this is not where this goes lol, but temporary bad fix
       def work_list
         works = Investigation.find_by(id: params[:investigation_id]).works
 

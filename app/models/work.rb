@@ -26,6 +26,10 @@ class Work < ApplicationRecord
     references << Work.find(work_id)
   end
 
+  def root_work?
+    root_work
+  end
+
   def citation_reference_tree_json
     {
       "name": title,

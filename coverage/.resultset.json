@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/spec_helper.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/spec_helper.rb": {
         "lines": [
           null,
           null,
@@ -99,7 +99,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/environment.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -110,7 +110,7 @@
           1
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/application.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/application.rb": {
         "lines": [
           null,
           null,
@@ -145,14 +145,14 @@
           null,
           1,
           null,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/boot.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/boot.rb": {
         "lines": [
           null,
           null,
@@ -162,7 +162,7 @@
           1
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/environments/test.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -232,7 +232,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/initializers/cors.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/initializers/cors.rb": {
         "lines": [
           null,
           null,
@@ -254,7 +254,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/initializers/devise.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -571,7 +571,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/initializers/filter_parameter_logging.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -585,7 +585,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/initializers/inflections.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -607,7 +607,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/factories/connections.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/factories/connections.rb": {
         "lines": [
           null,
           null,
@@ -619,7 +619,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/factories/investigations.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/factories/investigations.rb": {
         "lines": [
           null,
           null,
@@ -631,7 +631,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/factories/keys.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/factories/keys.rb": {
         "lines": [
           null,
           null,
@@ -644,7 +644,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/factories/users.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/factories/users.rb": {
         "lines": [
           null,
           null,
@@ -656,7 +656,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/factories/work.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/factories/work.rb": {
         "lines": [
           null,
           null,
@@ -665,11 +665,12 @@
           1,
           52,
           52,
+          51,
           null,
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/config/routes.rb": {
+      "/Users/alexboyd/repos/book_worm_api/config/routes.rb": {
         "lines": [
           null,
           null,
@@ -695,7 +696,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/facades/crossref_facade.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/facades/crossref_facade.rb": {
         "lines": [
           null,
           null,
@@ -719,7 +720,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/facades/semantic_scholar_facade_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/facades/semantic_scholar_facade_spec.rb": {
         "lines": [
           null,
           null,
@@ -748,7 +749,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/facades/semantic_scholar_facade.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/facades/semantic_scholar_facade.rb": {
         "lines": [
           null,
           null,
@@ -772,7 +773,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/connection_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/models/connection_spec.rb": {
         "lines": [
           null,
           null,
@@ -791,7 +792,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/connection.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/models/connection.rb": {
         "lines": [
           null,
           null,
@@ -804,7 +805,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/application_record.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -813,7 +814,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/investigation_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/models/investigation_spec.rb": {
         "lines": [
           null,
           null,
@@ -821,71 +822,6 @@
           null,
           1,
           1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/investigation.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/key_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/key.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/user_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          2,
           2,
           null,
           null,
@@ -896,7 +832,72 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/user.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/models/investigation.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/spec/models/key_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/app/models/key.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/spec/models/user_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/alexboyd/repos/book_worm_api/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -912,7 +913,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/models/work_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/models/work_spec.rb": {
         "lines": [
           null,
           null,
@@ -997,7 +998,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/models/work.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/models/work.rb": {
         "lines": [
           null,
           null,
@@ -1028,6 +1029,10 @@
           null,
           null,
           1,
+          0,
+          null,
+          null,
+          1,
           null,
           1,
           null,
@@ -1045,7 +1050,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/poros/crossref_reference_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/poros/crossref_reference_spec.rb": {
         "lines": [
           null,
           null,
@@ -1065,7 +1070,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/poros/crossref_reference.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/poros/crossref_reference.rb": {
         "lines": [
           null,
           null,
@@ -1082,7 +1087,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/poros/crossref_work_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/poros/crossref_work_spec.rb": {
         "lines": [
           null,
           null,
@@ -1101,7 +1106,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/poros/crossref_work.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/poros/crossref_work.rb": {
         "lines": [
           null,
           null,
@@ -1118,7 +1123,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/poros/semantic_scholar_work_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/poros/semantic_scholar_work_spec.rb": {
         "lines": [
           null,
           null,
@@ -1161,7 +1166,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/poros/semantic_scholar_work.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/poros/semantic_scholar_work.rb": {
         "lines": [
           null,
           null,
@@ -1182,7 +1187,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/requests/api/v1/investigations_request_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/requests/api/v1/investigations_request_spec.rb": {
         "lines": [
           null,
           null,
@@ -1276,7 +1281,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/requests/api/v1/keys_request_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/requests/api/v1/keys_request_spec.rb": {
         "lines": [
           null,
           null,
@@ -1394,7 +1399,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/requests/api/v1/works_request_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/requests/api/v1/works_request_spec.rb": {
         "lines": [
           null,
           null,
@@ -1570,7 +1575,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/services/base_service_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/services/base_service_spec.rb": {
         "lines": [
           null,
           null,
@@ -1595,7 +1600,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/services/base_service.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/services/base_service.rb": {
         "lines": [
           null,
           null,
@@ -1614,7 +1619,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/services/crossref_service_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/services/crossref_service_spec.rb": {
         "lines": [
           null,
           null,
@@ -1782,7 +1787,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/services/crossref_service.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/services/crossref_service.rb": {
         "lines": [
           null,
           null,
@@ -1801,7 +1806,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/spec/services/semantic_scholar_service_spec.rb": {
+      "/Users/alexboyd/repos/book_worm_api/spec/services/semantic_scholar_service_spec.rb": {
         "lines": [
           null,
           null,
@@ -1894,7 +1899,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/services/semantic_scholar_service.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/services/semantic_scholar_service.rb": {
         "lines": [
           null,
           null,
@@ -1955,7 +1960,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/lib/faker/archival.rb": {
+      "/Users/alexboyd/repos/book_worm_api/lib/faker/archival.rb": {
         "lines": [
           null,
           null,
@@ -1972,7 +1977,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/controllers/api/v1/investigations_controller.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/api/v1/investigations_controller.rb": {
         "lines": [
           null,
           null,
@@ -2000,6 +2005,7 @@
           null,
           null,
           null,
+          null,
           1,
           1,
           null,
@@ -2024,7 +2030,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/controllers/application_controller.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -2033,7 +2039,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/controllers/concerns/response.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/concerns/response.rb": {
         "lines": [
           null,
           null,
@@ -2052,7 +2058,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/serializers/investigation_serializer.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/serializers/investigation_serializer.rb": {
         "lines": [
           null,
           null,
@@ -2080,7 +2086,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/serializers/work_serializer.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/serializers/work_serializer.rb": {
         "lines": [
           null,
           null,
@@ -2108,7 +2114,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/controllers/api/v1/keys_controller.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/api/v1/keys_controller.rb": {
         "lines": [
           null,
           null,
@@ -2158,7 +2164,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/serializers/key_serializer.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/serializers/key_serializer.rb": {
         "lines": [
           null,
           null,
@@ -2186,7 +2192,7 @@
           null
         ]
       },
-      "/Users/alexander.boyd/Documents/repos/book_worm_api/app/controllers/api/v1/works_controller.rb": {
+      "/Users/alexboyd/repos/book_worm_api/app/controllers/api/v1/works_controller.rb": {
         "lines": [
           null,
           null,
@@ -2245,6 +2251,6 @@
         ]
       }
     },
-    "timestamp": 1714596921
+    "timestamp": 1714615475
   }
 }

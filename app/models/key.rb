@@ -5,7 +5,7 @@ class Key < ApplicationRecord
   validates :value, presence: true
   validates :user_id, presence: true
 
-  encrypts :value
+  # encrypts :value
 
   belongs_to :user
 end

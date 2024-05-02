@@ -5,5 +5,6 @@ FactoryBot.define do
     investigation_id {}
     doi { Faker::Archival.doi }
     title { Faker::Book.title }
+    root_work { false }
   end
 end

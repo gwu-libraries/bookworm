@@ -25,7 +25,7 @@ RSpec.describe Work, type: :model do
 
       main_investigation = FactoryBot.create(:investigation, user_id: user.id)
 
-      main_investigation_main_work = FactoryBot.create(:work, investigation_id: main_investigation.id)
+      main_investigation_main_work = FactoryBot.create(:work, investigation_id: main_investigation.id, root_work: true)
 
       references = []
       5.times do

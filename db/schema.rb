@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_153043) do
     t.integer "investigation_id"
     t.string "doi"
     t.string "title"
+    t.boolean "root_work", default: false, null: false
+    t.boolean "boolean", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

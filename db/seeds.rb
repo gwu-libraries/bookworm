@@ -30,7 +30,8 @@ investigation_3 = FactoryBot.create(:investigation,
 # root work
 root_work = FactoryBot.create(:work,
                               investigation_id: investigation_1.id,
-                              title: 'Root Work')
+                              title: 'Root Work',
+                              root_work: true)
 # citations
 citations = FactoryBot.create_list(:work, 20, investigation_id: investigation_1.id)
 citations.map { |citation| Connection.create(reference_id: root_work.id, citation_id: citation.id) }
