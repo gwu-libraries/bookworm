@@ -118,7 +118,7 @@ RSpec.describe Work, type: :model do
             }
         }
 
-      actual = main_investigation_main_work.citation_reference_tree_json
+      actual = main_investigation_main_work.citation_reference_tree
 
       expect(actual).to eq(expected)
     end

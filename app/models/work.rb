@@ -30,7 +30,7 @@ class Work < ApplicationRecord
     root_work
   end
 
-  def citation_reference_tree_json
+  def citation_reference_tree
     {
       "id": id,
       "data":

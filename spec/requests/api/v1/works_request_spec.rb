@@ -138,7 +138,7 @@ RSpec.describe 'works API' do
     expect(work_response[:title]).to eq('A Cool New Title')
   end
 
-  it 'can get the tree_json for a work' do
+  it 'can get the tree for a work' do
     root_work = FactoryBot.create(:work,
                                   investigation_id: @investigation.id,
                                   title: 'Root Work',
@@ -150,12 +150,12 @@ RSpec.describe 'works API' do
     references = FactoryBot.create_list(:work, 20, investigation_id: @investigation.id)
     references.map { |reference| Connection.create(reference_id: reference.id, citation_id: root_work.id) }
 
-    get "/api/v1/works/#{root_work.id}/tree_json"
+    get "/api/v1/works/#{root_work.id}/tree"
 
     json_response = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(response).to be_successful
-    expect(json_response).to eq(root_work.citation_reference_tree_json[:data])
+    expect(json_response).to eq(root_work.citation_reference_tree[:data])
   end
 
   # these should be in the model spec file probably
