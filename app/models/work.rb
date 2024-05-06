@@ -33,32 +33,21 @@ class Work < ApplicationRecord
   def citation_reference_tree
     {
       "id": id,
-      "data":
-        {
-          "name": title,
-          "children": [
-            {
-              "name": 'citations',
-              "children": citations.map do |citation|
-                {
-                  "title": citation.title,
-                  "id": citation.id,
-                  "doi": citation.doi
-                }
-              end
-            },
-            {
-              "name": 'references',
-              "children": references.map do |reference|
-                {
-                  "title": reference.title,
-                  "id": reference.id,
-                  "doi": reference.doi
-                }
-              end
-            }
-          ]
-        }
+      "title": title,
+      "citations": citations.map do |citation|
+                     {
+                       "title": citation.title,
+                       "id": citation.id,
+                       "doi": citation.doi
+                     }
+                   end,
+      "references": references.map do |reference|
+                      {
+                        "title": reference.title,
+                        "id": reference.id,
+                        "doi": reference.doi
+                      }
+                    end
     }
   end
 end
