@@ -34,20 +34,28 @@ class Work < ApplicationRecord
     {
       "id": id,
       "title": title,
-      "citations": citations.map do |citation|
-                     {
-                       "title": citation.title,
-                       "id": citation.id,
-                       "doi": citation.doi
-                     }
-                   end,
-      "references": references.map do |reference|
-                      {
-                        "title": reference.title,
-                        "id": reference.id,
-                        "doi": reference.doi
-                      }
-                    end
+      "children": [
+        {
+          "name": 'citations',
+          "children": citations.map do |citation|
+            {
+              "title": citation.title,
+              "id": citation.id,
+              "doi": citation.doi
+            }
+          end
+        },
+        {
+          "name": 'references',
+          "children": references.map do |reference|
+            {
+              "title": reference.title,
+              "id": reference.id,
+              "doi": reference.doi
+            }
+          end
+        }
+      ]
     }
   end
 end
