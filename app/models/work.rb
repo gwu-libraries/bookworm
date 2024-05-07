@@ -47,6 +47,7 @@ class Work < ApplicationRecord
                 "title": citation.title,
                 "doi": citation.doi
               }
+              # can do some recursive shenanigans here with `citation.citation_reference_tree`
             }
           end
         },
@@ -59,6 +60,7 @@ class Work < ApplicationRecord
                 "title": reference.title,
                 "doi": reference.doi
               }
+              # can do some recursive shenanigans here with `reference.citation_reference_tree`
             }
           end
         }
