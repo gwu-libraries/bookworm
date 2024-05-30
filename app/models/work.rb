@@ -37,34 +37,28 @@ class Work < ApplicationRecord
         "title": title,
         "doi": doi
       },
-      "children": [
-        {
-          "name": 'citations',
-          "children": citations.map do |citation|
-            {
-              "work_id": citation.id,
-              "attributes": {
-                "title": citation.title,
-                "doi": citation.doi
-              }
-              # can do some recursive shenanigans here with `citation.citation_reference_tree`
+      "citations": [
+        citations.map do |citation|
+          {
+            "work_id": citation.id,
+            "attributes": {
+              "title": citation.title,
+              "doi": citation.doi
             }
-          end
-        },
-        {
-          "name": 'references',
-          "children": references.map do |reference|
-            {
-              "work_id": reference.id,
-              "attributes": {
-                "title": reference.title,
-                "doi": reference.doi
-              }
-              # can do some recursive shenanigans here with `reference.citation_reference_tree`
+          }
+        end
+      ].flatten,
+      "references": [
+        references.map do |reference|
+          {
+            "work_id": reference.id,
+            "attributes": {
+              "title": reference.title,
+              "doi": reference.doi
             }
-          end
-        }
-      ]
+          }
+        end
+      ].flatten
     }
   end
 end

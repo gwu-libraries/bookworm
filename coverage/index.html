@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-07T14:42:23-04:00">2024-05-07T14:42:23-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-30T12:32:22-04:00">2024-05-30T12:32:22-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -205,7 +205,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#2800927860cb3da18ebfa56cdbebd1ec544b450f" class="src_link" title="app/models/work.rb">app/models/work.rb</a></td>
             <td class="green strong cell--number t-file__coverage">94.74 %</td>
-            <td class="cell--number">70</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">19</td>
             <td class="cell--number">18</td>
             <td class="cell--number">1</td>
@@ -535,7 +535,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#684918cd830d2b7e67295ca233988658bee99016" class="src_link" title="spec/models/work_spec.rb">spec/models/work_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">147</td>
+            <td class="cell--number">138</td>
             <td class="cell--number">32</td>
             <td class="cell--number">32</td>
             <td class="cell--number">0</td>
@@ -4364,7 +4364,7 @@
 
             
 
-            <code class="ruby">      &quot;children&quot;: [</code>
+            <code class="ruby">      &quot;citations&quot;: [</code>
           </li>
         </div>
       
@@ -4375,7 +4375,7 @@
 
             
 
-            <code class="ruby">        {</code>
+            <code class="ruby">        citations.map do |citation|</code>
           </li>
         </div>
       
@@ -4386,18 +4386,18 @@
 
             
 
-            <code class="ruby">          &quot;name&quot;: &#39;citations&#39;,</code>
+            <code class="ruby">          {</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
+          <li class="covered" data-hits="45" data-linenumber="43">
+            <span class="hits">45</span>
             
 
-            <code class="ruby">          &quot;children&quot;: citations.map do |citation|</code>
+            
+
+            <code class="ruby">            &quot;work_id&quot;: citation.id,</code>
           </li>
         </div>
       
@@ -4408,18 +4408,18 @@
 
             
 
-            <code class="ruby">            {</code>
+            <code class="ruby">            &quot;attributes&quot;: {</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="45" data-linenumber="45">
-            <span class="hits">45</span>
+          <li class="never" data-hits="" data-linenumber="45">
+            
             
 
             
 
-            <code class="ruby">              &quot;work_id&quot;: citation.id,</code>
+            <code class="ruby">              &quot;title&quot;: citation.title,</code>
           </li>
         </div>
       
@@ -4430,7 +4430,7 @@
 
             
 
-            <code class="ruby">              &quot;attributes&quot;: {</code>
+            <code class="ruby">              &quot;doi&quot;: citation.doi</code>
           </li>
         </div>
       
@@ -4441,7 +4441,7 @@
 
             
 
-            <code class="ruby">                &quot;title&quot;: citation.title,</code>
+            <code class="ruby">            }</code>
           </li>
         </div>
       
@@ -4452,7 +4452,7 @@
 
             
 
-            <code class="ruby">                &quot;doi&quot;: citation.doi</code>
+            <code class="ruby">          }</code>
           </li>
         </div>
       
@@ -4463,7 +4463,7 @@
 
             
 
-            <code class="ruby">              }</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -4474,7 +4474,7 @@
 
             
 
-            <code class="ruby">              # can do some recursive shenanigans here with `citation.citation_reference_tree`</code>
+            <code class="ruby">      ].flatten,</code>
           </li>
         </div>
       
@@ -4485,7 +4485,7 @@
 
             
 
-            <code class="ruby">            }</code>
+            <code class="ruby">      &quot;references&quot;: [</code>
           </li>
         </div>
       
@@ -4496,7 +4496,7 @@
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">        references.map do |reference|</code>
           </li>
         </div>
       
@@ -4507,18 +4507,18 @@
 
             
 
-            <code class="ruby">        },</code>
+            <code class="ruby">          {</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
+          <li class="covered" data-hits="45" data-linenumber="54">
+            <span class="hits">45</span>
             
 
-            <code class="ruby">        {</code>
+            
+
+            <code class="ruby">            &quot;work_id&quot;: reference.id,</code>
           </li>
         </div>
       
@@ -4529,7 +4529,7 @@
 
             
 
-            <code class="ruby">          &quot;name&quot;: &#39;references&#39;,</code>
+            <code class="ruby">            &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -4540,7 +4540,7 @@
 
             
 
-            <code class="ruby">          &quot;children&quot;: references.map do |reference|</code>
+            <code class="ruby">              &quot;title&quot;: reference.title,</code>
           </li>
         </div>
       
@@ -4551,78 +4551,12 @@
 
             
 
-            <code class="ruby">            {</code>
+            <code class="ruby">              &quot;doi&quot;: reference.doi</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="45" data-linenumber="58">
-            <span class="hits">45</span>
-            
-
-            
-
-            <code class="ruby">              &quot;work_id&quot;: reference.id,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby">              &quot;attributes&quot;: {</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">                &quot;title&quot;: reference.title,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">                &quot;doi&quot;: reference.doi</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
-            <code class="ruby">              }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">              # can do some recursive shenanigans here with `reference.citation_reference_tree`</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
@@ -4633,40 +4567,40 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="59">
             
             
 
             
 
-            <code class="ruby">          end</code>
+            <code class="ruby">          }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="66">
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
             
 
-            <code class="ruby">        }</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
             
 
-            <code class="ruby">      ]</code>
+            <code class="ruby">      ].flatten</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
@@ -4677,7 +4611,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="69">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -4688,7 +4622,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 
@@ -15513,7 +15447,7 @@
 
             
 
-            <code class="ruby">          &quot;children&quot;: [</code>
+            <code class="ruby">          &quot;citations&quot;: [</code>
           </li>
         </div>
       
@@ -15535,7 +15469,7 @@
 
             
 
-            <code class="ruby">              &quot;name&quot;: &#39;citations&#39;,</code>
+            <code class="ruby">              &quot;work_id&quot;: citations[0].id,</code>
           </li>
         </div>
       
@@ -15546,7 +15480,7 @@
 
             
 
-            <code class="ruby">              &quot;children&quot;: [</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15557,7 +15491,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">                &quot;title&quot;: citations[0].title,</code>
           </li>
         </div>
       
@@ -15568,7 +15502,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: citations[0].id,</code>
+            <code class="ruby">                &quot;doi&quot;: citations[0].doi</code>
           </li>
         </div>
       
@@ -15579,7 +15513,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15590,7 +15524,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: citations[0].title,</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -15601,7 +15535,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: citations[0].doi</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -15612,7 +15546,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">              &quot;work_id&quot;: citations[1].id,</code>
           </li>
         </div>
       
@@ -15623,7 +15557,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15634,7 +15568,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">                &quot;title&quot;: citations[1].title,</code>
           </li>
         </div>
       
@@ -15645,7 +15579,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: citations[1].id,</code>
+            <code class="ruby">                &quot;doi&quot;: citations[1].doi</code>
           </li>
         </div>
       
@@ -15656,7 +15590,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15667,7 +15601,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: citations[1].title,</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -15678,7 +15612,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: citations[1].doi</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -15689,7 +15623,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">              &quot;work_id&quot;: citations[2].id,</code>
           </li>
         </div>
       
@@ -15700,7 +15634,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15711,7 +15645,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">                &quot;title&quot;: citations[2].title,</code>
           </li>
         </div>
       
@@ -15722,7 +15656,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: citations[2].id,</code>
+            <code class="ruby">                &quot;doi&quot;: citations[2].doi</code>
           </li>
         </div>
       
@@ -15733,7 +15667,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15744,7 +15678,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: citations[2].title,</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -15755,7 +15689,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: citations[2].doi</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -15766,7 +15700,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">              &quot;work_id&quot;: citations[3].id,</code>
           </li>
         </div>
       
@@ -15777,7 +15711,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15788,7 +15722,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">                &quot;title&quot;: citations[3].title,</code>
           </li>
         </div>
       
@@ -15799,7 +15733,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: citations[3].id,</code>
+            <code class="ruby">                &quot;doi&quot;: citations[3].doi</code>
           </li>
         </div>
       
@@ -15810,7 +15744,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15821,7 +15755,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: citations[3].title,</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -15832,7 +15766,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: citations[3].doi</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -15843,7 +15777,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">              &quot;work_id&quot;: citations[4].id,</code>
           </li>
         </div>
       
@@ -15854,7 +15788,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15865,7 +15799,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">                &quot;title&quot;: citations[4].title,</code>
           </li>
         </div>
       
@@ -15876,7 +15810,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: citations[4].id,</code>
+            <code class="ruby">                &quot;doi&quot;: citations[4].doi</code>
           </li>
         </div>
       
@@ -15887,7 +15821,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15898,7 +15832,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: citations[4].title,</code>
+            <code class="ruby">            }</code>
           </li>
         </div>
       
@@ -15909,7 +15843,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: citations[4].doi</code>
+            <code class="ruby">          ],</code>
           </li>
         </div>
       
@@ -15920,7 +15854,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">          &quot;references&quot;: [</code>
           </li>
         </div>
       
@@ -15931,7 +15865,7 @@
 
             
 
-            <code class="ruby">                }</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -15942,7 +15876,7 @@
 
             
 
-            <code class="ruby">              ]</code>
+            <code class="ruby">              &quot;work_id&quot;: references[0].id,</code>
           </li>
         </div>
       
@@ -15953,7 +15887,7 @@
 
             
 
-            <code class="ruby">            },</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -15964,7 +15898,7 @@
 
             
 
-            <code class="ruby">            {</code>
+            <code class="ruby">                &quot;title&quot;: references[0].title,</code>
           </li>
         </div>
       
@@ -15975,7 +15909,7 @@
 
             
 
-            <code class="ruby">              &quot;name&quot;: &#39;references&#39;,</code>
+            <code class="ruby">                &quot;doi&quot;: references[0].doi</code>
           </li>
         </div>
       
@@ -15986,7 +15920,7 @@
 
             
 
-            <code class="ruby">              &quot;children&quot;: [</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -15997,7 +15931,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -16008,7 +15942,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: references[0].id,</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -16019,7 +15953,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              &quot;work_id&quot;: references[1].id,</code>
           </li>
         </div>
       
@@ -16030,7 +15964,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: references[0].title,</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -16041,7 +15975,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: references[0].doi</code>
+            <code class="ruby">                &quot;title&quot;: references[1].title,</code>
           </li>
         </div>
       
@@ -16052,7 +15986,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">                &quot;doi&quot;: references[1].doi</code>
           </li>
         </div>
       
@@ -16063,7 +15997,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -16074,7 +16008,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -16085,7 +16019,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: references[1].id,</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -16096,7 +16030,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              &quot;work_id&quot;: references[2].id,</code>
           </li>
         </div>
       
@@ -16107,7 +16041,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: references[1].title,</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -16118,7 +16052,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: references[1].doi</code>
+            <code class="ruby">                &quot;title&quot;: references[2].title,</code>
           </li>
         </div>
       
@@ -16129,7 +16063,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">                &quot;doi&quot;: references[2].doi</code>
           </li>
         </div>
       
@@ -16140,7 +16074,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -16151,7 +16085,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -16162,7 +16096,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: references[2].id,</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -16173,7 +16107,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              &quot;work_id&quot;: references[3].id,</code>
           </li>
         </div>
       
@@ -16184,7 +16118,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: references[2].title,</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -16195,7 +16129,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: references[2].doi</code>
+            <code class="ruby">                &quot;title&quot;: references[3].title,</code>
           </li>
         </div>
       
@@ -16206,7 +16140,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">                &quot;doi&quot;: references[3].doi</code>
           </li>
         </div>
       
@@ -16217,7 +16151,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -16228,7 +16162,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">            },</code>
           </li>
         </div>
       
@@ -16239,7 +16173,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: references[3].id,</code>
+            <code class="ruby">            {</code>
           </li>
         </div>
       
@@ -16250,7 +16184,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">              &quot;work_id&quot;: references[4].id,</code>
           </li>
         </div>
       
@@ -16261,7 +16195,7 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: references[3].title,</code>
+            <code class="ruby">              &quot;attributes&quot;: {</code>
           </li>
         </div>
       
@@ -16272,7 +16206,7 @@
 
             
 
-            <code class="ruby">                    &quot;doi&quot;: references[3].doi</code>
+            <code class="ruby">                &quot;title&quot;: references[4].title,</code>
           </li>
         </div>
       
@@ -16283,7 +16217,7 @@
 
             
 
-            <code class="ruby">                  }</code>
+            <code class="ruby">                &quot;doi&quot;: references[4].doi</code>
           </li>
         </div>
       
@@ -16294,7 +16228,7 @@
 
             
 
-            <code class="ruby">                },</code>
+            <code class="ruby">              }</code>
           </li>
         </div>
       
@@ -16305,7 +16239,7 @@
 
             
 
-            <code class="ruby">                {</code>
+            <code class="ruby">            }</code>
           </li>
         </div>
       
@@ -16316,7 +16250,7 @@
 
             
 
-            <code class="ruby">                  &quot;work_id&quot;: references[4].id,</code>
+            <code class="ruby">          ]</code>
           </li>
         </div>
       
@@ -16327,7 +16261,7 @@
 
             
 
-            <code class="ruby">                  &quot;attributes&quot;: {</code>
+            <code class="ruby">        }</code>
           </li>
         </div>
       
@@ -16338,111 +16272,12 @@
 
             
 
-            <code class="ruby">                    &quot;title&quot;: references[4].title,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="133">
-            
-            
-
-            
-
-            <code class="ruby">                    &quot;doi&quot;: references[4].doi</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="134">
-            
-            
-
-            
-
-            <code class="ruby">                  }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="135">
-            
-            
-
-            
-
-            <code class="ruby">                }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="136">
-            
-            
-
-            
-
-            <code class="ruby">              ]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="137">
-            
-            
-
-            
-
-            <code class="ruby">            }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="138">
-            
-            
-
-            
-
-            <code class="ruby">          ]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="139">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="140">
-            
-            
-
-            
-
-            <code class="ruby">        }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="141">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="142">
+          <li class="covered" data-hits="1" data-linenumber="133">
             <span class="hits">1</span>
             
 
@@ -16453,7 +16288,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="143">
+          <li class="never" data-hits="" data-linenumber="134">
             
             
 
@@ -16464,7 +16299,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="144">
+          <li class="covered" data-hits="1" data-linenumber="135">
             <span class="hits">1</span>
             
 
@@ -16475,7 +16310,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="145">
+          <li class="never" data-hits="" data-linenumber="136">
             
             
 
@@ -16486,7 +16321,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="146">
+          <li class="never" data-hits="" data-linenumber="137">
             
             
 
@@ -16497,7 +16332,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="147">
+          <li class="never" data-hits="" data-linenumber="138">
             
             
 
