@@ -38,6 +38,7 @@ module Api
 
       def tree
         # does this need to be serialized with a "data" key for the front end?
+        # yes it should
         render json: @work.citation_reference_tree
       end
 
