@@ -3,6 +3,8 @@
 class Investigation < ApplicationRecord
   validates :name, presence: true
 
-  has_many :works
+  has_many :investigation_works
+  has_many :works, through: :investigation_works
+
   belongs_to :user
 end

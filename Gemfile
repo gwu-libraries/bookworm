@@ -45,9 +45,9 @@ gem 'figaro'
 
 gem 'rubocop', require: false
 
-gem "graphiql-rails"
+gem 'graphiql-rails'
 
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -69,4 +69,4 @@ group :development do
   # gem "spring"
 end
 
-gem "graphql", "~> 2.3"
+gem 'graphql', '~> 2.3'

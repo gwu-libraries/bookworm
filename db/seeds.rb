@@ -13,28 +13,37 @@
 user = User.create(email: 'admin@example.com',
                    password: 'pjassword')
 
-Key.create(user_id: user.id,
-           site: 'Semantic Scholar',
-           value: ENV['semantic_scholar_key'])
-
 investigation_1 = FactoryBot.create(:investigation,
                                     user_id: user.id,
                                     name: 'Mikhail Bulgakov')
-FactoryBot.create(:investigation,
-                  user_id: user.id,
-                  name: 'Yevgeny Zamyatin')
-FactoryBot.create(:investigation,
-                  user_id: user.id,
-                  name: 'Maxim Gorky')
+investigation_2 =FactoryBot.create(:investigation,
+                                    user_id: user.id,
+                                    name: 'Yevgeny Zamyatin')
+investigation_3 = FactoryBot.create(:investigation,
+                                    user_id: user.id,
+                                    name: 'Maxim Gorky')
 
 # root work
 root_work = FactoryBot.create(:work,
-                              investigation_id: investigation_1.id,
                               title: 'Root Work',
                               root_work: true)
+
+InvestigationWork.create(investigation_id: investigation_1.id, work_id: root_work.id)
+                              
 # citations
-citations = FactoryBot.create_list(:work, 20, investigation_id: investigation_1.id)
+citations = FactoryBot.create_list(:work, 20)
+
+citations.each do |citation|
+  InvestigationWork.create(investigation_id: investigation_1.id, work_id: citation.id)
+end
+
 citations.map { |citation| Connection.create(reference_id: root_work.id, citation_id: citation.id) }
+
 # references
-references = FactoryBot.create_list(:work, 20, investigation_id: investigation_1.id)
+references = FactoryBot.create_list(:work, 20)
+
+references.each do |reference|
+  InvestigationWork.create(investigation_id: investigation_1.id, work_id: reference.id)
+end
+
 references.map { |reference| Connection.create(reference_id: reference.id, citation_id: root_work.id) }

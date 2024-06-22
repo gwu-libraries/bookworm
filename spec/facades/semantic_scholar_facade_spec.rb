@@ -8,7 +8,7 @@ RSpec.describe SemanticScholarFacade do
 
     data = SemanticScholarFacade.get_paper_details(example_doi)
 
-    expect(data).to be_a(SemanticScholarWork)
+    expect(data).to be_a(Work)
   end
 
   it 'returns an array of works referenced by a paper', :vcr do
@@ -19,7 +19,7 @@ RSpec.describe SemanticScholarFacade do
     expect(data).to be_a(Array)
 
     data.each do |work|
-      expect(work).to be_a(SemanticScholarWork)
+      expect(work).to be_a(Work)
     end
   end
 end

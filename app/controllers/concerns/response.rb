@@ -8,8 +8,4 @@ module Response
   def work_json_response(object, status = :ok)
     render json: WorkSerializer.new(object).serialized_response, status:
   end
-
-  def key_json_response(object, status = :ok)
-    render json: KeySerializer.new(object).serialized_response, status:
-  end
 end
