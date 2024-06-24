@@ -47,7 +47,7 @@ module Types
       argument :id, ID, required: true
     end
     def investigation(id:)
-      Investigation.find(id)
+      Investigation.find_by(id: id)
     end
   end
 end
