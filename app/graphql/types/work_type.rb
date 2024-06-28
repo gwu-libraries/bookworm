@@ -5,8 +5,12 @@ module Types
     field :id, ID, null: false
     field :investigation_id, Integer
     field :doi, String
+    field :openalex_id, String
     field :title, String
-    field :root_work, Boolean, null: false
+    field :language, String
+    field :publication_year, Integer
+    field :keywords, [String]
+    field :topics, [String]
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :citations, [Types::CitationType], null: true

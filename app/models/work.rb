@@ -7,6 +7,9 @@ class Work < ApplicationRecord
   has_many :investigation_works
   has_many :investigations, through: :investigation_works
 
+  has_many :author_works
+  has_many :authors, through: :author_works
+
   # reference_connections "names" the Connection join table for accessing through the reference association
   has_many :reference_connections, foreign_key: :citation_id, class_name: 'Connection'
   # source: :reference matches with the belong_to :reference identification in the Connection model
@@ -18,47 +21,4 @@ class Work < ApplicationRecord
   # source: :citation matches with the belong_to :citation identification in the Connection model
   has_many :citations, through: :citation_connections, source: :citation
 
-  def add_citation(work_id)
-    citations << Work.find(work_id)
-  end
-
-  def add_reference(work_id)
-    references << Work.find(work_id)
-  end
-
-  def root_work?
-    root_work
-  end
-
-  def citation_reference_tree
-    {
-      "work_id": id,
-      "attributes": {
-        "title": title,
-        "doi": doi
-      },
-      "citations": [
-        citations.map do |citation|
-          {
-            "work_id": citation.id,
-            "attributes": {
-              "title": citation.title,
-              "doi": citation.doi
-            }
-          }
-        end
-      ].flatten,
-      "references": [
-        references.map do |reference|
-          {
-            "work_id": reference.id,
-            "attributes": {
-              "title": reference.title,
-              "doi": reference.doi
-            }
-          }
-        end
-      ].flatten
-    }
-  end
 end

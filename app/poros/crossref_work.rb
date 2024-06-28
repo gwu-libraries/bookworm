@@ -4,8 +4,6 @@ class CrossrefWork
   attr_reader :reference_count,
               :publisher,
               :funders,
-              :content_domains,
-              :published_print,
               :doi,
               :type,
               :pages,
@@ -16,47 +14,36 @@ class CrossrefWork
               :authors,
               :language,
               :url,
-              :issn
+              :references
 
   def initialize(data)
-    @reference_count = data[:message][:"reference-count"] || nil
 
-    @publisher = data[:message][:publisher] || nil
+    @references = data[:message][:reference] || []
 
-    if data[:message][:funder]
-      @funders = data[:message][:funder].map {|funder| funder[:name]}
-    else
-      @funders = []
-    end
+    @reference_count = data[:"reference-count"] || []
 
-    @content_domains = data[:message][:"content-domain"][:domain] || nil
+    @publisher = data[:publisher] || []
 
-    @published_print = data[:message][:"published-print"][:"date-parts"] || nil
+    @funders = data[:message][:funder].map { |funder| funder[:name]} || []
 
-    @doi = data[:message][:DOI] || nil
+    @doi = data[:message][:DOI] || []
 
-    @type = data[:message][:type] || nil
+    @type = data[:message][:type] || []
 
-    @pages = data[:message][:page] || nil
+    @pages = data[:message][:page] || []
 
-    @source = data[:message][:source] || nil
+    @source = data[:message][:source] || []
 
-    @is_referenced_by_count = data[:message][:"is-referenced-by-count"] || nil
+    @is_referenced_by_count = data[:message][:"is-referenced-by-count"] || []
 
-    @title = data[:message][:title].first || nil
+    @title = data[:message][:title].first || []
 
-    @volume = data[:message][:volume]
+    @volume = data[:message][:volume] || []
 
-    if data[:message][:author]
-      @authors = data[:message][:author].map {|author| "#{author[:family]}, #{author[:given]}"}
-    else
-      @authors = []
-    end
+    @authors = data[:message][:author].map { |author| "#{author[:family]}, #{author[:given]}"} || []
 
-    @language = data[:message][:language] || nil
+    @language = data[:message][:language] || []
 
-    @url = data[:message][:URL] || nil
-
-    @issn = data[:message][:ISSN].first || nil
+    @url = data[:message][:URL] || []
   end
 end

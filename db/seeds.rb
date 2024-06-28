@@ -25,11 +25,12 @@ investigation_3 = FactoryBot.create(:investigation,
 
 # root work
 root_work = FactoryBot.create(:work,
-                              title: 'Root Work',
-                              root_work: true)
+                              title: "I'm a work")
 
-InvestigationWork.create(investigation_id: investigation_1.id, work_id: root_work.id)
-                              
+InvestigationWork.create(investigation_id: investigation_1.id, 
+                          work_id: root_work.id,
+                          root_work: true)
+                            
 # citations
 citations = FactoryBot.create_list(:work, 20)
 
@@ -47,3 +48,7 @@ references.each do |reference|
 end
 
 references.map { |reference| Connection.create(reference_id: reference.id, citation_id: root_work.id) }
+
+
+# OpenalexFacade.get_paper_citations("W2792655768")
+# x = OpenalexFacade.get_paper_references("W2792655768")

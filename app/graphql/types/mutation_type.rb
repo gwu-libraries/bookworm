@@ -6,6 +6,8 @@ module Types
 
     field :add_root_work, mutation: Mutations::AddRootWork
 
-    field :add_cites, mutation: Mutations::AddCites
+    field :add_references, mutation: Mutations::AddReferences
+
+    field :add_citations, mutation: Mutations::AddCitations
   end
 end

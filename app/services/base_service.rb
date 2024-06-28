@@ -12,4 +12,10 @@ class BaseService
       faraday.headers['mailto'] = ENV['crossref_mailto']
     end
   end
+
+  def self.openalex_connection
+    Faraday.new(url: 'https://api.openalex.org') do |faraday|
+      faraday.headers['mailto'] = ENV['openalex_mailto']
+    end
+  end
 end

@@ -7,11 +7,14 @@ module Types
     field :name, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :works, [Types::WorkType], null: true
-    field :root_works, [Types::WorkType], null: true
+    field :root_work, Types::WorkType, null: true
 
-    def root_works
-      object.works.where("root_work": true)
+    def root_work
+      if object.investigation_works.where("root_work": true).present?
+        Work.find(object.investigation_works.where("root_work": true).first.work_id)
+      else
+        nil
+      end
     end
   end
 end

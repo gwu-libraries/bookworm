@@ -33,7 +33,7 @@ module Types
       argument :id, ID, required: true
     end
     def work(id:)
-      Work.find(id)
+      Work.find_by(id: id)
     end
 
     field :investigations, [Types::InvestigationType], null: true,

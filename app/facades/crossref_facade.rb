@@ -7,6 +7,7 @@ class CrossrefFacade
     CrossrefWork.new(json)
   end
 
+  # this below can go, not useful
   def self.get_paper_references(doi)
     paper_data_arr = CrossrefService.get_paper_references(doi)
 
