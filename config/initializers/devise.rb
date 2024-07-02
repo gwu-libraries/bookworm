@@ -1,5 +1,25 @@
 # frozen_string_literal: true
 
+Devise::TokenAuthenticatable.setup do |config|
+  # enables the expiration of a token after a specified amount of time,
+  # requires an additional field on the model: `authentication_token_created_at`
+  # defaults to nil
+  # config.token_expires_in = 1.day
+
+  # set the authentication key name used by this module,
+  # defaults to :auth_token
+  # config.token_authentication_key = :other_key_name
+
+  # enable reset of the authentication token before the model is saved,
+  # defaults to false
+  # config.should_reset_authentication_token = true
+
+  # enables the setting of the authentication token - if not already - before the model is saved,
+  # defaults to false
+  config.should_ensure_authentication_token = true
+end
+
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -14,7 +34,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '702dd6944da6ae8663d437c6efac186099c4d833c280ba5a41672600ff9893ddc6fe271080d2397f9a89019e4a42ba6ec76807c45b25d29bc3dfcded3573efc2'
+  # config.secret_key = 'b98a9e83006fc968fce7bda0066068169349e99efdc8a333c21a78af61dce6f3873d1d21738cbd3d24a3fcb91652bbba50465dd0c1028c103a24dba5d9ecbad4'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -79,7 +99,7 @@ Devise.setup do |config|
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
-  # config.http_authenticatable = false
+  config.http_authenticatable = true
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -126,7 +146,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '1138d78123e6cdf17cd07ebae76703b6821b6369eb7a2740a1d4c018bacc7f8706423eef4772c2757bdd5379dfdc3473092135a43f6f8b02a4ab25d59dfbcc52'
+  # config.pepper = '3144ed1dea95e8a61afa4c56eaa013bacf140e9d3b7ba8f4c158121a386d51e2e18835be61300b71243b91578ce8ec03d99286817e8fb2fd366d7d9e6328cc84'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -311,3 +331,4 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 end
+

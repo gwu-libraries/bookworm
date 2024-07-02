@@ -19,14 +19,14 @@ class OpenalexWork
 
   def initialize(data)
 
-    @openalex_id = data[:ids][:openalex].split("https://openalex.org/").last || []
+    @openalex_id = data[:ids][:openalex].split('https://openalex.org/').last || []
 
     if data[:doi]
       @doi = data[:doi].split('https://doi.org/').last
     else
       @doi = []
     end
-    
+
     @title = data[:title] || []
 
     @publication_year = data[:publication_year] || []

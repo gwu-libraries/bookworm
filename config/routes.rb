@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # using GQL for handling sessions
+  devise_for :users, skip: :sessions
+
   post '/graphql', to: 'graphql#execute'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

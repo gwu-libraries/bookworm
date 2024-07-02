@@ -26,6 +26,7 @@ class BookWormApiSchema < GraphQL::Schema
 
   # Return a string UUID for `object`
   def self.id_from_object(object, _type_definition, _query_ctx)
+    require 'pry'; binding.pry 
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     object.to_gid_param
   end

@@ -8,6 +8,7 @@ module Mutations
     type Types::WorkType
 
     def resolve(**attributes)
+      authorize_user
 
       investigation = Investigation.find(attributes[:investigation_id])
 
