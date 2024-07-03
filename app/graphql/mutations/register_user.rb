@@ -14,10 +14,11 @@ module Mutations
       context[:current_user] = user
 
       MutationResult.call(
-        obj: { user: user },
+        obj: { object: user },
         success: user.persisted?,
         errors: user.errors
       )
+
     rescue ActiveRecord::RecordInvalid => invalid
       GraphQL::ExecutionError.new(
         "Invalid Attributes for #{invalid.record.class.name}: " \

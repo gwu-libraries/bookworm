@@ -9,12 +9,12 @@ module Types
 
     field :authentication_token, String, null: false
     def authentication_token
-      if object.gql_id != context[:current_user]&.gql_id
+      if object[:object].gql_id != context[:current_user]&.gql_id
         raise GraphQL::UnauthorizedFieldError,
               "Unable to access authentication_token"
       end
 
-      object.authentication_token
+      object[:object].authentication_token
     end
   end
 end

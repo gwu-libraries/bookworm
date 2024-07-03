@@ -9,7 +9,7 @@ module Mutations
 
     def resolve(**attributes)
       authorize_user
-      
+
       investigation = Investigation.find(attributes[:investigation_id])
 
       root_work = Work.find(investigation.investigation_works.where("root_work": true).first.id)
@@ -27,17 +27,22 @@ module Mutations
                                                            topics: reference.topics)
       end
 
-      if created_references.all?(&:save)
-        {
-          references: created_references,
-          errors: []
-        }
-      else
-        {
-          references: null,
-          errors: 'uhoh'
-        }
-      end
+      MutationResult.call(
+        obj: { object: created_references },
+        success: created_references.all?(&:save),
+        errors: "uhoh"
+      )
+      # if created_references.all?(&:save)
+      #   {
+      #     references: created_references,
+      #     errors: []
+      #   }
+      # else
+      #   {
+      #     references: null,
+      #     errors: 'uhoh'
+      #   }
+      # end
     end
   end
 end

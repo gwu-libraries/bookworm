@@ -27,17 +27,24 @@ module Mutations
                                                          topics: citation.topics)
       end
 
-      if created_citations.all?(&:save)
-        {
-          citations: created_citations,
-          errors: []
-        }
-      else
-        {
-          citations: null,
-          errors: 'uhoh'
-        }
-      end
+
+      MutationResult.call(
+        obj: { object: created_citations },
+        success: created_citations.all?(&:save),
+        errors: "uhoh"
+      )
+
+      # if created_citations.all?(&:save)
+      #   {
+      #     citations: created_citations,
+      #     errors: []
+      #   }
+      # else
+      #   {
+      #     citations: null,
+      #     errors: 'uhoh'
+      #   }
+      # end
     end
   end
 end
