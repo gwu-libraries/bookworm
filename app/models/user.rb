@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :token_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :investigations
+
   def gql_id
     GraphQL::Schema::UniqueWithinType.encode(self.class.name, id)
   end

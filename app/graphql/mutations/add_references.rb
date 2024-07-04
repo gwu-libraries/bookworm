@@ -32,17 +32,7 @@ module Mutations
         success: created_references.all?(&:save),
         errors: "uhoh"
       )
-      # if created_references.all?(&:save)
-      #   {
-      #     references: created_references,
-      #     errors: []
-      #   }
-      # else
-      #   {
-      #     references: null,
-      #     errors: 'uhoh'
-      #   }
-      # end
+
     end
   end
 end

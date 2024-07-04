@@ -60,17 +60,6 @@ module Mutations
         errors: work.errors.full_messages
       )
 
-      # if work.save && investigation_work.save
-      #   {
-      #     work: work,
-      #     errors: []
-      #   }
-      # else
-      #   {
-      #     work: null,
-      #     errors: work.errors.full_messages
-      #   }
-      # end
     end
   end
 end

@@ -33,18 +33,7 @@ module Mutations
         success: created_citations.all?(&:save),
         errors: "uhoh"
       )
-
-      # if created_citations.all?(&:save)
-      #   {
-      #     citations: created_citations,
-      #     errors: []
-      #   }
-      # else
-      #   {
-      #     citations: null,
-      #     errors: 'uhoh'
-      #   }
-      # end
+      
     end
   end
 end
