@@ -39,7 +39,12 @@ module Types
     field :investigations, [Types::InvestigationType], null: true,
                                                        description: 'Fetches all investigations'
     def investigations
-      Investigation.where(user_id: context[:current_user].id)
+      if context[:current_user].present?
+        Investigation.where(user_id: context[:current_user].id)
+      else
+        []
+      end
+        
     end
 
     field :investigation, Types::InvestigationType, null: true,
