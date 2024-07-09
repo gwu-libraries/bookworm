@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_02_195645) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_215131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_195645) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "orcid"
+    t.string "openalex_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +36,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_195645) do
     t.integer "citation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "investigation_authors", force: :cascade do |t|
+    t.bigint "investigation_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_investigation_authors_on_author_id"
+    t.index ["investigation_id"], name: "index_investigation_authors_on_investigation_id"
   end
 
   create_table "investigation_works", force: :cascade do |t|
@@ -84,6 +94,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_195645) do
 
   add_foreign_key "author_works", "authors"
   add_foreign_key "author_works", "works"
+  add_foreign_key "investigation_authors", "authors"
+  add_foreign_key "investigation_authors", "investigations"
   add_foreign_key "investigation_works", "investigations"
   add_foreign_key "investigation_works", "works"
 end

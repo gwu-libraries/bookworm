@@ -31,4 +31,10 @@ class OpenalexFacade
     openalex_citations.flatten
   end
 
+  def self.get_author_details(openalex_id)
+    author_data = OpenalexService.get_author_details(openalex_id)
+
+    OpenalexAuthor.new(author_data)
+  end
+
 end

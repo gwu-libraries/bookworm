@@ -3,6 +3,7 @@ class CreateAuthors < ActiveRecord::Migration[7.1]
     create_table :authors do |t|
       t.string :name
       t.string :orcid
+      t.string :openalex_id
 
       t.timestamps
     end

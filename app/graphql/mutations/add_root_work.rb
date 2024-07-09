@@ -16,13 +16,7 @@ module Mutations
         work = Work.find_by(doi: attributes[:doi].downcase)
         # maybe handle works added over a certain length of time ago?
       else
-        # crossref_work = CrossrefFacade.get_paper_details(attributes[:doi])
-
         openalex_work = OpenalexFacade.get_paper_details(attributes[:doi])
-
-        # semanticscholar_work = SemanticScholarFacade.get_paper_details(attributes[:doi])
-
-        # should be able to set what sources you are fetching from
 
         work = Work.create(doi: openalex_work.doi,
                            title: openalex_work.title,
@@ -35,30 +29,18 @@ module Mutations
         investigation_work = InvestigationWork.create(investigation_id: investigation.id,
                                                       work_id: work.id,
                                                       root_work: true)
-
-        # work = investigation.works.create!(doi: openalex_work.doi,
-        #                                   title: openalex_work.title,
-        #                                   root_work: true)
-
-        # crossref_references = crossref_work.references.map {|reference_data| CrossrefReference.new(reference_data)}
-        
-        # crossref_references.each do |reference|
-        #   # how do i handle creating reference works that don't have DOIs and/or titles?
-        #   if reference[:"article-title"].nil?
-        #     work.references.create!(doi: reference[:key],
-        #                             title: "Not found")
-        #   else
-        #     work.references.create!(doi: reference[:key],
-        #                             title: reference[:"article-title"])
-        #   end
-        # end
       end
 
-      MutationResult.call(
-        obj: { object: work },
-        success: work.persisted?,
-        errors: work.errors.full_messages
-      )
+      if work.persisted?
+        work
+      else
+        "uhoh"
+      end
+      # MutationResult.call(
+      #   obj: { object: work },
+      #   success: work.persisted?,
+      #   errors: work.errors.full_messages
+      # )
 
     end
   end

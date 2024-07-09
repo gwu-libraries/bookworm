@@ -13,11 +13,16 @@ module Mutations
 
       investigation = user.investigations.create!(attributes.merge({"user_id": user.id}))
 
-      MutationResult.call(
-        obj: { object: investigation },
-        success: investigation.persisted?,
-        errors: investigation.errors.full_messages
-      )
+      # MutationResult.call(
+      #   obj: { object: investigation },
+      #   success: investigation.persisted?,
+      #   errors: investigation.errors.full_messages
+      # )
+      if investigation.persisted?
+        investigation
+      else
+        "uhoh"
+      end
     end
   end
 end

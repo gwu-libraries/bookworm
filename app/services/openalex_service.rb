@@ -38,4 +38,10 @@ class OpenalexService
 
     accumulated_responses
   end
+
+  def self.get_author_details(openalex_id)
+    response = BaseService.openalex_connection.get("/authors/#{openalex_id}")
+
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end

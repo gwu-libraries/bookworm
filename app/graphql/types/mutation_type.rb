@@ -13,5 +13,7 @@ module Types
     field :add_references, mutation: Mutations::AddReferences
 
     field :add_citations, mutation: Mutations::AddCitations
+
+    field :add_author, mutation: Mutations::AddAuthor
   end
 end

@@ -18,13 +18,13 @@ module Mutations
 
       created_references = []
       openalex_references.each do |reference|
-        created_references << root_work.references.create!(doi: reference.doi,
-                                                           title: reference.title,
-                                                           language: reference.language,
-                                                           openalex_id: reference.openalex_id,
-                                                           publication_year: reference.publication_year,
-                                                           keywords: reference.keywords,
-                                                           topics: reference.topics)
+        created_references << root_work.references.find_or_create_by(doi: reference.doi,
+                                                                    title: reference.title,
+                                                                    language: reference.language,
+                                                                    openalex_id: reference.openalex_id,
+                                                                    publication_year: reference.publication_year,
+                                                                    keywords: reference.keywords,
+                                                                    topics: reference.topics)
       end
 
       MutationResult.call(

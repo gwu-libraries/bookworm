@@ -18,7 +18,7 @@ module Mutations
 
       created_citations = []
       openalex_citations.each do |citation|
-        created_citations << root_work.citations.create!(doi: citation.doi,
+        created_citations << root_work.citations.find_or_create_by(doi: citation.doi,
                                                          title: citation.title,
                                                          language: citation.language,
                                                          openalex_id: citation.openalex_id,
