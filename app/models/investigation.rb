@@ -9,5 +9,7 @@ class Investigation < ApplicationRecord
   has_many :investigation_authors
   has_many :authors, through: :investigation_authors
 
+  has_many :notes
+
   belongs_to :user
 end
