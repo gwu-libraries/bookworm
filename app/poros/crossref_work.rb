@@ -17,14 +17,13 @@ class CrossrefWork
               :references
 
   def initialize(data)
-
     @references = data[:message][:reference] || []
 
-    @reference_count = data[:"reference-count"] || []
+    @reference_count = data[:'reference-count'] || []
 
     @publisher = data[:publisher] || []
 
-    @funders = data[:message][:funder].map { |funder| funder[:name]} || []
+    @funders = data[:message][:funder].map { |funder| funder[:name] } || []
 
     @doi = data[:message][:DOI] || []
 
@@ -34,13 +33,16 @@ class CrossrefWork
 
     @source = data[:message][:source] || []
 
-    @is_referenced_by_count = data[:message][:"is-referenced-by-count"] || []
+    @is_referenced_by_count = data[:message][:'is-referenced-by-count'] || []
 
     @title = data[:message][:title].first || []
 
     @volume = data[:message][:volume] || []
 
-    @authors = data[:message][:author].map { |author| "#{author[:family]}, #{author[:given]}"} || []
+    @authors =
+      data[:message][:author].map do |author|
+        "#{author[:family]}, #{author[:given]}"
+      end || []
 
     @language = data[:message][:language] || []
 

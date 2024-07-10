@@ -72,3 +72,8 @@ group :development do
 end
 
 gem 'graphql', '~> 2.3'
+
+gem 'prettier_print'
+gem 'syntax_tree'
+gem 'syntax_tree-haml'
+gem 'syntax_tree-rbs'

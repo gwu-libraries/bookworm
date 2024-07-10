@@ -12,28 +12,38 @@ module Mutations
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      root_work = Work.find(investigation.investigation_works.where("root_work": true).first.id)
+      root_work = Work.find_by(openalex_id: attributes[:openalex_id])
 
-      openalex_citations = OpenalexFacade.get_paper_citations(attributes[:openalex_id])
+      openalex_citations =
+        OpenalexFacade.get_paper_citations(attributes[:openalex_id])
 
       created_citations = []
       openalex_citations.each do |citation|
-        created_citations << root_work.citations.find_or_create_by(doi: citation.doi,
-                                                         title: citation.title,
-                                                         language: citation.language,
-                                                         openalex_id: citation.openalex_id,
-                                                         publication_year: citation.publication_year,
-                                                         keywords: citation.keywords,
-                                                         topics: citation.topics)
+        created_citations << Work.find_or_create_by(
+          doi: citation.doi,
+          title: citation.title,
+          language: citation.language,
+          openalex_id: citation.openalex_id,
+          publication_year: citation.publication_year,
+          keywords: citation.keywords,
+          topics: citation.topics
+        )
       end
 
+      created_citations.map do |citation|
+        Connection.find_or_create_by(
+          citation_id: citation.id,
+          reference_id: root_work.id
+        )
+      end
 
       MutationResult.call(
-        obj: { object: created_citations },
+        obj: {
+          object: created_citations
+        },
         success: created_citations.all?(&:save),
-        errors: "uhoh"
+        errors: 'uhoh'
       )
-      
     end
   end
 end

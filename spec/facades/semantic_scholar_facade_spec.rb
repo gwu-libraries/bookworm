@@ -18,8 +18,6 @@ RSpec.describe SemanticScholarFacade do
 
     expect(data).to be_a(Array)
 
-    data.each do |work|
-      expect(work).to be_a(Work)
-    end
+    data.each { |work| expect(work).to be_a(Work) }
   end
 end

@@ -6,7 +6,7 @@ class CreateInvestigationWorks < ActiveRecord::Migration[7.1]
 
       t.references :investigation, null: false, foreign_key: true
       t.references :work, null: false, foreign_key: true
-      
+
       t.boolean :root_work, null: false, default: false
 
       t.timestamps

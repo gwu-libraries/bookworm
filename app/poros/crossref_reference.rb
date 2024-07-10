@@ -18,14 +18,14 @@ class CrossrefReference
               :volume
 
   def initialize(data)
-    if data[:"doi-asserted-by"]
-      @doi_asserted_by = data[:"doi-asserted-by"]
+    if data[:'doi-asserted-by']
+      @doi_asserted_by = data[:'doi-asserted-by']
     else
       @doi_asserted_by = nil
     end
 
-    if data[:"journal-title"]
-      @journal_title = data[:"journal-title"]
+    if data[:'journal-title']
+      @journal_title = data[:'journal-title']
     else
       @journal_title = nil
     end
@@ -48,14 +48,14 @@ class CrossrefReference
       @key = nil
     end
 
-    if data[:"volume-title"]
-      @volume_title = data[:"volume-title"]
+    if data[:'volume-title']
+      @volume_title = data[:'volume-title']
     else
       @volume_title = nil
     end
 
-    if data[:"series-title"]
-      @series_title = data[:"series-title"]
+    if data[:'series-title']
+      @series_title = data[:'series-title']
     else
       @series_title = nil
     end
@@ -77,6 +77,5 @@ class CrossrefReference
     else
       @author = nil
     end
-
   end
 end

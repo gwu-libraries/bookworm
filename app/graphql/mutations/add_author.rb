@@ -10,21 +10,24 @@ module Mutations
     def resolve(**attributes)
       authorize_user
 
-      openalex_author = OpenalexFacade.get_author_details(attributes[:openalex_id])
+      openalex_author =
+        OpenalexFacade.get_author_details(attributes[:openalex_id])
 
-      author = Author.find_or_create_by(name: openalex_author.display_name,
-                                        orcid: openalex_author.orcid,
-                                        openalex_id: openalex_author.openalex_id)
+      author =
+        Author.find_or_create_by(
+          name: openalex_author.display_name,
+          orcid: openalex_author.orcid,
+          openalex_id: openalex_author.openalex_id
+        )
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      InvestigationAuthor.create(author_id: author.id, investigation_id: investigation.id)
+      InvestigationAuthor.create(
+        author_id: author.id,
+        investigation_id: investigation.id
+      )
 
-      if author.persisted?
-        author
-      else
-        "uhoh"
-      end
+      author.persisted? ? author : 'uhoh'
     end
   end
 end

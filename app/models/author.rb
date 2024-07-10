@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Author < ApplicationRecord
-
   validates :name, presence: true
 
   has_many :author_works
@@ -9,5 +8,4 @@ class Author < ApplicationRecord
 
   has_many :investigation_authors
   has_many :investigations, through: :investigation_authors
-
 end

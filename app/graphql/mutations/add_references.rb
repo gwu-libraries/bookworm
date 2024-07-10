@@ -12,27 +12,44 @@ module Mutations
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      root_work = Work.find(investigation.investigation_works.where("root_work": true).first.id)
+      root_work = Work.find_by(openalex_id: attributes[:openalex_id])
 
-      openalex_references = OpenalexFacade.get_paper_references(attributes[:openalex_id])
+      openalex_references =
+        OpenalexFacade.get_paper_references(attributes[:openalex_id])
 
       created_references = []
+
       openalex_references.each do |reference|
-        created_references << root_work.references.find_or_create_by(doi: reference.doi,
-                                                                    title: reference.title,
-                                                                    language: reference.language,
-                                                                    openalex_id: reference.openalex_id,
-                                                                    publication_year: reference.publication_year,
-                                                                    keywords: reference.keywords,
-                                                                    topics: reference.topics)
+        created_references << Work.find_or_create_by(
+          doi: reference.doi,
+          title: reference.title,
+          openalex_id: reference.openalex_id,
+          language: reference.language,
+          publication_year: reference.publication_year,
+          keywords: reference.keywords,
+          topics: reference.topics
+        )
+      end
+
+      created_references.map do |reference|
+        Connection.find_or_create_by(
+          citation_id: root_work.id,
+          reference_id: reference.id
+        )
       end
 
       MutationResult.call(
-        obj: { object: created_references },
+        obj: {
+          object: created_references
+        },
         success: created_references.all?(&:save),
-        errors: "uhoh"
+        errors: 'uhoh'
       )
-
+      # if created_references.all?(&:save)
+      #   created_references # nop
+      # else
+      #   "uhoh"
+      # end
     end
   end
 end

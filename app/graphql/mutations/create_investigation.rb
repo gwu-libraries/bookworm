@@ -11,18 +11,15 @@ module Mutations
 
       user = context[:current_user]
 
-      investigation = user.investigations.create!(attributes.merge({"user_id": user.id}))
+      investigation =
+        user.investigations.create!(attributes.merge({ user_id: user.id }))
 
       # MutationResult.call(
       #   obj: { object: investigation },
       #   success: investigation.persisted?,
       #   errors: investigation.errors.full_messages
       # )
-      if investigation.persisted?
-        investigation
-      else
-        "uhoh"
-      end
+      investigation.persisted? ? investigation : 'uhoh'
     end
   end
 end

@@ -13,7 +13,9 @@ class OpenalexFacade
     openalex_references = []
 
     references_data.each do |reference_arr|
-      openalex_references << reference_arr[:results].map {|reference_data| OpenalexReference.new(reference_data)}
+      openalex_references << reference_arr[:results].map do |reference_data|
+        OpenalexReference.new(reference_data)
+      end
     end
 
     openalex_references.flatten
@@ -25,9 +27,11 @@ class OpenalexFacade
     openalex_citations = []
 
     citations_data.each do |citation_arr|
-      openalex_citations << citation_arr[:results].map {|citation_data| OpenalexCitation.new(citation_data)}
+      openalex_citations << citation_arr[:results].map do |citation_data|
+        OpenalexCitation.new(citation_data)
+      end
     end
-  
+
     openalex_citations.flatten
   end
 
@@ -36,5 +40,4 @@ class OpenalexFacade
 
     OpenalexAuthor.new(author_data)
   end
-
 end

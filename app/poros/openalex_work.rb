@@ -18,8 +18,8 @@ class OpenalexWork
               :created_date
 
   def initialize(data)
-
-    @openalex_id = data[:ids][:openalex].split('https://openalex.org/').last || []
+    @openalex_id =
+      data[:ids][:openalex].split('https://openalex.org/').last || []
 
     if data[:doi]
       @doi = data[:doi].split('https://doi.org/').last
@@ -30,20 +30,33 @@ class OpenalexWork
     @title = data[:title] || []
 
     @publication_year = data[:publication_year] || []
-    
+
     @language = data[:language] || []
-    
+
     @type = data[:type] || []
 
-    @authors = data[:authorships].map {|author_data| {"name": author_data[:author][:display_name], "orcid": author_data[:author][:orcid]}} || []
-    
+    @authors =
+      data[:authorships].map do |author_data|
+        {
+          name: author_data[:author][:display_name],
+          orcid: author_data[:author][:orcid]
+        }
+      end || []
+
     @cited_by_count = data[:cited_by_count] || []
 
-    @topics = data[:topics].map {|topic_data| topic_data[:display_name]} || []
+    @topics = data[:topics].map { |topic_data| topic_data[:display_name] } || []
 
-    @keywords = data[:keywords].map {|keyword_data| keyword_data[:display_name]} || []
+    @keywords =
+      data[:keywords].map { |keyword_data| keyword_data[:display_name] } || []
 
-    @grants = data[:grants].map { |grant_data| {"funder": grant_data[:funder_display_name], "award_id": grant_data[:award_id]} }
+    @grants =
+      data[:grants].map do |grant_data|
+        {
+          funder: grant_data[:funder_display_name],
+          award_id: grant_data[:award_id]
+        }
+      end
 
     @referenced_works_count = data[:referenced_works_count] || []
 

@@ -7,7 +7,9 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
 
 require_relative '../spec/support/database_cleaner'
 require 'rspec/rails'
@@ -45,9 +47,7 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
+  config.fixture_paths = [Rails.root.join('spec/fixtures')]
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -88,7 +88,9 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('<semantic_scholar_key>') { ENV['semantic_scholar_key'] }
+  config.filter_sensitive_data('<semantic_scholar_key>') do
+    ENV['semantic_scholar_key']
+  end
   config.configure_rspec_metadata!
 end
 

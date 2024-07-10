@@ -10,13 +10,13 @@ class OpenalexAuthor
 
   def initialize(data)
     if data[:id]
-      @openalex_id = data[:id].split("https://openalex.org/").last
+      @openalex_id = data[:id].split('https://openalex.org/').last
     else
       @openalex_id = []
     end
 
     if data[:orcid]
-      @orcid = data[:orcid].split("https://orcid.org/").last
+      @orcid = data[:orcid].split('https://orcid.org/').last
     else
       @orcid = []
     end
@@ -31,6 +31,5 @@ class OpenalexAuthor
       institution = data[:institution]
       @affiliations << institution[:display_name]
     end
-
   end
 end

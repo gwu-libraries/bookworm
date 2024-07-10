@@ -36,7 +36,9 @@ class SemanticScholarWork
 
     @citation_count = data[:citationCount] || []
 
-    @topics = data[:fieldsOfStudy] || [] + data[:s2FieldsOfStudy].map { |fos| fos[:category] }.uniq || []
+    @topics =
+      data[:fieldsOfStudy] ||
+        [] + data[:s2FieldsOfStudy].map { |fos| fos[:category] }.uniq || []
 
     @publication_date = data[:publicationDate] || []
 

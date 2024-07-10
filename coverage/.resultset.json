@@ -100,15 +100,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/config/environment.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1
-        ]
+        "lines": [null, null, null, 1, null, null, 1]
       },
       "/Users/alexboyd/repos/book_worm_api/config/application.rb": {
         "lines": [
@@ -155,14 +147,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/config/boot.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1
-        ]
+        "lines": [null, null, 1, null, 1, 1]
       },
       "/Users/alexboyd/repos/book_worm_api/config/environments/test.rb": {
         "lines": [
@@ -574,18 +559,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
+        "lines": [null, null, null, null, null, null, null, 1, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/config/initializers/inflections.rb": {
         "lines": [
@@ -610,54 +584,16 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/factories/connections.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, 1, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/factories/investigations.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          2,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, 2, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/factories/users.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, 1, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/factories/work.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          12,
-          12,
-          11,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, 12, 12, 11, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/config/routes.rb": {
         "lines": [
@@ -799,56 +735,16 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/app/models/connection.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, null, 1, 1, null]
       },
       "/Users/alexboyd/repos/book_worm_api/app/models/application_record.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
+        "lines": [null, null, 1, 1, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/models/investigation_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, null, 1, 1, 2, null, null, 1, 2, 2, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/app/models/investigation.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
+        "lines": [null, null, 1, 1, null, 1, 1, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/models/user_spec.rb": {
         "lines": [
@@ -870,18 +766,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/app/models/user.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null
-        ]
+        "lines": [null, null, 1, null, null, 1, null, null, 1, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/models/work_spec.rb": {
         "lines": [
@@ -1150,22 +1035,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/app/poros/crossref_work.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, null, null, null, 1, 2, 1, 1, 0, null, null]
       },
       "/Users/alexboyd/repos/book_worm_api/spec/poros/semantic_scholar_work_spec.rb": {
         "lines": [
@@ -1617,21 +1487,7 @@
         ]
       },
       "/Users/alexboyd/repos/book_worm_api/lib/faker/archival.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          99,
-          null,
-          null,
-          null,
-          null
-        ]
+        "lines": [null, null, 1, 1, 1, null, 1, 1, 99, null, null, null, null]
       }
     },
     "timestamp": 1718997524

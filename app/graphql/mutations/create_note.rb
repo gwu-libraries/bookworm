@@ -12,14 +12,13 @@ module Mutations
 
       user = context[:current_user]
 
-      note = Note.create(investigation_id: attributes[:investigation_id],
-      body_text: attributes[:body_text])
+      note =
+        Note.create(
+          investigation_id: attributes[:investigation_id],
+          body_text: attributes[:body_text]
+        )
 
-      if note.persisted?
-        note
-      else
-        "uhoh"
-      end
+      note.persisted? ? note : 'uhoh'
     end
   end
 end

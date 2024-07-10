@@ -4,9 +4,9 @@ FactoryBot.define do
   factory :work do
     doi { Faker::Archival.doi }
     title { Faker::Book.title }
-    language { "en" }
+    language { 'en' }
     publication_year { 2000 }
-    keywords { ["these", "are", "keywords"] }
-    topics { ["beef", "a", "roni"] }
+    keywords { %w[these are keywords] }
+    topics { %w[beef a roni] }
   end
 end
