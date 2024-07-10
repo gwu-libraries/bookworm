@@ -17,5 +17,6 @@ module Types
     field :add_author, mutation: Mutations::AddAuthor
 
     field :create_note, mutation: Mutations::CreateNote
+    field :delete_note, mutation: Mutations::DeleteNote
   end
 end
