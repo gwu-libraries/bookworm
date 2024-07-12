@@ -15,5 +15,6 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :citations, [Types::CitationType], null: true
     field :references, [Types::ReferenceType], null: true
+    field :authors, [Types::AuthorType], null: true
   end
 end

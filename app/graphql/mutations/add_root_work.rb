@@ -14,6 +14,23 @@ module Mutations
 
       openalex_work = OpenalexFacade.get_paper_details(attributes[:doi])
 
+      authors_hash = {}
+      openalex_work.authors.each do |author|
+        if author[:orcid].present?
+          authors_hash[author[:name]] = author[:orcid].split(
+            'https://orcid.org/'
+          ).last
+        else
+          authors_hash[author[:name]] = 'ORCID not found'
+        end
+      end
+
+      authors = []
+
+      authors_hash.each do |name, orcid|
+        authors << Author.find_or_create_by(name: name, orcid: orcid)
+      end
+
       work =
         Work.find_or_create_by(
           doi: openalex_work.doi,
@@ -31,6 +48,10 @@ module Mutations
           work_id: work.id,
           root_work: true
         )
+
+      authors.map do |author|
+        AuthorWork.find_or_create_by(author_id: author.id, work_id: work.id)
+      end
 
       work.persisted? ? work : 'uhoh'
       # MutationResult.call(
