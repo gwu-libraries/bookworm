@@ -39,7 +39,9 @@ module Mutations
           language: openalex_work.language,
           publication_year: openalex_work.publication_year,
           keywords: openalex_work.keywords,
-          topics: openalex_work.topics
+          topics: openalex_work.topics,
+          is_open_access: openalex_work.is_open_access,
+          open_access_url: openalex_work.open_access_url
         )
 
       investigation_work =

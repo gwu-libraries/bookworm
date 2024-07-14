@@ -15,7 +15,10 @@ class OpenalexWork
               :referenced_works_count,
               :referenced_works_openalex_ids,
               :datasets,
-              :created_date
+              :created_date,
+              :is_open_access,
+              :open_access_url,
+              :grants
 
   def initialize(data)
     @openalex_id =
@@ -65,5 +68,11 @@ class OpenalexWork
     @datasets = data[:datasets] || []
 
     @created_date = data[:created_date] || []
+
+    @is_open_access = data[:open_access][:is_oa]
+
+    @open_access_url = data[:open_access][:oa_url]
+
+    @grants = data[:grants] || []
   end
 end

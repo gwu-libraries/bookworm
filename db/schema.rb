@@ -90,11 +90,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
   create_table "works", force: :cascade do |t|
     t.string "doi"
     t.string "title"
-    t.string "language"
     t.string "openalex_id"
+    t.string "language"
     t.string "publication_year"
     t.string "keywords", default: [], array: true
     t.string "topics", default: [], array: true
+    t.boolean "is_open_access", default: false
+    t.string "open_access_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

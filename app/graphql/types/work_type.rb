@@ -7,6 +7,8 @@ module Types
     field :doi, String
     field :openalex_id, String
     field :title, String
+    field :is_open_access, Boolean
+    field :open_access_url, String
     field :language, String
     field :publication_year, Integer
     field :keywords, [String]

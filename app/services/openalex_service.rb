@@ -5,6 +5,7 @@ class OpenalexService
     response =
       BaseService.openalex_connection.get("/works/https://doi.org/#{doi}")
 
+    # if 404, try some other variation?
     JSON.parse(response.body, symbolize_names: true)
   end
 
