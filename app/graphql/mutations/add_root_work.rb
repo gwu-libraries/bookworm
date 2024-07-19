@@ -14,21 +14,41 @@ module Mutations
 
       openalex_work = OpenalexFacade.get_paper_details(attributes[:doi])
 
-      authors_hash = {}
+      authors_list = []
+
       openalex_work.authors.each do |author|
-        if author[:orcid].present?
-          authors_hash[author[:name]] = author[:orcid].split(
-            'https://orcid.org/'
+        author_hash = {}
+
+        if author[:name].present?
+          author_hash['name'] = author[:name]
+        else
+          author_hash['name'] = 'Name missing'
+        end
+
+        if author[:openalex_id].present?
+          author_hash['openalex_id'] = author[:openalex_id].split(
+            'https://openalex.org/'
           ).last
         else
-          authors_hash[author[:name]] = 'ORCID not found'
+          author_hash['openalex_id'] = 'OpenAlex ID not found'
         end
+
+        if author[:orcid].present?
+          author_hash['orcid'] = author[:orcid].split('https://orcid.org/').last
+        else
+          author_hash['orcid'] = 'ORCID not found'
+        end
+
+        authors_list << author_hash
       end
 
       authors = []
-
-      authors_hash.each do |name, orcid|
-        authors << Author.find_or_create_by(name: name, orcid: orcid)
+      authors_list.each do |author_hash|
+        authors << Author.find_or_create_by(
+          name: author_hash['name'],
+          openalex_id: author_hash['openalex_id'],
+          orcid: author_hash['orcid']
+        )
       end
 
       work =
