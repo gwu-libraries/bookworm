@@ -40,4 +40,16 @@ class OpenalexFacade
 
     OpenalexAuthor.new(author_data)
   end
+
+  def self.get_author_works(openalex_id)
+    work_data = OpenalexService.get_author_works(openalex_id)
+
+    authored_works = []
+
+    work_data.each do |work_arr|
+      authored_works << work_arr[:results].map { |work| OpenalexWork.new(work) }
+    end
+
+    authored_works.flatten
+  end
 end

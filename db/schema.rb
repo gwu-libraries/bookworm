@@ -39,8 +39,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
   end
 
   create_table "investigation_authors", force: :cascade do |t|
+    t.integer "x_coordinate"
+    t.integer "y_coordinate"
     t.bigint "investigation_id", null: false
     t.bigint "author_id", null: false
+    t.boolean "visible", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_investigation_authors_on_author_id"
@@ -48,9 +51,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
   end
 
   create_table "investigation_works", force: :cascade do |t|
+    t.integer "x_coordinate"
+    t.integer "y_coordinate"
     t.bigint "investigation_id", null: false
     t.bigint "work_id", null: false
-    t.boolean "root_work", default: false, null: false
+    t.boolean "visible", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["investigation_id"], name: "index_investigation_works_on_investigation_id"
@@ -65,6 +70,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
   end
 
   create_table "notes", force: :cascade do |t|
+    t.integer "x_coordinate"
+    t.integer "y_coordinate"
     t.integer "investigation_id"
     t.string "body_text"
     t.datetime "created_at", null: false

@@ -3,7 +3,6 @@
 module Types
   class WorkType < Types::BaseObject
     field :id, ID, null: false
-    field :investigation_id, Integer
     field :doi, String
     field :openalex_id, String
     field :title, String
@@ -18,5 +17,21 @@ module Types
     field :citations, [Types::CitationType], null: true
     field :references, [Types::ReferenceType], null: true
     field :authors, [Types::AuthorType], null: true
+    field :visible, Boolean, null: false
+    field :x_coordinate, Integer
+    field :y_coordinate, Integer
+
+    def x_coordinate
+      500
+    end
+
+    def y_coordinate
+      500
+    end
+
+    def visible
+      true
+      #fix this lol
+    end
   end
 end

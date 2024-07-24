@@ -70,4 +70,32 @@ class OpenalexService
 
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.get_author_works(openalex_id)
+    accumulated_responses = []
+
+    first_response =
+      BaseService.openalex_connection.get(
+        "/works?filter=authorships.author.id:#{openalex_id}&per-page=200&cursor=*"
+      )
+
+    accumulated_responses << JSON.parse(
+      first_response.body,
+      symbolize_names: true
+    )
+
+    until accumulated_responses.last[:meta][:next_cursor].nil?
+      new_response =
+        BaseService.openalex_connection.get(
+          "/works?filter=authorships.author.id:#{openalex_id}&per-page=200&cursor=#{accumulated_responses.last[:meta][:next_cursor]}"
+        )
+
+      accumulated_responses << JSON.parse(
+        new_response.body,
+        symbolize_names: true
+      )
+    end
+
+    accumulated_responses
+  end
 end

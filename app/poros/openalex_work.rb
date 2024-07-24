@@ -21,13 +21,12 @@ class OpenalexWork
               :grants
 
   def initialize(data)
-    @openalex_id =
-      data[:ids][:openalex].split('https://openalex.org/').last || []
+    @openalex_id = data[:ids][:openalex].split('/').last || 'Not found'
 
     if data[:doi]
-      @doi = data[:doi].split('https://doi.org/').last
+      @doi = data[:doi].split('/').last
     else
-      @doi = []
+      @doi = 'Not found'
     end
 
     @title = data[:title] || []

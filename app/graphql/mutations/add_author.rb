@@ -22,9 +22,10 @@ module Mutations
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      InvestigationAuthor.create(
+      InvestigationAuthor.find_or_create_by(
         author_id: author.id,
-        investigation_id: investigation.id
+        investigation_id: investigation.id,
+        visible: true
       )
 
       author.persisted? ? author : 'uhoh'

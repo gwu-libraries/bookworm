@@ -8,13 +8,12 @@ module Types
 
     field :create_investigation, mutation: Mutations::CreateInvestigation
 
-    field :add_root_work, mutation: Mutations::AddRootWork
-
+    field :add_work, mutation: Mutations::AddWork
     field :add_references, mutation: Mutations::AddReferences
-
     field :add_citations, mutation: Mutations::AddCitations
 
     field :add_author, mutation: Mutations::AddAuthor
+    field :add_author_works, mutation: Mutations::AddAuthorWorks
 
     field :create_note, mutation: Mutations::CreateNote
     field :delete_note, mutation: Mutations::DeleteNote

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  class AddRootWork < BaseMutation
+  class AddWork < BaseMutation
     argument :doi, String, required: true
     argument :investigation_id, Integer, required: true
 
@@ -15,29 +15,20 @@ module Mutations
       openalex_work = OpenalexFacade.get_paper_details(attributes[:doi])
 
       authors_list = []
-
       openalex_work.authors.each do |author|
         author_hash = {}
 
-        if author[:name].present?
-          author_hash['name'] = author[:name]
-        else
-          author_hash['name'] = 'Name missing'
-        end
+        author[:name].present? ?
+          author_hash['name'] = author[:name] :
+          'Name missing'
 
-        if author[:openalex_id].present?
-          author_hash['openalex_id'] = author[:openalex_id].split(
-            'https://openalex.org/'
-          ).last
-        else
-          author_hash['openalex_id'] = 'OpenAlex ID not found'
-        end
+        author[:openalex_id].present? ?
+          author_hash['openalex_id'] = author[:openalex_id].split('/').last :
+          'OpenAlex ID not found'
 
-        if author[:orcid].present?
-          author_hash['orcid'] = author[:orcid].split('https://orcid.org/').last
-        else
-          author_hash['orcid'] = 'ORCID not found'
-        end
+        author[:orcid].present? ?
+          author_hash['orcid'] = author[:orcid].split('/').last :
+          'Orcid not found'
 
         authors_list << author_hash
       end
@@ -65,10 +56,10 @@ module Mutations
         )
 
       investigation_work =
-        InvestigationWork.create(
+        InvestigationWork.find_or_create_by(
           investigation_id: investigation.id,
           work_id: work.id,
-          root_work: true
+          visible: true
         )
 
       authors.map do |author|
