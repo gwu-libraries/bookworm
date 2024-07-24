@@ -14,6 +14,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "author_nodes", force: :cascade do |t|
+    t.integer "x_coordinate"
+    t.integer "y_coordinate"
+    t.boolean "visible", default: true, null: false
+    t.bigint "investigation_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_author_nodes_on_author_id"
+    t.index ["investigation_id"], name: "index_author_nodes_on_investigation_id"
+  end
+
   create_table "author_works", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.bigint "work_id", null: false
@@ -38,30 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "investigation_authors", force: :cascade do |t|
-    t.integer "x_coordinate"
-    t.integer "y_coordinate"
-    t.bigint "investigation_id", null: false
-    t.bigint "author_id", null: false
-    t.boolean "visible", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_investigation_authors_on_author_id"
-    t.index ["investigation_id"], name: "index_investigation_authors_on_investigation_id"
-  end
-
-  create_table "investigation_works", force: :cascade do |t|
-    t.integer "x_coordinate"
-    t.integer "y_coordinate"
-    t.bigint "investigation_id", null: false
-    t.bigint "work_id", null: false
-    t.boolean "visible", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["investigation_id"], name: "index_investigation_works_on_investigation_id"
-    t.index ["work_id"], name: "index_investigation_works_on_work_id"
-  end
-
   create_table "investigations", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -69,9 +57,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "note_nodes", force: :cascade do |t|
     t.integer "x_coordinate"
     t.integer "y_coordinate"
+    t.boolean "visible"
     t.integer "investigation_id"
     t.string "body_text"
     t.datetime "created_at", null: false
@@ -94,6 +83,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_nodes", force: :cascade do |t|
+    t.integer "x_coordinate"
+    t.integer "y_coordinate"
+    t.bigint "investigation_id", null: false
+    t.bigint "work_id", null: false
+    t.boolean "visible", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["investigation_id"], name: "index_work_nodes_on_investigation_id"
+    t.index ["work_id"], name: "index_work_nodes_on_work_id"
+  end
+
   create_table "works", force: :cascade do |t|
     t.string "doi"
     t.string "title"
@@ -108,10 +109,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_200009) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "author_nodes", "authors"
+  add_foreign_key "author_nodes", "investigations"
   add_foreign_key "author_works", "authors"
   add_foreign_key "author_works", "works"
-  add_foreign_key "investigation_authors", "authors"
-  add_foreign_key "investigation_authors", "investigations"
-  add_foreign_key "investigation_works", "investigations"
-  add_foreign_key "investigation_works", "works"
+  add_foreign_key "work_nodes", "investigations"
+  add_foreign_key "work_nodes", "works"
 end

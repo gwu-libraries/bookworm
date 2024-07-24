@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Mutations
-  class DeleteNote < BaseMutation
+  class DeleteNoteNode < BaseMutation
     argument :investigation_id, Integer, required: true
     argument :note_id, Integer, required: true # should probably be ID type
 
-    type Types::NoteType
+    type 'Types::NoteNodeType'
 
     def resolve(**attributes)
       authorize_user

@@ -3,13 +3,13 @@
 class Investigation < ApplicationRecord
   validates :name, presence: true
 
-  has_many :investigation_works
-  has_many :works, through: :investigation_works
+  has_many :work_nodes
+  has_many :works, through: :work_nodes
 
-  has_many :investigation_authors
-  has_many :authors, through: :investigation_authors
+  has_many :author_nodes
+  has_many :authors, through: :author_nodes
 
-  has_many :notes
+  has_many :note_nodes
 
   belongs_to :user
 end

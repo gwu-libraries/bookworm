@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Note < ApplicationRecord
+class NoteNode < ApplicationRecord
   belongs_to :investigation
 end

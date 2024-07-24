@@ -7,20 +7,21 @@ module Types
     field :name, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :works, [Types::WorkType], null: true
-    field :authors, [Types::AuthorType], null: true
-    field :notes, [Types::NoteType], null: true
 
-    def works
-      object.works
+    field :note_nodes, [Types::NoteNodeType], null: true
+    field :author_nodes, [Types::AuthorNodeType], null: true
+    field :work_nodes, [Types::WorkNodeType], null: true
+
+    def note_nodes
+      object.note_nodes
     end
 
-    def authors
-      object.authors
+    def author_nodes
+      object.author_nodes
     end
 
-    def notes
-      object.notes
+    def work_nodes
+      object.work_nodes
     end
   end
 end

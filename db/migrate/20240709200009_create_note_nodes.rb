@@ -1,8 +1,10 @@
-class CreateNotes < ActiveRecord::Migration[7.1]
+class CreateNoteNodes < ActiveRecord::Migration[7.1]
   def change
-    create_table :notes do |t|
+    create_table :note_nodes do |t|
       t.integer :x_coordinate
       t.integer :y_coordinate
+      t.boolean :visible
+
       t.integer :investigation_id
       t.string :body_text
 

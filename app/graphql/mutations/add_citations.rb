@@ -37,6 +37,13 @@ module Mutations
         )
       end
 
+      created_citations.each do |reference|
+        WorkNode.find_or_create_by(
+          investigation_id: investigation.id,
+          reference_id: citation.id
+        )
+      end
+
       MutationResult.call(
         obj: {
           object: created_citations

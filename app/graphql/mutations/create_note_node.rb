@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Mutations
-  class CreateNote < BaseMutation
+  class CreateNoteNode < BaseMutation
     argument :body_text, String
     argument :investigation_id, Integer
 
-    type Types::NoteType
+    type 'Types::NoteNodeType'
 
     def resolve(**attributes)
       authorize_user
@@ -13,7 +13,7 @@ module Mutations
       user = context[:current_user]
 
       note =
-        Note.create(
+        NoteNode.create(
           investigation_id: attributes[:investigation_id],
           body_text: attributes[:body_text]
         )

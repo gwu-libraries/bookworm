@@ -33,7 +33,7 @@ module Mutations
 
       investigation_works =
         works.each do |work|
-          InvestigationWork.find_or_create_by(
+          WorkNode.find_or_create_by(
             investigation_id: investigation.id,
             work_id: work.id,
             visible: true

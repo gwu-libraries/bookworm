@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  class AddWork < BaseMutation
+  class CreateWorkNode < BaseMutation
     argument :doi, String, required: true
     argument :investigation_id, Integer, required: true
 
@@ -55,8 +55,8 @@ module Mutations
           open_access_url: openalex_work.open_access_url
         )
 
-      investigation_work =
-        InvestigationWork.find_or_create_by(
+      work_node =
+        WorkNode.find_or_create_by(
           investigation_id: investigation.id,
           work_id: work.id,
           visible: true
