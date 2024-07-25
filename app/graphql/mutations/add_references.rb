@@ -38,18 +38,29 @@ module Mutations
         )
       end
 
+      work_nodes = []
       created_references.each do |reference|
-        WorkNode.find_or_create_by(
-          investigation_id: investigation.id,
-          reference_id: reference.id
-        )
+        work_node =
+          WorkNode.find_or_create_by(
+            investigation_id: investigation.id,
+            work_id: reference.id
+          )
+
+        work_node.x_coordinate =
+          rand(1000) unless work_node.x_coordinate.present?
+        work_node.y_coordinate =
+          rand(1000) unless work_node.y_coordinate.present?
+
+        work_node.save
+
+        work_nodes << work_node
       end
 
       MutationResult.call(
         obj: {
-          object: created_references
+          object: work_nodes
         },
-        success: created_references.all?(&:save),
+        success: work_node.all?(&:save),
         errors: 'uhoh'
       )
       # if created_references.all?(&:save)

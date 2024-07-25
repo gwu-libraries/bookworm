@@ -2,6 +2,7 @@
 
 module Types
   class WorkNodeType < Types::BaseObject
+    field :id, Integer
     field :x_coordinate, Integer
     field :y_coordinate, Integer
     field :visible, Boolean, null: false

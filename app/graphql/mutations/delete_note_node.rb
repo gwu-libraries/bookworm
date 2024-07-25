@@ -3,14 +3,14 @@
 module Mutations
   class DeleteNoteNode < BaseMutation
     argument :investigation_id, Integer, required: true
-    argument :note_id, Integer, required: true # should probably be ID type
+    argument :note_node_id, Integer, required: true # should probably be ID type
 
     type 'Types::NoteNodeType'
 
     def resolve(**attributes)
       authorize_user
 
-      note = Note.find(attributes[:note_id])
+      note = NoteNode.find(attributes[:note_node_id])
 
       if note.investigation.user != context[:current_user]
         'Unauthorized'

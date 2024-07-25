@@ -58,15 +58,20 @@ module Mutations
       work_node =
         WorkNode.find_or_create_by(
           investigation_id: investigation.id,
-          work_id: work.id,
-          visible: true
+          work_id: work.id
         )
+
+      work_node.x_coordinate = rand(1000) unless work_node.x_coordinate.present?
+      work_node.y_coordinate = rand(1000) unless work_node.y_coordinate.present?
+      work_node.visible = true
+
+      work_node.save
 
       authors.map do |author|
         AuthorWork.find_or_create_by(author_id: author.id, work_id: work.id)
       end
 
-      work.persisted? ? work : 'uhoh'
+      work_node.persisted? ? work_node : 'uhoh'
       # MutationResult.call(
       #   obj: { object: work },
       #   success: work.persisted?,
