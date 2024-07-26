@@ -44,7 +44,7 @@ class OpenalexWork
           orcid: author_data[:author][:orcid],
           openalex_id: author_data[:author][:id]
         }
-      end || []
+      end
 
     @cited_by_count = data[:cited_by_count] || []
 

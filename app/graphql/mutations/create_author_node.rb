@@ -22,13 +22,18 @@ module Mutations
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      AuthorNode.find_or_create_by(
-        author_id: author.id,
-        investigation_id: investigation.id,
-        visible: true
-      )
+      author_node =
+        AuthorNode.find_or_create_by(
+          author_id: author.id,
+          investigation_id: investigation.id
+        )
 
-      author.persisted? ? author : 'uhoh'
+      author_node.x_coordinate = rand(1000) if author_node.x_coordinate.nil?
+      author_node.y_coordinate = rand(1000) if author_node.y_coordinate.nil?
+
+      author_node.save
+
+      author_node.persisted? ? author : 'uhoh'
     end
   end
 end
