@@ -19,15 +19,32 @@ module Mutations
 
       created_citations = []
       openalex_citations.each do |citation|
-        created_citations << Work.find_or_create_by(
-          doi: citation.doi,
-          title: citation.title,
-          language: citation.language,
-          openalex_id: citation.openalex_id,
-          publication_year: citation.publication_year,
-          keywords: citation.keywords,
-          topics: citation.topics
-        )
+        created_citation =
+          Work.find_or_create_by(
+            doi: citation.doi,
+            title: citation.title,
+            language: citation.language,
+            openalex_id: citation.openalex_id,
+            publication_year: citation.publication_year,
+            keywords: citation.keywords,
+            topics: citation.topics
+          )
+
+        created_citations << created_citation
+
+        citation.authors.each do |author_hash|
+          author =
+            Author.find_or_create_by(
+              name: author_hash[:name],
+              openalex_id: author_hash[:openalex_id],
+              orcid: author_hash[:orcid]
+            )
+
+          AuthorWork.find_or_create_by(
+            author_id: author.id,
+            work_id: created_citation.id
+          )
+        end
       end
 
       created_citations.map do |citation|
@@ -45,9 +62,11 @@ module Mutations
             work_id: citation.id
           )
 
-        work_node.x_coordinate = rand(1000) unless wn.x_coordinate.present?
+        work_node.x_coordinate =
+          rand(1000) unless work_node.x_coordinate.present?
 
-        work_node.y_coordinate = rand(1000) unless wn.y_coordinate.present?
+        work_node.y_coordinate =
+          rand(1000) unless work_node.y_coordinate.present?
 
         work_node.save
 
