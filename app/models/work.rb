@@ -4,8 +4,8 @@ class Work < ApplicationRecord
   validates :doi, presence: true
   validates :title, presence: true
 
-  has_many :investigation_works
-  has_many :investigations, through: :investigation_works
+  has_many :work_nodes
+  has_many :investigations, through: :work_nodes
 
   has_many :author_works
   has_many :authors, through: :author_works
