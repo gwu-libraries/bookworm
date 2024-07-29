@@ -8,7 +8,14 @@ RSpec.describe Investigation, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many :works }
+    it { should have_many :work_nodes }
+    it { should have_many(:works).through(:work_nodes) }
+
+    it { should have_many(:author_nodes) }
+    it { should have_many(:authors).through(:author_nodes) }
+
+    it { should have_many(:note_nodes) }
+
     it { should belong_to :user }
   end
 end

@@ -6,6 +6,6 @@ class Author < ApplicationRecord
   has_many :author_works
   has_many :works, through: :author_works
 
-  has_many :investigation_authors
-  has_many :investigations, through: :investigation_authors
+  has_many :author_nodes
+  has_many :investigations, through: :author_nodes
 end
