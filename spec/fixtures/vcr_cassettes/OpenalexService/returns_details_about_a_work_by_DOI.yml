@@ -1,0 +1,154 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openalex.org/works/https://doi.org/10.1145/3174781.3174785
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722296036&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=iy5I5Nf0l8KgDmKCDSX2gPJenK%2BxJ7Zqbs%2F%2Bk4Y9aqw%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722296036&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=iy5I5Nf0l8KgDmKCDSX2gPJenK%2BxJ7Zqbs%2F%2Bk4Y9aqw%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn
+      Date:
+      - Mon, 29 Jul 2024 23:33:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '16924'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Api-Pool:
+      - common
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'self'; object-src 'none'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"https://openalex.org/W2785752813","doi":"https://doi.org/10.1145/3174781.3174785","title":"\"I
+        know it when I see it\" Perceptions of Code Quality","display_name":"\"I know
+        it when I see it\" Perceptions of Code Quality","publication_year":2018,"publication_date":"2018-01-30","ids":{"openalex":"https://openalex.org/W2785752813","doi":"https://doi.org/10.1145/3174781.3174785","mag":"2785752813"},"language":"en","primary_location":{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},"type":"article","type_crossref":"proceedings-article","indexed_in":["crossref"],"open_access":{"is_oa":true,"oa_status":"bronze","oa_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","any_repository_has_fulltext":true},"authorships":[{"author_position":"first","author":{"id":"https://openalex.org/A5091158126","display_name":"J\u00fcrgen
+        B\u00f6rstler","orcid":"https://orcid.org/0000-0003-0639-4234"},"institutions":[{"id":"https://openalex.org/I52719799","display_name":"Blekinge
+        Institute of Technology","ror":"https://ror.org/0093a8w51","country_code":"SE","type":"education","lineage":["https://openalex.org/I52719799"]}],"countries":["SE"],"is_corresponding":false,"raw_author_name":"J\u00fcrgen
+        B\u00f6rstler","raw_affiliation_strings":["Blekinge Institute of Technology,
+        Karlskrona, Sweden"],"affiliations":[{"raw_affiliation_string":"Blekinge Institute
+        of Technology, Karlskrona, Sweden","institution_ids":["https://openalex.org/I52719799"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5061309019","display_name":"Harald
+        St\u00f6rrle","orcid":null},"institutions":[],"countries":["DE"],"is_corresponding":false,"raw_author_name":"Harald
+        St\u00f6rrle","raw_affiliation_strings":["QAware GmbH, Munich, Germany"],"affiliations":[{"raw_affiliation_string":"QAware
+        GmbH, Munich, Germany","institution_ids":[]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5103115159","display_name":"Daniel
+        Toll","orcid":"https://orcid.org/0000-0001-5656-5236"},"institutions":[{"id":"https://openalex.org/I223464139","display_name":"Linnaeus
+        University","ror":"https://ror.org/00j9qag85","country_code":"SE","type":"education","lineage":["https://openalex.org/I223464139"]}],"countries":["SE"],"is_corresponding":false,"raw_author_name":"Daniel
+        Toll","raw_affiliation_strings":["Linn\u00e6us University, Kalmar, Sweden"],"affiliations":[{"raw_affiliation_string":"Linn\u00e6us
+        University, Kalmar, Sweden","institution_ids":["https://openalex.org/I223464139"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5074561455","display_name":"Jelle
+        van Assema","orcid":null},"institutions":[{"id":"https://openalex.org/I4210135670","display_name":"Amsterdam
+        University of the Arts","ror":"https://ror.org/04dde1554","country_code":"NL","type":"education","lineage":["https://openalex.org/I4210135670"]},{"id":"https://openalex.org/I887064364","display_name":"University
+        of Amsterdam","ror":"https://ror.org/04dkp9463","country_code":"NL","type":"education","lineage":["https://openalex.org/I887064364"]}],"countries":["NL"],"is_corresponding":false,"raw_author_name":"Jelle
+        van Assema","raw_affiliation_strings":["University of Amsterdam, Amsterdam,
+        Netherlands"],"affiliations":[{"raw_affiliation_string":"University of Amsterdam,
+        Amsterdam, Netherlands","institution_ids":["https://openalex.org/I4210135670","https://openalex.org/I887064364"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5080892598","display_name":"Rodrigo
+        Duran","orcid":"https://orcid.org/0000-0003-1840-2895"},"institutions":[{"id":"https://openalex.org/I9927081","display_name":"Aalto
+        University","ror":"https://ror.org/020hwjq30","country_code":"FI","type":"education","lineage":["https://openalex.org/I9927081"]}],"countries":["FI"],"is_corresponding":false,"raw_author_name":"Rodrigo
+        Duran","raw_affiliation_strings":["Aalto University, Helsinki, Finland"],"affiliations":[{"raw_affiliation_string":"Aalto
+        University, Helsinki, Finland","institution_ids":["https://openalex.org/I9927081"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5025679228","display_name":"Sara
+        Hooshangi","orcid":"https://orcid.org/0000-0002-1378-7709"},"institutions":[{"id":"https://openalex.org/I193531525","display_name":"George
+        Washington University","ror":"https://ror.org/00y4zzh67","country_code":"US","type":"education","lineage":["https://openalex.org/I193531525"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Sara
+        Hooshangi","raw_affiliation_strings":["George Washington University, Washington,
+        DC, USA"],"affiliations":[{"raw_affiliation_string":"George Washington University,
+        Washington, DC, USA","institution_ids":["https://openalex.org/I193531525"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5011892251","display_name":"Johan
+        Jeuring","orcid":"https://orcid.org/0000-0001-5645-7681"},"institutions":[{"id":"https://openalex.org/I193662353","display_name":"Utrecht
+        University","ror":"https://ror.org/04pp8hn57","country_code":"NL","type":"education","lineage":["https://openalex.org/I193662353"]}],"countries":["NL"],"is_corresponding":false,"raw_author_name":"Johan
+        Jeuring","raw_affiliation_strings":["Utrecht University, Utrecht, Netherlands"],"affiliations":[{"raw_affiliation_string":"Utrecht
+        University, Utrecht, Netherlands","institution_ids":["https://openalex.org/I193662353"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5052659996","display_name":"Hieke
+        Keuning","orcid":"https://orcid.org/0000-0001-5778-7519"},"institutions":[{"id":"https://openalex.org/I242486142","display_name":"Windesheim
+        University of Applied Sciences","ror":"https://ror.org/04zmc0e16","country_code":"NL","type":"education","lineage":["https://openalex.org/I242486142"]}],"countries":["NL"],"is_corresponding":false,"raw_author_name":"Hieke
+        Keuning","raw_affiliation_strings":["Windesheim University of Applied Sciences,
+        Zwolle, Netherlands"],"affiliations":[{"raw_affiliation_string":"Windesheim
+        University of Applied Sciences, Zwolle, Netherlands","institution_ids":["https://openalex.org/I242486142"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5082591165","display_name":"Carsten
+        Kleiner","orcid":"https://orcid.org/0000-0001-9497-0312"},"institutions":[],"countries":["DE"],"is_corresponding":false,"raw_author_name":"Carsten
+        Kleiner","raw_affiliation_strings":["University of Applied Sciences &amp;
+        Arts Hannover, Hannover, Germany"],"affiliations":[{"raw_affiliation_string":"University
+        of Applied Sciences &amp; Arts Hannover, Hannover, Germany","institution_ids":[]}]},{"author_position":"last","author":{"id":"https://openalex.org/A5047192716","display_name":"Bonnie
+        MacKellar","orcid":"https://orcid.org/0000-0003-2269-5029"},"institutions":[{"id":"https://openalex.org/I142823887","display_name":"St.
+        John''s University","ror":"https://ror.org/00bgtad15","country_code":"US","type":"education","lineage":["https://openalex.org/I142823887"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Bonnie
+        MacKellar","raw_affiliation_strings":["St John''s University, Queens, NY,
+        USA"],"affiliations":[{"raw_affiliation_string":"St John''s University, Queens,
+        NY, USA","institution_ids":["https://openalex.org/I142823887"]}]}],"countries_distinct_count":5,"institutions_distinct_count":9,"corresponding_author_ids":[],"corresponding_institution_ids":[],"apc_list":null,"apc_paid":null,"fwci":3.007,"has_fulltext":true,"fulltext_origin":"pdf","cited_by_count":25,"cited_by_percentile_year":{"min":93,"max":94},"biblio":{"volume":null,"issue":null,"first_page":null,"last_page":null},"is_retracted":false,"is_paratext":false,"primary_topic":{"id":"https://openalex.org/T10260","display_name":"Empirical
+        Studies in Software Engineering","score":0.9997,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},"topics":[{"id":"https://openalex.org/T10260","display_name":"Empirical
+        Studies in Software Engineering","score":0.9997,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10743","display_name":"Automated
+        Software Testing Techniques","score":0.9988,"subfield":{"id":"https://openalex.org/subfields/1712","display_name":"Software"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10430","display_name":"Agile Software
+        Development in Software Engineering","score":0.998,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}}],"keywords":[{"id":"https://openalex.org/keywords/source-code-analysis","display_name":"Source
+        Code Analysis","score":0.534352},{"id":"https://openalex.org/keywords/code-clone-detection","display_name":"Code
+        Clone Detection","score":0.517887}],"concepts":[{"id":"https://openalex.org/C117447612","wikidata":"https://www.wikidata.org/wiki/Q1412670","display_name":"Software
+        quality","level":4,"score":0.7764687},{"id":"https://openalex.org/C41008148","wikidata":"https://www.wikidata.org/wiki/Q21198","display_name":"Computer
+        science","level":0,"score":0.7361843},{"id":"https://openalex.org/C2779530757","wikidata":"https://www.wikidata.org/wiki/Q1207505","display_name":"Quality
+        (philosophy)","level":2,"score":0.6265944},{"id":"https://openalex.org/C2776760102","wikidata":"https://www.wikidata.org/wiki/Q5139990","display_name":"Code
+        (set theory)","level":3,"score":0.6231724},{"id":"https://openalex.org/C150292731","wikidata":"https://www.wikidata.org/wiki/Q1342704","display_name":"Code
+        review","level":5,"score":0.6223818},{"id":"https://openalex.org/C26517878","wikidata":"https://www.wikidata.org/wiki/Q228039","display_name":"Key
+        (lock)","level":2,"score":0.54925084},{"id":"https://openalex.org/C2779343474","wikidata":"https://www.wikidata.org/wiki/Q3109175","display_name":"Context
+        (archaeology)","level":2,"score":0.546234},{"id":"https://openalex.org/C2777904410","wikidata":"https://www.wikidata.org/wiki/Q7397","display_name":"Software","level":2,"score":0.43035567},{"id":"https://openalex.org/C188329197","wikidata":"https://www.wikidata.org/wiki/Q6554613","display_name":"Software
+        quality analyst","level":5,"score":0.4232187},{"id":"https://openalex.org/C115903868","wikidata":"https://www.wikidata.org/wiki/Q80993","display_name":"Software
+        engineering","level":1,"score":0.40266988},{"id":"https://openalex.org/C529173508","wikidata":"https://www.wikidata.org/wiki/Q638608","display_name":"Software
+        development","level":3,"score":0.3264866},{"id":"https://openalex.org/C199360897","wikidata":"https://www.wikidata.org/wiki/Q9143","display_name":"Programming
+        language","level":1,"score":0.21007976},{"id":"https://openalex.org/C38652104","wikidata":"https://www.wikidata.org/wiki/Q3510521","display_name":"Computer
+        security","level":1,"score":0.1479254},{"id":"https://openalex.org/C138885662","wikidata":"https://www.wikidata.org/wiki/Q5891","display_name":"Philosophy","level":0,"score":0.0},{"id":"https://openalex.org/C177264268","wikidata":"https://www.wikidata.org/wiki/Q1514741","display_name":"Set
+        (abstract data type)","level":2,"score":0.0},{"id":"https://openalex.org/C111472728","wikidata":"https://www.wikidata.org/wiki/Q9471","display_name":"Epistemology","level":1,"score":0.0},{"id":"https://openalex.org/C151730666","wikidata":"https://www.wikidata.org/wiki/Q7205","display_name":"Paleontology","level":1,"score":0.0},{"id":"https://openalex.org/C86803240","wikidata":"https://www.wikidata.org/wiki/Q420","display_name":"Biology","level":0,"score":0.0}],"mesh":[],"locations_count":3,"locations":[{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},{"is_oa":true,"landing_page_url":"https://dspace.library.uu.nl/handle/1874/371400","pdf_url":"https://dspace.library.uu.nl/bitstream/handle/1874/371400/p70_borstler.pdf?sequence=1&isAllowed=y","source":{"id":"https://openalex.org/S4306401843","display_name":"Data
+        Archiving and Networked Services (DANS)","issn_l":null,"issn":null,"is_oa":true,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I1322597698","host_organization_name":"Royal
+        Netherlands Academy of Arts and Sciences","host_organization_lineage":["https://openalex.org/I1322597698"],"host_organization_lineage_names":["Royal
+        Netherlands Academy of Arts and Sciences"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},{"is_oa":true,"landing_page_url":"http://urn.kb.se/resolve?urn=urn:nbn:se:lnu:diva-70486","pdf_url":"https://lnu.diva-portal.org/smash/get/diva2:1180161/FULLTEXT01","source":{"id":"https://openalex.org/S4306401598","display_name":"DiVA
+        (Linnaeus University)","issn_l":null,"issn":null,"is_oa":true,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I223464139","host_organization_name":"Linnaeus
+        University","host_organization_lineage":["https://openalex.org/I223464139"],"host_organization_lineage_names":["Linnaeus
+        University"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true}],"best_oa_location":{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},"sustainable_development_goals":[],"grants":[],"datasets":[],"versions":[],"referenced_works_count":24,"referenced_works":["https://openalex.org/W1581377344","https://openalex.org/W173029385","https://openalex.org/W1979990841","https://openalex.org/W2006091051","https://openalex.org/W2023300248","https://openalex.org/W2065926773","https://openalex.org/W2107096520","https://openalex.org/W2120629476","https://openalex.org/W2136583283","https://openalex.org/W2152619061","https://openalex.org/W2157984409","https://openalex.org/W2164886519","https://openalex.org/W2165855014","https://openalex.org/W2170923331","https://openalex.org/W2396601788","https://openalex.org/W2465021265","https://openalex.org/W2554919770","https://openalex.org/W2612252595","https://openalex.org/W2624900765","https://openalex.org/W2726866600","https://openalex.org/W2727300901","https://openalex.org/W2728220450","https://openalex.org/W2729462384","https://openalex.org/W2730891473"],"related_works":["https://openalex.org/W630040118","https://openalex.org/W4385933939","https://openalex.org/W2775582007","https://openalex.org/W2549211027","https://openalex.org/W2169893063","https://openalex.org/W2097099770","https://openalex.org/W2070902631","https://openalex.org/W2011425538","https://openalex.org/W1580492598","https://openalex.org/W1489503135"],"ngrams_url":"https://api.openalex.org/works/W2785752813/ngrams","abstract_inverted_index":{"Context.":[0],"Code":[1],"quality":[2,15,36,60],"is":[3,17,61],"a":[4,19,63],"key":[5,20],"issue":[6],"in":[7],"software":[8,16],"development.":[9],"The":[10],"ability":[11],"to":[12,33,50],"develop":[13],"high":[14],"therefore":[18,62],"learning":[21],"goal":[22],"of":[23,37,58],"computing":[24],"programs.":[25],"However,":[26],"there":[27,46],"are":[28,42,47],"no":[29],"universally":[30],"accepted":[31],"measures":[32],"assess":[34],"the":[35,56],"code":[38,51,59],"and":[39,54],"current":[40],"standards":[41],"considered":[43],"weak.":[44],"Furthermore,":[45],"many":[48,67],"facets":[49],"quality.":[52],"Defining":[53],"explaining":[55],"concept":[57],"challenge":[64],"faced":[65],"by":[66],"educators.":[68]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W2785752813","counts_by_year":[{"year":2024,"cited_by_count":6},{"year":2023,"cited_by_count":6},{"year":2022,"cited_by_count":7},{"year":2021,"cited_by_count":1},{"year":2020,"cited_by_count":3},{"year":2019,"cited_by_count":1}],"updated_date":"2024-07-16T09:43:46.622698","created_date":"2018-02-23"}
+
+        '
+  recorded_at: Mon, 29 Jul 2024 23:33:56 GMT
+recorded_with: VCR 6.2.0
