@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722296608&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=PTjIwkRWI8QuquW4CPwLrZRE4djnhQnDcIS6AOrvNPQ%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722297202&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=MSMauoMrJvFB%2BCgEml6J%2BgqkfGI6Y1xmYAfedlWqWcw%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722296608&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=PTjIwkRWI8QuquW4CPwLrZRE4djnhQnDcIS6AOrvNPQ%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722297202&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=MSMauoMrJvFB%2BCgEml6J%2BgqkfGI6Y1xmYAfedlWqWcw%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -29,7 +29,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 29 Jul 2024 23:43:28 GMT
+      - Mon, 29 Jul 2024 23:53:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -3174,7 +3174,7 @@ http_interactions:
         Organization for Nuclear Research"],"type":"repository"},"license":null,"license_id":null,"version":null,"is_accepted":false,"is_published":false},"sustainable_development_goals":[],"grants":[],"datasets":[],"versions":["https://openalex.org/W3206844309"],"referenced_works_count":0,"referenced_works":[],"related_works":["https://openalex.org/W4388566120","https://openalex.org/W4210614060","https://openalex.org/W3212037913","https://openalex.org/W3022381079","https://openalex.org/W2748952813","https://openalex.org/W2740362951","https://openalex.org/W2410077831","https://openalex.org/W240152639","https://openalex.org/W2129611589","https://openalex.org/W1904308805"],"ngrams_url":"https://api.openalex.org/works/W4393718594/ngrams","abstract_inverted_index":{"This":[0,65],"is":[1,42,54,150,203,260],"the":[2,6,36,39,48,68,85,97,119,157,195,264,270],"raw":[3],"data":[4,40,83,149],"behind":[5],"publication":[7,26],"on":[8,96,152],"bioRxiv":[9],"at":[10,114],"https://doi.org/10.1101/795310:":[11],"<strong>Piwowar,":[12],"Priem,":[13],"Orr":[14],"(2019)":[15],"The":[16,31,77,110,253],"Future":[17],"of":[18,50,70,89,100,121,156,189,197,210,219,235,245,256,266],"OA:":[19],"A":[20],"large-scale":[21],"analysis":[22],"projecting":[23],"Open":[24],"Access":[25],"and":[27,62,84,108,169,200],"readership.":[28],"bioRxiv:":[29],"https://doi.org/10.1101/795310</strong>":[30],"jupyter":[32],"notebook":[33],"that":[34,166,194,231],"produces":[35],"manuscript":[37],"using":[38],"here":[41],"available":[43,72,185,215,241],"at:":[44],"https://github.com/Impactstory/future-oa":[45],"Summary:":[46],"Understanding":[47],"growth":[49,87],"open":[51],"access":[52,258],"(OA)":[53],"important":[55],"for":[56],"deciding":[57],"funder":[58],"policy,":[59],"subscription":[60],"allocation,":[61],"infrastructure":[63],"planning.":[64],"study":[66,111],"analyses":[67],"number":[69],"papers":[71,171,183],"as":[73,216,242],"OA":[74,81,91,98,124,217,224,243,251],"over":[75,93,146],"time.":[76,147],"models":[78],"includes":[79],"both":[80],"embargo":[82],"relative":[86],"rates":[88],"different":[90],"types":[92],"time,":[94],"based":[95,151],"status":[99],"70":[101],"million":[102,154],"journal":[103,212,237],"articles":[104,125,129,202,213,225,238,252,259],"published":[105],"between":[106],"1950":[107],"2019.":[109,163],"also":[112,192],"looks":[113],"article":[115,220,246],"usage":[116],"data,":[117],"analyzing":[118],"proportion":[120,196],"views":[122,127,174,221,247],"to":[123,128,139,223,250,262,272],"vs":[126],"which":[130],"are":[131,137,214,222],"closed":[132,257],"access.":[133],"Signal":[134],"processing":[135],"techniques":[136],"used":[138],"model":[140],"how":[141],"these":[142],"viewership":[143],"patterns":[144],"change":[145,263],"Viewership":[148],"2.8":[153],"uses":[155],"Unpaywall":[158],"browser":[159],"extension":[160],"in":[161,269],"July":[162],"We":[164,191],"found":[165,193],"Green,":[167,198],"Gold,":[168,199],"Hybrid":[170,201],"receive":[172],"more":[173],"than":[175],"their":[176],"Closed":[177],"or":[178],"Bronze":[179],"counterparts,":[180],"particularly":[181],"Green":[182],"made":[184],"within":[186],"a":[187],"year":[188],"publication.":[190],"growing":[204],"most":[205],"quickly.":[206],"In":[207],"2019:":[208],"31%":[209],"all":[211,236],"52%":[218],"Given":[226],"existing":[227],"trends,":[228],"we":[229],"estimate":[230],"by":[232],"2025:":[233],"44%":[234],"will":[239,248],"be":[240,249],"70%":[244],"declining":[254],"relevance":[255],"likely":[261],"landscape":[265],"scholarly":[267],"communication":[268],"years":[271],"come.":[273]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W4393718594","counts_by_year":[],"updated_date":"2024-07-24T17:29:36.669515","created_date":"2024-04-03"}],"group_by":[]}
 
         '
-  recorded_at: Mon, 29 Jul 2024 23:43:28 GMT
+  recorded_at: Mon, 29 Jul 2024 23:53:22 GMT
 - request:
     method: get
     uri: https://api.openalex.org/works?cursor=Ils2NC4wLCAwLCAnaHR0cHM6Ly9vcGVuYWxleC5vcmcvVzQzOTM3MTg1OTQnXSI=&filter=authorships.author.id:A5023888391&per-page=200
@@ -3194,9 +3194,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722296609&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=tkzxI1%2BOXQdNfCBgwkrcxam3Z6q5wV7xUl%2FcnkrADR8%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722297202&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=MSMauoMrJvFB%2BCgEml6J%2BgqkfGI6Y1xmYAfedlWqWcw%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722296609&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=tkzxI1%2BOXQdNfCBgwkrcxam3Z6q5wV7xUl%2FcnkrADR8%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722297202&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=MSMauoMrJvFB%2BCgEml6J%2BgqkfGI6Y1xmYAfedlWqWcw%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -3204,7 +3204,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 29 Jul 2024 23:43:29 GMT
+      - Mon, 29 Jul 2024 23:53:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -3240,5 +3240,5 @@ http_interactions:
       string: '{"meta":{"count":66,"db_response_time_ms":19,"page":null,"per_page":200,"next_cursor":null,"groups_count":null},"results":[],"group_by":[]}
 
         '
-  recorded_at: Mon, 29 Jul 2024 23:43:29 GMT
+  recorded_at: Mon, 29 Jul 2024 23:53:22 GMT
 recorded_with: VCR 6.2.0

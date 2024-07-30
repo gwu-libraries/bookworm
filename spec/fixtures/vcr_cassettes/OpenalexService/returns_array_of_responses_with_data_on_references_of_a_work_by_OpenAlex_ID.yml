@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722296336&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=saWJVIWzbT%2FagfnTZvebreaNwc8ARbH8hJTDkBMRLT0%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722297200&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=o7bja2yj3pGSzRvUDN4Ls5sEq9v4OZ9Y6BBqZrO8BXM%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722296336&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=saWJVIWzbT%2FagfnTZvebreaNwc8ARbH8hJTDkBMRLT0%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722297200&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=o7bja2yj3pGSzRvUDN4Ls5sEq9v4OZ9Y6BBqZrO8BXM%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -29,7 +29,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 29 Jul 2024 23:38:56 GMT
+      - Mon, 29 Jul 2024 23:53:20 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -1243,7 +1243,7 @@ http_interactions:
         Department of Defense","award_id":"Contract H98230-08-D-0171."}],"datasets":[],"versions":[],"referenced_works_count":4,"referenced_works":["https://openalex.org/W1590667944","https://openalex.org/W2074899141","https://openalex.org/W4242182825","https://openalex.org/W4246121531"],"related_works":["https://openalex.org/W76059029","https://openalex.org/W3202658588","https://openalex.org/W3195606140","https://openalex.org/W3153403682","https://openalex.org/W3138475137","https://openalex.org/W2778966272","https://openalex.org/W2065994793","https://openalex.org/W2061309113","https://openalex.org/W1982988401","https://openalex.org/W188463999"],"ngrams_url":"https://api.openalex.org/works/W2396601788/ngrams","abstract_inverted_index":{"This":[0,108],"Technical":[1],"Briefing":[2],"describes":[3],"the":[4,20,35,48,73,90,137,144,161],"nature":[5,25,145],"of":[6,22,29,37,44,62,70,92,112,120,129,146,164],"Software":[7],"Qualities":[8],"(SQs),":[9],"ilities,":[10],"or":[11],"non-functional":[12],"requirements":[13],"(reliability,":[14],"usability,":[15],"affordability,":[16],"etc.),":[17],"and":[18,26,28,42,50,64,77,96,98,106,117,132,141,143],"discusses":[19,89],"importance":[21],"understanding":[23],"their":[24,82,121],"interrelationships,":[27],"bringing":[30],"them":[31],"into":[32],"balance":[33,84],"in":[34],"practice":[36],"software":[38],"engineering.":[39,169],"The":[40],"relevance":[41],"timeliness":[43],"this":[45],"topic":[46],"reflects":[47],"current":[49,93,103,154],"future":[51],"trends":[52],"toward":[53,101],"more":[54],"software-intensive":[55],"systems,":[56,71],"with":[57],"greater":[58],"complexity,":[59],"autonomy,":[60],"speed":[61],"change,":[63],"need":[65],"for":[66,159,166],"interoperability":[67],"within":[68],"systems":[69],"given":[72],"frequent":[74],"system":[75],"shortfalls":[76],"overruns":[78],"that":[79],"occur":[80],"when":[81],"SQ":[83,94,104,114,168],"is":[85],"not":[86],"achieved.":[87],"It":[88],"weaknesses":[91],"standards":[95],"guidance,":[97],"summarizes":[99],"research":[100,131],"strengthening":[102],"definitions":[105],"relationships.":[107],"includes":[109],"a":[110,157],"set":[111],"initial":[113],"ontology":[115,138],"elements":[116],"relationships,":[118],"examples":[119],"application":[122],"to":[123,135,151],"some":[124],"key":[125],"SQs,":[126],"an":[127,147],"identification":[128],"further":[130],"development":[133],"needed":[134],"make":[136],"fully":[139],"useful":[140],"evolvable,":[142],"international":[148],"collaborative":[149],"effort":[150],"help":[152],"improve":[153],"practices":[155],"via":[156],"Qualipedia":[158],"accessing":[160],"evolving":[162],"body":[163],"knowledge":[165],"improving":[167]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W2396601788","counts_by_year":[{"year":2022,"cited_by_count":1},{"year":2020,"cited_by_count":3},{"year":2018,"cited_by_count":1}],"updated_date":"2024-07-27T23:12:37.767369","created_date":"2016-06-24"}],"group_by":[]}
 
         '
-  recorded_at: Mon, 29 Jul 2024 23:38:56 GMT
+  recorded_at: Mon, 29 Jul 2024 23:53:20 GMT
 - request:
     method: get
     uri: https://api.openalex.org/works?cursor=Ils4NC4wLCA1LCAnaHR0cHM6Ly9vcGVuYWxleC5vcmcvVzIzOTY2MDE3ODgnXSI=&filter=cited_by:W2785752813&per-page=200
@@ -1263,9 +1263,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722296336&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=saWJVIWzbT%2FagfnTZvebreaNwc8ARbH8hJTDkBMRLT0%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722297201&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=qLb7L9qhvhjPEGJJk9MrUBk9WV%2Ba4IvELBlJ98j6t3U%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722296336&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=saWJVIWzbT%2FagfnTZvebreaNwc8ARbH8hJTDkBMRLT0%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722297201&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=qLb7L9qhvhjPEGJJk9MrUBk9WV%2Ba4IvELBlJ98j6t3U%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -1273,7 +1273,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 29 Jul 2024 23:38:56 GMT
+      - Mon, 29 Jul 2024 23:53:21 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -1309,5 +1309,5 @@ http_interactions:
       string: '{"meta":{"count":24,"db_response_time_ms":21,"page":null,"per_page":200,"next_cursor":null,"groups_count":null},"results":[],"group_by":[]}
 
         '
-  recorded_at: Mon, 29 Jul 2024 23:38:56 GMT
+  recorded_at: Mon, 29 Jul 2024 23:53:21 GMT
 recorded_with: VCR 6.2.0

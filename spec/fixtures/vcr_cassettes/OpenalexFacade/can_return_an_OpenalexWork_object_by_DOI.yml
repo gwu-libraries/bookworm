@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722295180&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=DmCbFHpdIj%2FTSPQ59RX7iOuzWUiQT6CjAJsd1nbPKF4%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722297465&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=BhApfnR9Ts9%2FzFyVdjI4l0rM3HV6tvpixNiN4XcbrnY%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722295180&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=DmCbFHpdIj%2FTSPQ59RX7iOuzWUiQT6CjAJsd1nbPKF4%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722297465&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=BhApfnR9Ts9%2FzFyVdjI4l0rM3HV6tvpixNiN4XcbrnY%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -29,7 +29,7 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 29 Jul 2024 23:19:40 GMT
+      - Mon, 29 Jul 2024 23:57:45 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -150,5 +150,5 @@ http_interactions:
         University"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true}],"best_oa_location":{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},"sustainable_development_goals":[],"grants":[],"datasets":[],"versions":[],"referenced_works_count":24,"referenced_works":["https://openalex.org/W1581377344","https://openalex.org/W173029385","https://openalex.org/W1979990841","https://openalex.org/W2006091051","https://openalex.org/W2023300248","https://openalex.org/W2065926773","https://openalex.org/W2107096520","https://openalex.org/W2120629476","https://openalex.org/W2136583283","https://openalex.org/W2152619061","https://openalex.org/W2157984409","https://openalex.org/W2164886519","https://openalex.org/W2165855014","https://openalex.org/W2170923331","https://openalex.org/W2396601788","https://openalex.org/W2465021265","https://openalex.org/W2554919770","https://openalex.org/W2612252595","https://openalex.org/W2624900765","https://openalex.org/W2726866600","https://openalex.org/W2727300901","https://openalex.org/W2728220450","https://openalex.org/W2729462384","https://openalex.org/W2730891473"],"related_works":["https://openalex.org/W630040118","https://openalex.org/W4385933939","https://openalex.org/W2775582007","https://openalex.org/W2549211027","https://openalex.org/W2169893063","https://openalex.org/W2097099770","https://openalex.org/W2070902631","https://openalex.org/W2011425538","https://openalex.org/W1580492598","https://openalex.org/W1489503135"],"ngrams_url":"https://api.openalex.org/works/W2785752813/ngrams","abstract_inverted_index":{"Context.":[0],"Code":[1],"quality":[2,15,36,60],"is":[3,17,61],"a":[4,19,63],"key":[5,20],"issue":[6],"in":[7],"software":[8,16],"development.":[9],"The":[10],"ability":[11],"to":[12,33,50],"develop":[13],"high":[14],"therefore":[18,62],"learning":[21],"goal":[22],"of":[23,37,58],"computing":[24],"programs.":[25],"However,":[26],"there":[27,46],"are":[28,42,47],"no":[29],"universally":[30],"accepted":[31],"measures":[32],"assess":[34],"the":[35,56],"code":[38,51,59],"and":[39,54],"current":[40],"standards":[41],"considered":[43],"weak.":[44],"Furthermore,":[45],"many":[48,67],"facets":[49],"quality.":[52],"Defining":[53],"explaining":[55],"concept":[57],"challenge":[64],"faced":[65],"by":[66],"educators.":[68]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W2785752813","counts_by_year":[{"year":2024,"cited_by_count":6},{"year":2023,"cited_by_count":6},{"year":2022,"cited_by_count":7},{"year":2021,"cited_by_count":1},{"year":2020,"cited_by_count":3},{"year":2019,"cited_by_count":1}],"updated_date":"2024-07-16T09:43:46.622698","created_date":"2018-02-23"}
 
         '
-  recorded_at: Mon, 29 Jul 2024 23:19:40 GMT
+  recorded_at: Mon, 29 Jul 2024 23:57:45 GMT
 recorded_with: VCR 6.2.0
