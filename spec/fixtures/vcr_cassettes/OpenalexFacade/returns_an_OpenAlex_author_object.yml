@@ -1,0 +1,278 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openalex.org/authors/A5023888391
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722298551&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=U51x6ACqVyync4MqZpS2nJvW1MgLGBVD5vIYqWjMzJA%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722298551&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=U51x6ACqVyync4MqZpS2nJvW1MgLGBVD5vIYqWjMzJA%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn
+      Date:
+      - Tue, 30 Jul 2024 00:15:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '24695'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Api-Pool:
+      - common
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'self'; object-src 'none'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"https://openalex.org/A5023888391","orcid":"https://orcid.org/0000-0001-6187-6610","display_name":"Jason
+        Priem","display_name_alternatives":["Priem Jason","Jason Priem"],"works_count":66,"cited_by_count":2810,"summary_stats":{"2yr_mean_citedness":9.333333333333334,"h_index":17,"i10_index":18},"ids":{"openalex":"https://openalex.org/A5023888391","orcid":"https://orcid.org/0000-0001-6187-6610","scopus":"http://www.scopus.com/inward/authorDetails.url?authorID=36455008000&partnerID=MN8TOARS"},"affiliations":[{"institution":{"id":"https://openalex.org/I4200000001","ror":"https://ror.org/02nr0ka47","display_name":"OurResearch","country_code":"CA","type":"nonprofit","lineage":["https://openalex.org/I4200000001"]},"years":[2023,2022,2021,2019]},{"institution":{"id":"https://openalex.org/I145311948","ror":"https://ror.org/00za53h95","display_name":"Johns
+        Hopkins University","country_code":"US","type":"education","lineage":["https://openalex.org/I145311948"]},"years":[2020]},{"institution":{"id":"https://openalex.org/I103163165","ror":"https://ror.org/05g3dte14","display_name":"Florida
+        State University","country_code":"US","type":"education","lineage":["https://openalex.org/I103163165"]},"years":[2020]},{"institution":{"id":"https://openalex.org/I4210166736","ror":"https://ror.org/05ppvf150","display_name":"Impact
+        Technology Development (United States)","country_code":"US","type":"company","lineage":["https://openalex.org/I4210166736"]},"years":[2018,2017,2013]},{"institution":{"id":"https://openalex.org/I114027177","ror":"https://ror.org/0130frc33","display_name":"University
+        of North Carolina at Chapel Hill","country_code":"US","type":"education","lineage":["https://openalex.org/I114027177"]},"years":[2014,2013,2012,2011,2010]},{"institution":{"id":"https://openalex.org/I4210161256","ror":"https://ror.org/05d9dsr70","display_name":"Impact","country_code":"CA","type":"nonprofit","lineage":["https://openalex.org/I4210161256"]},"years":[2013]},{"institution":{"id":"https://openalex.org/I94062374","ror":"https://ror.org/010bgev76","display_name":"Florida
+        College","country_code":"US","type":"education","lineage":["https://openalex.org/I94062374"]},"years":[2008]},{"institution":{"id":"https://openalex.org/I33213144","ror":"https://ror.org/02y3ad647","display_name":"University
+        of Florida","country_code":"US","type":"education","lineage":["https://openalex.org/I33213144"]},"years":[2008]}],"last_known_institutions":[{"id":"https://openalex.org/I4200000001","ror":"https://ror.org/02nr0ka47","display_name":"OurResearch","country_code":"CA","type":"nonprofit","lineage":["https://openalex.org/I4200000001"]}],"topics":[{"id":"https://openalex.org/T10102","display_name":"Bibliometric
+        Analysis and Research Evaluation","count":24,"subfield":{"id":"https://openalex.org/subfields/1804","display_name":"Statistics,
+        Probability and Uncertainty"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11937","display_name":"Data Sharing
+        and Stewardship in Science","count":11,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T12478","display_name":"Collaboration
+        and Dynamics in Wikipedia Research","count":8,"subfield":{"id":"https://openalex.org/subfields/3315","display_name":"Communication"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11710","display_name":"Biomedical
+        Ontologies and Text Mining","count":7,"subfield":{"id":"https://openalex.org/subfields/1312","display_name":"Molecular
+        Biology"},"field":{"id":"https://openalex.org/fields/13","display_name":"Biochemistry,
+        Genetics and Molecular Biology"},"domain":{"id":"https://openalex.org/domains/1","display_name":"Life
+        Sciences"}},{"id":"https://openalex.org/T11986","display_name":"Management
+        and Reproducibility of Scientific Workflows","count":7,"subfield":{"id":"https://openalex.org/subfields/1802","display_name":"Information
+        Systems and Management"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10215","display_name":"Semantic Web
+        and Ontology Development","count":7,"subfield":{"id":"https://openalex.org/subfields/1702","display_name":"Artificial
+        Intelligence"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T13976","display_name":"Webometrics
+        Analysis in Academic Research","count":6,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T13607","display_name":"Preprints
+        in Scientific Communication","count":5,"subfield":{"id":"https://openalex.org/subfields/1802","display_name":"Information
+        Systems and Management"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11719","display_name":"Data Quality
+        Assessment and Improvement","count":5,"subfield":{"id":"https://openalex.org/subfields/1803","display_name":"Management
+        Science and Operations Research"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10064","display_name":"Statistical
+        Mechanics of Complex Networks","count":5,"subfield":{"id":"https://openalex.org/subfields/3109","display_name":"Statistical
+        and Nonlinear Physics"},"field":{"id":"https://openalex.org/fields/31","display_name":"Physics
+        and Astronomy"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T12027","display_name":"Impact of
+        Social Media on Healthcare Communication","count":4,"subfield":{"id":"https://openalex.org/subfields/3306","display_name":"Health"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11813","display_name":"Usage and
+        Impact of E-Books in Academic Settings","count":4,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T14330","display_name":"Name Authority
+        Control in Bibliographic Repositories","count":3,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10712","display_name":"Information
+        Literacy in Higher Education","count":3,"subfield":{"id":"https://openalex.org/subfields/3309","display_name":"Library
+        and Information Sciences"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T13398","display_name":"Statistical
+        Computing and Data Analysis in R","count":2,"subfield":{"id":"https://openalex.org/subfields/1702","display_name":"Artificial
+        Intelligence"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T12121","display_name":"Governance
+        of Cooperatives and Mutual Associations","count":2,"subfield":{"id":"https://openalex.org/subfields/1408","display_name":"Strategy
+        and Management"},"field":{"id":"https://openalex.org/fields/14","display_name":"Business,
+        Management and Accounting"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10799","display_name":"Information
+        Visualization and Visual Data Mining","count":2,"subfield":{"id":"https://openalex.org/subfields/1707","display_name":"Computer
+        Vision and Pattern Recognition"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T11122","display_name":"Educational
+        Data Mining and Learning Analytics","count":2,"subfield":{"id":"https://openalex.org/subfields/1706","display_name":"Computer
+        Science Applications"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10636","display_name":"Self-Regulated
+        Learning in Educational Research","count":2,"subfield":{"id":"https://openalex.org/subfields/3204","display_name":"Developmental
+        and Educational Psychology"},"field":{"id":"https://openalex.org/fields/32","display_name":"Psychology"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11891","display_name":"Impact of
+        Big Data Analytics on Business Performance","count":2,"subfield":{"id":"https://openalex.org/subfields/1404","display_name":"Management
+        Information Systems"},"field":{"id":"https://openalex.org/fields/14","display_name":"Business,
+        Management and Accounting"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10895","display_name":"Species Distribution
+        Modeling and Climate Change Impacts","count":2,"subfield":{"id":"https://openalex.org/subfields/2302","display_name":"Ecological
+        Modeling"},"field":{"id":"https://openalex.org/fields/23","display_name":"Environmental
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10162","display_name":"Transformative
+        Potential of Blended Learning in Education","count":2,"subfield":{"id":"https://openalex.org/subfields/3304","display_name":"Education"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T14222","display_name":"Representation
+        and Critique of DIKW Hierarchy","count":1,"subfield":{"id":"https://openalex.org/subfields/1803","display_name":"Management
+        Science and Operations Research"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11704","display_name":"Crowdsourcing
+        for Research and Data Collection","count":1,"subfield":{"id":"https://openalex.org/subfields/1706","display_name":"Computer
+        Science Applications"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T13098","display_name":"Motivation
+        and Behavior of Convention Attendees","count":1,"subfield":{"id":"https://openalex.org/subfields/3312","display_name":"Sociology
+        and Political Science"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}}],"topic_share":[{"id":"https://openalex.org/T13976","display_name":"Webometrics
+        Analysis in Academic Research","value":0.000317,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10102","display_name":"Bibliometric
+        Analysis and Research Evaluation","value":0.0002119,"subfield":{"id":"https://openalex.org/subfields/1804","display_name":"Statistics,
+        Probability and Uncertainty"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T12478","display_name":"Collaboration
+        and Dynamics in Wikipedia Research","value":0.0001333,"subfield":{"id":"https://openalex.org/subfields/3315","display_name":"Communication"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11937","display_name":"Data Sharing
+        and Stewardship in Science","value":0.0001276,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T13607","display_name":"Preprints
+        in Scientific Communication","value":0.0001203,"subfield":{"id":"https://openalex.org/subfields/1802","display_name":"Information
+        Systems and Management"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T14222","display_name":"Representation
+        and Critique of DIKW Hierarchy","value":0.0001022,"subfield":{"id":"https://openalex.org/subfields/1803","display_name":"Management
+        Science and Operations Research"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T13398","display_name":"Statistical
+        Computing and Data Analysis in R","value":6.16e-05,"subfield":{"id":"https://openalex.org/subfields/1702","display_name":"Artificial
+        Intelligence"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T12027","display_name":"Impact of
+        Social Media on Healthcare Communication","value":5.97e-05,"subfield":{"id":"https://openalex.org/subfields/3306","display_name":"Health"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11710","display_name":"Biomedical
+        Ontologies and Text Mining","value":5.33e-05,"subfield":{"id":"https://openalex.org/subfields/1312","display_name":"Molecular
+        Biology"},"field":{"id":"https://openalex.org/fields/13","display_name":"Biochemistry,
+        Genetics and Molecular Biology"},"domain":{"id":"https://openalex.org/domains/1","display_name":"Life
+        Sciences"}},{"id":"https://openalex.org/T11719","display_name":"Data Quality
+        Assessment and Improvement","value":4.44e-05,"subfield":{"id":"https://openalex.org/subfields/1803","display_name":"Management
+        Science and Operations Research"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11986","display_name":"Management
+        and Reproducibility of Scientific Workflows","value":4.21e-05,"subfield":{"id":"https://openalex.org/subfields/1802","display_name":"Information
+        Systems and Management"},"field":{"id":"https://openalex.org/fields/18","display_name":"Decision
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11813","display_name":"Usage and
+        Impact of E-Books in Academic Settings","value":3.39e-05,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T14330","display_name":"Name Authority
+        Control in Bibliographic Repositories","value":3.01e-05,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
+        Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10064","display_name":"Statistical
+        Mechanics of Complex Networks","value":2.58e-05,"subfield":{"id":"https://openalex.org/subfields/3109","display_name":"Statistical
+        and Nonlinear Physics"},"field":{"id":"https://openalex.org/fields/31","display_name":"Physics
+        and Astronomy"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T12121","display_name":"Governance
+        of Cooperatives and Mutual Associations","value":2.33e-05,"subfield":{"id":"https://openalex.org/subfields/1408","display_name":"Strategy
+        and Management"},"field":{"id":"https://openalex.org/fields/14","display_name":"Business,
+        Management and Accounting"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T11704","display_name":"Crowdsourcing
+        for Research and Data Collection","value":2.27e-05,"subfield":{"id":"https://openalex.org/subfields/1706","display_name":"Computer
+        Science Applications"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T13098","display_name":"Motivation
+        and Behavior of Convention Attendees","value":2.27e-05,"subfield":{"id":"https://openalex.org/subfields/3312","display_name":"Sociology
+        and Political Science"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10799","display_name":"Information
+        Visualization and Visual Data Mining","value":2.18e-05,"subfield":{"id":"https://openalex.org/subfields/1707","display_name":"Computer
+        Vision and Pattern Recognition"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T10712","display_name":"Information
+        Literacy in Higher Education","value":2.08e-05,"subfield":{"id":"https://openalex.org/subfields/3309","display_name":"Library
+        and Information Sciences"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T10215","display_name":"Semantic Web
+        and Ontology Development","value":1.95e-05,"subfield":{"id":"https://openalex.org/subfields/1702","display_name":"Artificial
+        Intelligence"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T11273","display_name":"Graph Neural
+        Network Models and Applications","value":1.72e-05,"subfield":{"id":"https://openalex.org/subfields/1702","display_name":"Artificial
+        Intelligence"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T11636","display_name":"Artificial
+        Intelligence in Medicine","value":1.63e-05,"subfield":{"id":"https://openalex.org/subfields/2718","display_name":"Health
+        Informatics"},"field":{"id":"https://openalex.org/fields/27","display_name":"Medicine"},"domain":{"id":"https://openalex.org/domains/4","display_name":"Health
+        Sciences"}},{"id":"https://openalex.org/T11122","display_name":"Educational
+        Data Mining and Learning Analytics","value":1.49e-05,"subfield":{"id":"https://openalex.org/subfields/1706","display_name":"Computer
+        Science Applications"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
+        Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}},{"id":"https://openalex.org/T11147","display_name":"The Spread
+        of Misinformation Online","value":9.4e-06,"subfield":{"id":"https://openalex.org/subfields/3312","display_name":"Sociology
+        and Political Science"},"field":{"id":"https://openalex.org/fields/33","display_name":"Social
+        Sciences"},"domain":{"id":"https://openalex.org/domains/2","display_name":"Social
+        Sciences"}},{"id":"https://openalex.org/T12698","display_name":"Applications
+        of 3D City Models","value":9e-06,"subfield":{"id":"https://openalex.org/subfields/2215","display_name":"Building
+        and Construction"},"field":{"id":"https://openalex.org/fields/22","display_name":"Engineering"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
+        Sciences"}}],"x_concepts":[{"id":"https://openalex.org/C41008148","wikidata":"https://www.wikidata.org/wiki/Q21198","display_name":"Computer
+        science","level":0,"score":93.9},{"id":"https://openalex.org/C136764020","wikidata":"https://www.wikidata.org/wiki/Q466","display_name":"World
+        Wide Web","level":1,"score":62.1},{"id":"https://openalex.org/C17744445","wikidata":"https://www.wikidata.org/wiki/Q36442","display_name":"Political
+        science","level":0,"score":60.6},{"id":"https://openalex.org/C161191863","wikidata":"https://www.wikidata.org/wiki/Q199655","display_name":"Library
+        science","level":1,"score":57.6},{"id":"https://openalex.org/C2522767166","wikidata":"https://www.wikidata.org/wiki/Q2374463","display_name":"Data
+        science","level":1,"score":54.5},{"id":"https://openalex.org/C199539241","wikidata":"https://www.wikidata.org/wiki/Q7748","display_name":"Law","level":1,"score":53.0},{"id":"https://openalex.org/C121332964","wikidata":"https://www.wikidata.org/wiki/Q413","display_name":"Physics","level":0,"score":40.9},{"id":"https://openalex.org/C2778407487","wikidata":"https://www.wikidata.org/wiki/Q14565201","display_name":"Altmetrics","level":2,"score":33.3},{"id":"https://openalex.org/C33923547","wikidata":"https://www.wikidata.org/wiki/Q395","display_name":"Mathematics","level":0,"score":30.3},{"id":"https://openalex.org/C111919701","wikidata":"https://www.wikidata.org/wiki/Q9135","display_name":"Operating
+        system","level":1,"score":30.3},{"id":"https://openalex.org/C199360897","wikidata":"https://www.wikidata.org/wiki/Q9143","display_name":"Programming
+        language","level":1,"score":25.8},{"id":"https://openalex.org/C144024400","wikidata":"https://www.wikidata.org/wiki/Q21201","display_name":"Sociology","level":0,"score":24.2},{"id":"https://openalex.org/C205649164","wikidata":"https://www.wikidata.org/wiki/Q1071","display_name":"Geography","level":0,"score":24.2},{"id":"https://openalex.org/C62520636","wikidata":"https://www.wikidata.org/wiki/Q944","display_name":"Quantum
+        mechanics","level":1,"score":22.7},{"id":"https://openalex.org/C142362112","wikidata":"https://www.wikidata.org/wiki/Q735","display_name":"Art","level":0,"score":22.7}],"counts_by_year":[{"year":2024,"works_count":1,"cited_by_count":132},{"year":2023,"works_count":6,"cited_by_count":299},{"year":2022,"works_count":2,"cited_by_count":312},{"year":2021,"works_count":1,"cited_by_count":307},{"year":2020,"works_count":5,"cited_by_count":375},{"year":2019,"works_count":3,"cited_by_count":290},{"year":2018,"works_count":3,"cited_by_count":266},{"year":2017,"works_count":7,"cited_by_count":216},{"year":2016,"works_count":2,"cited_by_count":219},{"year":2015,"works_count":2,"cited_by_count":240},{"year":2014,"works_count":5,"cited_by_count":221},{"year":2013,"works_count":11,"cited_by_count":202},{"year":2012,"works_count":11,"cited_by_count":85}],"works_api_url":"https://api.openalex.org/works?filter=author.id:A5023888391","updated_date":"2024-07-27T02:53:54.443526","created_date":"2023-07-21"}
+
+        '
+  recorded_at: Tue, 30 Jul 2024 00:15:51 GMT
+recorded_with: VCR 6.2.0
