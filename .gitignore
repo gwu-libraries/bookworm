@@ -38,4 +38,8 @@
 # Ignore application configuration
 /config/application.yml
 
+/coverage/*
+
+/node_modules
+
 .DS_Store
