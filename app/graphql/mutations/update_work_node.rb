@@ -10,7 +10,7 @@ module Mutations
     type 'Types::WorkNodeType'
 
     def resolve(**attributes)
-      # authorize_user
+      authorize_user
 
       work_node = WorkNode.find(attributes[:work_node_id])
 

@@ -11,5 +11,8 @@ class Investigation < ApplicationRecord
 
   has_many :note_nodes
 
+  has_many :investigation_connections
+  has_many :connections, through: :investigation_connections
+
   belongs_to :user
 end

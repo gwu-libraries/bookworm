@@ -10,3 +10,7 @@ class CreateConnections < ActiveRecord::Migration[7.1]
     end
   end
 end
+
+# create an InvestigationConnection model, for associating edges with an investigation?
+
+# how else to represent edges?

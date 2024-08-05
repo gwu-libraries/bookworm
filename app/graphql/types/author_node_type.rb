@@ -7,6 +7,10 @@ module Types
     field :y_coordinate, Integer
     field :visible, Boolean, null: false
 
-    field :author, [Types::AuthorType]
+    field :author, 'Types::AuthorType'
+
+    def author
+      object.author
+    end
   end
 end

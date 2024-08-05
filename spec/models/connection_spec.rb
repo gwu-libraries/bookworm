@@ -11,5 +11,8 @@ RSpec.describe Connection, type: :model do
   describe 'relationships' do
     it { should belong_to :reference }
     it { should belong_to :citation }
+
+    it { should have_many(:investigation_connections) }
+    it { should have_many(:investigations).through(:investigation_connections) }
   end
 end

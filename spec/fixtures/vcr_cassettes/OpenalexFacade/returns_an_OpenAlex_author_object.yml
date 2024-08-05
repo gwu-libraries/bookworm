@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722298551&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=U51x6ACqVyync4MqZpS2nJvW1MgLGBVD5vIYqWjMzJA%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722880441&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=gVU%2Fh48LnnXOZ9SygM4B5zLrfa4A27EY1cpbhNZfiEM%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722298551&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=U51x6ACqVyync4MqZpS2nJvW1MgLGBVD5vIYqWjMzJA%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1722880441&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=gVU%2Fh48LnnXOZ9SygM4B5zLrfa4A27EY1cpbhNZfiEM%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Tue, 30 Jul 2024 00:15:51 GMT
+      - Mon, 05 Aug 2024 17:54:02 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '24695'
+      - '25264'
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -65,7 +65,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"id":"https://openalex.org/A5023888391","orcid":"https://orcid.org/0000-0001-6187-6610","display_name":"Jason
-        Priem","display_name_alternatives":["Priem Jason","Jason Priem"],"works_count":66,"cited_by_count":2810,"summary_stats":{"2yr_mean_citedness":9.333333333333334,"h_index":17,"i10_index":18},"ids":{"openalex":"https://openalex.org/A5023888391","orcid":"https://orcid.org/0000-0001-6187-6610","scopus":"http://www.scopus.com/inward/authorDetails.url?authorID=36455008000&partnerID=MN8TOARS"},"affiliations":[{"institution":{"id":"https://openalex.org/I4200000001","ror":"https://ror.org/02nr0ka47","display_name":"OurResearch","country_code":"CA","type":"nonprofit","lineage":["https://openalex.org/I4200000001"]},"years":[2023,2022,2021,2019]},{"institution":{"id":"https://openalex.org/I145311948","ror":"https://ror.org/00za53h95","display_name":"Johns
+        Priem","display_name_alternatives":["Priem Jason","Jason Priem"],"works_count":62,"cited_by_count":2844,"summary_stats":{"2yr_mean_citedness":12.333333333333334,"h_index":17,"i10_index":18},"ids":{"openalex":"https://openalex.org/A5023888391","orcid":"https://orcid.org/0000-0001-6187-6610","scopus":"http://www.scopus.com/inward/authorDetails.url?authorID=36455008000&partnerID=MN8TOARS"},"affiliations":[{"institution":{"id":"https://openalex.org/I4200000001","ror":"https://ror.org/02nr0ka47","display_name":"OurResearch","country_code":"CA","type":"nonprofit","lineage":["https://openalex.org/I4200000001"]},"years":[2023,2022,2021,2019]},{"institution":{"id":"https://openalex.org/I145311948","ror":"https://ror.org/00za53h95","display_name":"Johns
         Hopkins University","country_code":"US","type":"education","lineage":["https://openalex.org/I145311948"]},"years":[2020]},{"institution":{"id":"https://openalex.org/I103163165","ror":"https://ror.org/05g3dte14","display_name":"Florida
         State University","country_code":"US","type":"education","lineage":["https://openalex.org/I103163165"]},"years":[2020]},{"institution":{"id":"https://openalex.org/I4210166736","ror":"https://ror.org/05ppvf150","display_name":"Impact
         Technology Development (United States)","country_code":"US","type":"company","lineage":["https://openalex.org/I4210166736"]},"years":[2018,2017,2013]},{"institution":{"id":"https://openalex.org/I114027177","ror":"https://ror.org/0130frc33","display_name":"University
@@ -264,15 +264,15 @@ http_interactions:
         of 3D City Models","value":9e-06,"subfield":{"id":"https://openalex.org/subfields/2215","display_name":"Building
         and Construction"},"field":{"id":"https://openalex.org/fields/22","display_name":"Engineering"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
         Sciences"}}],"x_concepts":[{"id":"https://openalex.org/C41008148","wikidata":"https://www.wikidata.org/wiki/Q21198","display_name":"Computer
-        science","level":0,"score":93.9},{"id":"https://openalex.org/C136764020","wikidata":"https://www.wikidata.org/wiki/Q466","display_name":"World
-        Wide Web","level":1,"score":62.1},{"id":"https://openalex.org/C17744445","wikidata":"https://www.wikidata.org/wiki/Q36442","display_name":"Political
-        science","level":0,"score":60.6},{"id":"https://openalex.org/C161191863","wikidata":"https://www.wikidata.org/wiki/Q199655","display_name":"Library
-        science","level":1,"score":57.6},{"id":"https://openalex.org/C2522767166","wikidata":"https://www.wikidata.org/wiki/Q2374463","display_name":"Data
-        science","level":1,"score":54.5},{"id":"https://openalex.org/C199539241","wikidata":"https://www.wikidata.org/wiki/Q7748","display_name":"Law","level":1,"score":53.0},{"id":"https://openalex.org/C121332964","wikidata":"https://www.wikidata.org/wiki/Q413","display_name":"Physics","level":0,"score":40.9},{"id":"https://openalex.org/C2778407487","wikidata":"https://www.wikidata.org/wiki/Q14565201","display_name":"Altmetrics","level":2,"score":33.3},{"id":"https://openalex.org/C33923547","wikidata":"https://www.wikidata.org/wiki/Q395","display_name":"Mathematics","level":0,"score":30.3},{"id":"https://openalex.org/C111919701","wikidata":"https://www.wikidata.org/wiki/Q9135","display_name":"Operating
-        system","level":1,"score":30.3},{"id":"https://openalex.org/C199360897","wikidata":"https://www.wikidata.org/wiki/Q9143","display_name":"Programming
-        language","level":1,"score":25.8},{"id":"https://openalex.org/C144024400","wikidata":"https://www.wikidata.org/wiki/Q21201","display_name":"Sociology","level":0,"score":24.2},{"id":"https://openalex.org/C205649164","wikidata":"https://www.wikidata.org/wiki/Q1071","display_name":"Geography","level":0,"score":24.2},{"id":"https://openalex.org/C62520636","wikidata":"https://www.wikidata.org/wiki/Q944","display_name":"Quantum
-        mechanics","level":1,"score":22.7},{"id":"https://openalex.org/C142362112","wikidata":"https://www.wikidata.org/wiki/Q735","display_name":"Art","level":0,"score":22.7}],"counts_by_year":[{"year":2024,"works_count":1,"cited_by_count":132},{"year":2023,"works_count":6,"cited_by_count":299},{"year":2022,"works_count":2,"cited_by_count":312},{"year":2021,"works_count":1,"cited_by_count":307},{"year":2020,"works_count":5,"cited_by_count":375},{"year":2019,"works_count":3,"cited_by_count":290},{"year":2018,"works_count":3,"cited_by_count":266},{"year":2017,"works_count":7,"cited_by_count":216},{"year":2016,"works_count":2,"cited_by_count":219},{"year":2015,"works_count":2,"cited_by_count":240},{"year":2014,"works_count":5,"cited_by_count":221},{"year":2013,"works_count":11,"cited_by_count":202},{"year":2012,"works_count":11,"cited_by_count":85}],"works_api_url":"https://api.openalex.org/works?filter=author.id:A5023888391","updated_date":"2024-07-27T02:53:54.443526","created_date":"2023-07-21"}
+        science","level":0,"score":95.2},{"id":"https://openalex.org/C17744445","wikidata":"https://www.wikidata.org/wiki/Q36442","display_name":"Political
+        science","level":0,"score":64.5},{"id":"https://openalex.org/C136764020","wikidata":"https://www.wikidata.org/wiki/Q466","display_name":"World
+        Wide Web","level":1,"score":61.3},{"id":"https://openalex.org/C161191863","wikidata":"https://www.wikidata.org/wiki/Q199655","display_name":"Library
+        science","level":1,"score":56.5},{"id":"https://openalex.org/C199539241","wikidata":"https://www.wikidata.org/wiki/Q7748","display_name":"Law","level":1,"score":56.5},{"id":"https://openalex.org/C2522767166","wikidata":"https://www.wikidata.org/wiki/Q2374463","display_name":"Data
+        science","level":1,"score":53.2},{"id":"https://openalex.org/C121332964","wikidata":"https://www.wikidata.org/wiki/Q413","display_name":"Physics","level":0,"score":41.9},{"id":"https://openalex.org/C33923547","wikidata":"https://www.wikidata.org/wiki/Q395","display_name":"Mathematics","level":0,"score":32.3},{"id":"https://openalex.org/C111919701","wikidata":"https://www.wikidata.org/wiki/Q9135","display_name":"Operating
+        system","level":1,"score":30.6},{"id":"https://openalex.org/C2778407487","wikidata":"https://www.wikidata.org/wiki/Q14565201","display_name":"Altmetrics","level":2,"score":30.6},{"id":"https://openalex.org/C144024400","wikidata":"https://www.wikidata.org/wiki/Q21201","display_name":"Sociology","level":0,"score":25.8},{"id":"https://openalex.org/C199360897","wikidata":"https://www.wikidata.org/wiki/Q9143","display_name":"Programming
+        language","level":1,"score":25.8},{"id":"https://openalex.org/C205649164","wikidata":"https://www.wikidata.org/wiki/Q1071","display_name":"Geography","level":0,"score":25.8},{"id":"https://openalex.org/C142362112","wikidata":"https://www.wikidata.org/wiki/Q735","display_name":"Art","level":0,"score":24.2},{"id":"https://openalex.org/C62520636","wikidata":"https://www.wikidata.org/wiki/Q944","display_name":"Quantum
+        mechanics","level":1,"score":22.6},{"id":"https://openalex.org/C124952713","wikidata":"https://www.wikidata.org/wiki/Q8242","display_name":"Literature","level":1,"score":21.0},{"id":"https://openalex.org/C127413603","wikidata":"https://www.wikidata.org/wiki/Q11023","display_name":"Engineering","level":0,"score":21.0},{"id":"https://openalex.org/C151719136","wikidata":"https://www.wikidata.org/wiki/Q3972943","display_name":"Publishing","level":2,"score":21.0},{"id":"https://openalex.org/C2778805511","wikidata":"https://www.wikidata.org/wiki/Q1713","display_name":"Citation","level":2,"score":21.0}],"counts_by_year":[{"year":2024,"works_count":1,"cited_by_count":140},{"year":2023,"works_count":6,"cited_by_count":279},{"year":2022,"works_count":2,"cited_by_count":300},{"year":2021,"works_count":1,"cited_by_count":301},{"year":2020,"works_count":5,"cited_by_count":358},{"year":2019,"works_count":3,"cited_by_count":285},{"year":2018,"works_count":2,"cited_by_count":259},{"year":2017,"works_count":7,"cited_by_count":211},{"year":2016,"works_count":2,"cited_by_count":224},{"year":2015,"works_count":2,"cited_by_count":249},{"year":2014,"works_count":4,"cited_by_count":224},{"year":2013,"works_count":10,"cited_by_count":174},{"year":2012,"works_count":10,"cited_by_count":69}],"works_api_url":"https://api.openalex.org/works?filter=author.id:A5023888391","updated_date":"2024-08-04T18:45:35.642593","created_date":"2023-07-21"}
 
         '
-  recorded_at: Tue, 30 Jul 2024 00:15:51 GMT
+  recorded_at: Mon, 05 Aug 2024 17:54:02 GMT
 recorded_with: VCR 6.2.0

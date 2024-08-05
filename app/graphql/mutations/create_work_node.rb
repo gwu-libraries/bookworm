@@ -5,7 +5,7 @@ module Mutations
     argument :doi, String, required: true
     argument :investigation_id, Integer, required: true
 
-    type Types::WorkType
+    type 'Types::WorkNodeType'
 
     def resolve(**attributes)
       authorize_user
@@ -71,12 +71,7 @@ module Mutations
         AuthorWork.find_or_create_by(author_id: author.id, work_id: work.id)
       end
 
-      work_node.persisted? ? work_node : 'uhoh'
-      # MutationResult.call(
-      #   obj: { object: work },
-      #   success: work.persisted?,
-      #   errors: work.errors.full_messages
-      # )
+      work_node.persisted? ? work_node : 'no'
     end
   end
 end
