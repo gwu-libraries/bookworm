@@ -5,7 +5,7 @@ module Mutations
     argument :openalex_id, String, required: true
     argument :investigation_id, Integer, required: true
 
-    type Types::AuthorType
+    type Types::AuthorNodeType
 
     def resolve(**attributes)
       authorize_user
@@ -33,7 +33,7 @@ module Mutations
 
       author_node.save
 
-      author_node.persisted? ? author : 'uhoh'
+      author_node.persisted? ? author_node : 'uhoh'
     end
   end
 end
