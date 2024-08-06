@@ -22,6 +22,8 @@ RSpec.describe Mutations::CreateWorkNode, type: :request do
   before :all do
     @user_1 = FactoryBot.create(:user)
 
+    @wrong_user = FactoryBot.create(:user)
+
     @investigation_1 = FactoryBot.create(:investigation, user_id: @user_1.id)
   end
 
