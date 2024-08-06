@@ -38,5 +38,24 @@ RSpec.describe Mutations::SignIn, type: :request do
         @user_1.authentication_token
       )
     end
+
+    it 'does not sign in a user that does not exist' do
+      response =
+        BookWormApiSchema.execute(
+          sign_in_mutation,
+          variables: {
+            email: 'imnotarealuser@email.com',
+            password: 'pjasswordd'
+          }
+        ).to_h
+
+      expect(response).to be_a(Hash)
+      expect(response.keys).to eq(%w[errors data])
+      expect(response['errors']).to be_a(Array)
+      expect(response['errors'].first.keys).to eq(%w[message locations path])
+      expect(response['errors'].first['message']).to eq(
+        'User not registered on this application'
+      )
+    end
   end
 end
