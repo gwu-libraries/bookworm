@@ -57,5 +57,24 @@ RSpec.describe Mutations::SignIn, type: :request do
         'User not registered on this application'
       )
     end
+
+    it 'does not sign in an existing user with an incorrect password' do
+      response =
+        BookWormApiSchema.execute(
+          sign_in_mutation,
+          variables: {
+            email: @user_1.email,
+            password: 'thisisnotmybeautifulpassword'
+          }
+        ).to_h
+
+      expect(response).to be_a(Hash)
+      expect(response.keys).to eq(%w[errors data])
+      expect(response['errors']).to be_a(Array)
+      expect(response['errors'].first.keys).to eq(%w[message locations path])
+      expect(response['errors'].first['message']).to eq(
+        'Incorrect Email/Password'
+      )
+    end
   end
 end
