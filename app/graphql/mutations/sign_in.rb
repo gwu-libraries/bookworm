@@ -5,7 +5,7 @@ module Mutations
     argument :email, String, required: true
     argument :password, String, required: true
 
-    field :user, Types::UserType, null: false
+    type Types::UserType
 
     def resolve(**attributes)
       user = User.find_for_database_authentication(email: attributes[:email])
@@ -13,6 +13,7 @@ module Mutations
       if user.present?
         if user.valid_password?(attributes[:password])
           context[:current_user] = user
+
           MutationResult.call(obj: { object: user }, success: true)
         else
           GraphQL::ExecutionError.new('Incorrect Email/Password')

@@ -8,6 +8,7 @@ module Types
     field :email, String, null: false
 
     field :authentication_token, String, null: false
+
     def authentication_token
       if object[:object].gql_id != context[:current_user]&.gql_id
         raise GraphQL::UnauthorizedFieldError,
