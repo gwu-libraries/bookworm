@@ -2,25 +2,23 @@
 
 module Mutations
   class UpdateWorkNode < BaseMutation
-    argument :work_node_id, Integer, required: true
-    argument :x_coordinate, Integer
-    argument :y_coordinate, Integer
-    argument :visible, Boolean
+    argument :work_node_id, String, required: true
+    argument :x_coordinate, Integer, required: false
+    argument :y_coordinate, Integer, required: false
+    argument :visible, Boolean, required: false
 
-    type 'Types::WorkNodeType'
+    type Types::WorkNodeType
 
     def resolve(**attributes)
       authorize_user
 
       work_node = WorkNode.find(attributes[:work_node_id])
 
-      work_node.update(
-        x_coordinate: attributes[:x_coordinate],
-        y_coordinate: attributes[:y_coordinate],
-        visible: attributes[:visible]
-      )
+      update_attributes = attributes.except(:work_node_id)
 
-      work_node.persisted? ? work_node : 'uhoh'
+      work_node.update(update_attributes)
+
+      work_node
     end
   end
 end
