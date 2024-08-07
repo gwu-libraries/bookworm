@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Mutations::CreateNoteNode, type: :request do
   def create_note_node_mutation
     <<~GQL
-      mutation ($investigationId: Int!, $bodyText: String!) {
+      mutation ($investigationId: String!, $bodyText: String!) {
         createNoteNode(
           input: { investigationId: $investigationId, bodyText: $bodyText }
         ) {
@@ -26,7 +26,7 @@ RSpec.describe Mutations::CreateNoteNode, type: :request do
       BookWormApiSchema.execute(
         create_note_node_mutation,
         variables: {
-          investigationId: @investigation_1.id,
+          investigationId: @investigation_1.id.to_s,
           bodyText: 'hey this is a new note node'
         },
         context: {

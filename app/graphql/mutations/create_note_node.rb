@@ -3,7 +3,7 @@
 module Mutations
   class CreateNoteNode < BaseMutation
     argument :body_text, String
-    argument :investigation_id, Integer
+    argument :investigation_id, String
 
     type 'Types::NoteNodeType'
 

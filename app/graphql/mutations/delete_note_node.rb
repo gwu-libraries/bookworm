@@ -2,10 +2,10 @@
 
 module Mutations
   class DeleteNoteNode < BaseMutation
-    argument :investigation_id, Integer, required: true
-    argument :note_node_id, Integer, required: true # should probably be ID type
+    argument :investigation_id, String, required: true
+    argument :note_node_id, String, required: true # should probably be ID type
 
-    type 'Types::NoteNodeType'
+    type Types::NoteNodeType
 
     def resolve(**attributes)
       authorize_user
