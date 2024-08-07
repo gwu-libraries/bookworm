@@ -5,7 +5,7 @@ module Mutations
     argument :openalex_id, String, required: true
     argument :investigation_id, Integer, required: true
 
-    type Types::WorkType
+    type [Types::WorkNodeType]
 
     def resolve(**attributes)
       authorize_user
@@ -68,18 +68,14 @@ module Mutations
         work_node.y_coordinate =
           rand(1000) unless work_node.y_coordinate.present?
 
+        work_node.visible = true
+
         work_node.save
 
         work_nodes << work_node
       end
 
-      MutationResult.call(
-        obj: {
-          object: work_nodes
-        },
-        success: work_nodes.all?(&:save),
-        errors: 'uhoh'
-      )
+      work_nodes
     end
   end
 end
