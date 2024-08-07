@@ -16,29 +16,29 @@ module Mutations
 
       author_works = OpenalexFacade.get_author_works(attributes[:openalex_id])
 
-      works =
-        author_works.each do |openalex_work|
-          Work.find_or_create_by(
-            doi: openalex_work.doi,
-            title: openalex_work.title,
-            openalex_id: openalex_work.openalex_id,
-            language: openalex_work.language,
-            publication_year: openalex_work.publication_year,
-            keywords: openalex_work.keywords,
-            topics: openalex_work.topics,
-            is_open_access: openalex_work.is_open_access,
-            open_access_url: openalex_work.open_access_url
-          )
-        end
+      works = []
 
-      investigation_works =
-        works.each do |work|
-          WorkNode.find_or_create_by(
-            investigation_id: investigation.id,
-            work_id: work.id,
-            visible: true
-          )
-        end
+      author_works.each do |openalex_work|
+        works << Work.find_or_create_by(
+          doi: openalex_work.doi,
+          title: openalex_work.title,
+          openalex_id: openalex_work.openalex_id,
+          language: openalex_work.language,
+          publication_year: openalex_work.publication_year,
+          keywords: openalex_work.keywords,
+          topics: openalex_work.topics,
+          is_open_access: openalex_work.is_open_access,
+          open_access_url: openalex_work.open_access_url
+        )
+      end
+
+      works.each do |work|
+        WorkNode.find_or_create_by(
+          investigation_id: investigation.id,
+          work_id: work.id,
+          visible: true
+        )
+      end
 
       works
     end
