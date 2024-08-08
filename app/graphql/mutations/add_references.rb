@@ -3,7 +3,7 @@
 module Mutations
   class AddReferences < BaseMutation
     argument :openalex_id, String, required: true
-    argument :investigation_id, Integer, required: true
+    argument :investigation_id, String, required: true
 
     type [Types::WorkNodeType]
 
@@ -58,7 +58,7 @@ module Mutations
       created_references.each do |reference|
         work_node =
           WorkNode.find_or_create_by(
-            investigation_id: investigation.id,
+            investigation_id: investigation.id.to_s,
             work_id: reference.id
           )
 

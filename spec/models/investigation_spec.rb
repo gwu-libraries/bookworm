@@ -16,8 +16,8 @@ RSpec.describe Investigation, type: :model do
 
     it { should have_many(:note_nodes) }
 
-    it { should have_many(:investigation_connections) }
-    it { should have_many(:connections).through(:investigation_connections) }
+    it { should have_many(:edges) }
+    it { should have_many(:connections).through(:edges) }
 
     it { should belong_to :user }
   end

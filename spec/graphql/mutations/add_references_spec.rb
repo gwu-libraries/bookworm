@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Mutations::AddReferences, type: :request do
   def add_references_mutation
     <<~GQL
-      mutation ($openalexId: String!, $investigationId: Int!) {
+      mutation ($openalexId: String!, $investigationId: String!) {
         addReferences(
           input: { openalexId: $openalexId, investigationId: $investigationId }
         ) {
@@ -22,7 +22,7 @@ RSpec.describe Mutations::AddReferences, type: :request do
 
   def create_work_node_mutation
     <<~GQL
-      mutation ($doi: String!, $investigationId: Int!) {
+      mutation ($doi: String!, $investigationId: String!) {
         createWorkNode(input: { doi: $doi, investigationId: $investigationId }) {
           id
           xCoordinate
@@ -48,7 +48,7 @@ RSpec.describe Mutations::AddReferences, type: :request do
         BookWormApiSchema.execute(
           create_work_node_mutation,
           variables: {
-            investigationId: investigation_1.id,
+            investigationId: investigation_1.id.to_s,
             doi: '10.1145/3174781.3174785'
           },
           context: {
@@ -64,7 +64,7 @@ RSpec.describe Mutations::AddReferences, type: :request do
           add_references_mutation,
           variables: {
             openalexId: work_node_openalex_id,
-            investigationId: investigation_1.id
+            investigationId: investigation_1.id.to_s
           },
           context: {
             current_user: user_1

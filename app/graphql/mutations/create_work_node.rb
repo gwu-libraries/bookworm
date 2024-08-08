@@ -3,7 +3,7 @@
 module Mutations
   class CreateWorkNode < BaseMutation
     argument :doi, String, required: true
-    argument :investigation_id, Integer, required: true
+    argument :investigation_id, String, required: true
 
     type 'Types::WorkNodeType'
 
@@ -57,7 +57,7 @@ module Mutations
 
       work_node =
         WorkNode.find_or_create_by(
-          investigation_id: investigation.id,
+          investigation_id: investigation.id.to_s,
           work_id: work.id
         )
 

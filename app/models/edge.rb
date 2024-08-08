@@ -1,4 +1,4 @@
-class InvestigationConnection < ApplicationRecord
+class Edge < ApplicationRecord
   validates :investigation_id, presence: true
   validates :connection_id, presence: true
 

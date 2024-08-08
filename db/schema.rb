@@ -50,13 +50,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "investigation_connections", force: :cascade do |t|
+  create_table "edges", force: :cascade do |t|
     t.bigint "investigation_id", null: false
     t.bigint "connection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["connection_id"], name: "index_investigation_connections_on_connection_id"
-    t.index ["investigation_id"], name: "index_investigation_connections_on_investigation_id"
+    t.index ["connection_id"], name: "index_edges_on_connection_id"
+    t.index ["investigation_id"], name: "index_edges_on_investigation_id"
   end
 
   create_table "investigations", force: :cascade do |t|
@@ -122,8 +122,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
   add_foreign_key "author_nodes", "investigations"
   add_foreign_key "author_works", "authors"
   add_foreign_key "author_works", "works"
-  add_foreign_key "investigation_connections", "connections"
-  add_foreign_key "investigation_connections", "investigations"
+  add_foreign_key "edges", "connections"
+  add_foreign_key "edges", "investigations"
   add_foreign_key "work_nodes", "investigations"
   add_foreign_key "work_nodes", "works"
 end

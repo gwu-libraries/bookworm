@@ -7,6 +7,6 @@ class Connection < ApplicationRecord
   belongs_to :reference, foreign_key: 'reference_id', class_name: 'Work'
   belongs_to :citation, foreign_key: 'citation_id', class_name: 'Work'
 
-  has_many :investigation_connections
-  has_many :investigations, through: :investigation_connections
+  has_many :edges
+  has_many :investigations, through: :edges
 end

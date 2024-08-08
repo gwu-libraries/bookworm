@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Mutations::CreateWorkNode, type: :request do
   def create_work_node_mutation
     <<~GQL
-      mutation ($doi: String!, $investigationId: Int!) {
+      mutation ($doi: String!, $investigationId: String!) {
         createWorkNode(input: { doi: $doi, investigationId: $investigationId }) {
           id
           xCoordinate
@@ -33,7 +33,7 @@ RSpec.describe Mutations::CreateWorkNode, type: :request do
         BookWormApiSchema.execute(
           create_work_node_mutation,
           variables: {
-            investigationId: @investigation_1.id,
+            investigationId: @investigation_1.id.to_s,
             doi: '10.1145/3174781.3174785'
           },
           context: {

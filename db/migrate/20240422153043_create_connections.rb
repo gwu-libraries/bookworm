@@ -14,3 +14,5 @@ end
 # create an InvestigationConnection model, for associating edges with an investigation?
 
 # how else to represent edges?
+
+# just make edges lol

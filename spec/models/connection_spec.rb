@@ -12,7 +12,7 @@ RSpec.describe Connection, type: :model do
     it { should belong_to :reference }
     it { should belong_to :citation }
 
-    it { should have_many(:investigation_connections) }
-    it { should have_many(:investigations).through(:investigation_connections) }
+    it { should have_many(:edges) }
+    it { should have_many(:investigations).through(:edges) }
   end
 end
