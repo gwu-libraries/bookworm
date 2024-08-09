@@ -11,10 +11,8 @@ module Types
     field :note_nodes, [Types::NoteNodeType], null: true
     field :author_nodes, [Types::AuthorNodeType], null: true
     field :work_nodes, [Types::WorkNodeType], null: true
-    field :edges, [EdgeType], null: true
+    field :work_edges, [Types::WorkEdgeType], null: true
 
-    # field :citation_edges, [Types::CitationEdgeType], null: true
-    # field :reference_edges, [Types::ReferenceEdges], null: true
     # field :authorship_edges, [Types::AuthorshipEdges], null: true
 
     def note_nodes
@@ -29,8 +27,8 @@ module Types
       object.work_nodes
     end
 
-    def edges
-      object.edges
+    def work_edges
+      object.work_edges
     end
 
     # def citation_edges

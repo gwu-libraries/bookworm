@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Edge, type: :model do
+RSpec.describe WorkEdge, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:investigation_id) }
     it { should validate_presence_of(:connection_id) }

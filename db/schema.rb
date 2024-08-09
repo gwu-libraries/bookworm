@@ -50,16 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "edges", force: :cascade do |t|
-    t.bigint "investigation_id", null: false
-    t.bigint "connection_id", null: false
-    t.boolean "visible", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["connection_id"], name: "index_edges_on_connection_id"
-    t.index ["investigation_id"], name: "index_edges_on_investigation_id"
-  end
-
   create_table "investigations", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -93,6 +83,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_edges", force: :cascade do |t|
+    t.bigint "investigation_id", null: false
+    t.bigint "connection_id", null: false
+    t.boolean "visible", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_work_edges_on_connection_id"
+    t.index ["investigation_id"], name: "index_work_edges_on_investigation_id"
+  end
+
   create_table "work_nodes", force: :cascade do |t|
     t.integer "x_coordinate"
     t.integer "y_coordinate"
@@ -123,8 +123,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
   add_foreign_key "author_nodes", "investigations"
   add_foreign_key "author_works", "authors"
   add_foreign_key "author_works", "works"
-  add_foreign_key "edges", "connections"
-  add_foreign_key "edges", "investigations"
+  add_foreign_key "work_edges", "connections"
+  add_foreign_key "work_edges", "investigations"
   add_foreign_key "work_nodes", "investigations"
   add_foreign_key "work_nodes", "works"
 end

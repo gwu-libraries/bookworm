@@ -54,7 +54,7 @@ module Mutations
             reference_id: reference.id
           )
 
-        Edge.create(
+        WorkEdge.create(
           connection_id: connection.id,
           investigation_id: investigation.id
         )

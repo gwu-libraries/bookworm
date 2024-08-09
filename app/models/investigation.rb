@@ -11,8 +11,8 @@ class Investigation < ApplicationRecord
 
   has_many :note_nodes
 
-  has_many :edges
-  has_many :connections, through: :edges
+  has_many :work_edges
+  has_many :connections, through: :work_edges
 
   belongs_to :user
 end

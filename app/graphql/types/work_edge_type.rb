@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class EdgeType < BaseObject
+  class WorkEdgeType < BaseObject
     field :id, ID, null: false
     field :visible, Boolean, null: false
     field :investigation, Types::InvestigationType
