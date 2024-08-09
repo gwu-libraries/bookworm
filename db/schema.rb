@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
   create_table "edges", force: :cascade do |t|
     t.bigint "investigation_id", null: false
     t.bigint "connection_id", null: false
+    t.boolean "visible", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["connection_id"], name: "index_edges_on_connection_id"

@@ -48,9 +48,15 @@ module Mutations
       end
 
       created_references.map do |reference|
-        Connection.find_or_create_by(
-          citation_id: root_work.id,
-          reference_id: reference.id
+        connection =
+          Connection.find_or_create_by(
+            citation_id: root_work.id,
+            reference_id: reference.id
+          )
+
+        Edge.create(
+          connection_id: connection.id,
+          investigation_id: investigation.id
         )
       end
 

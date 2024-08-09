@@ -75,6 +75,8 @@ module Mutations
         work_nodes << work_node
       end
 
+      # create CitationEdges here
+
       work_nodes
     end
   end

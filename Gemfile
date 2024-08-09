@@ -45,9 +45,6 @@ gem 'faraday'
 
 gem 'figaro'
 
-gem 'rubocop', require: false
-
-gem 'graphiql-rails'
 
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
@@ -67,6 +64,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'graphiql-rails'
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end

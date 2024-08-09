@@ -37,6 +37,42 @@ RSpec.describe Mutations::AddReferences, type: :request do
     GQL
   end
 
+  def investigation_query
+    <<~GQL
+        query UseInvestigationGraph($id: ID!) {
+    investigation(id: $id) {
+      workNodes {
+        id
+        work {
+          id
+          citations {
+          id
+          }
+          references {
+          id
+          }
+        }
+      }
+      edges {
+        id
+        visible
+        connection {
+          id
+          reference {
+            title
+            id
+          }
+          citation {
+            title
+            id
+          }
+        }
+      }
+    }
+  }
+    GQL
+  end
+
   context '.resolve' do
     it "adds a work's references to an investigation", :vcr do
       user_1 = FactoryBot.create(:user)
@@ -70,6 +106,20 @@ RSpec.describe Mutations::AddReferences, type: :request do
             current_user: user_1
           }
         ).to_h
+
+      investigation_response =
+        BookWormApiSchema.execute(
+          investigation_query,
+          variables: {
+            id: investigation_1.id
+          },
+          context: {
+            current_user: user_1
+          }
+        ).to_h
+
+      require 'pry'
+      binding.pry
 
       expect(response).to be_a(Hash)
       expect(response.keys).to eq(['data'])
