@@ -46,10 +46,10 @@ RSpec.describe Mutations::AddReferences, type: :request do
         work {
           id
           citations {
-          id
+            id
           }
           references {
-          id
+            id
           }
         }
       }
@@ -117,9 +117,6 @@ RSpec.describe Mutations::AddReferences, type: :request do
             current_user: user_1
           }
         ).to_h
-
-      require 'pry'
-      binding.pry
 
       expect(response).to be_a(Hash)
       expect(response.keys).to eq(['data'])
