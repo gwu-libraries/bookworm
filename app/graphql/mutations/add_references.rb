@@ -27,7 +27,9 @@ module Mutations
             language: reference.language,
             publication_year: reference.publication_year,
             keywords: reference.keywords,
-            topics: reference.topics
+            topics: reference.topics,
+            is_open_access: reference.is_open_access,
+            open_access_url: reference.open_access_url
           )
 
         created_references << created_reference
@@ -54,7 +56,7 @@ module Mutations
             reference_id: reference.id
           )
 
-        WorkEdge.create(
+        WorkEdge.find_or_create_by(
           connection_id: connection.id,
           investigation_id: investigation.id
         )

@@ -27,7 +27,9 @@ module Mutations
             openalex_id: citation.openalex_id,
             publication_year: citation.publication_year,
             keywords: citation.keywords,
-            topics: citation.topics
+            topics: citation.topics,
+            is_open_access: citation.is_open_access,
+            open_access_url: citation.open_access_url
           )
 
         created_citations << created_citation
@@ -48,9 +50,15 @@ module Mutations
       end
 
       created_citations.map do |citation|
-        Connection.find_or_create_by(
-          citation_id: citation.id,
-          reference_id: root_work.id
+        connection =
+          Connection.find_or_create_by(
+            citation_id: citation.id,
+            reference_id: root_work.id
+          )
+
+        WorkEdge.find_or_create_by(
+          connection_id: connection.id,
+          investigation_id: investigation.id
         )
       end
 
@@ -58,7 +66,7 @@ module Mutations
       created_citations.each do |citation|
         work_node =
           WorkNode.find_or_create_by(
-            investigation_id: investigation.id,
+            investigation_id: investigation.id.to_s,
             work_id: citation.id
           )
 
@@ -74,8 +82,6 @@ module Mutations
 
         work_nodes << work_node
       end
-
-      # create CitationEdges here
 
       work_nodes
     end
