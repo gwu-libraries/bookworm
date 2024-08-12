@@ -71,7 +71,7 @@ class OpenalexService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_author_works(openalex_id)
+  def self.get_authorship_connections(openalex_id)
     accumulated_responses = []
 
     first_response =

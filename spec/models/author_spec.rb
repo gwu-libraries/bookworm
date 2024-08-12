@@ -12,7 +12,7 @@ RSpec.describe Author, type: :model do
     it { should have_many :author_nodes }
     it { should have_many(:investigations).through(:author_nodes) }
 
-    it { should have_many :author_works }
-    it { should have_many(:works).through(:author_works) }
+    it { should have_many :authorship_connections }
+    it { should have_many(:works).through(:authorship_connections) }
   end
 end

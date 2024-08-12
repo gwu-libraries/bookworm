@@ -7,6 +7,9 @@ module Mutations
     input_object_class Types::BaseInputObject
     object_class Types::BaseObject
 
+    # methods helpful for math of laying out nodes/edges
+    include GraphLayout
+
     protected
 
     def authorize_user

@@ -26,21 +26,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
     t.index ["investigation_id"], name: "index_author_nodes_on_investigation_id"
   end
 
-  create_table "author_works", force: :cascade do |t|
-    t.bigint "author_id", null: false
-    t.bigint "work_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_author_works_on_author_id"
-    t.index ["work_id"], name: "index_author_works_on_work_id"
-  end
-
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "orcid"
     t.string "openalex_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "authorship_connections", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "work_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_authorship_connections_on_author_id"
+    t.index ["work_id"], name: "index_authorship_connections_on_work_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -121,8 +121,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
 
   add_foreign_key "author_nodes", "authors"
   add_foreign_key "author_nodes", "investigations"
-  add_foreign_key "author_works", "authors"
-  add_foreign_key "author_works", "works"
+  add_foreign_key "authorship_connections", "authors"
+  add_foreign_key "authorship_connections", "works"
   add_foreign_key "work_edges", "connections"
   add_foreign_key "work_edges", "investigations"
   add_foreign_key "work_nodes", "investigations"

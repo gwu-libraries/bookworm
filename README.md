@@ -43,7 +43,7 @@ The `GraphiQL` interface should also be available at `http://localhost:3000/grap
 
 Uses `RSpec` for testing - run `rspec` in to run the full suite, or `rspec spec/*_spec.rb` to run tests for a specific file. 
 
-The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr`, try deleting the recorded 'cassete' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
+The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr`, try deleting the recorded 'cassette' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
 
 ## Production Setup
 

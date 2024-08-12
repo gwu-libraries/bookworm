@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe Mutations::AddAuthorWorks, type: :request do
-  def add_author_works_mutation
+RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
+  def add_authorship_connections_mutation
     <<~GQL
       mutation ($openalexId: String!, $investigationId: Int!) {
-        addAuthorWorks(
+        addAuthorshipConnections(
           input: { openalexId: $openalexId, investigationId: $investigationId }
         ) {
           openalexId
@@ -53,7 +53,7 @@ RSpec.describe Mutations::AddAuthorWorks, type: :request do
 
       response =
         BookWormApiSchema.execute(
-          add_author_works_mutation,
+          add_authorship_connections_mutation,
           variables: {
             openalexId: 'A5023888391',
             investigationId: investigation_1.id
@@ -64,16 +64,18 @@ RSpec.describe Mutations::AddAuthorWorks, type: :request do
         ).to_h
 
       expect(response).to be_a(Hash)
-      expect(response['data'].keys).to eq(['addAuthorWorks'])
-      expect(response['data']['addAuthorWorks']).to be_a(Array)
-      expect(response['data']['addAuthorWorks'].first).to be_a(Hash)
-      expect(response['data']['addAuthorWorks'].first.keys).to eq(
+      expect(response['data'].keys).to eq(['addAuthorshipConnections'])
+      expect(response['data']['addAuthorshipConnections']).to be_a(Array)
+      expect(response['data']['addAuthorshipConnections'].first).to be_a(Hash)
+      expect(response['data']['addAuthorshipConnections'].first.keys).to eq(
         %w[openalexId doi]
       )
-      expect(response['data']['addAuthorWorks'].first['openalexId']).to be_a(
+      expect(
+        response['data']['addAuthorshipConnections'].first['openalexId']
+      ).to be_a(String)
+      expect(response['data']['addAuthorshipConnections'].first['doi']).to be_a(
         String
       )
-      expect(response['data']['addAuthorWorks'].first['doi']).to be_a(String)
     end
   end
 end

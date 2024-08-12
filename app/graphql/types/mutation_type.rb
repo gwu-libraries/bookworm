@@ -14,7 +14,8 @@ module Types
     field :add_citations, mutation: Mutations::AddCitations
 
     field :create_author_node, mutation: Mutations::CreateAuthorNode
-    field :add_author_works, mutation: Mutations::AddAuthorWorks
+    field :add_authorship_connections,
+          mutation: Mutations::AddAuthorshipConnections
 
     field :create_note_node, mutation: Mutations::CreateNoteNode
     field :delete_note_node, mutation: Mutations::DeleteNoteNode

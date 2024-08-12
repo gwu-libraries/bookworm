@@ -7,8 +7,8 @@ class Work < ApplicationRecord
   has_many :work_nodes
   has_many :investigations, through: :work_nodes
 
-  has_many :author_works
-  has_many :authors, through: :author_works
+  has_many :authorship_connections
+  has_many :authors, through: :authorship_connections
 
   # reference_connections "names" the Connection join table for accessing through the reference association
   has_many :reference_connections,

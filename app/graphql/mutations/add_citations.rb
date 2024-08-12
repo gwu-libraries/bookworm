@@ -14,6 +14,11 @@ module Mutations
 
       root_work = Work.find_by(openalex_id: attributes[:openalex_id])
 
+      root_node =
+        root_work.work_nodes.find_by(
+          investigation_id: attributes[:investigation_id]
+        )
+
       openalex_citations =
         OpenalexFacade.get_paper_citations(attributes[:openalex_id])
 
@@ -42,7 +47,7 @@ module Mutations
               orcid: author_hash[:orcid]
             )
 
-          AuthorWork.find_or_create_by(
+          AuthorshipConnection.find_or_create_by(
             author_id: author.id,
             work_id: created_citation.id
           )
@@ -63,18 +68,32 @@ module Mutations
       end
 
       work_nodes = []
-      created_citations.each do |citation|
+      created_citations.each_with_index do |citation, index|
         work_node =
           WorkNode.find_or_create_by(
             investigation_id: investigation.id.to_s,
             work_id: citation.id
           )
 
+        # use root_node.x_coordinate and root_node.y_coordinate as centering
+        # created_citations.count and something with degrees to get the spacing?
+        # what should the radius be?
+
+        # circlePoint(0, 0, 1000, 200 + i * (150 / references.length - 1))
+
+        circle_coordinates =
+          circle_point(
+            center_x = root_node.x_coordinate,
+            center_y = root_node.y_coordinate,
+            radius = 1000,
+            degrees = 20 + index * (150 / created_citations.length)
+          )
+
         work_node.x_coordinate =
-          rand(1000) unless work_node.x_coordinate.present?
+          circle_coordinates.first unless work_node.x_coordinate.present?
 
         work_node.y_coordinate =
-          rand(1000) unless work_node.y_coordinate.present?
+          circle_coordinates.last unless work_node.y_coordinate.present?
 
         work_node.visible = true
 

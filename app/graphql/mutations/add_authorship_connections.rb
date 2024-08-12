@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  class AddAuthorWorks < BaseMutation
+  class AddAuthorshipConnections < BaseMutation
     argument :openalex_id, String, required: true
     argument :investigation_id, Integer, required: true
 
@@ -14,11 +14,12 @@ module Mutations
 
       investigation = Investigation.find(attributes[:investigation_id])
 
-      author_works = OpenalexFacade.get_author_works(attributes[:openalex_id])
+      authorship_connections =
+        OpenalexFacade.get_authorship_connections(attributes[:openalex_id])
 
       works = []
 
-      author_works.each do |openalex_work|
+      authorship_connections.each do |openalex_work|
         works << Work.find_or_create_by(
           doi: openalex_work.doi,
           title: openalex_work.title,

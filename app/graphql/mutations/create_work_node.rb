@@ -68,7 +68,10 @@ module Mutations
       work_node.save
 
       authors.map do |author|
-        AuthorWork.find_or_create_by(author_id: author.id, work_id: work.id)
+        AuthorshipConnection.find_or_create_by(
+          author_id: author.id,
+          work_id: work.id
+        )
       end
 
       work_node.persisted? ? work_node : 'no'

@@ -67,7 +67,7 @@ RSpec.describe OpenalexFacade do
   it 'returns an array of an authors works', :vcr do
     openalex_id = 'A5023888391'
 
-    works = OpenalexFacade.get_author_works(openalex_id)
+    works = OpenalexFacade.get_authorship_connections(openalex_id)
 
     expect(works).to be_a(Array)
 

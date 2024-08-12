@@ -3,7 +3,7 @@
 module Mutations
   class CreateAuthorNode < BaseMutation
     argument :openalex_id, String, required: true
-    argument :investigation_id, Integer, required: true
+    argument :investigation_id, String, required: true
 
     type Types::AuthorNodeType
 

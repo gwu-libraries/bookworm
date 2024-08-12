@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Mutations::CreateAuthorNode, type: :request do
   def create_author_node_mutation
     <<~GQL
-    mutation ($openalexId: String!, $investigationId: Int!) {
+    mutation ($openalexId: String!, $investigationId: String!) {
       createAuthorNode(
         input: { openalexId: $openalexId, investigationId: $investigationId }
       ) {
@@ -32,7 +32,7 @@ RSpec.describe Mutations::CreateAuthorNode, type: :request do
           create_author_node_mutation,
           variables: {
             openalexId: 'A5023888391',
-            investigationId: @investigation_1.id
+            investigationId: @investigation_1.id.to_s
           },
           context: {
             current_user: @user_1
