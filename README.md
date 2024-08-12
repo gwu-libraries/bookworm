@@ -1,5 +1,21 @@
 # README
 
+## Intro
+
+Bookworm is a Ruby on Rails API application for creating graph visualizations of academic entities (works, authors, grants, institutations, etc) and the relationships between them. 
+
+This is an API only application, designed to work with a React front end, located at [Bookworm React Respository](https://github.com/alepbloyd/book_worm_react). 
+
+This application relies on the [OpenAlex API](https://docs.openalex.org/) for all data. Adding the functionality to load from the data snapshot is on the to-do list, but hasn't been implemented. 
+
+## Main Concepts/Technologies
+
+### Database
+
+### GraphQL
+
+This application utilizes GraphQL, specifically the [graphql-ruby](https://github.com/rmosolgo/graphql-ruby?tab=readme-ov-file) gem for handling API requests. 
+
 ## Development Steps
 
 ### Dependencies
@@ -27,3 +43,7 @@ The `GraphiQL` interface should also be available at `http://localhost:3000/grap
 Uses `RSpec` for testing - run `rspec` in to run the full suite, or `rspec spec/*_spec.rb` to run tests for a specific file. 
 
 The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr`, try deleting the recorded 'cassete' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
+
+## Production Setup
+
+TBA
