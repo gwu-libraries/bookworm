@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_12_193606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_authorship_connections_on_author_id"
     t.index ["work_id"], name: "index_authorship_connections_on_work_id"
+  end
+
+  create_table "authorship_edges", force: :cascade do |t|
+    t.bigint "investigation_id", null: false
+    t.bigint "authorship_connection_id", null: false
+    t.boolean "visible", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authorship_connection_id"], name: "index_authorship_edges_on_authorship_connection_id"
+    t.index ["investigation_id"], name: "index_authorship_edges_on_investigation_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -123,6 +133,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_04_025750) do
   add_foreign_key "author_nodes", "investigations"
   add_foreign_key "authorship_connections", "authors"
   add_foreign_key "authorship_connections", "works"
+  add_foreign_key "authorship_edges", "authorship_connections"
+  add_foreign_key "authorship_edges", "investigations"
   add_foreign_key "work_edges", "connections"
   add_foreign_key "work_edges", "investigations"
   add_foreign_key "work_nodes", "investigations"

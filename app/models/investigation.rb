@@ -14,5 +14,8 @@ class Investigation < ApplicationRecord
   has_many :work_edges
   has_many :connections, through: :work_edges
 
+  has_many :authorship_edges
+  has_many :authorship_connections, through: :authorship_edges
+
   belongs_to :user
 end
