@@ -11,6 +11,7 @@ This application relies on the [OpenAlex API](https://docs.openalex.org/) for al
 ## Main Concepts/Technologies
 
 ### Database
+![db-diagram-8-12-24](https://github.com/user-attachments/assets/e01ec181-9d4e-45b5-a058-07be78ffddd7)
 
 ### GraphQL
 
