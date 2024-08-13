@@ -2,6 +2,7 @@
 
 module Mutations
   class CreateAuthorNode < BaseMutation
+    # this needs to take the work_node_id?
     argument :openalex_id, String, required: true
     argument :investigation_id, String, required: true
 

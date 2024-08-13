@@ -2,15 +2,19 @@
 
 require 'rails_helper'
 
-RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
-  def add_authorship_connections_mutation
+RSpec.describe Mutations::AddAuthorWorks, type: :request do
+  def add_author_works_mutation
     <<~GQL
-      mutation ($openalexId: String!, $investigationId: Int!) {
-        addAuthorshipConnections(
+      mutation ($openalexId: String!, $investigationId: String!) {
+        addAuthorWorks(
           input: { openalexId: $openalexId, investigationId: $investigationId }
         ) {
-          openalexId
-          doi
+          xCoordinate
+          yCoordinate
+          work {
+            openalexId
+            doi
+          }
         }
       }
     GQL
@@ -18,7 +22,7 @@ RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
 
   def create_author_node_mutation
     <<~GQL
-    mutation ($openalexId: String!, $investigationId: Int!) {
+    mutation ($openalexId: String!, $investigationId: String!) {
       createAuthorNode(
         input: { openalexId: $openalexId, investigationId: $investigationId }
       ) {
@@ -27,6 +31,8 @@ RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
         visible
         author {
           name
+          orcid
+          openalexId
         }
       }
     }
@@ -40,23 +46,24 @@ RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
       investigation_1 = FactoryBot.create(:investigation, user_id: user_1.id)
 
       # creating an author node
-      BookWormApiSchema.execute(
-        create_author_node_mutation,
-        variables: {
-          openalexId: 'A5023888391',
-          investigationId: investigation_1.id
-        },
-        context: {
-          current_user: user_1
-        }
-      )
+      author_node_response =
+        BookWormApiSchema.execute(
+          create_author_node_mutation,
+          variables: {
+            openalexId: 'A5023888391',
+            investigationId: investigation_1.id.to_s
+          },
+          context: {
+            current_user: user_1
+          }
+        ).to_h
 
       response =
         BookWormApiSchema.execute(
-          add_authorship_connections_mutation,
+          add_author_works_mutation,
           variables: {
             openalexId: 'A5023888391',
-            investigationId: investigation_1.id
+            investigationId: investigation_1.id.to_s
           },
           context: {
             current_user: user_1
@@ -64,16 +71,16 @@ RSpec.describe Mutations::AddAuthorshipConnections, type: :request do
         ).to_h
 
       expect(response).to be_a(Hash)
-      expect(response['data'].keys).to eq(['addAuthorshipConnections'])
-      expect(response['data']['addAuthorshipConnections']).to be_a(Array)
-      expect(response['data']['addAuthorshipConnections'].first).to be_a(Hash)
-      expect(response['data']['addAuthorshipConnections'].first.keys).to eq(
-        %w[openalexId doi]
+      expect(response['data'].keys).to eq(['addAuthorWorks'])
+      expect(response['data']['addAuthorWorks']).to be_a(Array)
+      expect(response['data']['addAuthorWorks'].first).to be_a(Hash)
+      expect(response['data']['addAuthorWorks'].first.keys).to eq(
+        %w[xCoordinate yCoordinate work]
       )
       expect(
-        response['data']['addAuthorshipConnections'].first['openalexId']
+        response['data']['addAuthorWorks'].first['work']['openalexId']
       ).to be_a(String)
-      expect(response['data']['addAuthorshipConnections'].first['doi']).to be_a(
+      expect(response['data']['addAuthorWorks'].first['work']['doi']).to be_a(
         String
       )
     end

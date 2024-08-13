@@ -41,8 +41,8 @@ class OpenalexFacade
     OpenalexAuthor.new(author_data)
   end
 
-  def self.get_authorship_connections(openalex_id)
-    work_data = OpenalexService.get_authorship_connections(openalex_id)
+  def self.get_author_works(openalex_id)
+    work_data = OpenalexService.get_author_works(openalex_id)
 
     authored_works = []
 

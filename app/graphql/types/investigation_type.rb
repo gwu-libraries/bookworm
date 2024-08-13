@@ -13,7 +13,7 @@ module Types
     field :work_nodes, [Types::WorkNodeType], null: true
     field :work_edges, [Types::WorkEdgeType], null: true
 
-    # field :authorship_edges, [Types::AuthorshipEdges], null: true
+    field :authorship_edges, [Types::AuthorshipEdgeType], null: true
 
     def note_nodes
       object.note_nodes
@@ -29,6 +29,10 @@ module Types
 
     def work_edges
       object.work_edges
+    end
+
+    def authorship_edges
+      object.authorship_edges
     end
 
     # def citation_edges

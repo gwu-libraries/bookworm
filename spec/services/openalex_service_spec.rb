@@ -227,7 +227,7 @@ RSpec.describe OpenalexService do
   it 'returns an authors works by openalexid', :vcr do
     openalex_id = 'A5023888391'
 
-    response = OpenalexService.get_authorship_connections(openalex_id)
+    response = OpenalexService.get_author_works(openalex_id)
 
     expect(response).to be_a(Array)
     expect(response.first).to be_a(Hash)
