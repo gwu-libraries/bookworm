@@ -34,6 +34,8 @@ module Mutations
       end
 
       authors = []
+
+      # TODO - fix below
       authors_list.each do |author_hash|
         authors << Author.find_or_create_by(
           name: author_hash['name'],

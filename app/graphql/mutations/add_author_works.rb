@@ -16,7 +16,10 @@ module Mutations
 
       author_works = OpenalexFacade.get_author_works(attributes[:openalex_id])
 
+      # investigation_works = investigation.work_nodes.work
+
       work_nodes = []
+      works = []
 
       author_works.each do |openalex_work|
         work =
@@ -50,6 +53,7 @@ module Mutations
             investigation_id: investigation.id
           )
 
+        works << work
         work_nodes << work_node
       end
 
