@@ -2,8 +2,8 @@
 
 module Mutations
   class CreateAuthorNode < BaseMutation
-    # this needs to take the work_node_id?
-    argument :openalex_id, String, required: true
+    argument :author_openalex_id, String, required: true
+    argument :work_openalex_id, String, required: true
     argument :investigation_id, String, required: true
 
     type Types::AuthorNodeType
@@ -11,8 +11,17 @@ module Mutations
     def resolve(**attributes)
       authorize_user
 
+      investigation = Investigation.find(attributes[:investigation_id])
+
+      root_work = Work.find_by(openalex_id: attributes[:work_openalex_id])
+
+      root_work_node =
+        root_work.work_nodes.find_by(
+          investigation_id: attributes[:investigation_id]
+        )
+
       openalex_author =
-        OpenalexFacade.get_author_details(attributes[:openalex_id])
+        OpenalexFacade.get_author_details(attributes[:author_openalex_id])
 
       author =
         Author.find_or_create_by(
@@ -21,7 +30,11 @@ module Mutations
           openalex_id: openalex_author.openalex_id
         )
 
-      investigation = Investigation.find(attributes[:investigation_id])
+      authorship_connection =
+        AuthorshipConnection.find_or_create_by(
+          author_id: author.id,
+          work_id: root_work.id
+        )
 
       author_node =
         AuthorNode.find_or_create_by(
@@ -29,8 +42,24 @@ module Mutations
           investigation_id: investigation.id
         )
 
-      author_node.x_coordinate = rand(1000) if author_node.x_coordinate.nil?
-      author_node.y_coordinate = rand(1000) if author_node.y_coordinate.nil?
+      AuthorshipEdge.find_or_create_by(
+        authorship_connection_id: authorship_connection.id,
+        investigation_id: investigation.id
+      )
+
+      circle_coordinates =
+        circle_point(
+          center_x = root_work_node.x_coordinate,
+          center_y = root_work_node.y_coordinate,
+          radius = 300,
+          degrees = rand(0..360) # probably fix to more specific options on left/right of root node
+        )
+
+      author_node.x_coordinate =
+        circle_coordinates.first if author_node.x_coordinate.nil?
+
+      author_node.y_coordinate =
+        circle_coordinates.last if author_node.y_coordinate.nil?
 
       author_node.save
 
