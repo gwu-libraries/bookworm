@@ -30,6 +30,13 @@ module Mutations
           openalex_id: openalex_author.openalex_id
         )
 
+      author.h_index = openalex_author.h_index
+      author.i10_index = openalex_author.i10_index
+      author.cited_by_count = openalex_author.cited_by_count
+      author.works_count = openalex_author.works_count
+
+      author.save
+
       authorship_connection =
         AuthorshipConnection.find_or_create_by(
           author_id: author.id,
@@ -63,7 +70,7 @@ module Mutations
 
       author_node.save
 
-      author_node.persisted? ? author_node : 'uhoh'
+      author_node.persisted? ? author_node : "uhoh"
     end
   end
 end
