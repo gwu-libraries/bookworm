@@ -17,6 +17,7 @@ class GraphqlController < ApplicationController
 
     result =
       BookWormApiSchema.execute(query, variables:, context:, operation_name:)
+
     render json: result
   rescue StandardError => e
     raise e unless Rails.env.development?
