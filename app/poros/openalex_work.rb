@@ -21,12 +21,12 @@ class OpenalexWork
               :grants
 
   def initialize(data)
-    @openalex_id = data[:ids][:openalex].split('/').last || 'Not found'
+    @openalex_id = data[:ids][:openalex].split("/").last || "Not found"
 
     if data[:doi]
-      @doi = data[:doi].split('/').last
+      @doi = data[:doi].split("/").last
     else
-      @doi = 'Not found'
+      @doi = "Not found"
     end
 
     @title = data[:title] || []
@@ -40,9 +40,30 @@ class OpenalexWork
     @authors =
       data[:authorships].map do |author_data|
         {
-          name: author_data[:author][:display_name],
-          orcid: author_data[:author][:orcid],
-          openalex_id: author_data[:author][:id]
+          name:
+            (
+              if author_data[:author][:display_name].present?
+                author_data[:author][:display_name]
+              else
+                "Not found"
+              end
+            ),
+          orcid:
+            (
+              if author_data[:author][:orcid].present?
+                author_data[:author][:orcid].split("/").last
+              else
+                "Not found"
+              end
+            ),
+          openalex_id:
+            (
+              if author_data[:author][:id].present?
+                author_data[:author][:id].split("/").last
+              else
+                "Not found"
+              end
+            )
         }
       end
 
