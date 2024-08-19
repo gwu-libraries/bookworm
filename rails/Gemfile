@@ -45,6 +45,12 @@ gem 'faraday'
 
 gem 'figaro'
 
+gem 'graphql', '~> 2.3'
+
+gem 'prettier_print'
+gem 'syntax_tree'
+gem 'syntax_tree-haml'
+gem 'syntax_tree-rbs'
 
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
@@ -70,9 +76,4 @@ group :development do
   # gem "spring"
 end
 
-gem 'graphql', '~> 2.3'
 
-gem 'prettier_print'
-gem 'syntax_tree'
-gem 'syntax_tree-haml'
-gem 'syntax_tree-rbs'

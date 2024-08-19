@@ -4,42 +4,81 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.env
+!.env.example
+
+# -- Rails --
+
 # Ignore bundler config.
-/.bundle
+/rails/.bundle
 
 # Ignore all environment files (except templates).
-/.env*
-!/.env*.erb
+/rails/.env
+!/rails/.env*.erb
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/rails/log/*
+/rails/tmp/*
+!/rails/log/.keep
+!/rails/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/rails/tmp/pids/*
+!/rails/tmp/pids/
+!/rails/tmp/pids/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
+/rails/storage/*
+/rails!/storage/.keep
+/rails/tmp/storage/*
+/rails!/tmp/storage/
+/rails!/tmp/storage/.keep
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
-
-# Ignore local vscode settings
-.vscode
+/rails/config/credentials.yml.enc
+/rails/config/master.key
 
 # Ignore application configuration
-/config/application.yml
+/rails/config/application.yml
 
-/coverage/*
+/rails/coverage/*
 
-/node_modules
+/rails/node_modules
 
+# -- React --
+/react/dist
+
+# Logs
+/react/logs
+/react/*.log
+/react/npm-debug.log*
+/react/yarn-debug.log*
+/react/yarn-error.log*
+/react/pnpm-debug.log*
+/react/lerna-debug.log*
+
+/react/node_modules
+/react/dist
+/react/dist-ssr
+/react/*.local
+
+# Editor directories and files
+/react/.vscode/*
+/react/!.vscode/extensions.json
+/react/.idea
+/react/.DS_Store
+/react/*.suo
+/react/*.ntvs*
+/react/*.njsproj
+/react/*.sln
+/react/*.sw?
+
+
+# -- NGINX --
+/nginx/certs/*
+!/nginx/certs/.keep
+
+# Ignore local settings
+
+.vscode
 .DS_Store

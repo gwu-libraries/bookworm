@@ -1,0 +1,86 @@
+services:
+  db:
+    image: postgres:latest
+    env_file: .env
+    container_name: bookworm-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: "postgres -c 'max_connections=500'"
+    environment:
+      POSTGRES_DB: bookworm_production
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d bookworm_production -U postgres"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+  rails:
+    build: ./rails
+    container_name: bookworm-rails
+    command: "bundle exec rails s -p 3001 -b '0.0.0.0'"
+    env_file: .env
+    environment:
+      RAILS_MASTER_KEY: $RAILS_MASTER_KEY
+      DB_HOST: db
+      DB_NAME: bookworm_production
+      DB_USERNAME: bookworm
+      DB_PASSWORD: $POSTGRES_PASSWORD
+      RAILS_ENV: production
+    healthcheck:
+      test: ["CMD-SHELL", "curl -d 'query{investigations {id name}}' -X POST http://localhost:3001/graphql || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 3001:3001
+    volumes:
+      - ./rails:/rails
+    depends_on:
+      db:
+        condition:
+          service_healthy
+  react:
+    build: ./react
+    container_name: bookworm-react
+    env_file: .env
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./react:/react
+    ports:
+      - 3000:3000
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --spider --tries=1 localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+    depends_on:
+      db:
+        condition:
+          service_healthy
+      rails:
+        condition:
+          service_healthy
+  nginx:
+    image: "nginx:latest"
+    container_name: "bookworm-nginx"
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/certs:/etc/ssl
+    restart: unless-stopped
+    depends_on:
+      rails:
+        condition:
+          service_healthy
+      react:
+        condition:
+          service_healthy
+
+volumes:
+  postgres_data: {}
+networks:
+  default:
+    name: bookworm
