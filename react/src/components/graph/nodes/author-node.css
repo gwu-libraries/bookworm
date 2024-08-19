@@ -1,0 +1,15 @@
+.author-node {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgb(229, 190, 190);
+  width: 200px;
+  color: black;
+}
+
+.author-node label {
+  display: block;
+  color: black;
+  font-size: 18px;
+  font-style: italic;
+}

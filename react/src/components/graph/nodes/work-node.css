@@ -1,0 +1,15 @@
+.work-node {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+  width: 200px;
+  color: black;
+}
+
+.work-node label {
+  display: block;
+  color: black;
+  font-size: 18px;
+  font-style: italic;
+}

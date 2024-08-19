@@ -1,0 +1,13 @@
+.note-node {
+  height: 50;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  background: yellow;
+}
+
+.note-node label {
+  display: block;
+  color: black;
+  font-size: 12px;
+}
