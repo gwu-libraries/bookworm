@@ -1,5 +1,6 @@
-# README
+# README -
 
+**Need to update instructions for docker, leaving outdated instructions below for now.**
 ## Intro
 
 Bookworm is a Ruby on Rails API application for creating graph visualizations of academic entities (works, authors, grants, institutations, etc) and the relationships between them. 
