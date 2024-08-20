@@ -1,6 +1,20 @@
-# README -
+# README
 
 **Need to update instructions for docker, leaving outdated instructions below for now.**
+
+## Production Setup
+
+Requires Docker engine and docker compose. 
+
+Quickstart:
+- Make a copy of `.env.example` and rename it to `.env`
+- In the `/rails` folder, run `bin/rails credentials:edit` to generate a Rails master key. Copy the resulting key string to RAILS_MASTER_KEY in your `.env` file. 
+- Set POSTGRES_PASSWORD in the `.env` to a password that will be used for the database. 
+- Generate an SSL key and certificate [(stackoverflow discussion here)](https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl) and place both files in `/nginx/certs`. They must be named `key.pem` and `certificate.pem`.
+- In the main directory, run `docker compose build` to build the rails and react docker images.
+- In the main directory, run `docker compose up` to start the containers. Once the NGINX container has started, the application should be visible on `[LOCALHOST-OR-YOUR-IP-ADDRESS]:80.
+
+
 ## Intro
 
 Bookworm is a Ruby on Rails API application for creating graph visualizations of academic entities (works, authors, grants, institutations, etc) and the relationships between them. 
@@ -46,6 +60,3 @@ Uses `RSpec` for testing - run `rspec` in to run the full suite, or `rspec spec/
 
 The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr`, try deleting the recorded 'cassette' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
 
-## Production Setup
-
-TBA
