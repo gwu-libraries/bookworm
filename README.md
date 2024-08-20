@@ -1,7 +1,5 @@
 # README
 
-**Need to update instructions for docker, leaving outdated instructions below for now.**
-
 ## Production Setup
 
 Requires Docker engine and docker compose. 
@@ -12,51 +10,45 @@ Quickstart:
 - Set POSTGRES_PASSWORD in the `.env` to a password that will be used for the database. 
 - Generate an SSL key and certificate [(stackoverflow discussion here)](https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl) and place both files in `/nginx/certs`. They must be named `key.pem` and `certificate.pem`.
 - In the main directory, run `docker compose build` to build the rails and react docker images.
-- In the main directory, run `docker compose up` to start the containers. Once the NGINX container has started, the application should be visible on `[LOCALHOST-OR-YOUR-IP-ADDRESS]:80.
+- In the main directory, run `docker compose up` to start the containers. Once the NGINX container has started, the application should be visible on `[LOCALHOST-OR-YOUR-IP-ADDRESS]:80`
 
+## Development Setup
 
-## Intro
+The recommended development setup is to run the rails development server and the react npm development server independently.
 
-Bookworm is a Ruby on Rails API application for creating graph visualizations of academic entities (works, authors, grants, institutations, etc) and the relationships between them. 
+Requires a working installation of Postgres, npm, and bundler, and Ruby 3.2.2.
+- If you do not have a ruby version manager, I recommend `rbenv`. 
+- If you do not have bundler installed, run `gem install bundler`
+- For Postgres, follow the instructions in [config/database.yml](config/database.yml) if you see an error related to `pg` on running `bundle install`
 
-This is an API only application, designed to work with a React front end, located at [Bookworm React Respository](https://github.com/alepbloyd/book_worm_react). 
+### Rails Development
 
-This application relies on the [OpenAlex API](https://docs.openalex.org/) for all data. Adding the functionality to load from the data snapshot is on the to-do list, but hasn't been implemented. 
+In the `/rails` folder, run `npm i` to install development dependencies. This repository uses [prettier](https://prettier.io/) and the [ruby-plugin](https://github.com/prettier/plugin-ruby) for code formatting. I recommend activating format-on-save ([https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code)).
 
-## Main Concepts/Technologies
+In the `/rails` folder: 
+- Run `bundle install` to install gems. 
+- Run `rails db:create` to create the `development` and `test` databases. 
+- Run `rails db:migrate` to migrate the `development` and `test` databases. 
 
-### Database
-![db-diagram-8-12-24](https://github.com/user-attachments/assets/e01ec181-9d4e-45b5-a058-07be78ffddd7)
+To start the development server, run `rails s`. It should automatically start in development mode, but you can run `rails s -e development` if not. 
 
-### GraphQL
+The `graphiql` user interface should now be available at `localhost:3001/graphiql`.
 
-This application utilizes GraphQL, specifically the [graphql-ruby](https://github.com/rmosolgo/graphql-ruby?tab=readme-ov-file) gem for handling API requests. 
+### React Development
 
-## Development Steps
+In the `/react` folder:
+- Run `npm install` to install node packages. 
+- Run `npm run dev` to launch the Vite/React frontend in development mode.
 
-### Dependencies
-1. Install ruby 3.2.2 (try `rbenv` if you don't have a ruby package manager)
-2. Install `bundler` if needed - `gem install bundler`
-3. Run `bundle install` to install gems.
+### Automated Tests
 
-### Database Setup
+This repository uses RSpec for testing the rails application. 
 
-You will also a need a working installation of PostgreSQL - follow the instructions in [config/database.yml](config/database.yml) if you see an error related to `pg` on running `bundle install`.
+In the `/rails` folder:
+- Run `rspec` to run all of the rspec tests, or `rspec spec/path/to/*_spec.rb` to run a specific test. 
 
-1. Run `rails db:create` to create the development and test databases.
+Coverage reports are generated using [simplecov](https://github.com/simplecov-ruby/simplecov), and will be in `/rails/coverage`.
 
-2. Run `rails db:migrate` to migrate the development and test databases. 
+The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr` while running tests, try deleting the recorded 'cassette' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
 
-### Development server
-After setting up the database, run `rails s` to start the development server.
-
-At this point, the GraphQL endpoint should be available at `http://localhost:3000/graphql`.
-
-The `GraphiQL` interface should also be available at `http://localhost:3000/graphiql`.
-
-### Testing
-
-Uses `RSpec` for testing - run `rspec` in to run the full suite, or `rspec spec/*_spec.rb` to run tests for a specific file. 
-
-The test suite is configured to use [vcr](https://github.com/vcr/vcr) for tests that interact with any external APIs, primarily the OpenAlex API. If you encounter errors related to `vcr`, try deleting the recorded 'cassette' files in `spec/fixtures/vcr_cassettes/` and running `rspec` again to re-record them. 
-
+Planning on trying Jest for testing front end. WIP. 
