@@ -29,10 +29,10 @@
 
 # Ignore storage (uploaded files in development and any SQLite databases).
 /rails/storage/*
-/rails!/storage/.keep
+!/rails/storage/.keep
 /rails/tmp/storage/*
-/rails!/tmp/storage/
-/rails!/tmp/storage/.keep
+!/rails/tmp/storage/
+!/rails/tmp/storage/.keep
 
 # Ignore master key for decrypting credentials and more.
 /rails/config/credentials.yml.enc
@@ -64,7 +64,7 @@
 
 # Editor directories and files
 /react/.vscode/*
-/react/!.vscode/extensions.json
+!/react/.vscode/extensions.json
 /react/.idea
 /react/.DS_Store
 /react/*.suo
