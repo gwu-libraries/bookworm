@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d bookworm_production -U postgres"]
-      interval: 30s
+      interval: 10s
       timeout: 5s
       retries: 10
   rails:
@@ -28,13 +28,13 @@ services:
       RAILS_ENV: production
     healthcheck:
       test: ["CMD-SHELL", "curl -d 'query{investigations {id name}}' -X POST http://localhost:3001/graphql || exit 1"]
-      interval: 30s
+      interval: 10s
       timeout: 5s
       retries: 5
     ports:
       - 3001:3001
-    volumes:
-      - ./rails:/rails
+    # volumes:
+    #   - ./rails:/rails
     depends_on:
       db:
         condition:
@@ -45,13 +45,13 @@ services:
     env_file: .env
     environment:
       NODE_ENV: production
-    volumes:
-      - ./react:/react
+    # volumes:
+    #   - ./react:/react
     ports:
       - 3000:3000
     healthcheck:
       test: ["CMD-SHELL", "wget --no-verbose --spider --tries=1 localhost:3000 || exit 1"]
-      interval: 30s
+      interval: 10s
       timeout: 5s
       retries: 10
     depends_on:

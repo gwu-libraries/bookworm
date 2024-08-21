@@ -7,7 +7,7 @@ import { REGISTER_USER } from "../../hooks/REGISTER_USER";
 function RegistrationPage() {
   const [emailInput, setEmail] = useState("");
   const [passwordInput, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   let emailInputHandler = (e: {
     target: { value: SetStateAction<string> };
@@ -30,7 +30,7 @@ function RegistrationPage() {
     onCompleted: (data) => {
       localStorage.setItem("token", data.registerUser.authenticationToken);
       localStorage.setItem("email", emailInput); // TO-DO: why can't i get the email back in the response. maybe mistake in UserType in rails?
-      navigate("/investigations");
+      // navigate("/investigations");
     },
     onError: (error) => {
       console.log(error);
