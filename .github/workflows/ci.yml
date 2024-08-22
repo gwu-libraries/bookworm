@@ -26,7 +26,7 @@ jobs:
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      DATABASE_URL: "postgres://bookworm:password@localhost:5432/bookworm_test"
     steps:
       - name: Create folder
         run: |
