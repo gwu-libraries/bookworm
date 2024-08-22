@@ -8,7 +8,7 @@ import "@testing-library/jest-dom";
 const mocks = [];
 
 describe("RegistrationPage tests", () => {
-  it("should contains the heading 1", () => {
+  it("should contain registration field text", () => {
     render(
       <Router>
         <MockedProvider mocks={mocks} addTypename={false}>
@@ -16,7 +16,12 @@ describe("RegistrationPage tests", () => {
         </MockedProvider>
       </Router>
     );
-    const heading = screen.getByText(/Register/i);
-    expect(heading).toBeInTheDocument();
+    const register_text = screen.getByText(/Register/i);
+    const nameInput = screen.getByText(/EMAIL:/i);
+    const passwordInput = screen.getByText(/PASSWORD:/i)
+
+    expect(register_text).toBeInTheDocument();
+    expect(nameInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
   });
 });
