@@ -37,8 +37,9 @@ jobs:
       - name: Change to rails directory
         run: |
           pwd
+          cd rails
+          pwd
           ls -l
-          cd rails/
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@78c01b705fd9d5ad960d432d3a0cfa341d50e410 # v1.179.1
         with:
@@ -46,6 +47,8 @@ jobs:
           bundler-cache: true
       - name: Set up database
         run: |
+          pwd
+          ls -l
           bundle exec rails db:create
           bundle exec rails db:migrate
         
