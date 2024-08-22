@@ -32,3 +32,6 @@
 
 package-lock.json
 .gitignore
+
+/node_modules
+/node_modules/*
