@@ -40,8 +40,9 @@ services:
     env_file: .env
     environment:
       NODE_ENV: production
+      RAILS_API_URL: $RAILS_API_URL
     ports:
-      - 3000:3000
+      - 3000:80
     healthcheck:
       test: [ "CMD-SHELL", "wget --no-verbose --spider --tries=1 localhost:3000 || exit 1" ]
       interval: 10s
