@@ -14,6 +14,7 @@ test:
   host: localhost
   <<: *default
   database: bookworm_test
+  password: password
 
 production:
   <<: *default
