@@ -10,8 +10,8 @@ services:
       POSTGRES_DB: bookworm_production
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d bookworm_production -U postgres"]
-      interval: 30s
+      test: [ "CMD-SHELL", "pg_isready -d bookworm_production -U postgres" ]
+      interval: 10s
       timeout: 5s
       retries: 10
   rails:
@@ -27,40 +27,31 @@ services:
       DB_PASSWORD: $POSTGRES_PASSWORD
       RAILS_ENV: production
     healthcheck:
-      test: ["CMD-SHELL", "curl -d 'query{investigations {id name}}' -X POST http://localhost:3001/graphql || exit 1"]
-      interval: 30s
+      test: [ "CMD-SHELL", "curl -d 'query{investigations {id name}}' -X POST http://localhost:3001/graphql || exit 1" ]
+      interval: 10s
       timeout: 5s
       retries: 5
-    ports:
-      - 3001:3001
-    volumes:
-      - ./rails:/rails
     depends_on:
       db:
-        condition:
-          service_healthy
+        condition: service_healthy
   react:
     build: ./react
     container_name: bookworm-react
     env_file: .env
     environment:
       NODE_ENV: production
-    volumes:
-      - ./react:/react
     ports:
       - 3000:3000
     healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --spider --tries=1 localhost:3000 || exit 1"]
-      interval: 30s
+      test: [ "CMD-SHELL", "wget --no-verbose --spider --tries=1 localhost:3000 || exit 1" ]
+      interval: 10s
       timeout: 5s
       retries: 10
     depends_on:
       db:
-        condition:
-          service_healthy
+        condition: service_healthy
       rails:
-        condition:
-          service_healthy
+        condition: service_healthy
   nginx:
     image: "nginx:latest"
     container_name: "bookworm-nginx"
@@ -73,11 +64,9 @@ services:
     restart: unless-stopped
     depends_on:
       rails:
-        condition:
-          service_healthy
+        condition: service_healthy
       react:
-        condition:
-          service_healthy
+        condition: service_healthy
 
 volumes:
   postgres_data: {}
