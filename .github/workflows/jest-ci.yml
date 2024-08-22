@@ -1,0 +1,25 @@
+name: "Jest/React CI"
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create folder
+        run: |
+          mkdir -p /opt/bookworm
+          cd /opt/bookworm
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install modules
+        run: |
+          cd react
+          npm i
+      - name: Run tests
+        run: |
+          cd react
+          npm test
