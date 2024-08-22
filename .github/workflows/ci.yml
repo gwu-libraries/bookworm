@@ -39,19 +39,22 @@ jobs:
         with:
           ruby-version: '3.2.2'
           bundler-cache: false
-      - name: Set up database
+      - name: Bundle
         run: |
-          pwd
-          ls -l
           cd rails
           bundle install
+      - name: set up database
+        run: |
           pwd
+          cd rails
           bundle exec rails db:create
           bundle exec rails db:migrate
         
       # Add or replace test runners here
       - name: Run rspec
-        run: bundle exec rspec
+        run: |
+          pwd
+          bundle exec rspec
 
   # lint:
   #   runs-on: ubuntu-latest
