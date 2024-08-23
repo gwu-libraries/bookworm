@@ -1,18 +1,18 @@
-import { useState, useMemo } from 'react'
-import ReactFlow, { useNodesState, useEdgesState, MarkerType } from 'reactflow'
-import 'reactflow/dist/style.css'
-import WorkNode from './nodes/WorkNode.tsx'
-import AuthorNode from './nodes/AuthorNode.tsx'
-import NoteNode from './nodes/NoteNode.tsx'
-import WorkEdge from './edges/WorkEdge.tsx'
-import AuthorshipEdge from './edges/AuthorshipEdge.tsx'
+import { useState, useMemo, useEffect } from "react";
+import ReactFlow, { useNodesState, useEdgesState, MarkerType } from "reactflow";
+import "reactflow/dist/style.css";
+import WorkNode from "./nodes/WorkNode.tsx";
+import AuthorNode from "./nodes/AuthorNode.tsx";
+import NoteNode from "./nodes/NoteNode.tsx";
+import WorkEdge from "./edges/WorkEdge.tsx";
+import AuthorshipEdge from "./edges/AuthorshipEdge.tsx";
 
 interface Props {
-  workNodes: WorkNode[]
-  authorNodes: AuthorNode[]
+  workNodes: WorkNode[];
+  authorNodes: AuthorNode[];
   // noteNodes: NoteNode[];
-  workEdges: WorkEdge[]
-  authorshipEdges: AuthorshipEdge[]
+  workEdges: WorkEdge[];
+  authorshipEdges: AuthorshipEdge[];
 }
 
 function InvestigationGraph({
@@ -20,19 +20,20 @@ function InvestigationGraph({
   authorNodes,
   // noteNodes,
   workEdges,
-  authorshipEdges
+  authorshipEdges,
 }: Props) {
   const nodeTypes = useMemo(
     () => ({
       work: WorkNode,
-      author: AuthorNode
+      author: AuthorNode,
       // note: NoteNode,
     }),
     []
-  )
+  );
 
-  const initialNodes = []
-  const initialEdges = []
+
+  const initialNodes = [];
+  const initialEdges = [];
 
   // works
   for (let i = 0; i <= workNodes.length - 1; i++) {
@@ -41,10 +42,10 @@ function InvestigationGraph({
         id: `work-${workNodes[i].id}`,
         position: { x: workNodes[i].xCoordinate, y: workNodes[i].yCoordinate },
         data: {
-          workData: workNodes[i]
+          workData: workNodes[i],
         },
-        type: 'work'
-      })
+        type: "work",
+      });
     }
   }
 
@@ -55,13 +56,13 @@ function InvestigationGraph({
         id: `author-${authorNodes[i].id}`,
         position: {
           x: authorNodes[i].xCoordinate,
-          y: authorNodes[i].yCoordinate
+          y: authorNodes[i].yCoordinate,
         },
         data: {
-          authorData: authorNodes[i]
+          authorData: authorNodes[i],
         },
-        type: 'author'
-      })
+        type: "author",
+      });
     }
   }
 
@@ -72,18 +73,18 @@ function InvestigationGraph({
         source: `work-${workEdges[i].citationNode.id}`,
         target: `work-${workEdges[i].referenceNode.id}`,
         id: `workedge-${workEdges[i].id}`,
-        label: 'hello',
+        label: "citation/reference",
         style: {
           strokeWidth: 2,
-          stroke: '#FF0072'
+          stroke: "#FF0072",
         },
         markerStart: {
           type: MarkerType.ArrowClosed,
           width: 20,
           height: 20,
-          color: '#FF0072'
-        }
-      })
+          color: "#FF0072",
+        },
+      });
     }
   }
 
@@ -94,20 +95,20 @@ function InvestigationGraph({
         source: `author-${authorshipEdges[i].authorNode.id}`,
         target: `work-${authorshipEdges[i].workNode.id}`,
         id: `authorshipedge-${authorshipEdges[i].id}`,
-        label: 'bbq chips',
+        label: "authored",
         style: {
           strokeWidth: 4,
-          stroke: '#008000'
-        }
-      })
+          stroke: "#008000",
+        },
+      });
     }
   }
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div style={{ width: '75vw', height: '100vh' }}>
+    <div style={{ width: "75vw", height: "100vh" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -119,7 +120,7 @@ function InvestigationGraph({
         fitView
       />
     </div>
-  )
+  );
 }
 
-export default InvestigationGraph
+export default InvestigationGraph;
