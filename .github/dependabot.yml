@@ -6,11 +6,19 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/rails"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/react"
     schedule:
       interval: "weekly"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/react" # Location of package manifests
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/raills" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "bundler"
