@@ -18,7 +18,7 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/raills" # Location of package manifests
+    directory: "/rails" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "bundler"
