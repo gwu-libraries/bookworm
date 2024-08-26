@@ -14,7 +14,13 @@ module Mutations
         if user.valid_password?(attributes[:password])
           context[:current_user] = user
 
-          MutationResult.call(obj: { object: user }, success: true)
+          MutationResult.call(
+            obj: {
+              object: user
+            },
+            success: true,
+            errors: user.errors
+          )
         else
           GraphQL::ExecutionError.new('Incorrect Email/Password')
         end
