@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.10.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722887373&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=mSD%2Bz3yOHfyKLN%2B6DwFFqBZJxcjVzt2K2%2F2Tlb%2F9E24%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1724715269&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=KWPHk5fHgSMoIGO6MZp9gvOOwdknPv2fBtgxOGuPvAc%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1722887373&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=mSD%2Bz3yOHfyKLN%2B6DwFFqBZJxcjVzt2K2%2F2Tlb%2F9E24%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1724715269&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=KWPHk5fHgSMoIGO6MZp9gvOOwdknPv2fBtgxOGuPvAc%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - gunicorn
       Date:
-      - Mon, 05 Aug 2024 19:49:34 GMT
+      - Mon, 26 Aug 2024 23:34:29 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '16924'
+      - '17530'
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -111,7 +111,7 @@ http_interactions:
         John''s University","ror":"https://ror.org/00bgtad15","country_code":"US","type":"education","lineage":["https://openalex.org/I142823887"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Bonnie
         MacKellar","raw_affiliation_strings":["St John''s University, Queens, NY,
         USA"],"affiliations":[{"raw_affiliation_string":"St John''s University, Queens,
-        NY, USA","institution_ids":["https://openalex.org/I142823887"]}]}],"countries_distinct_count":5,"institutions_distinct_count":9,"corresponding_author_ids":[],"corresponding_institution_ids":[],"apc_list":null,"apc_paid":null,"fwci":2.694,"has_fulltext":true,"fulltext_origin":"pdf","cited_by_count":25,"cited_by_percentile_year":{"min":93,"max":94},"biblio":{"volume":null,"issue":null,"first_page":null,"last_page":null},"is_retracted":false,"is_paratext":false,"primary_topic":{"id":"https://openalex.org/T10260","display_name":"Empirical
+        NY, USA","institution_ids":["https://openalex.org/I142823887"]}]}],"countries_distinct_count":5,"institutions_distinct_count":9,"corresponding_author_ids":[],"corresponding_institution_ids":[],"apc_list":null,"apc_paid":null,"fwci":2.694,"has_fulltext":true,"fulltext_origin":"pdf","cited_by_count":27,"citation_normalized_percentile":{"value":0.973801,"is_in_top_1_percent":false,"is_in_top_10_percent":true},"cited_by_percentile_year":{"min":93,"max":94},"biblio":{"volume":null,"issue":null,"first_page":null,"last_page":null},"is_retracted":false,"is_paratext":false,"primary_topic":{"id":"https://openalex.org/T10260","display_name":"Empirical
         Studies in Software Engineering","score":0.9997,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
         Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
         Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
@@ -126,9 +126,12 @@ http_interactions:
         Development in Software Engineering","score":0.998,"subfield":{"id":"https://openalex.org/subfields/1710","display_name":"Information
         Systems"},"field":{"id":"https://openalex.org/fields/17","display_name":"Computer
         Science"},"domain":{"id":"https://openalex.org/domains/3","display_name":"Physical
-        Sciences"}}],"keywords":[{"id":"https://openalex.org/keywords/source-code-analysis","display_name":"Source
+        Sciences"}}],"keywords":[{"id":"https://openalex.org/keywords/code","display_name":"Code
+        (set theory)","score":0.6231724},{"id":"https://openalex.org/keywords/code-review","display_name":"Code
+        review","score":0.6223818},{"id":"https://openalex.org/keywords/source-code-analysis","display_name":"Source
         Code Analysis","score":0.534352},{"id":"https://openalex.org/keywords/code-clone-detection","display_name":"Code
-        Clone Detection","score":0.517887}],"concepts":[{"id":"https://openalex.org/C117447612","wikidata":"https://www.wikidata.org/wiki/Q1412670","display_name":"Software
+        Clone Detection","score":0.517887},{"id":"https://openalex.org/keywords/software-quality-analyst","display_name":"Software
+        quality analyst","score":0.4232187}],"concepts":[{"id":"https://openalex.org/C117447612","wikidata":"https://www.wikidata.org/wiki/Q1412670","display_name":"Software
         quality","level":4,"score":0.7764687},{"id":"https://openalex.org/C41008148","wikidata":"https://www.wikidata.org/wiki/Q21198","display_name":"Computer
         science","level":0,"score":0.7361843},{"id":"https://openalex.org/C2779530757","wikidata":"https://www.wikidata.org/wiki/Q1207505","display_name":"Quality
         (philosophy)","level":2,"score":0.6265944},{"id":"https://openalex.org/C2776760102","wikidata":"https://www.wikidata.org/wiki/Q5139990","display_name":"Code
@@ -147,8 +150,8 @@ http_interactions:
         Netherlands Academy of Arts and Sciences"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},{"is_oa":true,"landing_page_url":"http://urn.kb.se/resolve?urn=urn:nbn:se:lnu:diva-70486","pdf_url":"https://lnu.diva-portal.org/smash/get/diva2:1180161/FULLTEXT01","source":{"id":"https://openalex.org/S4306401598","display_name":"DiVA
         (Linnaeus University)","issn_l":null,"issn":null,"is_oa":true,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I223464139","host_organization_name":"Linnaeus
         University","host_organization_lineage":["https://openalex.org/I223464139"],"host_organization_lineage_names":["Linnaeus
-        University"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true}],"best_oa_location":{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},"sustainable_development_goals":[],"grants":[],"datasets":[],"versions":[],"referenced_works_count":24,"referenced_works":["https://openalex.org/W1581377344","https://openalex.org/W173029385","https://openalex.org/W1979990841","https://openalex.org/W2006091051","https://openalex.org/W2023300248","https://openalex.org/W2065926773","https://openalex.org/W2107096520","https://openalex.org/W2120629476","https://openalex.org/W2136583283","https://openalex.org/W2152619061","https://openalex.org/W2157984409","https://openalex.org/W2164886519","https://openalex.org/W2165855014","https://openalex.org/W2170923331","https://openalex.org/W2396601788","https://openalex.org/W2465021265","https://openalex.org/W2554919770","https://openalex.org/W2612252595","https://openalex.org/W2624900765","https://openalex.org/W2726866600","https://openalex.org/W2727300901","https://openalex.org/W2728220450","https://openalex.org/W2729462384","https://openalex.org/W2730891473"],"related_works":["https://openalex.org/W630040118","https://openalex.org/W4385933939","https://openalex.org/W2775582007","https://openalex.org/W2549211027","https://openalex.org/W2169893063","https://openalex.org/W2097099770","https://openalex.org/W2070902631","https://openalex.org/W2011425538","https://openalex.org/W1580492598","https://openalex.org/W1489503135"],"ngrams_url":"https://api.openalex.org/works/W2785752813/ngrams","abstract_inverted_index":{"Context.":[0],"Code":[1],"quality":[2,15,36,60],"is":[3,17,61],"a":[4,19,63],"key":[5,20],"issue":[6],"in":[7],"software":[8,16],"development.":[9],"The":[10],"ability":[11],"to":[12,33,50],"develop":[13],"high":[14],"therefore":[18,62],"learning":[21],"goal":[22],"of":[23,37,58],"computing":[24],"programs.":[25],"However,":[26],"there":[27,46],"are":[28,42,47],"no":[29],"universally":[30],"accepted":[31],"measures":[32],"assess":[34],"the":[35,56],"code":[38,51,59],"and":[39,54],"current":[40],"standards":[41],"considered":[43],"weak.":[44],"Furthermore,":[45],"many":[48,67],"facets":[49],"quality.":[52],"Defining":[53],"explaining":[55],"concept":[57],"challenge":[64],"faced":[65],"by":[66],"educators.":[68]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W2785752813","counts_by_year":[{"year":2024,"cited_by_count":7},{"year":2023,"cited_by_count":6},{"year":2022,"cited_by_count":7},{"year":2021,"cited_by_count":1},{"year":2020,"cited_by_count":3},{"year":2019,"cited_by_count":1}],"updated_date":"2024-08-02T18:39:55.552678","created_date":"2018-02-23"}
+        University"],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true}],"best_oa_location":{"is_oa":true,"landing_page_url":"https://doi.org/10.1145/3174781.3174785","pdf_url":"http://dl.acm.org/ft_gateway.cfm?id=3174785&type=pdf","source":null,"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true},"sustainable_development_goals":[],"grants":[],"datasets":[],"versions":[],"referenced_works_count":31,"referenced_works":["https://openalex.org/W1510316655","https://openalex.org/W1517055698","https://openalex.org/W1581377344","https://openalex.org/W173029385","https://openalex.org/W1979990841","https://openalex.org/W2006091051","https://openalex.org/W2023300248","https://openalex.org/W2059857303","https://openalex.org/W2065926773","https://openalex.org/W2107086891","https://openalex.org/W2107096520","https://openalex.org/W2120629476","https://openalex.org/W2136583283","https://openalex.org/W2152619061","https://openalex.org/W2157984409","https://openalex.org/W2164886519","https://openalex.org/W2165855014","https://openalex.org/W2170923331","https://openalex.org/W2396601788","https://openalex.org/W2465021265","https://openalex.org/W2493532602","https://openalex.org/W2554919770","https://openalex.org/W2612252595","https://openalex.org/W2624900765","https://openalex.org/W2726866600","https://openalex.org/W2727300901","https://openalex.org/W2728220450","https://openalex.org/W2729462384","https://openalex.org/W2730891473","https://openalex.org/W3143245542","https://openalex.org/W782525392"],"related_works":["https://openalex.org/W630040118","https://openalex.org/W4385933939","https://openalex.org/W2775582007","https://openalex.org/W2549211027","https://openalex.org/W2169893063","https://openalex.org/W2097099770","https://openalex.org/W2070902631","https://openalex.org/W2011425538","https://openalex.org/W1580492598","https://openalex.org/W1489503135"],"abstract_inverted_index":{"Context.":[0],"Code":[1],"quality":[2,15,36,60],"is":[3,17,61],"a":[4,19,63],"key":[5,20],"issue":[6],"in":[7],"software":[8,16],"development.":[9],"The":[10],"ability":[11],"to":[12,33,50],"develop":[13],"high":[14],"therefore":[18,62],"learning":[21],"goal":[22],"of":[23,37,58],"computing":[24],"programs.":[25],"However,":[26],"there":[27,46],"are":[28,42,47],"no":[29],"universally":[30],"accepted":[31],"measures":[32],"assess":[34],"the":[35,56],"code":[38,51,59],"and":[39,54],"current":[40],"standards":[41],"considered":[43],"weak.":[44],"Furthermore,":[45],"many":[48,67],"facets":[49],"quality.":[52],"Defining":[53],"explaining":[55],"concept":[57],"challenge":[64],"faced":[65],"by":[66],"educators.":[68]},"cited_by_api_url":"https://api.openalex.org/works?filter=cites:W2785752813","counts_by_year":[{"year":2024,"cited_by_count":7},{"year":2023,"cited_by_count":6},{"year":2022,"cited_by_count":7},{"year":2021,"cited_by_count":1},{"year":2020,"cited_by_count":3},{"year":2019,"cited_by_count":1}],"updated_date":"2024-08-24T00:33:06.750368","created_date":"2018-02-23"}
 
         '
-  recorded_at: Mon, 05 Aug 2024 19:49:34 GMT
+  recorded_at: Mon, 26 Aug 2024 23:34:29 GMT
 recorded_with: VCR 6.2.0

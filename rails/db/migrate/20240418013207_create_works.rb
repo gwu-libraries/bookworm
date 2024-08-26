@@ -12,6 +12,7 @@ class CreateWorks < ActiveRecord::Migration[7.1]
       t.string :topics, array: true, default: []
       t.boolean :is_open_access, default: false
       t.string :open_access_url
+      t.string :abstract, default: ""
 
       t.timestamps
     end

@@ -129,6 +129,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_193606) do
     t.string "topics", default: [], array: true
     t.boolean "is_open_access", default: false
     t.string "open_access_url"
+    t.string "abstract", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
