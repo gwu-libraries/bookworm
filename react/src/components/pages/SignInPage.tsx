@@ -2,10 +2,12 @@ import { useMutation } from "@apollo/client";
 
 import { SetStateAction, useState } from "react";
 import { SIGN_IN } from "../../hooks/SIGN_IN";
+import { useNavigate } from "react-router-dom";
 
 function SignInPage() {
   const [emailInput, setEmail] = useState("");
   const [passwordInput, setPassword] = useState("");
+  const navigate = useNavigate();
 
   let emailInputHandler = (e: {
     target: { value: SetStateAction<string> };
@@ -20,9 +22,18 @@ function SignInPage() {
   };
 
   const [signIn] = useMutation(SIGN_IN, {
+    errorPolicy: "ignore", // TO-DO: fix this
     variables: {
       email: emailInput,
       password: passwordInput,
+    },
+    onCompleted: (data) => {
+      localStorage.setItem("token", data.signIn.authenticationToken);
+      localStorage.setItem("email", "SIGNED IN");
+      navigate("/investigations");
+    },
+    onError: (error) => {
+      console.log(error);
     },
   });
 
