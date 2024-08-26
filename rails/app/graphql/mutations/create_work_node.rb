@@ -54,7 +54,8 @@ module Mutations
           keywords: openalex_work.keywords,
           topics: openalex_work.topics,
           is_open_access: openalex_work.is_open_access,
-          open_access_url: openalex_work.open_access_url
+          open_access_url: openalex_work.open_access_url,
+          abstract: openalex_work.abstract
         )
 
       work_node =

@@ -18,7 +18,8 @@ class OpenalexWork
               :created_date,
               :is_open_access,
               :open_access_url,
-              :grants
+              :grants,
+              :abstract
 
   def initialize(data)
     @openalex_id = data[:ids][:openalex].split("/").last || "Not found"
@@ -27,6 +28,18 @@ class OpenalexWork
       @doi = data[:doi].split("/").last
     else
       @doi = "Not found"
+    end
+
+    if data[:abstract_inverted_index]
+      uninverted_arr = []
+
+      data[:abstract_inverted_index].each do |word, placement_arr|
+        placement_arr.each do |placement_index|
+          uninverted_arr[placement_index] = word.to_s
+        end
+      end
+
+      @abstract = uninverted_arr.join(" ")
     end
 
     @title = data[:title] || []

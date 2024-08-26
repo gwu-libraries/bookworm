@@ -14,6 +14,7 @@ module Types
     field :open_access_url, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :abstract, String
 
     field :authors, [Types::AuthorType]
     field :citations, [Types::WorkType]
