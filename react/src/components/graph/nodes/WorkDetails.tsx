@@ -50,7 +50,7 @@ function WorkDetails({
       >
         <tr className="border border-slate-700">
           <td
-            colSpan={Math.max(authors.length, keywords.length, topics.length)}
+            colSpan={Math.max(authors.length, keywords.length, topics.length) + 1}
           >
             {abstract}
           </td>

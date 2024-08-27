@@ -34,7 +34,8 @@ module Mutations
             keywords: reference.keywords,
             topics: reference.topics,
             is_open_access: reference.is_open_access,
-            open_access_url: reference.open_access_url
+            open_access_url: reference.open_access_url,
+            abstract: reference.abstract
           )
 
         created_references << created_reference
