@@ -14,6 +14,7 @@ interface Props {
   isOpenAccess: boolean;
   openAccessUrl: string;
   openalexId: string;
+  abstract: string;
 }
 
 function WorkDetails({
@@ -27,6 +28,7 @@ function WorkDetails({
   isOpenAccess,
   openAccessUrl,
   openalexId,
+  abstract,
 }: Props) {
   const { investigationId } = useParams();
   const [addAuthor] = useMutation(CREATE_AUTHOR_NODE, {
@@ -46,6 +48,13 @@ function WorkDetails({
           backgroundColor: isOpenAccess ? "#FBD87F" : "#B5F8FE",
         }}
       >
+        <tr className="border border-slate-700">
+          <td
+            colSpan={Math.max(authors.length, keywords.length, topics.length)}
+          >
+            {abstract}
+          </td>
+        </tr>
         <tr className="border border-slate-700">
           <td>Authors</td>
           {authors && authors.map((author: any) => <td>{author.name}</td>)}

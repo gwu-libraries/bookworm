@@ -113,6 +113,7 @@ function WorkNode({ data }) {
             isOpenAccess={data.workData.work.isOpenAccess}
             openAccessUrl={data.workData.work.openAccessUrl}
             openalexId={data.workData.work.openalexId}
+            abstract={data.workData.work.abstract}
           />
         </div>
       </div>
