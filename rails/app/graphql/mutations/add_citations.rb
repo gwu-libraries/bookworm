@@ -34,7 +34,8 @@ module Mutations
             keywords: citation.keywords,
             topics: citation.topics,
             is_open_access: citation.is_open_access,
-            open_access_url: citation.open_access_url
+            open_access_url: citation.open_access_url,
+            abstract: citation.abstract
           )
 
         created_citations << created_citation
