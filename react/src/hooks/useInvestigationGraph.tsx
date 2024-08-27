@@ -18,6 +18,7 @@ export const USE_INVESTIGATION_GRAPH = gql`
           keywords
           topics
           isOpenAccess
+          abstract
           authors {
             name
             id
