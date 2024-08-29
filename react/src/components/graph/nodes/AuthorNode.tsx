@@ -25,11 +25,17 @@ function AuthorNode({ data }) {
 
   const [addAuthorWorks] = useMutation(ADD_AUTHOR_WORKS, {
     errorPolicy: "ignore",
-    onCompleted: (data) => {},
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
     onError: (data) => {
       console.log(data);
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   useEffect(() => {

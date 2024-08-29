@@ -57,7 +57,14 @@ function WorkNode({ data }) {
       openalexId: data.workData.work.openalexId,
       investigationId: investigationId,
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   const [addCitations] = useMutation(ADD_CITATIONS, {
@@ -65,7 +72,14 @@ function WorkNode({ data }) {
       openalexId: data.workData.work.openalexId,
       investigationId: investigationId,
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   useEffect(() => {
@@ -84,8 +98,8 @@ function WorkNode({ data }) {
       }}
       ref={noderef}
     >
-      <Handle type="source" position={Position.Top} id="top-handle" />
-      <Handle type="target" position={Position.Bottom} id="bottom-handle" />
+      <Handle type="target" position={Position.Top} id="top-handle" />
+      <Handle type="source" position={Position.Bottom} id="bottom-handle" />
       <label htmlFor="text">{data.workData.work.title}</label>
       <button onClick={() => addReferences()}>Show References</button>
       <p></p>

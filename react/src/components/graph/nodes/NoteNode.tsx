@@ -26,7 +26,7 @@ function NoteNode({
       investigationId: investigationId,
       noteNodeId: id
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH] // this doesn't seem to work for trigger refresh of graph, not sure why? It works in root node
+    // refetchQueries: [USE_INVESTIGATION_GRAPH] // this doesn't seem to work for trigger refresh of graph, not sure why? It works in root node
   })
 
   return (

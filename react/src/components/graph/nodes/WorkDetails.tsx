@@ -33,11 +33,17 @@ function WorkDetails({
   const { investigationId } = useParams();
   const [addAuthor] = useMutation(CREATE_AUTHOR_NODE, {
     errorPolicy: "ignore",
-    onCompleted: (data) => {},
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
     onError: (data) => {
       console.log(data);
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   return (
@@ -50,7 +56,9 @@ function WorkDetails({
       >
         <tr className="border border-slate-700">
           <td
-            colSpan={Math.max(authors.length, keywords.length, topics.length) + 1}
+            colSpan={
+              Math.max(authors.length, keywords.length, topics.length) + 1
+            }
           >
             {abstract}
           </td>

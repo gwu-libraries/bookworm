@@ -31,7 +31,6 @@ function InvestigationGraph({
     []
   );
 
-
   const initialNodes = [];
   const initialEdges = [];
 
@@ -70,20 +69,21 @@ function InvestigationGraph({
   for (let i = 0; i <= workEdges.length - 1; i++) {
     if (workEdges[i].visible) {
       initialEdges.push({
-        source: `work-${workEdges[i].citationNode.id}`,
-        target: `work-${workEdges[i].referenceNode.id}`,
+        target: `work-${workEdges[i].citationNode.id}`,
+        source: `work-${workEdges[i].referenceNode.id}`,
         id: `workedge-${workEdges[i].id}`,
         label: "citation/reference",
         style: {
           strokeWidth: 2,
           stroke: "#FF0072",
         },
-        markerStart: {
+        markerEnd: {
           type: MarkerType.ArrowClosed,
           width: 20,
           height: 20,
           color: "#FF0072",
         },
+        animated: true,
       });
     }
   }
@@ -114,7 +114,6 @@ function InvestigationGraph({
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
-        // onConnect={onConnect}
         nodeTypes={nodeTypes}
         nodesDraggable={true}
         fitView
