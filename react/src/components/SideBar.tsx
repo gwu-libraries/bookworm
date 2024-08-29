@@ -31,11 +31,17 @@ function SideBar() {
       doi: doiSearch,
       investigationId: investigationId,
     },
-    onCompleted: (data) => {},
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
     onError: (data) => {
       console.log(data);
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   let doiInputHandler = (e) => {
@@ -55,11 +61,17 @@ function SideBar() {
       bodyText: noteBodyText,
       investigationId: investigationId,
     },
-    onCompleted: (data) => {},
+    onCompleted: (data) => {
+      {
+        {
+          window.location.reload();
+        }
+      }
+    },
     onError: (data) => {
       console.log(data);
     },
-    refetchQueries: [USE_INVESTIGATION_GRAPH],
+    // refetchQueries: [USE_INVESTIGATION_GRAPH],
   });
 
   return (
@@ -82,12 +94,12 @@ function SideBar() {
       ></input>
       <button onClick={() => addAuthor()}>Add Author</button> */}
 
-      <input
+      {/* <input
         className="border-4 border-solid border-red-500"
         value={noteBodyText}
         onChange={noteTextInputHandler}
       ></input>
-      <button onClick={() => addNote()}>Add Sticky Note</button>
+      <button onClick={() => addNote()}>Add Sticky Note</button> */}
     </>
   );
 }
