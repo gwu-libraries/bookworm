@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import SideBar from "../SideBar.tsx";
 import InvestigationGraph from "../graph/InvestigationGraph.tsx";
-import Header from "../Header.tsx";
+import Navigation from "../Navigation.jsx";
 import { useInvestigationGraph } from "../../hooks/useInvestigationGraph.tsx";
 
 interface Props {
@@ -22,7 +22,7 @@ function InvestigationPage() {
 
   return (
     <>
-      <Header />
+      <Navigation />
       <h1>Investigation: {data.investigation.name}</h1>
       <div className="border-4 border-solid border-indigo-500">
         <div className="flex flex-row">

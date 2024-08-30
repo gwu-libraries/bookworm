@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
 import "./root.css";
+import HomeCard from "./components/HomeCard";
+import Navigation from "./components/Navigation";
 
 export default function Root() {
   return (
     <>
-      <h1>ey i'm a homepage</h1>
-      <Link to="/register"> Register </Link>
-      <br />
-      <Link to="/signin"> Sign In </Link>
-      <br />
-      <Link to="/investigations"> My investigations </Link>
+      <Navigation />
+      <div className="home-container flex flex-1 flex-row justify-center items-center">
+        <HomeCard />        
+      </div>
     </>
   );
 }

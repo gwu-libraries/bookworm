@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { SetStateAction, useState } from "react";
 import { SIGN_IN } from "../../hooks/SIGN_IN";
 import { useNavigate } from "react-router-dom";
+import Navigation from "../Navigation.jsx";
 
 function SignInPage() {
   const [emailInput, setEmail] = useState("");
@@ -40,6 +41,7 @@ function SignInPage() {
   if (localStorage.getItem("email")) {
     return (
       <>
+        <Navigation />
         <h1>you are logged in {localStorage.getItem("email")}</h1>
       </>
     );
@@ -47,6 +49,7 @@ function SignInPage() {
 
   return (
     <>
+      <Navigation />
       <h1> Sign in</h1>
       <div> EMAIL:</div>
       <input

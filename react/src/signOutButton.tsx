@@ -12,7 +12,7 @@ function SignOutButton() {
 
   return (
     <button
-      className="border-4 border-solid border-red-500"
+      className="p-4 inline-block"
       onClick={() => signOut()}
     >
       Sign Out

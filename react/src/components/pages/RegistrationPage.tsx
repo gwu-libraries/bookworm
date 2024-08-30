@@ -4,6 +4,8 @@ import { SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { REGISTER_USER } from "../../hooks/REGISTER_USER";
 
+import Navigation from "../Navigation.jsx";
+
 function RegistrationPage() {
   const [emailInput, setEmail] = useState("");
   const [passwordInput, setPassword] = useState("");
@@ -40,6 +42,7 @@ function RegistrationPage() {
   if (localStorage.getItem("email")) {
     return (
       <>
+        <Navigation />
         <h1>you are logged in {localStorage.getItem("email")}</h1>
       </>
     );
@@ -47,6 +50,7 @@ function RegistrationPage() {
 
   return (
     <>
+      <Navigation />
       <div> EMAIL:</div>
       <input
         className="border-4 border-solid border-red-500"

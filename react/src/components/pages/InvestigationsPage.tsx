@@ -9,6 +9,8 @@ import Header from "../Header.tsx";
 import { useNavigate } from "react-router-dom";
 import { CREATE_INVESTIGATION } from "../../hooks/CREATE_INVESTIGATION.tsx";
 
+import Navigation from "../Navigation.jsx";
+
 function InvestigationsPage() {
   const { error, data, loading } = useInvestigations();
   const [newInvestigationName, setNewInvestigationName] = useState("");
@@ -37,6 +39,7 @@ function InvestigationsPage() {
   if (!localStorage.getItem("email")) {
     return (
       <>
+        <Navigation />
         <h1>Please sign in!</h1>
       </>
     );
@@ -44,7 +47,7 @@ function InvestigationsPage() {
 
   return (
     <>
-      <Header />
+      <Navigation />
       <input
         className="border-4 border-solid border-red-500"
         value={newInvestigationName}
