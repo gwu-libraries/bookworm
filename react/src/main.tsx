@@ -17,7 +17,7 @@ import SignInPage from "./components/pages/SignInPage.tsx";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = new HttpLink({
-  uri: import.meta.env.RAILS_API_URL, // This probably needs to be the nginx address
+  uri: "http://localhost:3002/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {

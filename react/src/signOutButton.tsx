@@ -12,7 +12,7 @@ function SignOutButton() {
 
   return (
     <button
-      className="p-4 inline-block"
+      className="nav-item p-4 inline-block hover:text-blue-500"
       onClick={() => signOut()}
     >
       Sign Out

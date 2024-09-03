@@ -48,15 +48,19 @@ function InvestigationsPage() {
   return (
     <>
       <Navigation />
-      <input
-        className="border-4 border-solid border-red-500"
-        value={newInvestigationName}
-        onChange={newInvestigationNameHandler}
-      ></input>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => createInvestigation()}
-      ></button>
+      <div className="new-investigation p-2 border-b border-black">
+        <input
+          className="w-3/5 border border-black p-1.5 mr-2 rounded-xl"
+          value={newInvestigationName}
+          onChange={newInvestigationNameHandler}
+          placeholder="Create new investigation"
+        ></input>
+        <button
+          className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
+          onClick={() => createInvestigation()}
+        >Create</button>
+      </div>
+      <div className="flex flex-wrap justify-start items-stretch">
       {data.investigations.length == 0 && <p>No Investigations Found :(</p>}
       {data.investigations.map((investigation: any) => (
         <InvestigationCard
@@ -66,6 +70,7 @@ function InvestigationsPage() {
           created_at={investigation.created_at}
         />
       ))}
+      </div>
     </>
   );
 }

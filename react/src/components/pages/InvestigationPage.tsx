@@ -23,10 +23,10 @@ function InvestigationPage() {
   return (
     <>
       <Navigation />
-      <h1>Investigation: {data.investigation.name}</h1>
-      <div className="border-4 border-solid border-indigo-500">
-        <div className="flex flex-row">
-          <div className="basis-1/8">
+      <div className="flex-1">
+        <div className="flex flex-row w-full h-full">
+          <div className="basis-1/8 p-2 border-r border-black">
+          <h1>Investigation: {data.investigation.name}</h1>
             <SideBar />
           </div>
           <div className="basis-7/8">

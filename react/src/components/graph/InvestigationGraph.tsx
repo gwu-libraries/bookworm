@@ -108,7 +108,7 @@ function InvestigationGraph({
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div style={{ width: "75vw", height: "100vh" }}>
+    <div style={{ width: "75vw", height: "100%" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

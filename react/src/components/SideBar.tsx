@@ -77,11 +77,11 @@ function SideBar() {
   return (
     <>
       <input
-        className="border-4 border-solid border-red-500"
+        className="border border-black p-1.5 m-2 rounded-xl"
         value={doiSearch}
         onChange={doiInputHandler}
       ></input>
-      <button onClick={() => createWorkNode()}>Create Work Node</button>
+      <button className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl" onClick={() => createWorkNode()}>Create Work Node</button>
 
       <br></br>
       <br></br>
