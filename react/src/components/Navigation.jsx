@@ -56,10 +56,11 @@ export default function Navigation() {
                     <Link to="/" className="branding-link p-4 inline-block">📖 🐛 BookWorm</Link>
                 </div>
                 <div className="flex md:hidden p-4">
-                    <button onClick={() => setIsOpen(!isOpen)}>
-                        <div className="w-5 h-1 bg-white my-1 mx-0"></div>
-                        <div className="w-5 h-1 bg-white my-1 mx-0"></div>
-                        <div className="w-5 h-1 bg-white my-1 mx-0"></div>
+                    <button className="flex flex-col justify-between" onClick={() => setIsOpen(!isOpen)}>
+                        {/* switch from hamburger style to X depending on isOpen condition */}
+                        <div className={`w-5 h-1 bg-white m-0 transition ease-in-out ${isOpen ? "rotate-45 translate-x-0.5 translate-y-2.5" : "transform-none"}`}></div>
+                        <div className={`w-5 h-1 bg-white m-0 transition ease-in-out delay-150 ${isOpen ? "hidden" : "flex"}`}></div>
+                        <div className={`w-5 h-1 bg-white m-0 transition ease-in-out ${isOpen ? "-rotate-45 translate-x-0.5 -translate-y-2.5" : "transform-none"}`}></div>
                     </button>
                 </div>
             </div>

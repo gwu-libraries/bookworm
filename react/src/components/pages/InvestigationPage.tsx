@@ -26,7 +26,7 @@ function InvestigationPage() {
       <div className="flex-1">
         <div className="flex flex-row w-full h-full">
           <div className="basis-1/8 p-2 border-r border-black">
-          <h1>Investigation: {data.investigation.name}</h1>
+          <h1 className="flex flex-col md:flex-row items-center justify-center"><span className="mr-1 text-l font-semibold">Investigation:</span><span className="text-l max-w-fit">{data.investigation.name}</span></h1>
             <SideBar />
           </div>
           <div className="basis-7/8">

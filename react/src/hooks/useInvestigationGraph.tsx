@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 export const USE_INVESTIGATION_GRAPH = gql`
   query UseInvestigationGraph($id: ID!) {
     investigation(id: $id) {
+      name,
       workNodes {
         id
         xCoordinate
