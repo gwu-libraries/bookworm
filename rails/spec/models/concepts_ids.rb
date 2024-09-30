@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe AuthorsCountsByYear, type: :model do
+RSpec.describe ConceptsIds, type: :model do
   describe 'relationships' do
-    it { should belong_to :author }
+    it { should belong_to :concept }
   end
 end
