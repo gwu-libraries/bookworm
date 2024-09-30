@@ -9,6 +9,10 @@ class Work < ApplicationRecord
   has_one :works_biblio
   has_one :works_ids
   has_one :works_open_access
+  has_one :works_mesh
+
+  has_many :works_concepts
+  has_many :concepts, through: :works_concepts
 
   # reference_connections "names" the Connection join table for accessing through the reference association
   has_many :works_related_works,
