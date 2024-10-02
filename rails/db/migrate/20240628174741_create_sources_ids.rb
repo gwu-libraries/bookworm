@@ -5,7 +5,7 @@ class CreateSourcesIds < ActiveRecord::Migration[7.1]
       t.string :openalex
       t.string :issn_l
       t.jsonb :issn
-      t.integer :mag
+      t.bigint :mag
       t.string :wikidata
       t.string :fatcat
       

@@ -9,12 +9,14 @@ class CreateTopics < ActiveRecord::Migration[7.1]
       t.string :domain_id
       t.string :domain_display_name
       t.string :description
-      t.string :keywords
+      t.string :keywords, array: true, default: []
       t.string :works_api_url
       t.string :wikipedia_id
-      t.integer :works_count
-      t.integer :cited_by_count
-      t.timestamps
+      t.bigint :works_count
+      t.bigint :cited_by_count
+
+      # siblings??? not documented but probably relationships of topics?
+
     end
   end
 end

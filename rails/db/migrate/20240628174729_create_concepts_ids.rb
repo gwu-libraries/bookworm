@@ -7,7 +7,7 @@ class CreateConceptsIds < ActiveRecord::Migration[7.1]
       t.string :wikipedia
       t.jsonb :umls_aui
       t.jsonb :umls_cui
-      t.integer :mag
+      t.bigint :mag
     end
   end
 end

@@ -4,8 +4,10 @@ class CreateAuthorsIds < ActiveRecord::Migration[7.1]
       t.references :author, null: false, foreign_key: true
       t.string :openalex
       t.string :orcid
+      t.string :scopus
+      t.string :twitter
       t.string :wikipedia
-      t.integer :mag 
+      t.bigint :mag 
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class CreateWorksIds < ActiveRecord::Migration[7.1]
       t.references :work, null: false, foreign_key: true
       t.string :openalex
       t.string :doi
-      t.integer :mag
+      t.bigint :mag
       t.string :pmid
       t.string :pmcid
 

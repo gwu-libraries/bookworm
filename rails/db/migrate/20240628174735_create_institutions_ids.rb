@@ -7,7 +7,7 @@ class CreateInstitutionsIds < ActiveRecord::Migration[7.1]
       t.string :grid
       t.string :wikipedia
       t.string :wikidata
-      t.integer :mag
+      t.bigint :mag
       
     end
   end
