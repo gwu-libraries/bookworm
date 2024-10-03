@@ -6,7 +6,8 @@ class Work < ApplicationRecord
   has_many :authors, through: :works_authorships
   has_many :institutions, through: :works_authorships
 
-  has_one :works_biblio
+  # these might need to be has_many
+  has_one :works_biblio 
   has_one :works_ids
   has_one :works_open_access
   has_one :works_mesh
