@@ -10,5 +10,7 @@ class Concept < ApplicationRecord
            foreign_key: :related_concept_id,
            class_name: 'ConceptsRelatedConcepts'
 
-  has_many :related_concepts, through: :concepts_related_concepts, source: :related_concept
+  has_many :related_concepts,
+           through: :concepts_related_concepts,
+           source: :related_concept
 end
