@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe WorksIds, type: :model do
+RSpec.describe PublishersCountsByYear, type: :model do
   describe 'relationships' do
-    it { should belong_to :work }
+    it { should belong_to :publisher }
   end
 end

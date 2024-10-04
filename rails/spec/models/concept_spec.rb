@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Concept, type: :model do
-
   describe 'relationships' do
     it { should have_many :works_concepts }
     it { should have_many(:works).through(:works_concepts) }
@@ -11,6 +10,8 @@ RSpec.describe Concept, type: :model do
     it { should have_one :concepts_ids }
 
     it { should have_many(:concepts_related_concepts) }
-    it { should have_many(:related_concepts).through(:concepts_related_concepts) }
+    it do
+      should have_many(:related_concepts).through(:concepts_related_concepts)
+    end
   end
 end

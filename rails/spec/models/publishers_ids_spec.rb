@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe VenuesIds, type: :model do
+RSpec.describe PublishersIds, type: :model do
   describe 'relationships' do
-    it { should belong_to :venue }
+    it { should belong_to :publisher }
   end
 end

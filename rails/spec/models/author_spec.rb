@@ -15,7 +15,7 @@ RSpec.describe Author, type: :model do
   describe 'relationships' do
     # it { should have_many :author_nodes }
     it { should have_one :authors_ids }
-    it { should have_one :authors_counts_by_year }
+    it { should have_many :authors_counts_by_year }
 
     it { should have_many :works_authorships }
     it { should have_many(:institutions).through(:works_authorships) }
