@@ -27,44 +27,22 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :works,
-          [Types::WorkType],
+    field :institutions,
+          [Types::InstitutionType],
           null: true,
-          description: 'Fetches all the works'
-    def works
-      Work.all
+          description: 'Fetch all institutions'
+    def institutions
+      Institution.all
     end
 
-    field :work,
-          Types::WorkType,
+    field :institution,
+          Types::InstitutionType,
           null: true,
-          description: 'Fetches a work by ID' do
-      argument :id, ID, required: true
+          description: 'Fetches an institution by ID' do
+        argument :id, ID, required: true
     end
-    def work(id:)
-      Work.find_by(id: id)
-    end
-
-    field :investigations,
-          [Types::InvestigationType],
-          null: true,
-          description: 'Fetches all investigations'
-    def investigations
-      if context[:current_user].present?
-        Investigation.where(user_id: context[:current_user].id)
-      else
-        []
-      end
-    end
-
-    field :investigation,
-          Types::InvestigationType,
-          null: true,
-          description: 'Fetches an Investigation by ID' do
-      argument :id, ID, required: true
-    end
-    def investigation(id:)
-      Investigation.find_by(id: id)
+    def institution(id:)
+      Institution.find(id)
     end
   end
 end
