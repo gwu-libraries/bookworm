@@ -44,5 +44,23 @@ module Types
     def institution(id:)
       Institution.find(id)
     end
+
+    field :authors,
+          [Types::AuthorType],
+          null: true,
+          description: 'Fetch all authors'
+    def authors
+      Author.all
+    end
+
+    field :author,
+          Types::AuthorType,
+          null: true,
+          description: 'Fetch author by ID' do
+        argument :id, ID, required: true
+    end
+    def author(id:)
+      Author.find(id)
+    end
   end
 end
