@@ -51,12 +51,16 @@ RSpec.describe Mutations::CreateWorkNode, type: :request do
         %w[id xCoordinate yCoordinate visible work]
       )
       expect(response['data']['createWorkNode']['work']).to be_a(Hash)
-      expect(response['data']['createWorkNode']['work'].keys).to eq(['title', 'abstract'])
+      expect(response['data']['createWorkNode']['work'].keys).to eq(
+        %w[title abstract]
+      )
       expect(response['data']['createWorkNode']['work']['title']).to eq(
         "\"I know it when I see it\" Perceptions of Code Quality"
       )
-      expect(response['data']['createWorkNode']['work']['abstract']).to start_with(
-        "Context. Code quality is a key issue in software development."
+      expect(
+        response['data']['createWorkNode']['work']['abstract']
+      ).to start_with(
+        'Context. Code quality is a key issue in software development.'
       )
     end
   end
