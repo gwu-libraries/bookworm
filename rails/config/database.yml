@@ -1,14 +1,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  username: bookworm
+  # password: <%= ENV["POSTGRES_PASSWORD"] %>
+  password: password
   pool: 5
 
 development:
   host: localhost
   <<: *default
   database: bookworm_development
-
 
 test:
   host: localhost
@@ -19,5 +20,4 @@ test:
 production:
   <<: *default
   host: db
-  username: postgres
   database: bookworm_production
