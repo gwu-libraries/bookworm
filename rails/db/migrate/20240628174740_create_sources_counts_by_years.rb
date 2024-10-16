@@ -6,7 +6,6 @@ class CreateSourcesCountsByYears < ActiveRecord::Migration[7.1]
       t.bigint :works_count
       t.bigint :cited_by_count
       t.bigint :oa_works_count
-      
     end
   end
 end

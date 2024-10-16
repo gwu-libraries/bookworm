@@ -11,7 +11,6 @@ class CreateSources < ActiveRecord::Migration[7.1]
       t.boolean :is_in_doaj
       t.string :homepage_url
       t.string :works_api_url
-      
     end
   end
 end

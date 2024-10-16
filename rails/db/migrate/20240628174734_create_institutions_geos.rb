@@ -9,7 +9,6 @@ class CreateInstitutionsGeos < ActiveRecord::Migration[7.1]
       t.string :country
       t.float :latitude
       t.float :longitude
-      
     end
   end
 end

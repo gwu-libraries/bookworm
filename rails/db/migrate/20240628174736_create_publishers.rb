@@ -9,7 +9,6 @@ class CreatePublishers < ActiveRecord::Migration[7.1]
       t.bigint :works_count
       t.bigint :cited_by_count
       t.string :sources_api_url
-      
     end
   end
 end

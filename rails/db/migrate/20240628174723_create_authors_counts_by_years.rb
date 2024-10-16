@@ -5,7 +5,7 @@ class CreateAuthorsCountsByYears < ActiveRecord::Migration[7.1]
       t.bigint :year, null: false
       t.bigint :works_count
       t.bigint :cited_by_count
-      t.bigint :oa_works_count 
+      t.bigint :oa_works_count
 
       t.timestamps
     end

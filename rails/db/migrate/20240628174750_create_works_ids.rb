@@ -7,7 +7,6 @@ class CreateWorksIds < ActiveRecord::Migration[7.1]
       t.bigint :mag
       t.string :pmid
       t.string :pmcid
-
     end
   end
 end

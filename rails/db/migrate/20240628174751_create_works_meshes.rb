@@ -7,7 +7,6 @@ class CreateWorksMeshes < ActiveRecord::Migration[7.1]
       t.string :qualifier_ui
       t.string :qualifier_name
       t.boolean :is_major_topic
-
     end
   end
 end

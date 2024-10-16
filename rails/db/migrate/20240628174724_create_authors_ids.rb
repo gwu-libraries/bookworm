@@ -7,7 +7,7 @@ class CreateAuthorsIds < ActiveRecord::Migration[7.1]
       t.string :scopus
       t.string :twitter
       t.string :wikipedia
-      t.bigint :mag 
+      t.bigint :mag
 
       t.timestamps
     end

@@ -10,7 +10,6 @@ class CreateWorksPrimaryLocations < ActiveRecord::Migration[7.1]
       t.boolean :is_oa
       t.string :version
       t.string :license
-
     end
   end
 end

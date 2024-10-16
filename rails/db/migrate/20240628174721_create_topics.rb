@@ -16,7 +16,6 @@ class CreateTopics < ActiveRecord::Migration[7.1]
       t.bigint :cited_by_count
 
       # siblings??? not documented but probably relationships of topics?
-
     end
   end
 end

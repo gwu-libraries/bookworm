@@ -8,7 +8,6 @@ class CreateSourcesIds < ActiveRecord::Migration[7.1]
       t.bigint :mag
       t.string :wikidata
       t.string :fatcat
-      
     end
   end
 end

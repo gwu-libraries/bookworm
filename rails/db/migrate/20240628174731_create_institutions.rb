@@ -14,7 +14,6 @@ class CreateInstitutions < ActiveRecord::Migration[7.1]
       t.bigint :works_count
       t.bigint :cited_by_count
       t.string :works_api_url
-      
     end
   end
 end

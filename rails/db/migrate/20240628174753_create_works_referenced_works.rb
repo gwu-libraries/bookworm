@@ -5,7 +5,6 @@ class CreateWorksReferencedWorks < ActiveRecord::Migration[7.1]
       t.string :referenced_work_id
 
       # self-referential many-to-many
-
     end
   end
 end

@@ -10,7 +10,6 @@ class CreateConcepts < ActiveRecord::Migration[7.1]
       t.string :image_url
       t.string :image_thumbnail_url
       t.string :works_api_url
-      
     end
   end
 end

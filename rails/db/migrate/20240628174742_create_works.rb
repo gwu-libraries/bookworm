@@ -15,7 +15,6 @@ class CreateWorks < ActiveRecord::Migration[7.1]
       t.string :cited_by_api_url
       t.jsonb :abstract_inverted_index
       t.string :language
-
     end
   end
 end

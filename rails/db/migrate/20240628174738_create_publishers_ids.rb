@@ -5,7 +5,6 @@ class CreatePublishersIds < ActiveRecord::Migration[7.1]
       t.string :openalex
       t.string :ror
       t.string :wikidata
-      
     end
   end
 end

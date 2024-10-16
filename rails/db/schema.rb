@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_03_155627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,20 +18,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "orcid"
     t.string "display_name"
     t.jsonb "display_name_alternatives"
-    t.integer "works_count"
-    t.integer "cited_by_count"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
     t.string "last_known_institution"
     t.string "works_api_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "openalex_id"
+    t.index ["openalex_id"], name: "index_authors_on_openalex_id"
   end
 
   create_table "authors_counts_by_years", force: :cascade do |t|
     t.bigint "author_id", null: false
-    t.integer "year", null: false
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.integer "oa_works_count"
+    t.bigint "year", null: false
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
+    t.bigint "oa_works_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_authors_counts_by_years_on_author_id"
@@ -41,8 +41,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.bigint "author_id", null: false
     t.string "openalex"
     t.string "orcid"
+    t.string "scopus"
+    t.string "twitter"
     t.string "wikipedia"
-    t.integer "mag"
+    t.bigint "mag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_authors_ids_on_author_id"
@@ -51,10 +53,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
   create_table "concepts", force: :cascade do |t|
     t.string "wikidata"
     t.string "display_name"
-    t.integer "level"
+    t.bigint "level"
     t.string "description"
-    t.integer "works_count"
-    t.integer "cited_by_count"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
     t.string "image_url"
     t.string "image_thumbnail_url"
     t.string "works_api_url"
@@ -69,10 +71,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
 
   create_table "concepts_counts_by_years", force: :cascade do |t|
     t.bigint "concept_id", null: false
-    t.integer "year", null: false
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.integer "oa_works_count"
+    t.bigint "year", null: false
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
+    t.bigint "oa_works_count"
     t.index ["concept_id"], name: "index_concepts_counts_by_years_on_concept_id"
   end
 
@@ -83,7 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "wikipedia"
     t.jsonb "umls_aui"
     t.jsonb "umls_cui"
-    t.integer "mag"
+    t.bigint "mag"
     t.index ["concept_id"], name: "index_concepts_ids_on_concept_id"
   end
 
@@ -94,31 +96,33 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
   end
 
   create_table "institutions", force: :cascade do |t|
+    t.string "openalex_id"
     t.string "ror"
     t.string "display_name"
     t.string "country_code"
-    t.string "type"
+    t.string "institution_type"
     t.string "homepage_url"
     t.string "image_url"
     t.string "image_thumbnail_url"
     t.jsonb "display_name_acronyms"
     t.jsonb "display_name_alternatives"
-    t.integer "works_count"
-    t.integer "cited_by_count"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
     t.string "works_api_url"
   end
 
   create_table "institutions_associated_institutions", force: :cascade do |t|
-    t.string "institution_id"
-    t.string "associated_institution_id"
+    t.integer "institution_id"
+    t.integer "associated_institution_id"
     t.string "relationship"
   end
 
   create_table "institutions_counts_by_years", force: :cascade do |t|
     t.bigint "institution_id", null: false
-    t.integer "year"
-    t.integer "works_count"
-    t.integer "oa_works_count"
+    t.bigint "year"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
+    t.bigint "oa_works_count"
     t.index ["institution_id"], name: "index_institutions_counts_by_years_on_institution_id"
   end
 
@@ -141,7 +145,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "grid"
     t.string "wikipedia"
     t.string "wikidata"
-    t.integer "mag"
+    t.bigint "mag"
     t.index ["institution_id"], name: "index_institutions_ids_on_institution_id"
   end
 
@@ -149,19 +153,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "display_name"
     t.jsonb "alternate_titles"
     t.jsonb "country_codes"
-    t.integer "hierarchy_level"
+    t.bigint "hierarchy_level"
     t.string "parent_publisher"
-    t.integer "works_count"
-    t.integer "cited_by_count"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
     t.string "sources_api_url"
+    t.string "openalex_id"
+    t.index ["openalex_id"], name: "index_publishers_on_openalex_id"
   end
 
   create_table "publishers_counts_by_years", force: :cascade do |t|
     t.bigint "publisher_id", null: false
-    t.integer "year"
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.integer "oa_works_count"
+    t.bigint "year"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
+    t.bigint "oa_works_count"
     t.index ["publisher_id"], name: "index_publishers_counts_by_years_on_publisher_id"
   end
 
@@ -178,8 +184,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.jsonb "issn"
     t.string "display_name"
     t.string "publisher"
-    t.integer "works_count"
-    t.integer "cited_by_count"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
     t.boolean "is_oa"
     t.boolean "is_in_doaj"
     t.string "homepage_url"
@@ -188,10 +194,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
 
   create_table "sources_counts_by_years", force: :cascade do |t|
     t.bigint "source_id", null: false
-    t.integer "year"
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.integer "oa_works_count"
+    t.bigint "year"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
+    t.bigint "oa_works_count"
     t.index ["source_id"], name: "index_sources_counts_by_years_on_source_id"
   end
 
@@ -200,7 +206,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "openalex"
     t.string "issn_l"
     t.jsonb "issn"
-    t.integer "mag"
+    t.bigint "mag"
     t.string "wikidata"
     t.string "fatcat"
     t.index ["source_id"], name: "index_sources_ids_on_source_id"
@@ -215,53 +221,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.string "domain_id"
     t.string "domain_display_name"
     t.string "description"
-    t.string "keywords"
+    t.string "keywords", default: [], array: true
     t.string "works_api_url"
     t.string "wikipedia_id"
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "venues", force: :cascade do |t|
-    t.string "issn_l"
-    t.string "issn"
-    t.string "display_name"
-    t.string "publisher"
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.boolean "is_oa"
-    t.boolean "is_in_doaj"
-    t.string "homepage_url"
-    t.string "works_api_url"
-  end
-
-  create_table "venues_counts_by_years", force: :cascade do |t|
-    t.bigint "venue_id", null: false
-    t.integer "year"
-    t.integer "works_count"
-    t.integer "cited_by_count"
-    t.index ["venue_id"], name: "index_venues_counts_by_years_on_venue_id"
-  end
-
-  create_table "venues_ids", force: :cascade do |t|
-    t.bigint "venue_id", null: false
-    t.string "openalex"
-    t.string "issn_l"
-    t.string "issn"
-    t.integer "mag"
-    t.index ["venue_id"], name: "index_venues_ids_on_venue_id"
+    t.bigint "works_count"
+    t.bigint "cited_by_count"
   end
 
   create_table "works", force: :cascade do |t|
     t.string "doi"
     t.string "title"
     t.string "display_name"
-    t.integer "publication_year"
+    t.bigint "publication_year"
     t.string "publication_date"
     t.string "type"
-    t.integer "cited_by_count"
+    t.bigint "cited_by_count"
     t.boolean "is_retracted"
     t.boolean "is_paratext"
     t.string "cited_by_api_url"
@@ -317,7 +291,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
     t.bigint "work_id", null: false
     t.string "openalex"
     t.string "doi"
-    t.integer "mag"
+    t.bigint "mag"
     t.string "pmid"
     t.string "pmcid"
     t.index ["work_id"], name: "index_works_ids_on_work_id"
@@ -395,8 +369,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_174757) do
   add_foreign_key "publishers_ids", "publishers"
   add_foreign_key "sources_counts_by_years", "sources"
   add_foreign_key "sources_ids", "sources"
-  add_foreign_key "venues_counts_by_years", "venues"
-  add_foreign_key "venues_ids", "venues"
   add_foreign_key "works_authorships", "authors"
   add_foreign_key "works_authorships", "institutions"
   add_foreign_key "works_authorships", "works"

@@ -6,7 +6,6 @@ class CreateWorksOpenAccesses < ActiveRecord::Migration[7.1]
       t.string :oa_status
       t.string :oa_url
       t.boolean :any_repository_has_fulltext
-
     end
   end
 end
