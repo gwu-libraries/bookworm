@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_03_155627) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_03_155628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -226,6 +226,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_155627) do
     t.string "wikipedia_id"
     t.bigint "works_count"
     t.bigint "cited_by_count"
+    t.string "openalex_id"
+    t.index ["openalex_id"], name: "index_topics_on_openalex_id"
   end
 
   create_table "works", force: :cascade do |t|
