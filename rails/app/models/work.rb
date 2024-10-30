@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Work < ApplicationRecord
-  has_many :works_authorships
+  has_many :works_authorships,
+           primary_key: :openalex_id,
+           foreign_key: :work_openalex_id
   has_many :authors, through: :works_authorships
   has_many :institutions, through: :works_authorships
 

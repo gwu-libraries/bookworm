@@ -12,4 +12,8 @@ class Institution < ApplicationRecord
   has_many :associated_institutions,
            through: :institutions_associated_institutions,
            source: :institution
+
+  has_many :works_authorships,
+           primary_key: :openalex_id,
+           foreign_key: :institution_openalex_id
 end
