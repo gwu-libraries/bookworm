@@ -7,16 +7,14 @@ namespace :data_import do
   task load_publishers_counts_by_year: :environment do
     file_path = '/opt/bookworm/csv-files/publishers_counts_by_year.csv.gz'
 
-    publishers_counts_by_years = []
     Zlib::GzipReader.open(file_path) do |gzip|
       csv = CSV.new(gzip)
+      publishers_counts_by_years = []
 
       csv.each_with_index do |row, index|
-        publisher = Publisher.find_by(openalex_id: row[0].split('/').last)
-
-        unless publisher.nil?
+        unless index == 0
           publishers_counts_by_years << {
-            publisher_id: publisher.id,
+            publisher_openalex_id: row[0].split('/').last,
             year: row[1],
             works_count: row[2],
             cited_by_count: row[3],
@@ -30,8 +28,7 @@ namespace :data_import do
           publishers_counts_by_years = []
         end
       end
+      PublishersCountsByYear.insert_all(publishers_counts_by_years)
     end
-
-    PublishersCountsByYear.insert_all(publishers_counts_by_years)
   end
 end

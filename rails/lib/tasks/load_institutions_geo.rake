@@ -11,13 +11,10 @@ namespace :data_import do
       '/opt/bookworm/csv-files/institutions_geo.csv.gz'
     ) do |gzip|
       csv = CSV.new(gzip)
-      csv
-        .drop(1)
-        .each_with_index do |row, index| # drop(1) handles the header row
-          institution = Institution.find_by(openalex_id: row[0].split('/').last)
-
+      csv.each_with_index do |row, index|
+        unless index == 0
           institutions_geos << {
-            institution_id: institution.id,
+            institution_openalex_id: row[0].split('/').last,
             city: row[1],
             geonames_city_id: row[2],
             region: row[3],
@@ -26,13 +23,14 @@ namespace :data_import do
             latitude: row[6],
             longitude: row[7]
           }
-
-          if institutions_geos.count >= 100
-            InstitutionsGeo.insert_all(institutions_geos)
-
-            institutions_geos = []
-          end
         end
+
+        if institutions_geos.count >= 10_000
+          InstitutionsGeo.insert_all(institutions_geos)
+
+          institutions_geos = []
+        end
+      end
     end
 
     InstitutionsGeo.insert_all(institutions_geos)

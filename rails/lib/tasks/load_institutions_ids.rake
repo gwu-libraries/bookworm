@@ -11,14 +11,10 @@ namespace :data_import do
       '/opt/bookworm/csv-files/institutions_ids.csv.gz'
     ) do |gzip|
       csv = CSV.new(gzip)
-      csv
-        .drop(1)
-        .each_with_index do |row, index| # drop(1) handles the header row
-          institution = Institution.find_by(openalex_id: row[0].split('/').last)
-
+      csv.each_with_index do |row, index|
+        unless index == 0
           institution_ids << {
-            institution_id: institution.id,
-            openalex: row[0].split('/').last,
+            institution_openalex_id: row[0].split('/').last,
             ror: row[2],
             grid: row[3],
             wikipedia: row[4],
@@ -26,6 +22,13 @@ namespace :data_import do
             mag: row[6]
           }
         end
+
+        if institution_ids.count >= 10_000
+          InstitutionsIds.insert_all(institution_ids)
+
+          institution_ids = []
+        end
+      end
     end
 
     InstitutionsIds.insert_all(institution_ids)

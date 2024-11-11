@@ -11,20 +11,22 @@ namespace :data_import do
       publishers = []
       csv = CSV.new(gzip)
 
-      csv.drop(1).each_with_index do |row, index|
-        publishers << {
-          openalex_id: row[0].split('/').last,
-          display_name: row[1],
-          alternate_titles: row[2],
-          country_codes: row[3],
-          hierarchy_level: row[4],
-          parent_publisher: row[5],
-          works_count: row[6],
-          cited_by_count: row[7],
-          sources_api_url: row[8],
-        }
+      csv.each_with_index do |row, index|
+        unless index == 0
+          publishers << {
+            publisher_openalex_id: row[0].split('/').last,
+            display_name: row[1],
+            alternate_titles: row[2],
+            country_codes: row[3],
+            hierarchy_level: row[4],
+            parent_publisher: row[5],
+            works_count: row[6],
+            cited_by_count: row[7],
+            sources_api_url: row[8]
+          }
+        end
 
-        if publishers.count >= 500
+        if publishers.count >= 10_000
           Publisher.insert_all(publishers)
 
           publishers = []
