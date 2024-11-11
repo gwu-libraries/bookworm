@@ -1,14 +1,18 @@
-class CreateInstitutionsGeos < ActiveRecord::Migration[7.1]
+class CreateInstitutionsGeo < ActiveRecord::Migration[7.1]
   def change
     create_table :institutions_geos do |t|
-      t.references :institution, null: false, foreign_key: true
+      t.string :institution_openalex_id
       t.string :city
-      t.string :geonames_city_id
+      t.integer :geonames_city_id
       t.string :region
       t.string :country_code
       t.string :country
       t.float :latitude
       t.float :longitude
+
+      t.timestamps
     end
+
+    add_index :institutions_geos, :institution_openalex_id
   end
 end

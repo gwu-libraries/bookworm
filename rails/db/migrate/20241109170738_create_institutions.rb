@@ -1,7 +1,7 @@
 class CreateInstitutions < ActiveRecord::Migration[7.1]
   def change
     create_table :institutions do |t|
-      t.string :openalex_id
+      t.string :institution_openalex_id
       t.string :ror
       t.string :display_name
       t.string :country_code
@@ -11,9 +11,13 @@ class CreateInstitutions < ActiveRecord::Migration[7.1]
       t.string :image_thumbnail_url
       t.jsonb :display_name_acronyms
       t.jsonb :display_name_alternatives
-      t.bigint :works_count
-      t.bigint :cited_by_count
+      t.integer :works_count
+      t.integer :cited_by_count
       t.string :works_api_url
+
+      t.timestamps
     end
+
+    add_index :institutions, :institution_openalex_id
   end
 end

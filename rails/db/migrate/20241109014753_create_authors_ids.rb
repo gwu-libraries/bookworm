@@ -1,15 +1,16 @@
 class CreateAuthorsIds < ActiveRecord::Migration[7.1]
   def change
     create_table :authors_ids do |t|
-      t.references :author, null: false, foreign_key: true
-      t.string :openalex
+      t.string :author_openalex_id
       t.string :orcid
       t.string :scopus
       t.string :twitter
       t.string :wikipedia
-      t.bigint :mag
+      t.string :mag
 
       t.timestamps
     end
+
+    add_index :authors_ids, :author_openalex_id
   end
 end
