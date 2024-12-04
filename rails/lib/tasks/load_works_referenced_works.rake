@@ -12,17 +12,20 @@ namespace :data_import do
         works_referenced_works = []
         csv = CSV.new(gzip)
         csv.each_with_index do |row, index|
-          works_referenced_works << {
-            work_id: row[0].split('/').last,
-            referenced_work_id: row[1].split('/').last
-          }
+          if index >= 1_407_400_000
+            works_referenced_works << {
+              work_openalex_id: row[0].split('/').last,
+              referenced_work_openalex_id: row[1].split('/').last
+            }
+          end
 
-          if works_referenced_works.count >= 10_000
+          if works_referenced_works.count >= 100_000
             WorksReferencedWorks.insert_all(works_referenced_works)
 
             works_referenced_works = []
           end
         end
+        WorksReferencedWorks.insert_all(works_referenced_works)
       end
     end
   end
