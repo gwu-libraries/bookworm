@@ -6,7 +6,7 @@ class Institution < ApplicationRecord
   has_one :institutions_ids
 
   has_many :institutions_associated_institutions,
-           foreign_key: :associated_institution_id,
+           foreign_key: :associated_institution_openalex_id,
            class_name: 'InstitutionsAssociatedInstitutions'
 
   has_many :associated_institutions,
@@ -14,6 +14,8 @@ class Institution < ApplicationRecord
            source: :institution
 
   has_many :works_authorships,
-           primary_key: :openalex_id,
+           primary_key: :institution_openalex_id,
            foreign_key: :institution_openalex_id
+
+  has_many :authors, through: :works_authorships
 end
