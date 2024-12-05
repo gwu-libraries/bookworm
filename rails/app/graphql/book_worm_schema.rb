@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BookWormApiSchema < GraphQL::Schema
+class BookWormSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 

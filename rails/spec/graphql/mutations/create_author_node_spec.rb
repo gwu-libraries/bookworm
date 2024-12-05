@@ -43,7 +43,7 @@ RSpec.describe Mutations::CreateAuthorNode, type: :request do
       investigation_1 = FactoryBot.create(:investigation, user_id: user_1.id)
 
       work_node_response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_work_node_mutation,
           variables: {
             investigationId: investigation_1.id.to_s,
@@ -55,7 +55,7 @@ RSpec.describe Mutations::CreateAuthorNode, type: :request do
         ).to_h
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_author_node_mutation,
           variables: {
             authorOpenalexId: 'A5023888391',

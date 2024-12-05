@@ -16,7 +16,7 @@ class GraphqlController < ApplicationController
     }
 
     result =
-      BookWormApiSchema.execute(query, variables:, context:, operation_name:)
+      BookWormSchema.execute(query, variables:, context:, operation_name:)
 
     render json: result
   rescue StandardError => e

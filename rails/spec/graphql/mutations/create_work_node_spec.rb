@@ -31,7 +31,7 @@ RSpec.describe Mutations::CreateWorkNode, type: :request do
   describe '.resolve' do
     it 'can create a new work node', :vcr do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_work_node_mutation,
           variables: {
             investigationId: @investigation_1.id.to_s,

@@ -45,7 +45,7 @@ RSpec.describe Mutations::AddCitations, type: :request do
 
       # create initial work node
       work_node_response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_work_node_mutation,
           variables: {
             investigationId: investigation_1.id.to_s,
@@ -60,7 +60,7 @@ RSpec.describe Mutations::AddCitations, type: :request do
         work_node_response['data']['createWorkNode']['work']['openalexId']
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           add_citations_mutation,
           variables: {
             openalexId: work_node_openalex_id,

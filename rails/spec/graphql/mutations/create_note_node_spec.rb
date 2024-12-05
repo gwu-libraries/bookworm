@@ -23,7 +23,7 @@ RSpec.describe Mutations::CreateNoteNode, type: :request do
 
   it 'can create a new note node' do
     response =
-      BookWormApiSchema.execute(
+      BookWormSchema.execute(
         create_note_node_mutation,
         variables: {
           investigationId: @investigation_1.id.to_s,
