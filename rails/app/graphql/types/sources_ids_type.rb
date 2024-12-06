@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 module Types
-  class PublishersIdsType < Types::BaseObject
+  class SourcesIdsType < Types::BaseObject
     field :id, ID, null: false
-    field :publisher_openalex_id, String
-    field :ror, String
+    field :source_openalex_id, String
+    field :issn_l, GraphQL::Types::JSON
+    field :issn, String
+    field :mag, String
     field :wikidata, String
+    field :fatcat, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

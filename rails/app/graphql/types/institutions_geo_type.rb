@@ -3,18 +3,15 @@
 module Types
   class InstitutionsGeoType < Types::BaseObject
     field :id, ID, null: false
-    field :institution_id, Integer
+    field :institution_openalex_id, String
     field :city, String
+    field :geonames_city_id, Integer
     field :region, String
     field :country_code, String
     field :country, String
     field :latitude, Float
     field :longitude, Float
-
-    field :institution, Types::InstitutionType
-
-    def institution
-      object.institution
-    end
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
 end

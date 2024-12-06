@@ -18,5 +18,26 @@ module Types
     field :language, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    field :authors, [Types::AuthorType]
+    field :institutions, [Types::InstitutionType]
+    field :referenced_works, [Types::WorkType]
+    field :referencing_works, [Types::WorkType]
+
+    def authors
+      object.authors
+    end
+
+    def referenced_works
+      object.referenced_works
+    end
+
+    def referencing_works
+      object.referencing_works
+    end
+
+    def institutions
+      object.institutions
+    end
   end
 end

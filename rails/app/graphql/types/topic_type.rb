@@ -3,24 +3,21 @@
 module Types
   class TopicType < Types::BaseObject
     field :id, ID, null: false
+    field :topic_openalex_id, String
     field :display_name, String
-    field :subfield_id, String
-    field :subfield_display_name, String
-    field :field_id, String,
-    field :field_display_name, String
-    field :domain_id, String
-    field :domain_display_name, String
+    field :openalex_subfield_id, Integer
+    field :openalex_subfield_display_name, String
+    field :openalex_field_id, Integer
+    field :openalex_field_display_name, String
+    field :openalex_domain_id, Integer
+    field :openalex_domain_display_name, String
     field :description, String
     field :keywords, String
     field :works_api_url, String
     field :wikipedia_id, String
     field :works_count, Integer
     field :cited_by_count, Integer
-
-    field :works, [Types::WorkType]
-
-    def works
-      object.works
-    end
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
 end

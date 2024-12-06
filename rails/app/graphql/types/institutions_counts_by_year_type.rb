@@ -3,15 +3,12 @@
 module Types
   class InstitutionsCountsByYearType < Types::BaseObject
     field :id, ID, null: false
+    field :institution_openalex_id, String
     field :year, Integer
     field :works_count, Integer
     field :cited_by_count, Integer
     field :oa_works_count, Integer
-
-    field :institution, Types::InstitutionType
-
-    def institution
-      object.institution
-    end
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
 end
