@@ -46,5 +46,12 @@ module Types
     def author(author_openalex_id:)
       Author.find_by(author_openalex_id: author_openalex_id)
     end
+
+    field :work, Types::WorkType, null: true, description: 'Fetch work by ID' do
+      argument :work_openalex_id, String, required: true
+    end
+    def work(work_openalex_id:)
+      Work.find_by(work_openalex_id: work_openalex_id)
+    end
   end
 end
