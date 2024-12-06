@@ -27,40 +27,24 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :institutions,
-          [Types::InstitutionType],
-          null: true,
-          description: 'Fetch all institutions'
-    def institutions
-      Institution.all
-    end
-
     field :institution,
           Types::InstitutionType,
           null: true,
-          description: 'Fetches an institution by ID' do
-        argument :id, ID, required: true
+          description: 'Fetches an institution by institution_openalex_id' do
+      argument :institution_openalex_id, String, required: true
     end
-    def institution(id:)
-      Institution.find(id)
-    end
-
-    field :authors,
-          [Types::AuthorType],
-          null: true,
-          description: 'Fetch all authors'
-    def authors
-      Author.all
+    def institution(institution_openalex_id:)
+      Institution.find_by(institution_openalex_id: institution_openalex_id)
     end
 
     field :author,
           Types::AuthorType,
           null: true,
           description: 'Fetch author by ID' do
-        argument :id, ID, required: true
+      argument :author_openalex_id, String, required: true
     end
-    def author(id:)
-      Author.find(id)
+    def author(author_openalex_id:)
+      Author.find_by(author_openalex_id: author_openalex_id)
     end
   end
 end

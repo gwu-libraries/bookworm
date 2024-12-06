@@ -3,7 +3,7 @@
 module Types
   class InstitutionType < Types::BaseObject
     field :id, ID, null: false
-    field :openalex_id, String
+    field :institution_openalex_id, String
     field :ror, String
     field :display_name, String
     field :country_code, String

@@ -3,7 +3,7 @@
 module Types
   class AuthorType < Types::BaseObject
     field :id, ID, null: false
-    field :openalex_id, String
+    field :author_openalex_id, String
     field :orcid, String
     field :display_name, String
     field :display_name_alternatives, String
