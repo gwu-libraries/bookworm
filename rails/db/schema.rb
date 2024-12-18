@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_154712) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_18_170259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_154712) do
     t.string "last_known_institution"
     t.string "works_api_url"
     t.index ["author_openalex_id"], name: "index_authors_on_author_openalex_id"
+    t.index ["orcid"], name: "index_authors_on_orcid"
   end
 
   create_table "authors_counts_by_years", force: :cascade do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_154712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["institution_openalex_id"], name: "index_institutions_on_institution_openalex_id"
+    t.index ["ror"], name: "index_institutions_on_ror"
   end
 
   create_table "institutions_associated_institutions", force: :cascade do |t|
