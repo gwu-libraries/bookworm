@@ -20,7 +20,7 @@ namespace :data_import do
             }
           end
 
-          if works_topics.count >= 10_000
+          if works_topics.count >= 100_000
             WorksTopic.insert_all(works_topics)
 
             works_topics = []

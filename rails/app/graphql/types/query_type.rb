@@ -24,10 +24,7 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
-
-    field :institution,
+    field :institution_by_openalex_id,
           Types::InstitutionType,
           null: true,
           description: 'Fetches an institution by institution_openalex_id' do
@@ -37,21 +34,58 @@ module Types
       Institution.find_by(institution_openalex_id: institution_openalex_id)
     end
 
-    field :author,
+    field :institution_by_ror,
+          Types::InstitutionType,
+          null: true,
+          description: 'Fetches an institution by ROR' do
+      argument :ror, String, required: true
+    end
+    def institution(institution_openalex_id:)
+      Institution.find_by(ror: ror)
+    end
+
+    # author entry points
+
+    field :author_by_openalex_id,
           Types::AuthorType,
           null: true,
-          description: 'Fetch author by ID' do
+          description: 'Fetch author by OpenAlex ID' do
       argument :author_openalex_id, String, required: true
     end
-    def author(author_openalex_id:)
+    def author_by_openalex_id(author_openalex_id:)
       Author.find_by(author_openalex_id: author_openalex_id)
     end
 
-    field :work, Types::WorkType, null: true, description: 'Fetch work by ID' do
+    field :author_by_orcid,
+          Types::AuthorType,
+          null: true,
+          description: 'Fetch author by OpenAlex ID' do
+      argument :orcid, String, required: true
+    end
+    def author_by_orcid(orcid:)
+      Author.find_by(orcid: orcid)
+    end
+
+    # work entry points
+
+    field :work_by_openalex_id,
+          Types::WorkType,
+          null: true,
+          description: 'Fetch work by OpenAlex ID' do
       argument :work_openalex_id, String, required: true
     end
-    def work(work_openalex_id:)
+    def work_by_openalex_id(work_openalex_id:)
       Work.find_by(work_openalex_id: work_openalex_id)
+    end
+
+    field :work_by_doi,
+          Types::WorkType,
+          null: true,
+          description: 'Fetch work by DOI' do
+      argument :doi, String, required: true
+    end
+    def work_by_doi(doi:)
+      Work.find_by(doi: doi)
     end
   end
 end

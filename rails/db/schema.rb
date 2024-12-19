@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_18_170259) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_18_202214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -329,6 +329,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_18_170259) do
     t.string "referenced_work_openalex_id"
     t.index ["referenced_work_openalex_id"], name: "index_works_referenced_works_on_referenced_work_openalex_id"
     t.index ["work_openalex_id"], name: "index_works_referenced_works_on_work_openalex_id"
+  end
+
+  create_table "works_topics", force: :cascade do |t|
+    t.string "work_openalex_id"
+    t.string "topic_openalex_id"
+    t.float "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_openalex_id"], name: "index_works_topics_on_topic_openalex_id"
+    t.index ["work_openalex_id"], name: "index_works_topics_on_work_openalex_id"
   end
 
 end

@@ -20,24 +20,38 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :authors, [Types::AuthorType]
-    field :institutions, [Types::InstitutionType]
-    field :referenced_works, [Types::WorkType]
-    field :referencing_works, [Types::WorkType]
-
     def authors
       object.authors
     end
 
+    field :institutions, [Types::InstitutionType]
+    def institutions
+      object.institutions
+    end
+
+    field :referenced_works, [Types::WorkType]
     def referenced_works
       object.referenced_works
     end
 
+    field :referencing_works, [Types::WorkType]
     def referencing_works
       object.referencing_works
     end
 
-    def institutions
-      object.institutions
+    field :works_open_access, Types::WorksOpenAccessType
+    def works_open_access
+      object.works_open_access
+    end
+
+    field :works_biblio, Types::WorksBiblioType
+    def works_biblio
+      object.works_biblio
+    end
+
+    field :topics, [Types::TopicType]
+    def topics
+      object.topics
     end
   end
 end

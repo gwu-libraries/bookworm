@@ -20,7 +20,10 @@ class Work < ApplicationRecord
           primary_key: :work_openalex_id,
           foreign_key: :work_openalex_id
 
-  has_many :works_topics
+  has_many :works_topics,
+           primary_key: :work_openalex_id,
+           foreign_key: :work_openalex_id
+
   has_many :topics, through: :works_topics
 
   # Below here is magic join table nonsense that will break if you touch it
