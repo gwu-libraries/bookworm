@@ -21,8 +21,8 @@ namespace :data_import do
             publisher: row[4],
             works_count: row[5],
             cited_by_count: row[6],
-            is_oa: row[7],
-            is_in_doaj: row[8],
+            is_oa: ActiveModel::Type::Boolean.new.cast(row[7].downcase),
+            is_in_doaj: ActiveModel::Type::Boolean.new.cast(row[8].downcase),
             homepage_url: row[9],
             works_api_url: row[10]
           }

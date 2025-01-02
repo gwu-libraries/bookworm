@@ -18,7 +18,7 @@ namespace :data_import do
               source_openalex_id: row[1].split('/').last,
               landing_page_url: row[2],
               pdf_url: row[3],
-              is_oa: row[4],
+              is_oa: ActiveModel::Type::Boolean.new.cast(row[4].downcase),
               version: row[5],
               license: row[6]
             }

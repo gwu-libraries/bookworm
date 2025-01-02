@@ -15,14 +15,15 @@ namespace :data_import do
           unless index == 0
             works_open_accesses << {
               work_openalex_id: row[0].split('/').last,
-              is_oa: row[1],
+              is_oa: ActiveModel::Type::Boolean.new.cast(row[1].downcase),
               oa_status: row[2],
               oa_url: row[3],
-              any_repository_has_fulltext: row[4]
+              any_repository_has_fulltext:
+                ActiveModel::Type::Boolean.new.cast(row[4].downcase)
             }
           end
 
-          if works_open_accesses.count >= 10_000
+          if works_open_accesses.count >= 100_000
             WorksOpenAccess.insert_all(works_open_accesses)
 
             works_open_accesses = []

@@ -23,8 +23,8 @@ namespace :data_import do
         publication_date: row[5],
         work_type: row[6],
         cited_by_count: row[7],
-        is_retracted: row[8],
-        is_paratext: row[9],
+        is_retracted: ActiveModel::Type::Boolean.new.cast(row[8].downcase),
+        is_paratext: ActiveModel::Type::Boolean.new.cast(row[9].downcase),
         cited_by_api_url: row[10],
         abstract_inverted_index: row[11],
         language: row[12]
