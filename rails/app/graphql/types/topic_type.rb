@@ -12,12 +12,16 @@ module Types
     field :openalex_domain_id, Integer
     field :openalex_domain_display_name, String
     field :description, String
-    field :keywords, String
     field :works_api_url, String
     field :wikipedia_id, String
     field :works_count, Integer
     field :cited_by_count, Integer
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    field :keywords, [String]
+    def keywords
+      object.keywords
+    end
   end
 end

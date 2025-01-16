@@ -3,17 +3,17 @@ default: &default
   encoding: unicode
   username: bookworm
   # password: <%= ENV["POSTGRES_PASSWORD"] %>
-  password: password
   pool: 5
 
 development:
-  host: localhost
   <<: *default
+  host: localhost
+  password: password
   database: bookworm_development
 
 test:
-  host: localhost
   <<: *default
+  host: localhost
   database: bookworm_test
   password: password
 

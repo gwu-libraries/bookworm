@@ -24,15 +24,16 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    field :institution_by_openalex_id,
-          Types::InstitutionType,
-          null: true,
-          description: 'Fetches an institution by institution_openalex_id' do
-      argument :institution_openalex_id, String, required: true
-    end
-    def institution(institution_openalex_id:)
-      Institution.find_by(institution_openalex_id: institution_openalex_id)
-    end
+    # need to index institutions by openalex id
+    # field :institution_by_openalex_id,
+    #       Types::InstitutionType,
+    #       null: true,
+    #       description: 'Fetches an institution by institution_openalex_id' do
+    #   argument :institution_openalex_id, String, required: true
+    # end
+    # def institution_by_openalex_id(institution_openalex_id:)
+    #   Institution.find_by(institution_openalex_id: institution_openalex_id)
+    # end
 
     field :institution_by_ror,
           Types::InstitutionType,
@@ -40,7 +41,7 @@ module Types
           description: 'Fetches an institution by ROR' do
       argument :ror, String, required: true
     end
-    def institution(institution_openalex_id:)
+    def institution_by_ror(ror:)
       Institution.find_by(ror: ror)
     end
 
@@ -63,7 +64,12 @@ module Types
       argument :orcid, String, required: true
     end
     def author_by_orcid(orcid:)
-      Author.find_by(orcid: orcid)
+      # do some error handling for invalid entries
+      if "https://orcid.org/".in? orcid
+        Author.find_by(orcid: orcid)
+      else
+        Author.find_by(orcid: "https://orcid.org/" + orcid)
+      end
     end
 
     # work entry points

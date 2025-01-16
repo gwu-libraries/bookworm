@@ -3,6 +3,8 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.hosts << 'ec2-34-215-107-32.us-west-2.compute.amazonaws.com:3000'
+  config.hosts << 'ec2-35-94-47-108.us-west-2.compute.amazonaws.com:3000'
   config.log_level = :debug
   # Settings specified here will take precedence over those in config/application.rb.
 

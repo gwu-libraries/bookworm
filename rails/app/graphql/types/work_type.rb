@@ -53,5 +53,10 @@ module Types
     def topics
       object.topics
     end
+
+    field :works_ids, Types::WorksIdsType
+    def works_ids
+      object.works_ids
+    end
   end
 end

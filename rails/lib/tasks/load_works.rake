@@ -30,7 +30,7 @@ namespace :data_import do
         language: row[12]
       }
 
-      if works.count >= 5000
+      if works.count >= 10000
         Work.insert_all(works)
         works = []
       end
