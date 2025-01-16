@@ -10,8 +10,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Root from "./root.tsx";
 import "./index.css";
-import InvestigationsPage from "./components/pages/InvestigationsPage.tsx";
-import InvestigationPage from "./components/pages/InvestigationPage.tsx";
+import AuthorPage from "./components/pages/AuthorPage.tsx";
+import WorkPage from "./components/pages/WorkPage.tsx";
+import CustomQueryPage from "./components/pages/CustomQueryPage.tsx";
 import RegistrationPage from "./components/pages/RegistrationPage.tsx";
 import SignInPage from "./components/pages/SignInPage.tsx";
 import { setContext } from "@apollo/client/link/context";
@@ -44,10 +45,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <React.StrictMode>
         <Routes>
           <Route path="/" element={<Root />} />
-          <Route path="/investigations" element={<InvestigationsPage />} />
           <Route
-            path="/investigations/:investigationId"
-            element={<InvestigationPage />}
+            path="/author/:orcid"
+            element={<AuthorPage />}
+          />
+          <Route 
+            path="/work/:doi*"
+            element={<WorkPage />}
+          />
+          <Route 
+            path="/customquery"
+            element={<CustomQueryPage />}
           />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/signin" element={<SignInPage />} />
