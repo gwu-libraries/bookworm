@@ -1,20 +1,19 @@
 interface Props {
-  name: string;
+  displayName: string;
   orcid: string;
-  openalexId: string;
-  hIndex: number;
-  i10Index: number;
-  citedByCount: number;
+  authorOpenalexId: string;
   worksCount: number;
+  citedByCount: number;
+  lastKnownInstitution: string;
 }
 
 function AuthorDetails({
+  displayName,
   orcid,
-  openalexId,
-  hIndex,
-  i10Index,
-  citedByCount,
+  authorOpenalexId,
   worksCount,
+  citedByCount,
+  lastKnownInstitution,
 }: Props) {
   return (
     <>
@@ -28,15 +27,7 @@ function AuthorDetails({
         </tr>
         <tr className="border border-slate-700">
           <td>OpenAlexId</td>
-          <td>{openalexId}</td>
-        </tr>
-        <tr className="border border-slate-700">
-          <td>h-Index</td>
-          <td>{hIndex}</td>
-        </tr>
-        <tr className="border border-slate-700">
-          <td>i10 Index</td>
-          <td>{i10Index}</td>
+          <td>{authorOpenalexId}</td>
         </tr>
         <tr className="border border-slate-700">
           <td>Cited By Count</td>
@@ -46,6 +37,11 @@ function AuthorDetails({
           <td>Works Count</td>
           <td>{worksCount}</td>
         </tr>
+        <tr className="border border-slate-700">
+          <td>Last Known Institution</td>
+          <td>{lastKnownInstitution}</td>
+        </tr>
+
       </table>
     </>
   );
