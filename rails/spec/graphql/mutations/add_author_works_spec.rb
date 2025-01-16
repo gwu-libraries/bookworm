@@ -47,7 +47,7 @@ RSpec.describe Mutations::AddAuthorWorks, type: :request do
 
       # creating an author node
       author_node_response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_author_node_mutation,
           variables: {
             openalexId: 'A5023888391',
@@ -59,7 +59,7 @@ RSpec.describe Mutations::AddAuthorWorks, type: :request do
         ).to_h
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           add_author_works_mutation,
           variables: {
             openalexId: 'A5023888391',

@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",
+    "@graphiql/react": "^0.28.2",
     "axios": "^1.6.8",
+    "d3-hierarchy": "^3.1.2",
+    "elkjs": "^0.9.3",
     "graphql": "^16.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

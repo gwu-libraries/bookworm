@@ -17,7 +17,7 @@ RSpec.describe Mutations::RegisterUser, type: :request do
   describe '.resolve' do
     it 'can create a new user, given a valid email and password' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           register_user_mutation,
           variables: {
             email: 'sandwichpkitty@email.com',
@@ -38,7 +38,7 @@ RSpec.describe Mutations::RegisterUser, type: :request do
         User.create(email: 'sandwichpkitty@email.com', password: 'pjassword')
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           register_user_mutation,
           variables: {
             email: 'sandwichpkitty@email.com',
@@ -56,7 +56,7 @@ RSpec.describe Mutations::RegisterUser, type: :request do
 
     it 'does not register a new user if email is invalid' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           register_user_mutation,
           variables: {
             email: 'sandwichpkitty',
@@ -74,7 +74,7 @@ RSpec.describe Mutations::RegisterUser, type: :request do
 
     it 'does not register a new user if password is too short' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           register_user_mutation,
           variables: {
             email: 'sandwichpkitty@email.com',

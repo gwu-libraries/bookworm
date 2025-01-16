@@ -1,7 +1,6 @@
 import { Handle, Position } from 'reactflow'
 import { useMutation } from '@apollo/client'
 import { useParams } from 'react-router'
-import { USE_INVESTIGATION_GRAPH } from '../../../hooks/useInvestigationGraph'
 import './note-node.css'
 import { DELETE_NOTE_NODE } from '../../../hooks/DELETE_NOTE_NODE'
 

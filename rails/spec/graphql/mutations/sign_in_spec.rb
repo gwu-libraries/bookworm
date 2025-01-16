@@ -21,7 +21,7 @@ RSpec.describe Mutations::SignIn, type: :request do
   describe '.resolve' do
     it 'signs in a user with correct email and password' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           sign_in_mutation,
           variables: {
             email: @user_1.email,
@@ -41,7 +41,7 @@ RSpec.describe Mutations::SignIn, type: :request do
 
     it 'does not sign in a user that does not exist' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           sign_in_mutation,
           variables: {
             email: 'imnotarealuser@email.com',
@@ -60,7 +60,7 @@ RSpec.describe Mutations::SignIn, type: :request do
 
     it 'does not sign in an existing user with an incorrect password' do
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           sign_in_mutation,
           variables: {
             email: @user_1.email,

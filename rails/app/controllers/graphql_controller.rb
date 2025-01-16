@@ -12,11 +12,11 @@ class GraphqlController < ApplicationController
     operation_name = params[:operationName]
     context = {
       # Query context goes here, for example:
-      current_user: current_user
+      # current_user: current_user
     }
 
     result =
-      BookWormApiSchema.execute(query, variables:, context:, operation_name:)
+      BookWormSchema.execute(query, variables:, context:, operation_name:)
 
     render json: result
   rescue StandardError => e

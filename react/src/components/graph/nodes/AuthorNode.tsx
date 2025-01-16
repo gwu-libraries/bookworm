@@ -1,9 +1,6 @@
 import { Handle, Position } from "reactflow";
-import { useMutation } from "@apollo/client";
 import { useParams } from "react-router";
 import "./author-node.css";
-import { USE_INVESTIGATION_GRAPH } from "../../../hooks/useInvestigationGraph";
-import { ADD_AUTHOR_WORKS } from "../../../hooks/ADD_AUTHOR_WORKS";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AuthorDetails from "./AuthorDetails";
 
@@ -23,48 +20,19 @@ function AuthorNode({ data }) {
     setIsExpanded((isExpanded) => !isExpanded);
   }, []);
 
-  const [addAuthorWorks] = useMutation(ADD_AUTHOR_WORKS, {
-    errorPolicy: "ignore",
-    onCompleted: (data) => {
-      {
-        {
-          window.location.reload();
-        }
-      }
-    },
-    onError: (data) => {
-      console.log(data);
-    },
-    // refetchQueries: [USE_INVESTIGATION_GRAPH],
-  });
-
   useEffect(() => {
     if (ref.current) {
       setContentHeight(ref.current["clientHeight"]);
     }
   }, []);
 
-  console.log(data);
   return (
     <div className="author-node">
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
       <div>
-        <label htmlFor="text">{data.authorData.author.name}</label>
+        <label htmlFor="text">{data.authorData.displayName}</label>
       </div>
-      <button
-        onClick={() =>
-          addAuthorWorks({
-            variables: {
-              openalexId: data.authorData.author.openalexId,
-              investigationId: investigationId,
-            },
-          })
-        }
-      >
-        Add Author Works
-      </button>
-      <p></p>
       <button onClick={toggleIsExpanded}>
         {isExpanded ? "▼ Hide Details" : "▶ Show Details"}
       </button>
@@ -77,13 +45,12 @@ function AuthorNode({ data }) {
       >
         <div ref={ref}>
           <AuthorDetails
-            name={data.authorData.author.name}
-            orcid={data.authorData.author.orcid}
-            openalexId={data.authorData.author.openalexId}
-            hIndex={data.authorData.author.hIndex}
-            i10Index={data.authorData.author.i10Index}
-            citedByCount={data.authorData.author.citedByCount}
-            worksCount={data.authorData.author.worksCount}
+            displayName={data.authorData.displayName}
+            orcid={data.authorData.orcid}
+            authorOpenalexId={data.authorData.authorOpenalexId}
+            worksCount={data.authorData.worksCount}
+            citedByCount={data.authorData.citedByCount}
+            lastKnownInstitution={data.authorData.lastKnownInstitution}
           />
         </div>
       </div>

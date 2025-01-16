@@ -19,7 +19,7 @@ RSpec.describe Mutations::CreateInvestigation, type: :request do
       user_1 = FactoryBot.create(:user)
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_investigation_mutation,
           variables: {
             name: 'My new investigation'

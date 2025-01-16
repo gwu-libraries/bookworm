@@ -24,47 +24,74 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    # need to index institutions by openalex id
+    # field :institution_by_openalex_id,
+    #       Types::InstitutionType,
+    #       null: true,
+    #       description: 'Fetches an institution by institution_openalex_id' do
+    #   argument :institution_openalex_id, String, required: true
+    # end
+    # def institution_by_openalex_id(institution_openalex_id:)
+    #   Institution.find_by(institution_openalex_id: institution_openalex_id)
+    # end
 
-    field :works,
-          [Types::WorkType],
+    field :institution_by_ror,
+          Types::InstitutionType,
           null: true,
-          description: 'Fetches all the works'
-    def works
-      Work.all
+          description: 'Fetches an institution by ROR' do
+      argument :ror, String, required: true
+    end
+    def institution_by_ror(ror:)
+      Institution.find_by(ror: ror)
     end
 
-    field :work,
-          Types::WorkType,
+    # author entry points
+
+    field :author_by_openalex_id,
+          Types::AuthorType,
           null: true,
-          description: 'Fetches a work by ID' do
-      argument :id, ID, required: true
+          description: 'Fetch author by OpenAlex ID' do
+      argument :author_openalex_id, String, required: true
     end
-    def work(id:)
-      Work.find_by(id: id)
+    def author_by_openalex_id(author_openalex_id:)
+      Author.find_by(author_openalex_id: author_openalex_id)
     end
 
-    field :investigations,
-          [Types::InvestigationType],
+    field :author_by_orcid,
+          Types::AuthorType,
           null: true,
-          description: 'Fetches all investigations'
-    def investigations
-      if context[:current_user].present?
-        Investigation.where(user_id: context[:current_user].id)
+          description: 'Fetch author by OpenAlex ID' do
+      argument :orcid, String, required: true
+    end
+    def author_by_orcid(orcid:)
+      # do some error handling for invalid entries
+      if "https://orcid.org/".in? orcid
+        Author.find_by(orcid: orcid)
       else
-        []
+        Author.find_by(orcid: "https://orcid.org/" + orcid)
       end
     end
 
-    field :investigation,
-          Types::InvestigationType,
+    # work entry points
+
+    field :work_by_openalex_id,
+          Types::WorkType,
           null: true,
-          description: 'Fetches an Investigation by ID' do
-      argument :id, ID, required: true
+          description: 'Fetch work by OpenAlex ID' do
+      argument :work_openalex_id, String, required: true
     end
-    def investigation(id:)
-      Investigation.find_by(id: id)
+    def work_by_openalex_id(work_openalex_id:)
+      Work.find_by(work_openalex_id: work_openalex_id)
+    end
+
+    field :work_by_doi,
+          Types::WorkType,
+          null: true,
+          description: 'Fetch work by DOI' do
+      argument :doi, String, required: true
+    end
+    def work_by_doi(doi:)
+      Work.find_by(doi: doi)
     end
   end
 end

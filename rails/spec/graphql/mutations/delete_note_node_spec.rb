@@ -33,7 +33,7 @@ RSpec.describe Mutations::DeleteNoteNode, type: :request do
       investigation_1 = FactoryBot.create(:investigation, user_id: user_1.id)
 
       note_node_response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_note_node_mutation,
           variables: {
             investigationId: investigation_1.id.to_s,
@@ -49,7 +49,7 @@ RSpec.describe Mutations::DeleteNoteNode, type: :request do
       expect(NoteNode.count).to eq(1)
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           delete_note_node_mutation,
           variables: {
             investigationId: investigation_1.id.to_s,

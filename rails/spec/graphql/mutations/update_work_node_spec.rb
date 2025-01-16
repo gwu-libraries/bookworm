@@ -38,7 +38,7 @@ RSpec.describe Mutations::UpdateWorkNode, type: :request do
 
       #create work node
       initial_work_node =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           create_work_node_mutation,
           variables: {
             investigationId: investigation_1.id.to_s,
@@ -56,7 +56,7 @@ RSpec.describe Mutations::UpdateWorkNode, type: :request do
         initial_work_node['data']['createWorkNode']['yCoordinate']
 
       response =
-        BookWormApiSchema.execute(
+        BookWormSchema.execute(
           update_work_node_mutation,
           variables: {
             workNodeId: initial_work_node_id.to_s,

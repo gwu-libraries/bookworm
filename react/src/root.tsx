@@ -8,8 +8,6 @@ export default function Root() {
       <Link to="/register"> Register </Link>
       <br />
       <Link to="/signin"> Sign In </Link>
-      <br />
-      <Link to="/investigations"> My investigations </Link>
     </>
   );
 }

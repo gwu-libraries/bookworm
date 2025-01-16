@@ -98,7 +98,7 @@
 # end
 
 # # create initial work node
-# BookWormApiSchema.execute(
+# BookWormSchema.execute(
 #   sign_in_mutation,
 #   variables: {
 #     email: user_1.email,
@@ -107,7 +107,7 @@
 # )
 
 # work_node_response =
-#   BookWormApiSchema.execute(
+#   BookWormSchema.execute(
 #     create_work_node_mutation,
 #     variables: {
 #       investigationId: investigation_1.id.to_s,
@@ -122,7 +122,7 @@
 #   work_node_response['data']['createWorkNode']['work']['openalexId']
 
 # response =
-#   BookWormApiSchema.execute(
+#   BookWormSchema.execute(
 #     add_references_mutation,
 #     variables: {
 #       openalexId: work_node_openalex_id,
@@ -134,7 +134,7 @@
 #   ).to_h
 
 # investigation_response =
-#   BookWormApiSchema.execute(
+#   BookWormSchema.execute(
 #     investigation_query,
 #     variables: {
 #       id: investigation_1.id
