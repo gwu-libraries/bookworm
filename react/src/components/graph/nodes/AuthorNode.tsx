@@ -1,5 +1,4 @@
 import { Handle, Position } from "reactflow";
-import { useParams } from "react-router";
 import "./author-node.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AuthorDetails from "./AuthorDetails";
@@ -12,7 +11,6 @@ interface AuthorNode {
 }
 function AuthorNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { investigationId } = useParams();
   const ref = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
 

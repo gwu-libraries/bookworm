@@ -1,5 +1,4 @@
 import { Handle, Position } from "reactflow";
-import { useParams } from "react-router";
 import "./work-node.css";
 import { useState, useCallback, useRef, useEffect } from "react";
 import WorkDetails from "./WorkDetails";
