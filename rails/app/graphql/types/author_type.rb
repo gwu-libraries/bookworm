@@ -17,6 +17,11 @@ module Types
       object.works
     end
 
+    field :articles, [Types::WorkType]
+    def articles
+      object.works.where(work_type: "article")
+    end
+
     field :authors_ids, Types::AuthorsIdsType
     def authors_ids
       object.authors_ids
