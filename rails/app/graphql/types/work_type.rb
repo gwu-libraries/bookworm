@@ -34,19 +34,19 @@ module Types
       object.referenced_works
     end
 
+    field :referenced_articles, [Types::WorkType]
+    def referenced_articles
+      object.referenced_works.where(work_type: "article")
+    end
+
     field :referencing_works, [Types::WorkType]
     def referencing_works
       object.referencing_works
     end
 
-    field :works_open_access, Types::WorksOpenAccessType
-    def works_open_access
-      object.works_open_access
-    end
-
-    field :works_biblio, Types::WorksBiblioType
-    def works_biblio
-      object.works_biblio
+    field :referencing_articles, [Types::WorkType]
+    def referencing_articles
+      object.referencing_articles.where(work_type: "article")
     end
 
     field :topics, [Types::TopicType]
@@ -54,9 +54,74 @@ module Types
       object.topics
     end
 
-    field :works_ids, Types::WorksIdsType
-    def works_ids
-      object.works_ids
+    field :is_oa, Boolean
+    def is_oa
+      object.works_open_access.is_oa
+    end
+
+    field :oa_status, String
+    def oa_status
+      object.works_open_access.oa_status
+    end
+
+    field :oa_url, String
+    def oa_url
+      object.works_open_access.oa_url
+    end
+
+    field :volume, String
+    def volume
+      object.works_biblio.volume
+    end 
+
+    field :issue, String
+    def issue
+      object.works_biblio.issue
+    end
+
+    field :first_page, String
+    def first_page
+      object.works_biblio.first_page
+    end
+
+    field :last_page, String
+    def last_page
+      object.works_biblio.last_page
+    end
+
+    field :pmid, String
+    def pmid
+      object.works_ids.pmid
+    end
+
+    field :pmcid, String
+    def pmcid
+      object.works_ids.pmcid
+    end
+
+    field :landing_page_url, String
+    def landing_page_url
+      object.works_best_oa_location.landing_page_url
+    end
+
+    field :pdf_url, String
+    def pdf_url
+      object.works_best_oa_location.pdf_url
+    end
+
+    field :license, String
+    def license
+      object.works_best_oa_location.license
+    end
+
+    field :version, String
+    def version
+      object.works_best_oa_location.version
+    end
+
+    field :any_repository_has_fulltext, Boolean
+    def any_repository_has_fulltext
+      object.works_open_access.any_repository_has_fulltext
     end
   end
 end

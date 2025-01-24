@@ -16,5 +16,30 @@ module Types
     field :works_api_url, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    field :issn_l, String
+    def issn_l
+      object.source_ids.issn_l
+    end
+
+    field :issn, String
+    def issn
+      object.sources_ids.issn
+    end
+
+    field :mag, String
+    def mag
+      object.sources_ids.mag
+    end
+
+    field :wikidata, String
+    def wikidata
+      object.sources_ids.wikidata
+    end
+
+    field :fatcat, String
+    def fatcat
+      object.sources_ids.fatcat
+    end
   end
 end
