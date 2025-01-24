@@ -45,6 +45,8 @@
 
 /rails/node_modules
 
+/node_modules
+
 # -- React --
 /react/dist
 

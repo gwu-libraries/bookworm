@@ -1,5 +1,15 @@
 import { useMemo, } from "react";
-import ReactFlow, { useNodesState, useEdgesState, MarkerType, useReactFlow } from "reactflow";
+
+import {
+  ReactFlow,
+  ReactFlowProvider,
+  Panel,
+  useNodesState,
+  useEdgesState,
+  useReactFlow,
+  useNodesInitialized,
+} from "reactflow"
+
 import "reactflow/dist/style.css";
 import WorkNode from "./nodes/WorkNode.tsx";
 import AuthorNode from "./nodes/AuthorNode.tsx";
@@ -29,7 +39,7 @@ const getLayoutedElements = (nodes, edges) => {
   const root = g(hierarchy(nodes));
   const layout = g.nodeSize([width * 2, height * 2])(root);
 
-  return {
+  return { // should just return the nodes/edges for reactflow instead of taking them as arguments
     nodes: layout
       .descendants()
       .map((node) => ({ ...node.data, position: { x: node.x, y: node.y } })),
