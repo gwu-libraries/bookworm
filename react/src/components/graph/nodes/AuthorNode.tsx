@@ -43,12 +43,15 @@ function AuthorNode({ data }) {
       >
         <div ref={ref}>
           <AuthorDetails
-            displayName={data.authorData.displayName}
-            orcid={data.authorData.orcid}
             authorOpenalexId={data.authorData.authorOpenalexId}
+            orcid={data.authorData.orcid}
+            displayName={data.authorData.displayName}
             worksCount={data.authorData.worksCount}
             citedByCount={data.authorData.citedByCount}
             lastKnownInstitution={data.authorData.lastKnownInstitution}
+            scopus={data.authorData.scopus}
+            wikipedia={data.authorData.wikipedia}
+            mag={data.authorData.mag}
           />
         </div>
       </div>
