@@ -29,6 +29,7 @@ import {
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
 import { quadtree } from 'd3-quadtree';
+import collide from "../graph/collide.tsx";
 
 const NESTED_ELEMENT_OPTIONS = ["articles", "works", "institutions", "authors", "referencedWorks", "referencingWorks"];
 const proOptions = { hideAttribution: true };
@@ -105,6 +106,17 @@ const createRootFlowNode = (nodesArr, edgesArr, inputJson) => {
     nodes: nodesArr,
     edges: edgesArr
   }
+}
+
+const dedupeArrayById = (inputArr) => {
+  let i = 0;
+  for (let j = 0; j < inputArr.length; j++) {
+    if(inputArr[i].id !== inputArr[j].id) {
+      i++;
+      inputArr[i] = inputArr[j]
+    }
+  }
+  inputArr.length = i + 1;
 }
 
 const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
@@ -208,10 +220,9 @@ function CustomQueryPage() {
   const initialEdges = [];
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [responseData, setResponseData] = useState({});
 
   const gql_fetcher = (graphQLParams: any) => {
-    return fetch("URL", {
+    return fetch("url", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(graphQLParams),
@@ -220,18 +231,20 @@ function CustomQueryPage() {
       return response.json()
     }).then(json => {
       if (!json.data.hasOwnProperty("__schema")) { // only update response data if it's not a schema info response
-        // parseGQLQuery(graphQLParams.query);
-        setResponseData(json);
+
         createRootFlowNode(initialNodes, initialEdges, json);
-
-        console.log(initialNodes)
         createChildFlowNodes(initialNodes, initialEdges, initialNodes[0])
-
-        console.log(initialNodes)
-        console.log(initialEdges)
-
-        setNodes(initialNodes)
-        setEdges(initialEdges)
+        dedupeArrayById(initialEdges)
+        dedupeArrayById(initialNodes)
+      
+        const simulation = forceSimulation(initialNodes)
+            .force('link', forceLink(edges).id(d => d.id))
+            .force('charge', forceManyBody().strength(-100))
+            .force('center', forceCenter(initialNodes[0].position.x,initialNodes[0].position.y))
+            .on('tick', () => {
+              setNodes(initialNodes.map(node => ({...node, position: { x: node.x, y: node.y }})))
+              setEdges(initialEdges.map(edge => ({...edge})))
+        });
       }
       return json;
     });
