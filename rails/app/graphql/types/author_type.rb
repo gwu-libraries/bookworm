@@ -17,19 +17,34 @@ module Types
       object.works
     end
 
-    field :authors_ids, Types::AuthorsIdsType
-    def authors_ids
-      object.authors_ids
+    field :datasets, [Types::WorkType]
+    def datasets
+      object.works.where(work_type: "dataset")
+    end
+
+    field :articles, [Types::WorkType]
+    def articles
+      object.works.where(work_type: "article")
+    end
+
+    field :scopus, String
+    def scopus
+      object.authors_ids.scopus
+    end
+
+    field :wikipedia, String
+    def wikipedia
+      object.authors_ids.wikipedia
+    end
+
+    field :mag, String
+    def mag
+      object.authors_ids.mag
     end
 
     field :institutions, [Types::InstitutionType]
     def institutions
       object.institutions.uniq # move this to the Author model probably
-    end
-
-    field :authors_counts_by_year, [Types::AuthorsCountsByYearType]
-    def authors_counts_by_year
-      object.authors_counts_by_year
     end
   end
 end

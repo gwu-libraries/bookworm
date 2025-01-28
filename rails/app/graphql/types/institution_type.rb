@@ -20,9 +20,53 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :authors, [Types::AuthorType]
-
     def authors
-      object.authors
+      object.authors.uniq
+    end
+
+    field :wikidata, String
+    def wikidata
+      object.institutions_ids.wikidata
+    end
+
+    field :wikipedia, String
+    def wikipedia
+      object.institutions_ids.wikipedia
+    end
+
+    field :mag, String
+    def mag
+      object.institutions_ids.mag
+    end
+
+    field :grid, String
+    def grid
+      object.institutions_ids.grid
+    end
+
+    field :city, String
+    def city
+      object.institutions_geo.city
+    end
+
+    field :region, String
+    def region
+      object.institutions_geo.region
+    end
+
+    field :country, String
+    def country
+      object.institutions_geo.country
+    end
+
+    field :latitude, Float
+    def latitude
+      object.institutions_geo.latitude
+    end
+
+    field :longitude, Float
+    def longitude
+      object.institutions_geo.longitude
     end
   end
 end
