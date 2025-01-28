@@ -40,9 +40,19 @@ module Types
           null: true,
           description: 'Fetches an institution by ROR' do
       argument :ror, String, required: true
-    end
+  end
     def institution_by_ror(ror:)
       Institution.find_by(ror: ror)
+    end
+
+    field :institution_by_name,
+          Types::InstitutionType,
+          null: true,
+          description: 'Fetches an institution by name' do
+      argument :name, String, required: true
+    end
+    def institution_by_name(name:)
+      Institution.find_by(display_name: name)
     end
 
     # author entry points
