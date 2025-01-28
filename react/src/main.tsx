@@ -13,8 +13,6 @@ import "./index.css";
 import AuthorPage from "./components/pages/AuthorPage.tsx";
 import WorkPage from "./components/pages/WorkPage.tsx";
 import CustomQueryPage from "./components/pages/CustomQueryPage.tsx";
-import RegistrationPage from "./components/pages/RegistrationPage.tsx";
-import SignInPage from "./components/pages/SignInPage.tsx";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = new HttpLink({
@@ -57,8 +55,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             path="/customquery"
             element={<CustomQueryPage />}
           />
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/signin" element={<SignInPage />} />
         </Routes>
       </React.StrictMode>
     </ApolloProvider>

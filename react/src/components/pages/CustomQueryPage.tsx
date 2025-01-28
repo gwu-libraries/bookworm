@@ -1,16 +1,10 @@
 import Header from "../Header.tsx";
 import GraphiQL from "graphiql";
 import 'graphiql/graphiql.css';
-import { parse, Source, visit } from 'graphql';
-import { root } from "postcss";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
-  ReactFlowProvider,
-  Panel,
   useNodesState,
   useEdgesState,
-  useReactFlow,
-  useNodesInitialized,
   MarkerType,} from "reactflow";
 import "reactflow/dist/style.css";
 import WorkNode from "../graph/nodes/WorkNode.tsx";
@@ -28,15 +22,11 @@ import {
 } from 'd3-force';
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
-import { quadtree } from 'd3-quadtree';
 import collide from "../graph/collide.tsx";
 
 const NESTED_ELEMENT_OPTIONS = ["articles", "works", "institutions", "authors", "referencedWorks", "referencingWorks"];
 const proOptions = { hideAttribution: true };
 
-const isArr = (data) => {
-  return Array.isArray(data);
-}
 
 const getElementType = (data) => {
   if ('authorByOpenalexId' in data 
@@ -121,19 +111,13 @@ const dedupeArrayById = (inputArr) => {
 
 const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
 
-  console.log("AHHH")
+  const rootData = rootNode.hasOwnProperty('position') ? Object.values(rootNode.data)[0] : rootNode
 
-  // figure out if 'rootNode' is an data object or if I need to get the value
-
-  let rootData = Object.values(rootNode.data)[0]
-  let rootNodeType = getElementType(rootData)
+  const rootNodeType = getElementType(rootData)
   console.log(rootNodeType)
-
-  console.log("Root Data", rootData)
 
   for (const [key, value] of Object.entries(rootData)) {
     if (Array.isArray(value)) {
-      console.log(key, " is an array")
       for (let i = 0; i <= value.length - 1; i++) {
         let childNodeType = getElementType(value[i]);
         edgesArr.push({
@@ -190,6 +174,7 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
           })
         }
 
+        createChildFlowNodes(nodesArr, edgesArr, value[i])
         //recursion ursion ursion ursion
       }
     }
@@ -238,9 +223,11 @@ function CustomQueryPage() {
         dedupeArrayById(initialNodes)
       
         const simulation = forceSimulation(initialNodes)
-            .force('link', forceLink(edges).id(d => d.id))
-            .force('charge', forceManyBody().strength(-100))
+            .force('link', forceLink(edges).id(d => d.id).distance(100))
+            .force('charge', forceManyBody().strength(-5000))
             .force('center', forceCenter(initialNodes[0].position.x,initialNodes[0].position.y))
+            .force('x', forceX())
+            .force('y', forceY())
             .on('tick', () => {
               setNodes(initialNodes.map(node => ({...node, position: { x: node.x, y: node.y }})))
               setEdges(initialEdges.map(edge => ({...edge})))
