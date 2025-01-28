@@ -1,7 +1,7 @@
 import Header from "../Header.tsx";
 import GraphiQL from "graphiql";
 import 'graphiql/graphiql.css';
-import { parse, visit } from 'graphql';
+import { parse, Source, visit } from 'graphql';
 import { root } from "postcss";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
@@ -61,9 +61,6 @@ const getElementType = (data) => {
 
 //iterate using 'depth' as index?
 
-const createFlowNodeAndEdges = (data, nodesArr, edgesArr) => {
-
-}
 
 const createRootFlowNode = (nodesArr, edgesArr, inputJson) => {
   if (getElementType(inputJson.data) == "author") {
@@ -114,25 +111,82 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
 
   console.log("AHHH")
 
-  console.log(rootNode)
+  // figure out if 'rootNode' is an data object or if I need to get the value
 
-  for (const [key, value] of Object.entries(rootNode)) {
+  let rootData = Object.values(rootNode.data)[0]
+  let rootNodeType = getElementType(rootData)
+  console.log(rootNodeType)
+
+  console.log("Root Data", rootData)
+
+  for (const [key, value] of Object.entries(rootData)) {
     if (Array.isArray(value)) {
       console.log(key, " is an array")
       for (let i = 0; i <= value.length - 1; i++) {
-        createChildFlowNodes(nodesArr, edgesArr, value[i])
+        let childNodeType = getElementType(value[i]);
+        edgesArr.push({
+          source: `${rootNodeType}-${rootData.id}`,
+          target: `${childNodeType}-${value[i].id}`,
+          id: `edge-${rootNodeType}-${rootData.id}-${childNodeType}-${value[i].id}`,
+          style: {
+            strokeWidth: 2,
+            stroke: "#FF0072"
+          },
+          markerEnd: {
+            type: MarkerType.ArrowClosed,
+            width: 20,
+            height: 20,
+            color: "#FF0072"
+          }
+        })
+
+        if (childNodeType == "author") {
+          nodesArr.push({
+            id: `author-${value[i].id}`,
+            data: {
+              authorData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: `author`
+          })
+        } else if (childNodeType == "work") {
+          nodesArr.push({
+            id: `work-${value[i].id}`,
+            data: {
+              workData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: 'work'
+          })
+        } else if (childNodeType == "institution") {
+          nodesArr.push({
+            id: `institution-${value[i].id}`,
+            data: {
+              institutionData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: 'institution'
+          })
+        }
+
+        //recursion ursion ursion ursion
       }
     }
-    console.log(`${key}: ${value}`);
   }
   return {
     nodes: nodesArr,
     edges: edgesArr
   }
 }
-
-//iterate through levels of depth
-
 
 function CustomQueryPage() {
   const nodeTypes = useMemo(
@@ -170,9 +224,11 @@ function CustomQueryPage() {
         setResponseData(json);
         createRootFlowNode(initialNodes, initialEdges, json);
 
+        console.log(initialNodes)
         createChildFlowNodes(initialNodes, initialEdges, initialNodes[0])
 
         console.log(initialNodes)
+        console.log(initialEdges)
 
         setNodes(initialNodes)
         setEdges(initialEdges)
@@ -181,39 +237,31 @@ function CustomQueryPage() {
     });
   }
 
-
-  console.log(initialNodes)
   return (
     <>
       <Header />
+        <button onClick={() => setOpenPanel(true)}>Open</button>
       <div>
-        <div>
-          <button onClick={() => setOpenPanel(true)}>Open</button>
-        </div>
-        <SlidingPanel
-          type={'left'}
-          isOpen={openPanel}
-          size={70}
-        >
-        <div style = {{height:"100vh", width:"100vw", textAlign:"left"}} className="graphiql-container">
+        <SlidingPanel type={'left'} isOpen={openPanel} size={70} >
+          <div style = {{textAlign:"left"}} className="graphiql-container">
             <GraphiQL fetcher={gql_fetcher} />
             <button onClick={() => setOpenPanel(false)}>close</button>
           </div>
         </SlidingPanel>
       </div>
-        <div style = {{height:"100vh", width:"100vw"}} className="react-flow-container">
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            nodeTypes={nodeTypes}
-            edgeTypes={edgeTypes}
-            nodesDraggable={true}
-            proOptions={proOptions}
-            fitView
-           />
-        </div>
+      <div style = {{height:"100vh", width:"100vw"}}>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          nodeTypes={nodeTypes}
+          // edgeTypes={edgeTypes}
+          nodesDraggable={true}
+          proOptions={proOptions}
+          fitView
+          />
+      </div>
     </>
   )
 }
