@@ -30,7 +30,9 @@ function WorkNode({ data }) {
     <div
       className="work-node"
       style={{
-        backgroundColor: "#B5F8FE",
+        backgroundColor: data.workData.isOa
+          ? "#FBD87F"
+          : "#B5F8FE",
       }}
       ref={noderef}
     >
@@ -49,9 +51,10 @@ function WorkNode({ data }) {
       >
         <div ref={ref}>
           <WorkDetails
-            title={data.workData.title}
-            doi={data.workData.doi}
             workOpenalexId={data.workData.workOpenalexId}
+            doi={data.workData.doi}
+            title={data.workData.title}
+            displayName={data.workData.displayName}
             publicationYear={data.workData.publicationYear}
             publicationDate={data.workData.publicationDate}
             workType={data.workData.workType}
@@ -59,6 +62,20 @@ function WorkNode({ data }) {
             isRetracted={data.workData.isRetracted}
             isParatext={data.workData.isParatext}
             language={data.workData.language}
+            isOa={data.workData.isOa}
+            oaStatus={data.workData.oaStatus}
+            oaUrl={data.workData.oaUrl}
+            volume={data.workData.volume}
+            issue={data.workData.issue}
+            firstPage={data.workData.firstPage}
+            lastPage={data.workData.lastPage}
+            pmid={data.workData.pmid}
+            pmcid={data.workData.pmcid}
+            landingPageUrl={data.workData.landingPageUrl}
+            pdfUrl={data.workData.pdfUrl}
+            license={data.workData.license}
+            version={data.workData.version}
+            anyRepositoryHasFulltext={data.workData.anyRepositoryHasFulltext}
           />
         </div>
       </div>

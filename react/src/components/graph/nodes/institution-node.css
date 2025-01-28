@@ -1,0 +1,15 @@
+.institution-node {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgb(209, 168, 233);
+  width: 200px;
+  color: black;
+}
+
+.institution-node label {
+  display: block;
+  color: black;
+  font-size: 18px;
+  font-style: italic;
+}
