@@ -7,7 +7,6 @@ import {
   HttpLink,
 } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Root from "./root.tsx";
 import "./index.css";
 import AuthorPage from "./components/pages/AuthorPage.tsx";
@@ -42,7 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <React.StrictMode>
         <Routes>
-          <Route path="/" element={<Root />} />
+          <Route path="/" element={<CustomQueryPage />} />
           <Route
             path="/author/:orcid"
             element={<AuthorPage />}
