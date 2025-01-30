@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: bookworm
-  # password: <%= ENV["POSTGRES_PASSWORD"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   pool: 5
 
 development:
