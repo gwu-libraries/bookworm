@@ -14,5 +14,15 @@ module Types
     field :sources_api_url, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    field :ror, String
+    def ror
+      object.publishers_ids.ror
+    end
+
+    field :wikidata, String
+    def wikidata
+      object.publishers_ids.wikidata
+    end
   end
 end

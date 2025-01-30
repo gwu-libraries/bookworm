@@ -1,5 +1,4 @@
 import { Handle, Position } from "reactflow";
-import { useParams } from "react-router";
 import "./author-node.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AuthorDetails from "./AuthorDetails";
@@ -12,7 +11,6 @@ interface AuthorNode {
 }
 function AuthorNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { investigationId } = useParams();
   const ref = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -45,12 +43,15 @@ function AuthorNode({ data }) {
       >
         <div ref={ref}>
           <AuthorDetails
-            displayName={data.authorData.displayName}
-            orcid={data.authorData.orcid}
             authorOpenalexId={data.authorData.authorOpenalexId}
+            orcid={data.authorData.orcid}
+            displayName={data.authorData.displayName}
             worksCount={data.authorData.worksCount}
             citedByCount={data.authorData.citedByCount}
             lastKnownInstitution={data.authorData.lastKnownInstitution}
+            scopus={data.authorData.scopus}
+            wikipedia={data.authorData.wikipedia}
+            mag={data.authorData.mag}
           />
         </div>
       </div>

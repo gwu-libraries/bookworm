@@ -50,3 +50,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
