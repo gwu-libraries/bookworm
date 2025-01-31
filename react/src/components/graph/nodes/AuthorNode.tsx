@@ -1,7 +1,5 @@
 import { Handle, Position, NodeToolbar } from "reactflow";
-import "./author-node.css";
 import { useCallback, useEffect, useRef, useState } from "react";
-import AuthorDetails from "./AuthorDetails";
 
 interface AuthorNode {
   id: number;
@@ -25,7 +23,7 @@ function AuthorNode({ data }) {
   }, []);
 
   return (
-    <div className="author-node">
+    <div className={`author-node w-60 px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-violet-500`}>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
       <div>
@@ -42,17 +40,20 @@ function AuthorNode({ data }) {
         }}
       >
         <div ref={ref}>
-          <AuthorDetails
-            authorOpenalexId={data.authorData.authorOpenalexId}
-            orcid={data.authorData.orcid}
-            displayName={data.authorData.displayName}
-            worksCount={data.authorData.worksCount}
-            citedByCount={data.authorData.citedByCount}
-            lastKnownInstitution={data.authorData.lastKnownInstitution}
-            scopus={data.authorData.scopus}
-            wikipedia={data.authorData.wikipedia}
-            mag={data.authorData.mag}
-          />
+          <table>
+            <tbody>
+              {Object.entries(data.authorData).map(([k,v]) =>
+                  <tr className="border border-slate-700">
+                    <td>
+                      {`${k}`}
+                    </td>
+                    <td>
+                      {`${v}`}
+                    </td>
+                  </tr>
+                )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

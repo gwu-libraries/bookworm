@@ -1,7 +1,5 @@
 import { Handle, Position } from "reactflow"
-import "./institution-node.css"
 import { useCallback, useEffect, useRef, useState } from "react";
-import InstitutionDetails from "./InstitutionDetails";
 
 interface InstitutionNode {
   id: number;
@@ -26,7 +24,7 @@ function InstitutionNode({ data }) {
   }, []);
 
   return (
-    <div className="institution-node">
+    <div className={`institution-node w-60 px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-teal-500`}>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
       <div>
@@ -43,26 +41,20 @@ function InstitutionNode({ data }) {
         }}
       >
         <div ref={ref}>
-          <InstitutionDetails
-            institutionOpenalexId={data.institutionData.institutionOpenalexId}          
-            ror={data.institutionData.ror}          
-            countryCode={data.institutionData.countryCode}          
-            institutionType={data.institutionData.institutionType}          
-            homepageUrl={data.institutionData.imageUrl}          
-            imageUrl={data.institutionData.imageUrl}          
-            imageThumbnailUrl={data.institutionData.imageThumbnailUrl}          
-            worksCount={data.institutionData.worksCount} 
-            citedByCount={data.institutionData.citedByCount} 
-            wikidata={data.institutionData.wikidata} 
-            wikipedia={data.institutionData.wikipedia} 
-            mag={data.institutionData.mag} 
-            grid={data.institutionData.grid} 
-            city={data.institutionData.city} 
-            region={data.institutionData.region} 
-            country={data.institutionData.country} 
-            latitude={data.institutionData.latitude} 
-            longitude={data.institutionData.longitude} 
-          />
+          <table>
+            <tbody>
+              {Object.entries(data.institutionData).map(([k,v]) =>
+                  <tr className="border border-slate-700">
+                    <td>
+                      {`${k}`}
+                    </td>
+                    <td>
+                      {`${v}`}
+                    </td>
+                  </tr>
+                )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
