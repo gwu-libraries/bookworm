@@ -1,4 +1,4 @@
-import { Handle, Position } from "reactflow";
+import { Handle, Position, NodeToolbar } from "reactflow";
 import "./author-node.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AuthorDetails from "./AuthorDetails";
@@ -26,6 +26,12 @@ function AuthorNode({ data }) {
 
   return (
     <div className="author-node">
+      <NodeToolbar isVisible={data.toolbarVisible} position={data.toolbarPosition}>
+        <button>delete</button>
+        <button>copy</button>
+        <button>expand</button>
+      </NodeToolbar>
+
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
       <div>

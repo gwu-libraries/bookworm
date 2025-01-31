@@ -111,44 +111,23 @@ const dedupeArrayById = (inputArr) => {
 
 const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
 
-  const rootData = rootNode.hasOwnProperty('position') ? Object.values(rootNode.data)[0] : rootNode
+  const rootData = rootNode.hasOwnProperty('position') 
+    ? Object.values(rootNode.data)[0] 
+    : rootNode
 
   const rootNodeType = getElementType(rootData)
-  console.log(rootNodeType)
 
   for (const [key, value] of Object.entries(rootData)) {
     if (Array.isArray(value)) {
       for (let i = 0; i <= value.length - 1; i++) {
         let childNodeType = getElementType(value[i]);
-        edgesArr.push({
-          source: `${rootNodeType}-${rootData.id}`,
-          target: `${childNodeType}-${value[i].id}`,
-          id: `edge-${rootNodeType}-${rootData.id}-${childNodeType}-${value[i].id}`,
-          style: {
-            strokeWidth: 2,
-            stroke: "#FF0072"
-          },
-          markerEnd: {
-            type: MarkerType.ArrowClosed,
-            width: 20,
-            height: 20,
-            color: "#FF0072"
-          }
-        })
-
-        if (childNodeType == "author") {
-          nodesArr.push({
-            id: `author-${value[i].id}`,
-            data: {
-              authorData: value[i]
-            },
-            position: {
-              x: 0,
-              y: 0
-            },
-            type: `author`
-          })
-        } else if (childNodeType == "work") {
+        
+        // combo possibilities
+        // parent child
+        
+        // author work
+        if (rootNodeType == "author" && childNodeType == "work") {
+          // work node
           nodesArr.push({
             id: `work-${value[i].id}`,
             data: {
@@ -160,7 +139,30 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             },
             type: 'work'
           })
-        } else if (childNodeType == "institution") {
+
+          // authorship edge
+          edgesArr.push({
+            source: `author-${rootData.id}`,
+            target: `work-${value[i].id}`,
+            id: `author-${rootData.id}-work-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "authorship"
+          })
+
+        }
+
+        // author institution
+        if (rootNodeType == "author" && childNodeType == "institution") {
+          // institution node
           nodesArr.push({
             id: `institution-${value[i].id}`,
             data: {
@@ -170,7 +172,199 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
               x: 0,
               y: 0
             },
-            type: 'institution'
+            type: "institution"
+          })
+
+          // association edge
+          edgesArr.push({
+            source: `author-${rootData.id}`,
+            target: `institution-${value[i].id}`,
+            id: `author-${rootData.id}-institution-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "association"
+          })
+        }
+
+        // author author
+
+        // work author
+        if (rootNodeType == "work" && childNodeType == "author") {
+          // author node
+          nodesArr.push({
+            id: `author-${value[i].id}`,
+            data: {
+              authorData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "author"
+          })
+
+          // authorship edge
+          edgesArr.push({
+            source: `work-${rootData.id}`,
+            target: `institution-${value[i].id}`,
+            id: `work-${rootData.id}-institution-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072" 
+            },
+            type: "authorship"
+          })
+        }
+
+        
+        // work institution (not yet)
+
+        // work referencedWork
+        if (rootNodeType == "work" && childNodeType == "work") {
+          // work node
+          nodesArr.push({
+            id: `work-${rootData.id}`,
+            data: {
+              workData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "work"
+          })
+          
+          // citation edge
+          edgesArr.push({
+            source: `work-${rootData.id}`,
+            target: `work-${value[i].id}`,
+            id: `work-${rootData.id}-work-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "citation"
+          })
+        }
+        
+        // institution author
+        if (rootNodeType == "institution" && childNodeType == "author") {
+          // author
+          nodesArr.push({
+            id: `author-${value[i].id}`,
+            data: {
+              authorData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "author"
+          })
+
+          // association edge
+          edgesArr.push({
+            source: `institution-${rootData.id}`,
+            target: `author-${value[i].id}`,
+            id: `institution-${rootData.id}-author-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "association"
+          })
+        }
+
+        // institution work
+        if (rootNodeType == "institution" && childNodeType == "work") {
+          // work
+          nodesArr.push({
+            id: `work-${value[i].id}`,
+            data: {
+              workData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "work"
+          })
+          // association edge
+          edgesArr.push({
+            source: `institution-${rootData.id}`,
+            target: `work-${value[i].id}`,
+            id: `institution-${rootData.id}-work-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "association"
+          })
+        }
+
+        // institution institution
+        if (rootNodeType == "institution" && childNodeType == "institution") {
+          // institution
+          nodesArr.push({
+            id: `institution-${value[i].id}`,
+            data: {
+              institutionData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "institution"
+          })
+        
+          // association edge
+          edgesArr.push({
+            source: `institution-${rootData.id}`,
+            target: `institution-${value[i].id}`,
+            id: `institution-${rootData.id}-institution-${value[i].id}`,
+            style: {
+              strokeWidth: 2,
+              stroke: "#FF0072"
+            },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 20,
+              height: 20,
+              color: "#FF0072"
+            },
+            type: "association"
           })
         }
 
@@ -207,7 +401,7 @@ function CustomQueryPage() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const gql_fetcher = (graphQLParams: any) => {
-    return fetch("url", {
+    return fetch("https://bibliometrics.library.gwu.edu/graphql", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(graphQLParams),
@@ -249,7 +443,7 @@ function CustomQueryPage() {
           </div>
         </SlidingPanel>
       </div>
-      <div style = {{height:"100vh", width:"100vw"}}>
+      <div style = {{height:"90vh", width:"90vw"}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
