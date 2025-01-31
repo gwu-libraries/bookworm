@@ -11,6 +11,7 @@ interface InstitutionNode {
 function InstitutionNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const ref = useRef(null);
+  const [hidden, setHidden] = useState(true);
   const [contentHeight, setContentHeight] = useState(0);
 
   const toggleIsExpanded = useCallback(() => {
@@ -24,21 +25,19 @@ function InstitutionNode({ data }) {
   }, []);
 
   return (
-    <div className={`institution-node w-60 px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-teal-500`}>
+    <div className={`institution-node 
+                      bg-blue-400
+                      w-${isExpanded ? 80 : 60}
+                      px-4 py-2 shadow-md rounded-md border-2 border-stone-400` 
+    }>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
-      <div>
-        <label htmlFor="text">{data.institutionData.displayName}</label>
-      </div>
-      <button onClick={toggleIsExpanded}>
-        {isExpanded ? "▼ Hide Details" : "▶ Show Details"}
-      </button>
+      <label htmlFor="text">{data.institutionData.displayName}</label>
+      <button onClick={toggleIsExpanded}>{isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
       <div
-        className="collapse"
-        style={{
-          height: isExpanded ? contentHeight : 0,
-          visibility: isExpanded ? "visible" : "collapse",
-        }}
+        className={`${isExpanded ? "visible" : "collapse"} 
+                      px-4 py-2 shadow-md rounded-md border-2 
+                      border-stone-400`}
       >
         <div ref={ref}>
           <table>

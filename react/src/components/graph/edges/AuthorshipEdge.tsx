@@ -1,6 +1,5 @@
 import {
   BaseEdge,
-  getBezierPath,
   getSmoothStepPath,
   type EdgeProps,
 } from 'reactflow';
@@ -24,7 +23,7 @@ export default function AuthorshipEdge({
   });
 
   const style = {
-    stroke: "#FF0072",
+    stroke: "#14b8a6",
     strokeWidth: 2
   };
   

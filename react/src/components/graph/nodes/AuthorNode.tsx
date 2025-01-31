@@ -23,38 +23,30 @@ function AuthorNode({ data }) {
   }, []);
 
   return (
-    <div className={`author-node w-60 px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-violet-500`}>
+    <div className={`author-node 
+                    w-${isExpanded ? 80 : 60} 
+                    px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-teal-400`}>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
-      <div>
-        <label htmlFor="text">{data.authorData.displayName}</label>
-      </div>
-      <button onClick={toggleIsExpanded}>
-        {isExpanded ? "▼ Hide Details" : "▶ Show Details"}
-      </button>
-      <div
-        className="collapse"
-        style={{
-          height: isExpanded ? contentHeight : 0,
-          visibility: isExpanded ? "visible" : "collapse",
-        }}
-      >
-        <div ref={ref}>
-          <table>
-            <tbody>
-              {Object.entries(data.authorData).map(([k,v]) =>
-                  <tr className="border border-slate-700">
-                    <td>
-                      {`${k}`}
-                    </td>
-                    <td>
-                      {`${v}`}
-                    </td>
-                  </tr>
-                )}
-            </tbody>
-          </table>
-        </div>
+      <label htmlFor="text" className="font-bold text-xl mb-2">{data.authorData.displayName}</label>
+      <button onClick={toggleIsExpanded}>{isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
+      <div className={`${isExpanded ? "visible" : "collapse"}
+                       w-60 px-4 py-2 shadow-md rounded-md border-2 
+                       border-stone-400 bg-teal-400`}>
+        <table>
+          <tbody>
+            {Object.entries(data.authorData).map(([k,v]) =>
+                <tr>
+                  <td>
+                    {`${k}`}
+                  </td>
+                  <td>
+                    {`${v}`}
+                  </td>
+                </tr>
+              )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
