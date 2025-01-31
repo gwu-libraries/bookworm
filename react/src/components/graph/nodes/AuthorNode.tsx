@@ -26,12 +26,6 @@ function AuthorNode({ data }) {
 
   return (
     <div className="author-node">
-      <NodeToolbar isVisible={data.toolbarVisible} position={data.toolbarPosition}>
-        <button>delete</button>
-        <button>copy</button>
-        <button>expand</button>
-      </NodeToolbar>
-
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
       <div>

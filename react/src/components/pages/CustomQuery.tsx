@@ -5,7 +5,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ReactFlow, {
   useNodesState,
   useEdgesState,
-  MarkerType,} from "reactflow";
+  MarkerType,
+  Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import WorkNode from "../graph/nodes/WorkNode.tsx";
 import AuthorNode from "../graph/nodes/AuthorNode.tsx";
@@ -22,7 +23,6 @@ import {
 } from 'd3-force';
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
-import collide from "../graph/collide.tsx";
 
 const NESTED_ELEMENT_OPTIONS = ["articles", "works", "institutions", "authors", "referencedWorks", "referencingWorks"];
 const proOptions = { hideAttribution: true };
@@ -133,10 +133,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             data: {
               workData: value[i]
             },
-            position: {
-              x: 0,
-              y: 0
-            },
             type: 'work'
           })
 
@@ -145,16 +141,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `author-${rootData.id}`,
             target: `work-${value[i].id}`,
             id: `author-${rootData.id}-work-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "authorship"
           })
 
@@ -180,16 +166,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `author-${rootData.id}`,
             target: `institution-${value[i].id}`,
             id: `author-${rootData.id}-institution-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "association"
           })
         }
@@ -216,16 +192,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `work-${rootData.id}`,
             target: `institution-${value[i].id}`,
             id: `work-${rootData.id}-institution-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072" 
-            },
             type: "authorship"
           })
         }
@@ -253,16 +219,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `work-${rootData.id}`,
             target: `work-${value[i].id}`,
             id: `work-${rootData.id}-work-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "citation"
           })
         }
@@ -287,16 +243,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `institution-${rootData.id}`,
             target: `author-${value[i].id}`,
             id: `institution-${rootData.id}-author-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "association"
           })
         }
@@ -320,16 +266,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `institution-${rootData.id}`,
             target: `work-${value[i].id}`,
             id: `institution-${rootData.id}-work-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "association"
           })
         }
@@ -354,16 +290,6 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             source: `institution-${rootData.id}`,
             target: `institution-${value[i].id}`,
             id: `institution-${rootData.id}-institution-${value[i].id}`,
-            style: {
-              strokeWidth: 2,
-              stroke: "#FF0072"
-            },
-            markerEnd: {
-              type: MarkerType.ArrowClosed,
-              width: 20,
-              height: 20,
-              color: "#FF0072"
-            },
             type: "association"
           })
         }
@@ -390,7 +316,9 @@ function CustomQueryPage() {
   );
   const edgeTypes = useMemo(
     () => ({
-      authorship: AuthorshipEdge
+      authorship: AuthorshipEdge,
+      // association: AssociationEdge,
+      // citation: CitationEdge
     }),
     []
   );
@@ -401,7 +329,7 @@ function CustomQueryPage() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const gql_fetcher = (graphQLParams: any) => {
-    return fetch("https://bibliometrics.library.gwu.edu/graphql", {
+    return fetch("url", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(graphQLParams),
@@ -450,7 +378,7 @@ function CustomQueryPage() {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           nodeTypes={nodeTypes}
-          // edgeTypes={edgeTypes}
+          edgeTypes={edgeTypes}
           nodesDraggable={true}
           proOptions={proOptions}
           fitView

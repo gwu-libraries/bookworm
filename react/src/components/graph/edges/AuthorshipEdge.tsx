@@ -1,13 +1,34 @@
-import AuthorNode from "../nodes/AuthorNode";
-import WorkNode from "../nodes/WorkNode";
+import {
+  BaseEdge,
+  getBezierPath,
+  getSmoothStepPath,
+  type EdgeProps,
+} from 'reactflow';
+ 
+export default function AuthorshipEdge({
+  id,
+  sourceX,
+  sourceY,
+  targetX,
+  targetY,
+  sourcePosition,
+  targetPosition,
+}: EdgeProps) {
+  const [edgePath] = getSmoothStepPath({
+    sourceX,
+    sourceY,
+    sourcePosition,
+    targetX,
+    targetY,
+    targetPosition,
+  });
 
-interface AuthorshipEdge {
-  id: string;
-  visible: boolean;
-  authorNode: AuthorNode;
-  workNode: WorkNode;
+  const style = {
+    stroke: "#FF0072",
+    strokeWidth: 2
+  };
+  
+  return (
+    <BaseEdge path={edgePath} style={style} />
+  );
 }
-
-function AuthorshipEdge() {}
-
-export default AuthorshipEdge;
