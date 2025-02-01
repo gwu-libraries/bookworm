@@ -7,9 +7,14 @@ interface WorkNode {
   yCoordinate: number;
   visible: boolean;
 }
+function camelCaseToWords(s: string) {
+  const result = s.replace(/([A-Z])/g, ' $1');
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}
 
 function WorkNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
+
 
   const toggleIsExpanded = useCallback(() => {
     setIsExpanded((isExpanded) => !isExpanded);
@@ -28,13 +33,14 @@ function WorkNode({ data }) {
       <button onClick={toggleIsExpanded}> {isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
       <div className={`${isExpanded ? "visible" : "collapse"} 
                       ${data.workData.isOa === true ? "bg-yellow-400" : "bg-sky-400"}
-                      px-4 py-2 shadow-md rounded-md border-2 border-stone-400 `}>
-          <table>
+                      px-4 py-2 shadow-md rounded-md border-2 border-stone-400
+                      table-auto`}>
+          <table className="table-auto">
             <tbody>
               {Object.entries(data.workData).map(([k,v]) =>
                   <tr>
                     <td>
-                      {`${k}`}
+                      {`${camelCaseToWords(k)}`}
                     </td>
                     <td>
                       {`${v}`}

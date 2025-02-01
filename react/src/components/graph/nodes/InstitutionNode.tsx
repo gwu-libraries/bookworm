@@ -27,7 +27,7 @@ function InstitutionNode({ data }) {
   return (
     <div className={`institution-node 
                       bg-blue-400
-                      w-${isExpanded ? 80 : 60}
+                      w-${isExpanded ? 100 : 60}
                       px-4 py-2 shadow-md rounded-md border-2 border-stone-400` 
     }>
       <Handle type="target" position={Position.Top} />
@@ -40,7 +40,7 @@ function InstitutionNode({ data }) {
                       border-stone-400`}
       >
         <div ref={ref}>
-          <table>
+          <table className="table-auto">
             <tbody>
               {Object.entries(data.institutionData).map(([k,v]) =>
                   <tr className="border border-slate-700">
