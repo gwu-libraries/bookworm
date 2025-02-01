@@ -34,28 +34,23 @@ function InstitutionNode({ data }) {
       <Handle type="source" position={Position.Bottom} />
       <label htmlFor="text">{data.institutionData.displayName}</label>
       <button onClick={toggleIsExpanded}>{isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
-      <div
-        className={`${isExpanded ? "visible" : "collapse"} 
+      <table className={`${isExpanded ? "visible" : "collapse"} 
                       px-4 py-2 shadow-md rounded-md border-2 
-                      border-stone-400`}
-      >
-        <div ref={ref}>
-          <table className="table-auto">
-            <tbody>
-              {Object.entries(data.institutionData).map(([k,v]) =>
-                  <tr className="border border-slate-700">
-                    <td>
-                      {`${k}`}
-                    </td>
-                    <td>
-                      {`${v}`}
-                    </td>
-                  </tr>
-                )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+                      border-stone-400
+                      table-auto`}>
+        <tbody>
+          {Object.entries(data.institutionData).map(([k,v]) =>
+              <tr className="border border-slate-700">
+                <td>
+                  {`${k}`}
+                </td>
+                <td>
+                  {`${v}`}
+                </td>
+              </tr>
+            )}
+        </tbody>
+      </table>
     </div>
   )  
 }

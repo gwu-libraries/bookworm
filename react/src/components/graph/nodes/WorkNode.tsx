@@ -30,26 +30,26 @@ function WorkNode({ data }) {
       <Handle type="source" position={Position.Left} id="left-handle" />
       <Handle type="source" position={Position.Bottom} id="bottom-handle" />
       <label htmlFor="text" className="font-bold text-xl mb-2">{data.workData.title}</label>
-      <button onClick={toggleIsExpanded}> {isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
-      <div className={`${isExpanded ? "visible" : "collapse"} 
+      <div>
+        <button onClick={toggleIsExpanded}> {isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
+      </div>
+      <table className={`${isExpanded ? "visible" : "collapse"} 
                       ${data.workData.isOa === true ? "bg-yellow-400" : "bg-sky-400"}
                       px-4 py-2 shadow-md rounded-md border-2 border-stone-400
                       table-auto`}>
-          <table className="table-auto">
-            <tbody>
-              {Object.entries(data.workData).map(([k,v]) =>
-                  <tr>
-                    <td>
-                      {`${camelCaseToWords(k)}`}
-                    </td>
-                    <td>
-                      {`${v}`}
-                    </td>
-                  </tr>
-                )}
-            </tbody>
-          </table>
-      </div>
+        <tbody>
+          {Object.entries(data.workData).map(([k,v]) =>
+              <tr>
+                <td>
+                  {`${camelCaseToWords(k)}`}
+                </td>
+                <td>
+                  {`${v}`}
+                </td>
+              </tr>
+            )}
+        </tbody>
+      </table>
     </div>
   );
 }
