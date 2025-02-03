@@ -8,7 +8,7 @@ import {
 } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
-import CustomQuery from "./components/pages/CustomQuery.tsx";
+import CustomQuery from "./components/CustomQuery.tsx";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = new HttpLink({

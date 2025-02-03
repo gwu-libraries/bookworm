@@ -405,17 +405,19 @@ function CustomQueryPage() {
 
   return (
     <>
-      <Header />
-        <button onClick={() => setOpenPanel(true)}>Open Query Panel</button>
+      <div className="text-xl mb-2 text-white flex flex-row items-center justify-between sm:justify-around p-2 border-b-2 bg-green-800 sticky top-0">
+        <button className="absolute left-5 bg-green-600 hover:bg-green-300 text-gray-800 font-semibold py-1 px-1 border border-black rounded shadow" onClick={() => setOpenPanel(true)}>Open Query Panel</button>
+          📖 🐛 BookWorm
+      </div>
       <div>
         <SlidingPanel type={'left'} isOpen={openPanel} size={70} >
           <div style = {{textAlign:"left"}} className="graphiql-container">
             <GraphiQL fetcher={gql_fetcher} />
-            <button onClick={() => setOpenPanel(false)}>close</button>
+            <button onClick={() => setOpenPanel(false)}>Close Query Panel</button>
           </div>
         </SlidingPanel>
       </div>
-      <div style = {{height:"90vh", width:"100vw"}}>
+      <div style = {{height:"95vh", width:"100vw"}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
