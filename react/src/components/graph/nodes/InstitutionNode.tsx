@@ -40,7 +40,7 @@ function InstitutionNode({ data }) {
                       table-auto`}>
         <tbody>
           {Object.entries(data.institutionData).map(([k,v]) =>
-              <tr className="border border-slate-700">
+              <tr>
                 <td>
                   {`${k}`}
                 </td>

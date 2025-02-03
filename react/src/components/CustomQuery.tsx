@@ -1,17 +1,18 @@
-import Header from "../Header.tsx";
+import Header from "./Header.tsx";
 import GraphiQL from "graphiql";
 import 'graphiql/graphiql.css';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
-  MarkerType,
-  Controls } from "reactflow";
+  Background,
+ } from "reactflow";
 import "reactflow/dist/style.css";
-import WorkNode from "../graph/nodes/WorkNode.tsx";
-import AuthorNode from "../graph/nodes/AuthorNode.tsx";
-import InstitutionNode from "../graph/nodes/InstitutionNode.tsx";
-import AuthorshipEdge from "../graph/edges/AuthorshipEdge.tsx";
+import WorkNode from "./graph/nodes/WorkNode.tsx";
+import AuthorNode from "./graph/nodes/AuthorNode.tsx";
+import InstitutionNode from "./graph/nodes/InstitutionNode.tsx";
+import AuthorshipEdge from "./graph/edges/AuthorshipEdge.tsx";
+import CitationEdge from "./graph/edges/CitationEdge.tsx";
 import {
   forceSimulation,
   forceLink,
@@ -19,14 +20,9 @@ import {
   forceX,
   forceY,
   forceCenter,
-  forceCollide,
 } from 'd3-force';
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
-
-const NESTED_ELEMENT_OPTIONS = ["articles", "works", "institutions", "authors", "referencedWorks", "referencingWorks"];
-const proOptions = { hideAttribution: true };
-
 
 const getElementType = (data) => {
   if ('authorByOpenalexId' in data 
@@ -49,9 +45,6 @@ const getElementType = (data) => {
     return null;
   }
 }
-
-//iterate using 'depth' as index?
-
 
 const createRootFlowNode = (nodesArr, edgesArr, inputJson) => {
   if (getElementType(inputJson.data) == "author") {
@@ -99,6 +92,7 @@ const createRootFlowNode = (nodesArr, edgesArr, inputJson) => {
 }
 
 const dedupeArrayById = (inputArr) => {
+  // need to account for citations, order of work1-id, work-2-id needs to not matter
   let i = 0;
   for (let j = 0; j < inputArr.length; j++) {
     if(inputArr[i].id !== inputArr[j].id) {
@@ -108,6 +102,20 @@ const dedupeArrayById = (inputArr) => {
   }
   inputArr.length = i + 1;
 }
+
+const removeReversedEdges= (inputArr) => {
+  console.log(inputArr)
+  for (let i = 0; i <= inputArr.length - 1; i++) {
+    let id_1 = inputArr[i].id.split('-')[1]
+    let id_2 = inputArr[i].id.split('-')[2]
+    console.log(id_1)
+    console.log(id_2)
+  }
+}
+
+// const clearArray = (inputArr) => {
+//   inputArr.length = 0;
+// }
 
 const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
 
@@ -190,8 +198,8 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
           // authorship edge
           edgesArr.push({
             source: `work-${rootData.id}`,
-            target: `institution-${value[i].id}`,
-            id: `work-${rootData.id}-institution-${value[i].id}`,
+            target: `author-${value[i].id}`,
+            id: `work-${rootData.id}-author-${value[i].id}`,
             type: "authorship"
           })
         }
@@ -200,10 +208,10 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
         // work institution (not yet)
 
         // work referencedWork
-        if (rootNodeType == "work" && childNodeType == "work") {
+        if (rootNodeType == "work" && childNodeType == "work" && rootData.hasOwnProperty('referencedWorks')) {
           // work node
           nodesArr.push({
-            id: `work-${rootData.id}`,
+            id: `work-${value[i].id}`,
             data: {
               workData: value[i]
             },
@@ -214,14 +222,45 @@ const createChildFlowNodes = (nodesArr, edgesArr, rootNode) => {
             type: "work"
           })
           
+
+          // need to have consistency in source/target between referencedWorks and referencingWorks
+          // referencedWork should always be source, referencingWork should always be target
           // citation edge
           edgesArr.push({
-            source: `work-${rootData.id}`,
-            target: `work-${value[i].id}`,
+            source: `work-${value[i].id}`, // referenced work
+            target: `work-${rootData.id}`, // referencing work
+            sourceHandle: `citation-source`,
+            targetHandle: `citation-target`,
             id: `work-${rootData.id}-work-${value[i].id}`,
             type: "citation"
           })
         }
+
+        // work referencingWork
+        if (rootNodeType == "work" && childNodeType == "work" && rootData.hasOwnProperty('referencingWorks')) {
+          nodesArr.push({
+            id: `work-${value[i].id}`,
+            data: {
+              workData: value[i]
+            },
+            position: {
+              x: 0,
+              y: 0
+            },
+            type: "work"
+          })
+
+          // citation edge
+          edgesArr.push({
+            source: `work-${rootData.id}`,
+            target: `work-${value[i].id}`,
+            sourceHandle: `citation-source`,
+            targetHandle: `citation-target`,
+            id: `work-${rootData.id}-work-${value[i].id}`,
+            type: "citation"
+          })
+        }
+
         
         // institution author
         if (rootNodeType == "institution" && childNodeType == "author") {
@@ -318,18 +357,19 @@ function CustomQueryPage() {
     () => ({
       authorship: AuthorshipEdge,
       // association: AssociationEdge,
-      // citation: CitationEdge
+      citation: CitationEdge
     }),
     []
   );
   const [openPanel, setOpenPanel] = useState(false);
+  
   const initialNodes = [];
   const initialEdges = [];
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const gql_fetcher = (graphQLParams: any) => {
-    return fetch("url", {
+    return fetch("https://bibliometrics.library.gwu.edu/graphql", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(graphQLParams),
@@ -338,11 +378,15 @@ function CustomQueryPage() {
       return response.json()
     }).then(json => {
       if (!json.data.hasOwnProperty("__schema")) { // only update response data if it's not a schema info response
+        // clearArray(initialEdges)
+        // clearArray(initialNodes)
 
         createRootFlowNode(initialNodes, initialEdges, json);
         createChildFlowNodes(initialNodes, initialEdges, initialNodes[0])
+        
         dedupeArrayById(initialEdges)
         dedupeArrayById(initialNodes)
+        // removeReversedEdges(initialEdges)
       
         const simulation = forceSimulation(initialNodes)
             .force('link', forceLink(edges).id(d => d.id).distance(100))
@@ -362,7 +406,7 @@ function CustomQueryPage() {
   return (
     <>
       <Header />
-        <button onClick={() => setOpenPanel(true)}>Open</button>
+        <button onClick={() => setOpenPanel(true)}>Open Query Panel</button>
       <div>
         <SlidingPanel type={'left'} isOpen={openPanel} size={70} >
           <div style = {{textAlign:"left"}} className="graphiql-container">
@@ -371,7 +415,7 @@ function CustomQueryPage() {
           </div>
         </SlidingPanel>
       </div>
-      <div style = {{height:"90vh", width:"90vw"}}>
+      <div style = {{height:"90vh", width:"100vw"}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -380,9 +424,10 @@ function CustomQueryPage() {
           nodeTypes={nodeTypes}
           edgeTypes={edgeTypes}
           nodesDraggable={true}
-          proOptions={proOptions}
-          fitView
-          />
+          proOptions={{ hideAttribution: true }}
+          fitView>
+          <Background style={{backgroundColor: "#e5e7eb"}}/>
+        </ReactFlow>
       </div>
     </>
   )

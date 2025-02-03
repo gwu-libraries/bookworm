@@ -26,8 +26,11 @@ function WorkNode({ data }) {
                     w-${isExpanded ? 80 : 60}
                     px-4 py-2 shadow-md rounded-md border-2 border-stone-400 `}>
       <Handle type="target" position={Position.Top} id="top-handle" />
-      <Handle type="target" position={Position.Right} id="right-handle" />
-      <Handle type="source" position={Position.Left} id="left-handle" />
+
+      <Handle type="source" position={Position.Right} id="citation-source" />
+
+      <Handle type="target" position={Position.Left} id="citation-target" />
+      
       <Handle type="source" position={Position.Bottom} id="bottom-handle" />
       <label htmlFor="text" className="font-bold text-xl mb-2">{data.workData.title}</label>
       <div>

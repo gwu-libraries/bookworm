@@ -24,7 +24,7 @@ export default function AuthorshipEdge({
 
   const style = {
     stroke: "#14b8a6",
-    strokeWidth: 2
+    strokeWidth: 4
   };
   
   return (
