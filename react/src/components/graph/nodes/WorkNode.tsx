@@ -1,7 +1,5 @@
 import { Handle, Position } from "reactflow";
-import "./work-node.css";
 import { useState, useCallback, useRef, useEffect } from "react";
-import WorkDetails from "./WorkDetails";
 
 interface WorkNode {
   id: number;
@@ -9,76 +7,52 @@ interface WorkNode {
   yCoordinate: number;
   visible: boolean;
 }
+function camelCaseToWords(s: string) {
+  const result = s.replace(/([A-Z])/g, ' $1');
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}
 
 function WorkNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const ref = useRef(null);
-  const noderef = useRef(null);
-  const [contentHeight, setContentHeight] = useState(0);
+
 
   const toggleIsExpanded = useCallback(() => {
     setIsExpanded((isExpanded) => !isExpanded);
   }, []);
 
-  useEffect(() => {
-    if (ref.current) {
-      setContentHeight(ref.current.clientHeight);
-    }
-  }, []);
-
   return (
-    <div
-      className="work-node"
-      style={{
-        backgroundColor: data.workData.isOa
-          ? "#FBD87F"
-          : "#B5F8FE",
-      }}
-      ref={noderef}
-    >
+    <div className={`work-node
+                    ${data.workData.isOa === true ? "bg-yellow-400" : "bg-sky-400"} 
+                    w-${isExpanded ? 80 : 60}
+                    px-4 py-2 shadow-md rounded-md border-2 border-stone-400 `}>
       <Handle type="target" position={Position.Top} id="top-handle" />
+
+      <Handle type="source" position={Position.Right} id="citation-source" />
+
+      <Handle type="target" position={Position.Left} id="citation-target" />
+      
       <Handle type="source" position={Position.Bottom} id="bottom-handle" />
-      <label htmlFor="text">{data.workData.title}</label>
-      <button onClick={toggleIsExpanded}>
-        {isExpanded ? "▼ Hide Details" : "▶ Show Details"}
-      </button>
-      <div
-        className="collapse"
-        style={{
-          height: isExpanded ? contentHeight : 0,
-          visibility: isExpanded ? "visible" : "collapse",
-        }}
-      >
-        <div ref={ref}>
-          <WorkDetails
-            workOpenalexId={data.workData.workOpenalexId}
-            doi={data.workData.doi}
-            title={data.workData.title}
-            displayName={data.workData.displayName}
-            publicationYear={data.workData.publicationYear}
-            publicationDate={data.workData.publicationDate}
-            workType={data.workData.workType}
-            citedByCount={data.workData.citedByCount}
-            isRetracted={data.workData.isRetracted}
-            isParatext={data.workData.isParatext}
-            language={data.workData.language}
-            isOa={data.workData.isOa}
-            oaStatus={data.workData.oaStatus}
-            oaUrl={data.workData.oaUrl}
-            volume={data.workData.volume}
-            issue={data.workData.issue}
-            firstPage={data.workData.firstPage}
-            lastPage={data.workData.lastPage}
-            pmid={data.workData.pmid}
-            pmcid={data.workData.pmcid}
-            landingPageUrl={data.workData.landingPageUrl}
-            pdfUrl={data.workData.pdfUrl}
-            license={data.workData.license}
-            version={data.workData.version}
-            anyRepositoryHasFulltext={data.workData.anyRepositoryHasFulltext}
-          />
-        </div>
+      <label htmlFor="text" className="font-bold text-xl mb-2">{data.workData.title}</label>
+      <div>
+        <button onClick={toggleIsExpanded}> {isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
       </div>
+      <table className={`${isExpanded ? "visible" : "collapse"} 
+                      ${data.workData.isOa === true ? "bg-yellow-400" : "bg-sky-400"}
+                      px-4 py-2 shadow-md rounded-md border-2 border-stone-400
+                      table-auto`}>
+        <tbody>
+          {Object.entries(data.workData).map(([k,v]) =>
+              <tr>
+                <td>
+                  {`${camelCaseToWords(k)}`}
+                </td>
+                <td>
+                  {`${v}`}
+                </td>
+              </tr>
+            )}
+        </tbody>
+      </table>
     </div>
   );
 }

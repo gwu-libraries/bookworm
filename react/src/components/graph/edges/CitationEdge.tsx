@@ -1,33 +1,35 @@
 import {
   BaseEdge,
-  getSmoothStepPath,
+  getBezierPath,
   type EdgeProps,
+  MarkerType
 } from 'reactflow';
- 
-export default function AuthorshipEdge({
+
+export default function CitationEdge({
   id,
   sourceX,
   sourceY,
   targetX,
   targetY,
   sourcePosition,
-  targetPosition,
+  targetPosition
 }: EdgeProps) {
-  const [edgePath] = getSmoothStepPath({
+  const [edgePath] = getBezierPath({
     sourceX,
     sourceY,
     sourcePosition,
     targetX,
     targetY,
-    targetPosition,
+    targetPosition
   });
 
   const style = {
-    stroke: "#14b8a6",
-    strokeWidth: 4
+    stroke: "#fb7185",
+    strokeWidth: 2
   };
-  
+
   return (
-    <BaseEdge path={edgePath} style={style} />
+    <BaseEdge path={edgePath} 
+              style={style} />
   );
 }

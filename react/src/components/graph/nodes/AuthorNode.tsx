@@ -1,7 +1,5 @@
-import { Handle, Position } from "reactflow";
-import "./author-node.css";
+import { Handle, Position, NodeToolbar } from "reactflow";
 import { useCallback, useEffect, useRef, useState } from "react";
-import AuthorDetails from "./AuthorDetails";
 
 interface AuthorNode {
   id: number;
@@ -13,6 +11,7 @@ function AuthorNode({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const ref = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
+  const [contentwidth, setContentWidth] = useState(0);
 
   const toggleIsExpanded = useCallback(() => {
     setIsExpanded((isExpanded) => !isExpanded);
@@ -21,40 +20,35 @@ function AuthorNode({ data }) {
   useEffect(() => {
     if (ref.current) {
       setContentHeight(ref.current["clientHeight"]);
+      setContentWidth(ref.current["clientWidth"]);
     }
   }, []);
 
   return (
-    <div className="author-node">
+    <div className={`author-node 
+                    w-${isExpanded ? contentwidth : 60} 
+                    px-4 py-2 shadow-md rounded-md border-2 border-stone-400 bg-teal-400`}>
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
-      <div>
-        <label htmlFor="text">{data.authorData.displayName}</label>
-      </div>
-      <button onClick={toggleIsExpanded}>
-        {isExpanded ? "▼ Hide Details" : "▶ Show Details"}
-      </button>
-      <div
-        className="collapse"
-        style={{
-          height: isExpanded ? contentHeight : 0,
-          visibility: isExpanded ? "visible" : "collapse",
-        }}
-      >
-        <div ref={ref}>
-          <AuthorDetails
-            authorOpenalexId={data.authorData.authorOpenalexId}
-            orcid={data.authorData.orcid}
-            displayName={data.authorData.displayName}
-            worksCount={data.authorData.worksCount}
-            citedByCount={data.authorData.citedByCount}
-            lastKnownInstitution={data.authorData.lastKnownInstitution}
-            scopus={data.authorData.scopus}
-            wikipedia={data.authorData.wikipedia}
-            mag={data.authorData.mag}
-          />
-        </div>
-      </div>
+      <span className="font-bold text-xl mb-2">{data.authorData.displayName}</span>
+      <button onClick={toggleIsExpanded}>{isExpanded ? "▼ Hide Details" : "▶ Expand Details"}</button>
+      <table className={`${isExpanded ? "visible" : "collapse"}
+                        w-60 px-4 py-2 shadow-md rounded-md border-2 
+                        border-stone-400 bg-teal-400
+                        table`}>
+        <tbody>
+          {Object.entries(data.authorData).map(([k,v]) =>
+            <tr>
+              <td>
+                {`${k}`}  
+              </td>
+              <td>
+                {`${v}`}
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }
