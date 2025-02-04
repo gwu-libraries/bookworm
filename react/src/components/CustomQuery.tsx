@@ -362,6 +362,12 @@ function CustomQueryPage() {
     []
   );
   const [openPanel, setOpenPanel] = useState(false);
+  const [renderVisualization, setRenderVisualization] = useState(true);
+
+  const handleRenderVisualizationToggle = () => {
+    setRenderVisualization(!renderVisualization);
+  };
+
   
   const initialNodes = [];
   const initialEdges = [];
@@ -377,7 +383,7 @@ function CustomQueryPage() {
     }).then((response) => {
       return response.json()
     }).then(json => {
-      if (!json.data.hasOwnProperty("__schema")) { // only update response data if it's not a schema info response
+      if (!json.data.hasOwnProperty("__schema") && renderVisualization) { // only update response data if it's not a schema info response
         // clearArray(initialEdges)
         // clearArray(initialNodes)
 
@@ -407,10 +413,13 @@ function CustomQueryPage() {
     <>
       <div className="text-xl mb-2 text-white flex flex-row items-center justify-between sm:justify-around p-2 border-b-2 bg-green-800 sticky top-0">
         <button className="absolute left-5 bg-green-600 hover:bg-green-300 text-gray-800 font-semibold py-1 px-1 border border-black rounded shadow" onClick={() => setOpenPanel(true)}>Open Query Panel</button>
-          📖 🐛 BookWorm
+        <button className={`absolute right-5 ${renderVisualization ? "bg-green-600" : "bg-red-400"} text-gray-800 font-semibold py-1 px-1 border border-black rounded shadow`}
+                onClick={handleRenderVisualizationToggle}> Render visualization? {renderVisualization ? '✅' : '❌'}</button>
+        📖 🐛 BookWorm
       </div>
       <div>
         <SlidingPanel type={'left'} isOpen={openPanel} size={70} >
+          
           <div style = {{textAlign:"left"}} className="graphiql-container">
             <GraphiQL fetcher={gql_fetcher} />
             <button onClick={() => setOpenPanel(false)}>Close Query Panel</button>
