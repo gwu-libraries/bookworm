@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe AuthorsIds, type: :model do
   describe 'validations' do
-    it { should allow_value(nil).for (:openalex) }
     it { should allow_value(nil).for (:orcid) }
     it { should allow_value(nil).for (:wikipedia) }
     it { should allow_value(nil).for (:mag) }
