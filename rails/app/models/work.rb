@@ -16,6 +16,22 @@ class Work < ApplicationRecord
           primary_key: :work_openalex_id,
           foreign_key: :work_openalex_id
 
+  has_one :works_best_oa_location,
+          primary_key: :work_openalex_id,
+          foreign_key: :work_openalex_id
+
+  has_one :works_primary_location,
+          primary_key: :work_openalex_id,
+          foreign_key: :work_openalex_id
+
+  has_one :works_open_access,
+          primary_key: :work_openalex_id,
+          foreign_key: :work_openalex_id
+
+  has_many :works_locations,
+           primary_key: :work_openalex_id,
+           foreign_key: :work_openalex_id
+
   has_one :works_open_access,
           primary_key: :work_openalex_id,
           foreign_key: :work_openalex_id
