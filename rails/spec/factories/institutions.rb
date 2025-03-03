@@ -12,5 +12,21 @@ FactoryBot.define do
     display_name_alternatives {}
     works_count { rand(10..100) }
     cited_by_count { rand(10..100) }
+
+    after :create do |institution|
+      create(:institutions_ids,
+             :without_validations,
+             institution_openalex_id: institution.institution_openalex_id)
+
+      create(:institutions_geo,
+             :without_validations,
+             institution_openalex_id: institution.institution_openalex_id)
+
+      5.times do 
+        create(:institutions_counts_by_year,
+              :without_validations,
+              institution_openalex_id: institution.institution_openalex_id)
+      end
+    end
   end
 end

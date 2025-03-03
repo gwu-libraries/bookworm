@@ -11,6 +11,18 @@ FactoryBot.define do
     is_in_doaj { [true, false].sample }
     homepage_url { Faker::Internet.url(host: "example.com") }
 
+    after :create do |source|
+      create(:sources_ids,
+             :without_validations,
+             source_openalex_id: source.source_openalex_id)
+
+      5.times do
+        create(:sources_counts_by_year,
+               :without_validations,
+               source_openalex_id: source.source_openalex_id)
+      end
+    end
+
     factory :oa_source do
       is_oa { true }
     end

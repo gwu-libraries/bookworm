@@ -44,6 +44,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :view
   config.include Devise::Test::IntegrationHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include FactoryBot::Syntax::Methods
 
   config.infer_spec_type_from_file_location!
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

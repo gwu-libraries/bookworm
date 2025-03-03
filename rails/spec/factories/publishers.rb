@@ -7,5 +7,17 @@ FactoryBot.define do
     parent_publisher {}
     works_count { rand(10..100) }
     cited_by_count { rand(10..100) }
+
+    after :create do |publisher|
+      create(:publishers_ids,
+             :without_validations,
+             publisher_openalex_id: publisher.publisher_openalex_id)
+
+      5.times do
+        create(:publishers_counts_by_year,
+              :without_validations,
+              publisher_openalex_id: publisher.publisher_openalex_id)
+      end
+    end
   end
 end
