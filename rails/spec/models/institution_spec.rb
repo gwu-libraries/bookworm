@@ -7,10 +7,9 @@ RSpec.describe Institution, type: :model do
     it { should have_many :institutions_counts_by_year }
     it { should have_one :institutions_ids }
     it { should have_one :institutions_geo }
-    it do
-      should have_many(:associated_institutions).through(
-               :institutions_associated_institutions
-             )
-    end
+
+    it { should have_many(:works_authorships) }
+    it { should have_many(:authors).through(:works_authorships) }
+    it { should have_many(:works).through(:works_authorships) }
   end
 end

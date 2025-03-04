@@ -36,7 +36,7 @@ module Types
 
     field :referenced_articles, [Types::WorkType]
     def referenced_articles
-      object.referenced_works.where(work_type: "article")
+      object.referenced_works.where(work_type: 'article')
     end
 
     field :referencing_works, [Types::WorkType]
@@ -46,7 +46,7 @@ module Types
 
     field :referencing_articles, [Types::WorkType]
     def referencing_articles
-      object.referencing_articles.where(work_type: "article")
+      object.referencing_works.where(work_type: 'article')
     end
 
     field :topics, [Types::TopicType]
@@ -72,7 +72,7 @@ module Types
     field :volume, String
     def volume
       object.works_biblio.volume
-    end 
+    end
 
     field :issue, String
     def issue

@@ -6,5 +6,6 @@ RSpec.describe WorksAuthorship, type: :model do
   describe 'relationships' do
     it { should belong_to :author }
     it { should belong_to :work }
+    it { should belong_to :institution }
   end
 end
