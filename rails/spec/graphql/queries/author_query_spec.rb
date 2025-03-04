@@ -100,6 +100,15 @@ RSpec.describe 'Author query', type: :request do
         }
       }
     GRAPHQL
+
+    @author_by_openalex_id_query = <<-GRAPHQL
+      query($authorOpenalexId: String!) {
+        authorByOpenalexId(authorOpenalexId: $authorOpenalexId) {
+          id
+          displayName
+        }
+      }
+      GRAPHQL
   end
 
   it 'retrieves an author object by orcid without URL format' do
@@ -248,5 +257,31 @@ RSpec.describe 'Author query', type: :request do
     result['data']['authorByOrcid']['institutions'].each do |i|
       expect(i).to be_a(Hash)
     end
+  end
+
+  it 'can return an author by openalex id in url format' do
+    result =
+      BookWormSchema.execute(
+        @author_by_openalex_id_query,
+        variables: {
+          authorOpenalexId: "https://openalex.org/#{@author.author_openalex_id}"
+        }
+      )
+
+    expect(result['data']['authorByOpenalexId']['id']).to eq(@author.id.to_s)
+  end
+
+  it 'raises an error if openalex id format is invalid' do
+    result =
+      BookWormSchema.execute(
+        @author_by_openalex_id_query,
+        variables: {
+          authorOpenalexId: 'abcde'
+        }
+      )
+
+    expect(result['errors'].first['message']).to eq(
+      'Invalid input: authorByOpenalexId queries must have OpenAlex ID in either https://openalex.org/a123456789 or a123456789 format'
+    )
   end
 end

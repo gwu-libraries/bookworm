@@ -5,19 +5,17 @@ RSpec.describe 'Institution query', type: :request do
     @institution = FactoryBot.create(:institution)
 
     @authors = []
-    @works = []
-    5.times do
-      author = FactoryBot.create(:author)
-      work = FactoryBot.create(:work)
+    5.times { @authors << FactoryBot.create(:author) }
 
+    @works = []
+    5.times { @works << FactoryBot.create(:work) }
+
+    @authors.each do |a|
       WorksAuthorship.create(
-        work_openalex_id: work.work_openalex_id,
-        author_openalex_id: author.author_openalex_id,
+        work_openalex_id: @works.sample.work_openalex_id,
+        author_openalex_id: a.author_openalex_id,
         institution_openalex_id: @institution.institution_openalex_id
       )
-
-      @authors << author
-      @works << work
     end
 
     @associated_institutions = []
@@ -60,6 +58,24 @@ RSpec.describe 'Institution query', type: :request do
           associatedInstitutions {
             id
           }
+        }
+      }
+    GRAPHQL
+
+    @institution_by_ror_query = <<-GRAPHQL
+      query($ror: String!) {
+        institutionByRor(ror: $ror) {
+          id
+          displayName
+        }
+      }
+    GRAPHQL
+
+    @institution_by_openalex_id_query = <<-GRAPHQL
+      query($institutionOpenalexId: String!) {
+        institutionByOpenalexId(institutionOpenalexId: $institutionOpenalexId) {
+          id
+          displayName
         }
       }
     GRAPHQL
@@ -108,5 +124,96 @@ RSpec.describe 'Institution query', type: :request do
     expect(
       result['data']['institutionByName']['associatedInstitutions'].count
     ).to eq(5)
+  end
+
+  it 'can find an institution by ROR with full url format' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_ror_query,
+        variables: {
+          ror: @institution.ror
+        }
+      )
+
+    expect(result['data']['institutionByRor']['id']).to eq(@institution.id.to_s)
+  end
+
+  it 'can find an institution by Openalex ID with full url format' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_openalex_id_query,
+        variables: {
+          institutionOpenalexId:
+            "https://openalex.org/#{@institution.institution_openalex_id}"
+        }
+      )
+
+    expect(result['data']['institutionByOpenalexId']['id']).to eq(
+      @institution.id.to_s
+    )
+  end
+
+  it 'can find an institution by Openalex ID with non url format' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_openalex_id_query,
+        variables: {
+          institutionOpenalexId: @institution.institution_openalex_id
+        }
+      )
+
+    expect(result['data']['institutionByOpenalexId']['id']).to eq(
+      @institution.id.to_s
+    )
+  end
+
+  it 'can find an institution by ROR with valid non-url format' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_ror_query,
+        variables: {
+          ror: @institution.ror[16..] #strips the url portion from the generated ROR
+        }
+      )
+
+    expect(result['data']['institutionByRor']['id']).to eq(@institution.id.to_s)
+  end
+
+  it 'raises an error when receiving invalid format for ROR' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_ror_query,
+        variables: {
+          ror: 'abcde' #strips the url portion from the generated ROR
+        }
+      )
+
+    expect(result.to_h).to be_a(Hash)
+    expect(result.keys).to eq(%w[errors data])
+    expect(result['errors']).to be_a(Array)
+    expect(result['errors'].first).to be_a(Hash)
+    expect(result['errors'].first.keys).to eq(%w[message locations path])
+    expect(result['errors'].first['message']).to eq(
+      'Invalid input: institutionByRor queries must have ROR in either https://ror.org/123456789 or 123456789 format (exactly nine identifying characters)'
+    )
+  end
+
+  it 'raises an error when receiving invalid format for openalex ID' do
+    result =
+      BookWormSchema.execute(
+        @institution_by_openalex_id_query,
+        variables: {
+          institutionOpenalexId: 'abcde'
+        }
+      )
+
+    expect(result.to_h).to be_a(Hash)
+    expect(result.keys).to eq(%w[errors data])
+    expect(result['errors']).to be_a(Array)
+    expect(result['errors'].first).to be_a(Hash)
+    expect(result['errors'].first.keys).to eq(%w[message locations path])
+    expect(result['errors'].first['message']).to eq(
+      'Invalid input: institutionByOpenalexId queries must have OpenAlex ID in either https://openalex.org/i123456789 or i123456789 format'
+    )
   end
 end
