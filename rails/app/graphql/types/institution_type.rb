@@ -24,6 +24,13 @@ module Types
       object.authors.uniq
     end
 
+    field :associated_institutions, [Types::InstitutionType]
+    def associated_institutions
+      (
+        object.associated_institutions + object.associating_institutions
+      ).flatten.uniq
+    end
+
     field :wikidata, String
     def wikidata
       object.institutions_ids.wikidata
