@@ -271,6 +271,18 @@ RSpec.describe 'Author query', type: :request do
     expect(result['data']['authorByOpenalexId']['id']).to eq(@author.id.to_s)
   end
 
+  it 'can return an author by openalex id in non url format' do
+    result =
+      BookWormSchema.execute(
+        @author_by_openalex_id_query,
+        variables: {
+          authorOpenalexId: @author.author_openalex_id
+        }
+      )
+
+    expect(result['data']['authorByOpenalexId']['id']).to eq(@author.id.to_s)
+  end
+
   it 'raises an error if openalex id format is invalid' do
     result =
       BookWormSchema.execute(
