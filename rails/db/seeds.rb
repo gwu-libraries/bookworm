@@ -1,145 +1,68 @@
-# # frozen_string_literal: true
+include FactoryBot::Syntax::Methods
 
-# # This file should ensure the existence of records required to run the application in every environment (production,
-# # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Example:
-# #
-# #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-# #     MovieGenre.find_or_create_by!(name: genre_name)
-# #   end
-# #
+# create authors
+authors = create_list(:author, 20)
 
-# user_1 =
-#   FactoryBot.create(:user, email: 'admin@example.com', password: 'pjassword')
+# create works
+works = create_list(:work, 50)
 
-# investigation_1 = FactoryBot.create(:investigation, user_id: user_1.id)
+# create institutions
+institutions = create_list(:institution, 20)
 
-# def sign_in_mutation
-#   <<~GQL
-#       mutation ($email: String!, $password: String!) {
-#         signIn(input: { email: $email, password: $password }) {
-#           id
-#           authenticationToken
-#         }
-#       }
-#     GQL
-# end
+# create sources
+sources = create_list(:source, 20)
 
-# def add_references_mutation
-#   <<~GQL
-#       mutation ($openalexId: String!, $investigationId: String!) {
-#         addReferences(
-#           input: { openalexId: $openalexId, investigationId: $investigationId }
-#         ) {
-#           xCoordinate
-#           yCoordinate
-#           visible
-#           work {
-#             openalexId
-#           }
-#         }
-#       }
-#     GQL
-# end
+# create publishers
+publishers = create_list(:publisher, 20)
 
-# def create_work_node_mutation
-#   <<~GQL
-#       mutation ($doi: String!, $investigationId: String!) {
-#         createWorkNode(input: { doi: $doi, investigationId: $investigationId }) {
-#           id
-#           xCoordinate
-#           yCoordinate
-#           visible
-#           work {
-#             title
-#             openalexId
-#           }
-#         }
-#       }
-#     GQL
-# end
+# create topics
+topics = create_list(:topic, 20)
 
-# def investigation_query
-#   <<~GQL
-#         query UseInvestigationGraph($id: ID!) {
-#     investigation(id: $id) {
-#       workNodes {
-#         id
-#         work {
-#           id
-#           citations {
-#             id
-#           }
-#           references {
-#             id
-#           }
-#         }
-#       }
-#       edges {
-#         id
-#         visible
-#         connection {
-#           id
-#           reference {
-#             title
-#             id
-#           }
-#           citation {
-#             title
-#             id
-#           }
-#         }
-#       }
-#     }
-#   }
-#     GQL
-# end
+# associate works
+works.each_with_index do |work, index|
+  works
+    .excluding(works[index])
+    .sample(rand(2..6))
+    .each do |w|
+      WorksReferencedWorks.create(
+        work_openalex_id: work.work_openalex_id,
+        referenced_work_openalex_id: w.work_openalex_id
+      )
+    end
+end
 
-# # create initial work node
-# BookWormSchema.execute(
-#   sign_in_mutation,
-#   variables: {
-#     email: user_1.email,
-#     password: user_1.password
-#   }
-# )
+# associate authors, works, institutions
+works.each do |work|
+  authors
+    .sample(rand(3..5))
+    .each do |author|
+      WorksAuthorship.create(
+        work_openalex_id: work.work_openalex_id,
+        author_openalex_id: author.author_openalex_id,
+        institution_openalex_id: (institutions.sample).institution_openalex_id,
+        author_position: %w[first middle last].sample,
+        raw_affiliation_string: 'beepbeep'
+      )
+    end
+end
 
-# work_node_response =
-#   BookWormSchema.execute(
-#     create_work_node_mutation,
-#     variables: {
-#       investigationId: investigation_1.id.to_s,
-#       doi: '10.1145/3174781.3174785'
-#     },
-#     context: {
-#       current_user: user_1
-#     }
-#   ).to_h
+# associate institutions with each other
+institutions[1..]
+  .sample(rand(5..10))
+  .each do |i|
+    InstitutionsAssociatedInstitutions.create(
+      institution_openalex_id: institutions[0].institution_openalex_id,
+      associated_institution_openalex_id: i.institution_openalex_id,
+      relationship: %w[funder parent/child].sample
+    )
+  end
 
-# work_node_openalex_id =
-#   work_node_response['data']['createWorkNode']['work']['openalexId']
-
-# response =
-#   BookWormSchema.execute(
-#     add_references_mutation,
-#     variables: {
-#       openalexId: work_node_openalex_id,
-#       investigationId: investigation_1.id.to_s
-#     },
-#     context: {
-#       current_user: user_1
-#     }
-#   ).to_h
-
-# investigation_response =
-#   BookWormSchema.execute(
-#     investigation_query,
-#     variables: {
-#       id: investigation_1.id
-#     },
-#     context: {
-#       current_user: user_1
-#     }
-#   ).to_h
+# associate works with topics
+works.each do |work|
+  topics.each do |topic|
+    WorksTopic.create(
+      work_openalex_id: work.work_openalex_id,
+      topic_openalex_id: topic.topic_openalex_id
+    )
+  end
+end
