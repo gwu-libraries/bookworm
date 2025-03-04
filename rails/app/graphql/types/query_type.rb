@@ -74,11 +74,14 @@ module Types
       argument :orcid, String, required: true
     end
     def author_by_orcid(orcid:)
-      # do some error handling for invalid entries
-      if "https://orcid.org/".in? orcid
+      # handle queries with full orcid url
+      if Regexp.new('https://orcid\\.org/([0-9]+(-[0-9]+)+)', Regexp::IGNORECASE).match orcid
         Author.find_by(orcid: orcid)
-      else
+      # handle queries with number plus dashes
+      elsif Regexp.new('([0-9]+(-[0-9]+)+)', Regexp::IGNORECASE).match orcid
         Author.find_by(orcid: "https://orcid.org/" + orcid)
+      else
+        raise(GraphQL::ExecutionError.new("Invalid input: authorByOrcid queries must have orcid in either https://orcid.org/0000-0000-0000-0001 or 0000-0000-0000-0001 format"))
       end
     end
 
