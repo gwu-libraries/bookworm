@@ -22,4 +22,4 @@ jobs:
       - name: Run tests
         run: |
           cd react
-          npm test --passWithNoTests
+          npm test
