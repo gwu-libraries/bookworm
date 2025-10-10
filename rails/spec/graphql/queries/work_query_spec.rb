@@ -29,6 +29,13 @@ RSpec.describe 'Work query', type: :request do
       )
     end
 
+    @source = FactoryBot.create(:source)
+
+    WorksPrimaryLocation.create(
+      work_openalex_id: @work.work_openalex_id,
+      source_openalex_id: @source.source_openalex_id
+    )
+
     @referenced_works = []
     2.times { @referenced_works << FactoryBot.create(:article) }
     2.times { @referenced_works << FactoryBot.create(:dataset) }
@@ -94,6 +101,9 @@ RSpec.describe 'Work query', type: :request do
             id
           }
           topics {
+            id
+          }
+          primaryLocation {
             id
           }
         }
@@ -263,6 +273,19 @@ RSpec.describe 'Work query', type: :request do
 
     expect(result['data']['workByDoi']['topics']).to be_a(Array)
     expect(result['data']['workByDoi']['topics'].count).to eq(5)
+  end
+
+  it 'retrieves a work with primary location association' do
+    result =
+      BookWormSchema.execute(
+        @work_by_doi_query_with_associations,
+        variables: {
+          doi: @work.doi
+        }
+      )
+
+    expect(result['data']['workByDoi']['primaryLocation']).to be_a(Hash)
+    expect(result['data']['workByDoi']['primaryLocation'].keys).to eq(["id"])
   end
 
   it 'retrieves a work with ID and biblio information' do

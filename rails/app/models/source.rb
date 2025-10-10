@@ -8,4 +8,12 @@ class Source < ApplicationRecord
   has_many :sources_counts_by_year,
            primary_key: :source_openalex_id,
            foreign_key: :source_openalex_id
+
+  has_many :works_primary_locations,
+           primary_key: :source_openalex_id,
+           foreign_key: :source_openalex_id
+
+  has_many :works, 
+           through: :works_primary_locations
+           
 end
