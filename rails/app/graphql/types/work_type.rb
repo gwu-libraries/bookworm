@@ -54,6 +54,11 @@ module Types
       object.topics
     end
 
+    field :primary_location, Types::SourceType
+    def primary_location
+      object.works_primary_location 
+    end
+
     field :is_oa, Boolean
     def is_oa
       object.works_open_access.is_oa
