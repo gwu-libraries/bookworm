@@ -45,7 +45,7 @@ gem 'faraday'
 
 gem 'figaro'
 
-gem 'graphql', '~> 2.3'
+gem 'graphql', '~> 2.4'
 
 gem 'prettier_print'
 gem 'syntax_tree'
